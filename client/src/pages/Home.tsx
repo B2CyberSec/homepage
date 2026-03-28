@@ -156,7 +156,7 @@ function NIS2Banner() {
                 { value: `${NIS2_FACTS.sectors} Sektoren`, label: "Betroffene Branchen", icon: FileCheck },
               ].map((stat, i) => (
                 <div key={i} className="glass-card rounded-2xl p-7 space-y-3">
-                  <stat.icon size={28} className="text-primary" />
+                  <stat.icon size={28} className="text-red-600" />
                   <p className="text-3xl lg:text-4xl font-extrabold font-mono text-foreground">{stat.value}</p>
                   <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
                 </div>

@@ -83,7 +83,7 @@ export default function NIS2() {
               { icon: Clock, value: "Abgelaufen", label: "BSI-Registrierungsfrist", sub: `Seit ${NIS2_FACTS.bsiFrist}` },
             ].map((fact, i) => (
               <div key={i} className="glass-card rounded-2xl p-8 space-y-4 text-center">
-                <fact.icon size={36} className="text-primary mx-auto" />
+                <fact.icon size={36} className="text-red-600 mx-auto" />
                 <p className="text-4xl lg:text-5xl font-extrabold font-mono text-foreground">{fact.value}</p>
                 <p className="text-base font-semibold text-foreground">{fact.label}</p>
                 <p className="text-sm text-muted-foreground">{fact.sub}</p>
