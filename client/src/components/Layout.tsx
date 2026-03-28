@@ -154,11 +154,6 @@ function Footer() {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="space-y-4">
-            <Link href="/" className="block">
-              <span className="text-3xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors">
-                B²CyberSec
-              </span>
-            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {lang === "de"
                 ? `IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, ${COMPANY.experience} Erfahrung.`
