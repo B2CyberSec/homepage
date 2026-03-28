@@ -1,6 +1,6 @@
 import { ReactNode, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { COMPANY } from "@/lib/data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Extend Window type for Calendly
 declare global {
@@ -24,15 +24,17 @@ export default function CalendlyButton({
   size = "default",
   variant = "default",
 }: CalendlyButtonProps) {
+  const { calendlyUrl } = useLanguage();
+
   const openCalendly = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     if (window.Calendly) {
-      window.Calendly.initPopupWidget({ url: COMPANY.calendly });
+      window.Calendly.initPopupWidget({ url: calendlyUrl });
     } else {
       // Fallback: open in new tab if script not loaded yet
-      window.open(COMPANY.calendly, "_blank", "noopener,noreferrer");
+      window.open(calendlyUrl, "_blank", "noopener,noreferrer");
     }
-  }, []);
+  }, [calendlyUrl]);
 
   return (
     <Button

@@ -1,20 +1,22 @@
-import { Button } from "@/components/ui/button";
 import {
   Mail, MapPin, Clock, Calendar, MessageSquare
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { COMPANY } from "@/lib/data";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
+  const { t, calendlyUrl } = useLanguage();
+
   return (
     <div className="pt-20 lg:pt-24">
       {/* Hero */}
       <section className="py-16 lg:py-24">
         <div className="container">
           <SectionHeading
-            badge="Kontakt"
-            title="Sprechen Sie mit uns"
-            subtitle="Buchen Sie direkt einen Termin oder schreiben Sie uns — wir melden uns innerhalb von 24 Stunden."
+            badge={t("contact.badge")}
+            title={t("contact.title")}
+            subtitle={t("contact.sub")}
           />
         </div>
       </section>
@@ -23,29 +25,30 @@ export default function Contact() {
       <section className="pb-16 lg:pb-24">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Calendly */}
+            {/* Calendly inline embed */}
             <div className="glass-card glow-teal rounded-2xl p-8 space-y-6 border-primary/30">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                   <Calendar size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">Erstgespräch buchen</h3>
-                  <p className="text-sm text-muted-foreground">Kostenlos, 15 Minuten, unverbindlich</p>
+                  <h3 className="text-xl font-bold text-foreground">{t("contact.book.title")}</h3>
+                  <p className="text-sm text-muted-foreground">{t("contact.book.sub")}</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Buchen Sie direkt einen Termin in unserem Kalender. In 15 Minuten besprechen wir
-                Ihre Situation und empfehlen den passenden Service — ohne Verkaufsdruck.
+                {t("contact.book.desc")}
               </p>
 
+              {/* Inline Calendly — URL switches with language */}
               <div className="rounded-xl overflow-hidden border border-border" style={{ minHeight: 500 }}>
                 <iframe
-                  src="https://calendly.com/b2cybersec/kontakt?hide_gdpr_banner=1"
+                  key={calendlyUrl}
+                  src={`${calendlyUrl}?hide_gdpr_banner=1`}
                   width="100%"
                   height="500"
                   frameBorder="0"
-                  title="Calendly Terminbuchung"
+                  title={t("calendly.title")}
                   className="bg-secondary/60"
                 />
               </div>
@@ -54,9 +57,9 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-6">
               <div className="glass-card rounded-2xl p-8 space-y-6">
-                <h3 className="text-xl font-bold text-foreground">Direkter Kontakt</h3>
+                <h3 className="text-xl font-bold text-foreground">{t("contact.direct.title")}</h3>
                 <p className="text-muted-foreground">
-                  Schreiben Sie uns direkt — wir antworten innerhalb von 24 Stunden.
+                  {t("contact.direct.sub")}
                 </p>
 
                 <div className="space-y-4">
@@ -65,9 +68,9 @@ export default function Contact() {
                       <Mail size={20} />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">E-Mail</p>
+                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">{t("contact.email.label")}</p>
                       <p className="text-sm text-muted-foreground">{COMPANY.email}</p>
-                      <p className="text-xs text-muted-foreground mt-1">Antwort innerhalb von 24 Stunden</p>
+                      <p className="text-xs text-muted-foreground mt-1">{t("contact.email.note")}</p>
                     </div>
                   </a>
 
@@ -76,7 +79,7 @@ export default function Contact() {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Adresse</p>
+                      <p className="font-medium text-foreground">{t("contact.address.label")}</p>
                       <p className="text-sm text-muted-foreground">{COMPANY.name}</p>
                       <p className="text-sm text-muted-foreground">{COMPANY.address}</p>
                     </div>
@@ -87,9 +90,9 @@ export default function Contact() {
                       <Clock size={20} />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Geschäftszeiten</p>
-                      <p className="text-sm text-muted-foreground">Montag – Freitag: 8:00 – 18:00 Uhr</p>
-                      <p className="text-sm text-muted-foreground">Incident-Hotline: 24/7</p>
+                      <p className="font-medium text-foreground">{t("contact.hours.label")}</p>
+                      <p className="text-sm text-muted-foreground">{t("contact.hours.val")}</p>
+                      <p className="text-sm text-muted-foreground">{t("contact.hours.hotline")}</p>
                     </div>
                   </div>
                 </div>
@@ -98,13 +101,13 @@ export default function Contact() {
               <div className="glass-card rounded-2xl p-8 space-y-4">
                 <div className="flex items-center gap-3">
                   <MessageSquare size={20} className="text-primary" />
-                  <h3 className="text-lg font-bold text-foreground">Häufige Fragen</h3>
+                  <h3 className="text-lg font-bold text-foreground">{t("contact.faq.title")}</h3>
                 </div>
                 <div className="space-y-4">
                   {[
-                    { q: "Wie schnell können Sie starten?", a: "Je nach Service ab 48 Stunden. Für die meisten Projekte innerhalb einer Woche." },
-                    { q: "Brauche ich ein Erstgespräch?", a: "Nein. Sie können Services direkt buchen. Das Erstgespräch ist optional und kostenlos." },
-                    { q: "Arbeiten Sie auch vor Ort?", a: "Ja, unsere Onshore-Experten kommen auch zu Ihnen. Nearshore-Experten arbeiten remote." },
+                    { q: t("contact.faq.q1"), a: t("contact.faq.a1") },
+                    { q: t("contact.faq.q2"), a: t("contact.faq.a2") },
+                    { q: t("contact.faq.q3"), a: t("contact.faq.a3") },
                   ].map((faq, i) => (
                     <div key={i} className="p-4 rounded-xl bg-secondary/60">
                       <p className="font-medium text-foreground text-sm">{faq.q}</p>
