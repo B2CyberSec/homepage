@@ -12,7 +12,6 @@ export default function Impressum() {
               <h2 className="text-xl font-bold text-foreground">Angaben gemäß § 5 TMG</h2>
               <div className="space-y-1">
                 <p className="text-foreground font-medium">{COMPANY.name}</p>
-                <p>{COMPANY.parent}</p>
                 <p>{COMPANY.address}</p>
               </div>
             </div>
@@ -27,6 +26,7 @@ export default function Impressum() {
               <div className="space-y-1">
                 <p>Telefon: <span className="font-mono text-foreground">{COMPANY.phone}</span></p>
                 <p>E-Mail: <a href={`mailto:${COMPANY.email}`} className="text-primary hover:underline">{COMPANY.email}</a></p>
+                <p>Allgemein: <a href={`mailto:${COMPANY.emailGeneral}`} className="text-primary hover:underline">{COMPANY.emailGeneral}</a></p>
                 <p>Website: <a href={`https://${COMPANY.website}`} className="text-primary hover:underline">{COMPANY.website}</a></p>
               </div>
             </div>
@@ -35,12 +35,13 @@ export default function Impressum() {
               <h2 className="text-xl font-bold text-foreground">Registereintrag</h2>
               <p>Eintragung im Handelsregister.</p>
               <p>Registergericht: Amtsgericht Augsburg</p>
+              <p className="text-foreground font-medium">HRB 33545</p>
             </div>
 
             <div className="glass-card rounded-2xl p-8 space-y-4">
               <h2 className="text-xl font-bold text-foreground">Umsatzsteuer-ID</h2>
               <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</p>
-              <p className="text-foreground">Wird nachgereicht</p>
+              <p className="text-foreground font-medium">DE 323792746</p>
             </div>
 
             <div className="glass-card rounded-2xl p-8 space-y-4">

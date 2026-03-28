@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import {
   ChevronRight, Users, Shield, Globe, Award,
-  Phone, MapPin, Building, Clock
+  MapPin, Building, Clock
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { COMPANY, TEAM_MEMBERS, IMAGES } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export default function About() {
   const { ref: refTeam, isVisible: visTeam } = useScrollAnimation();
@@ -50,7 +51,7 @@ export default function About() {
                 align="left"
               />
               <p className="text-muted-foreground leading-relaxed">
-                Die {COMPANY.name} ({COMPANY.parent}) hat ihren Sitz in Augsburg und betreut
+                Die {COMPANY.name} hat ihren Sitz in Augsburg und betreut
                 Unternehmen in ganz Deutschland. Mit über 20 Jahren Erfahrung in IT-Netzwerk und
                 Security kennen wir die Herausforderungen mittelständischer Unternehmen.
               </p>
@@ -166,16 +167,13 @@ export default function About() {
               In einem kostenlosen 15-Minuten-Gespräch stellen wir uns vor und besprechen, wie wir Ihnen helfen können.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
-                  Erstgespräch buchen
+              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
+                    Erstgespräch buchen
                   <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
-              <a href={`tel:${COMPANY.phone}`}>
+                  </CalendlyButton>
+              <a href={`mailto:${COMPANY.email}`}>
                 <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
-                  <Phone size={18} className="mr-2" />
-                  Anrufen
+                  Anfrage per E-Mail
                 </Button>
               </a>
             </div>

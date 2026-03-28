@@ -1,8 +1,9 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, Mail, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LOGO_URL, COMPANY, NAV_ITEMS } from "@/lib/data";
+import { LOGO_URL, COMPANY, NAV_ITEMS } from "@/lib/data"; // LOGO_URL still used in Navbar
+import CalendlyButton from "@/components/CalendlyButton";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,10 +56,6 @@ function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              <Phone size={16} />
-              <span className="font-mono">{COMPANY.phone}</span>
-            </a>
             <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
                 Erstgespräch buchen
@@ -94,10 +91,6 @@ function Navbar() {
               </Link>
             ))}
             <div className="pt-4 border-t border-border mt-4 space-y-3">
-              <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground">
-                <Phone size={16} />
-                <span className="font-mono">{COMPANY.phone}</span>
-              </a>
               <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block px-4">
                 <Button className="w-full bg-primary text-primary-foreground font-semibold">
                   Erstgespräch buchen
@@ -117,17 +110,18 @@ function Footer() {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center">
-              <img src={LOGO_URL} alt="B2CyberSec" className="h-10 w-auto" />
+            <Link href="/" className="block">
+              <span className="text-2xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors">
+                B²CyberSec
+              </span>
+              <span className="block text-xs font-semibold uppercase tracking-widest text-primary mt-0.5">
+                IT Security Solutions &amp; Services
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, {COMPANY.experience} Erfahrung.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Phone size={14} />
-                <span className="font-mono">{COMPANY.phone}</span>
-              </a>
               <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
                 <Mail size={14} />
                 {COMPANY.email}
@@ -141,7 +135,7 @@ function Footer() {
               <li><Link href="/nis-2" className="hover:text-foreground transition-colors">NIS-2 Compliance</Link></li>
               <li><Link href="/pentesting" className="hover:text-foreground transition-colors">Pentesting</Link></li>
               <li><Link href="/mssp" className="hover:text-foreground transition-colors">Managed Security (MSSP)</Link></li>
-              <li><Link href="/experten" className="hover:text-foreground transition-colors">Experten auf Zeit</Link></li>
+              <li><Link href="/professional-services" className="hover:text-foreground transition-colors">Professional Services</Link></li>
               <li><Link href="/services" className="hover:text-foreground transition-colors">Alle Services</Link></li>
             </ul>
           </div>
@@ -161,11 +155,9 @@ function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               Buchen Sie ein kostenloses Erstgespräch — in 15 Minuten wissen Sie, wie sicher Ihr Unternehmen ist.
             </p>
-            <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
-                Erstgespräch buchen
-              </Button>
-            </a>
+            <CalendlyButton className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm" size="default">
+              Erstgespräch buchen
+            </CalendlyButton>
           </div>
         </div>
 

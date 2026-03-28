@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Phone } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import { SERVICES, STAFF_AUGMENTATION, COMPANY, IMAGES } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
 
 type Category = "alle" | "einmalig" | "abo" | "stundenbasis";
 
@@ -63,18 +64,18 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Staff Augmentation */}
+      {/* Professional Services */}
       <section className="py-16 lg:py-24 bg-secondary/30">
         <div className="container">
           <SectionHeading
-            badge="Experten auf Zeit"
-            title="IT-Security-Experten auf Stundenbasis"
-            subtitle="Brauchen Sie kurzfristig Verstärkung? Unsere Experten sind ab 48 Stunden verfügbar — nearshore oder onshore."
+            badge="Professional Services"
+            title="Network Infrastructure Team"
+            subtitle="Spezialisierte Experten für Network Security, Cloud-Infrastruktur und Automatisierung — nearshore oder onshore, ab 48 Stunden verfügbar."
           />
 
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto items-stretch">
             {STAFF_AUGMENTATION.map((model) => (
-              <div key={model.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 space-y-5">
+              <div key={model.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 flex flex-col gap-4">
                 <h3 className="text-xl font-bold text-foreground">{model.name}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{model.description}</p>
                 <div className="flex items-baseline gap-2">
@@ -89,11 +90,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold">
-                    Anfragen <ChevronRight size={16} className="ml-1" />
-                  </Button>
-                </a>
+                <CalendlyButton className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold">
+                    Projekt anfragen <ChevronRight size={16} className="ml-1" />
+                  </CalendlyButton>
               </div>
             ))}
           </div>
@@ -111,16 +110,13 @@ export default function Services() {
               Kein Problem. In einem kostenlosen 15-Minuten-Gespräch finden wir gemeinsam den richtigen Service für Sie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
-                  Kostenloses Erstgespräch
+              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
+                    Kostenloses Erstgespräch
                   <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
-              <a href={`tel:${COMPANY.phone}`}>
+                  </CalendlyButton>
+              <a href={`mailto:${COMPANY.email}`}>
                 <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
-                  <Phone size={18} className="mr-2" />
-                  Anrufen
+                  Anfrage per E-Mail
                 </Button>
               </a>
             </div>

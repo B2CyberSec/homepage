@@ -2,12 +2,13 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   ChevronRight, Shield, Search, Eye, UserCog, Clock, Users,
-  AlertTriangle, CheckCircle, ArrowRight, Phone, Zap, FileCheck, ShieldCheck
+  AlertTriangle, CheckCircle, ArrowRight, Zap, FileCheck, ShieldCheck, Mail
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SectionHeading from "@/components/SectionHeading";
 import StarRating from "@/components/StarRating";
 import { COMPANY, IMAGES, NIS2_FACTS, SERVICES } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
 
 /* ─── Hero Section ─── */
 function HeroSection() {
@@ -46,11 +47,9 @@ function HeroSection() {
                   <ChevronRight size={20} className="ml-2" />
                 </Button>
               </Link>
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-black/5">
-                  Kostenloses Erstgespräch
-                </Button>
-              </a>
+              <CalendlyButton size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-black/5">
+                    Kostenloses Erstgespräch
+                  </CalendlyButton>
             </div>
 
             <div className="flex items-center gap-8 pt-4 text-sm text-muted-foreground">
@@ -215,11 +214,9 @@ function FeaturedServices() {
                 <div className="p-3 rounded-xl bg-primary/5 border border-primary/15">
                   <p className="text-sm font-medium text-primary">{service.hormozi}</p>
                 </div>
-                <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
+                <CalendlyButton className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
                     Jetzt buchen <ChevronRight size={16} className="ml-1" />
-                  </Button>
-                </a>
+                  </CalendlyButton>
               </div>
             );
           })}
@@ -245,7 +242,7 @@ function HowItWorks() {
     { icon: Search, title: "1. Service wählen", desc: "Durchstöbern Sie unseren Katalog und wählen Sie den passenden Service — mit klaren Preisen und Lieferzeiten." },
     { icon: CheckCircle, title: "2. Online buchen", desc: "Buchen Sie direkt über die Website oder vereinbaren Sie ein kostenloses Erstgespräch über Calendly." },
     { icon: Shield, title: "3. Wir liefern", desc: "Unser Team startet sofort. Sie erhalten regelmäßige Updates und einen verständlichen Abschlussbericht." },
-    { icon: Phone, title: "4. Immer erreichbar", desc: "Bei Fragen erreichen Sie uns jederzeit über unsere zentrale Hotline oder per E-Mail." },
+    { icon: Mail, title: "4. Immer erreichbar", desc: "Bei Fragen erreichen Sie uns jederzeit per E-Mail oder über unser Kontaktformular." },
   ];
 
   return (
@@ -354,22 +351,17 @@ function CTASection() {
             und empfehlen den passenden Service — unverbindlich und ohne Verkaufsdruck.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20">
-                Kostenloses Erstgespräch buchen
+            <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20">
+                    Kostenloses Erstgespräch buchen
                 <ChevronRight size={20} className="ml-2" />
-              </Button>
-            </a>
-            <a href={`tel:${COMPANY.phone}`}>
+                  </CalendlyButton>
+            <a href={`mailto:${COMPANY.email}`}>
               <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-black/5">
-                <Phone size={18} className="mr-2" />
-                Jetzt anrufen
+                <Mail size={18} className="mr-2" />
+                Anfrage per E-Mail
               </Button>
             </a>
           </div>
-          <p className="text-sm text-muted-foreground">
-            Oder rufen Sie uns direkt an: <span className="font-mono text-foreground font-semibold">{COMPANY.phone}</span>
-          </p>
         </div>
       </div>
     </section>

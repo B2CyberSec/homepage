@@ -2,12 +2,13 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   AlertTriangle, ChevronRight, Shield, CheckCircle, Clock,
-  FileCheck, Users, Building, Zap, Phone, ArrowRight
+  FileCheck, Users, Building, Zap, ArrowRight, Mail
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SectionHeading from "@/components/SectionHeading";
 import StarRating from "@/components/StarRating";
 import { COMPANY, IMAGES, NIS2_FACTS, SERVICES } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export default function NIS2() {
   const cyberSchild = SERVICES.find((s) => s.id === "cyberschild-audit")!;
@@ -44,12 +45,10 @@ export default function NIS2() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
-                  NIS-2 Check starten
+              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
+                    NIS-2 Check starten
                   <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
+                  </CalendlyButton>
               <Link href="/services">
                 <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-secondary/60">
                   Alle NIS-2 Services
@@ -125,9 +124,12 @@ export default function NIS2() {
 
           <p className="text-center text-sm text-muted-foreground mt-8">
             Nicht sicher, ob Sie betroffen sind?{" "}
-            <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            <button
+              onClick={() => window.Calendly?.initPopupWidget({ url: COMPANY.calendly })}
+              className="text-primary hover:underline font-medium cursor-pointer"
+            >
               Lassen Sie uns das gemeinsam prüfen →
-            </a>
+            </button>
           </p>
         </div>
       </section>
@@ -214,11 +216,9 @@ export default function NIS2() {
                   </li>
                 ))}
               </ul>
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-12">
-                  CyberSchild Audit buchen <ChevronRight size={16} className="ml-1" />
-                </Button>
-              </a>
+              <CalendlyButton className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-12">
+                    CyberSchild Audit buchen <ChevronRight size={16} className="ml-1" />
+                  </CalendlyButton>
             </div>
 
             {/* NIS-2 Compliance Care */}
@@ -251,11 +251,9 @@ export default function NIS2() {
                   </li>
                 ))}
               </ul>
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold h-12">
-                  Compliance Care anfragen <ChevronRight size={16} className="ml-1" />
-                </Button>
-              </a>
+              <CalendlyButton className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold h-12">
+                    Compliance Care anfragen <ChevronRight size={16} className="ml-1" />
+                  </CalendlyButton>
             </div>
           </div>
         </div>
@@ -274,16 +272,14 @@ export default function NIS2() {
               und wissen Sie in 14 Tagen, wo Sie stehen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
-                  Jetzt NIS-2 Check starten
+              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
+                    Jetzt NIS-2 Check starten
                   <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
-              <a href={`tel:${COMPANY.phone}`}>
+                  </CalendlyButton>
+              <a href={`mailto:${COMPANY.email}`}>
                 <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
-                  <Phone size={18} className="mr-2" />
-                  {COMPANY.phone}
+                  <Mail size={18} className="mr-2" />
+                  Anfrage per E-Mail
                 </Button>
               </a>
             </div>

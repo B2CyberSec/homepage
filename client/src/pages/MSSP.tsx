@@ -7,6 +7,7 @@ import SectionHeading from "@/components/SectionHeading";
 import StarRating from "@/components/StarRating";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { COMPANY, SERVICES } from "@/lib/data";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export default function MSSP() {
   const basic = SERVICES.find((s) => s.id === "mssp-basic")!;
@@ -34,12 +35,10 @@ export default function MSSP() {
               bei Bedrohungen und ein persönlicher Ansprechpartner. Damit Sie nachts ruhig schlafen können.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
-                  MSSP anfragen
+              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
+                    MSSP anfragen
                   <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
+                  </CalendlyButton>
             </div>
           </div>
         </div>
@@ -123,11 +122,9 @@ export default function MSSP() {
                     </li>
                   ))}
                 </ul>
-                <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className={`w-full font-semibold ${i === 1 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary border border-border text-foreground hover:bg-secondary/80"}`}>
+                <CalendlyButton className={`w-full font-semibold ${i === 1 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary border border-border text-foreground hover:bg-secondary/80"}`}>
                     Anfragen <ChevronRight size={16} className="ml-1" />
-                  </Button>
-                </a>
+                  </CalendlyButton>
               </div>
             ))}
           </div>
@@ -144,12 +141,10 @@ export default function MSSP() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Mit unserer 24/7 Sicherheitsüberwachung ist Ihr Unternehmen rund um die Uhr geschützt.
             </p>
-            <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
-                Kostenloses Erstgespräch
+            <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
+                    Kostenloses Erstgespräch
                 <ChevronRight size={20} className="ml-2" />
-              </Button>
-            </a>
+                  </CalendlyButton>
           </div>
         </div>
       </section>

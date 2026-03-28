@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
-  Phone, Mail, MapPin, Clock, ChevronRight, Calendar, MessageSquare
+  Mail, MapPin, Clock, Calendar, MessageSquare
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { COMPANY } from "@/lib/data";
@@ -14,7 +14,7 @@ export default function Contact() {
           <SectionHeading
             badge="Kontakt"
             title="Sprechen Sie mit uns"
-            subtitle="Ob per Telefon, E-Mail oder Calendly — wir sind für Sie da. Buchen Sie ein kostenloses Erstgespräch oder rufen Sie uns direkt an."
+            subtitle="Buchen Sie direkt einen Termin oder schreiben Sie uns — wir melden uns innerhalb von 24 Stunden."
           />
         </div>
       </section>
@@ -38,12 +38,7 @@ export default function Contact() {
                 Buchen Sie direkt einen Termin in unserem Kalender. In 15 Minuten besprechen wir
                 Ihre Situation und empfehlen den passenden Service — ohne Verkaufsdruck.
               </p>
-              <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold h-14">
-                  Termin bei Calendly buchen
-                  <ChevronRight size={20} className="ml-2" />
-                </Button>
-              </a>
+
               <div className="rounded-xl overflow-hidden border border-border" style={{ minHeight: 500 }}>
                 <iframe
                   src="https://calendly.com/b2cybersec/kontakt?hide_gdpr_banner=1"
@@ -61,21 +56,10 @@ export default function Contact() {
               <div className="glass-card rounded-2xl p-8 space-y-6">
                 <h3 className="text-xl font-bold text-foreground">Direkter Kontakt</h3>
                 <p className="text-muted-foreground">
-                  Sie möchten lieber direkt mit uns sprechen? Kein Problem — rufen Sie uns an oder schreiben Sie uns.
+                  Schreiben Sie uns direkt — wir antworten innerhalb von 24 Stunden.
                 </p>
 
                 <div className="space-y-4">
-                  <a href={`tel:${COMPANY.phone}`} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60 hover:bg-secondary transition-colors group">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                      <Phone size={20} />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground group-hover:text-primary transition-colors">Telefon</p>
-                      <p className="text-sm font-mono text-muted-foreground">{COMPANY.phone}</p>
-                      <p className="text-xs text-muted-foreground mt-1">Mo–Fr, 8:00–18:00 Uhr</p>
-                    </div>
-                  </a>
-
                   <a href={`mailto:${COMPANY.email}`} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60 hover:bg-secondary transition-colors group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <Mail size={20} />

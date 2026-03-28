@@ -25,6 +25,7 @@ function Router() {
         <Route path="/nis-2" component={NIS2} />
         <Route path="/pentesting" component={Pentesting} />
         <Route path="/mssp" component={MSSP} />
+        <Route path="/professional-services" component={StaffAugmentation} />
         <Route path="/experten" component={StaffAugmentation} />
         <Route path="/ueber-uns" component={About} />
         <Route path="/kontakt" component={Contact} />
