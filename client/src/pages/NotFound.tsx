@@ -19,7 +19,7 @@ export default function NotFound() {
             </Button>
           </Link>
           <Link href="/services">
-            <Button variant="outline" className="border-border hover:bg-white/5 font-semibold">
+            <Button variant="outline" className="border-border hover:bg-secondary/60 font-semibold">
               Services ansehen
             </Button>
           </Link>

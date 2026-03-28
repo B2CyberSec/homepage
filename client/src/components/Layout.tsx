@@ -23,17 +23,19 @@ function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-lg shadow-black/10"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-sm shadow-black/5"
+          : "bg-white/70 backdrop-blur-sm"
       }`}
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <img src={LOGO_URL} alt="B2CyberSec" className="h-10 lg:h-12 w-auto" />
-            <span className="text-lg font-bold tracking-tight hidden sm:block">
-              B2CyberSec
-            </span>
+          {/* Full logo — no separate text label needed */}
+          <Link href="/" className="flex items-center shrink-0">
+            <img
+              src={LOGO_URL}
+              alt="B2CyberSec — IT Security Solutions & Services"
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -43,7 +45,7 @@ function Navbar() {
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     location === item.href
                       ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                      : "text-muted-foreground hover:text-foreground hover:bg-black/5"
                   }`}
                 >
                   {item.label}
@@ -58,7 +60,7 @@ function Navbar() {
               <span className="font-mono">{COMPANY.phone}</span>
             </a>
             <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
                 Erstgespräch buchen
                 <ChevronRight size={16} className="ml-1" />
               </Button>
@@ -76,7 +78,7 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-border shadow-md">
           <div className="container py-4 space-y-1">
             {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href}>
@@ -84,7 +86,7 @@ function Navbar() {
                   className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                     location === item.href
                       ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                      : "text-muted-foreground hover:text-foreground hover:bg-black/5"
                   }`}
                 >
                   {item.label}
@@ -111,13 +113,12 @@ function Navbar() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-background/50">
+    <footer className="border-t border-border bg-secondary/40">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center">
               <img src={LOGO_URL} alt="B2CyberSec" className="h-10 w-auto" />
-              <span className="text-lg font-bold">B2CyberSec</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, {COMPANY.experience} Erfahrung.
@@ -161,7 +162,7 @@ function Footer() {
               Buchen Sie ein kostenloses Erstgespräch — in 15 Minuten wissen Sie, wie sicher Ihr Unternehmen ist.
             </p>
             <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
                 Erstgespräch buchen
               </Button>
             </a>

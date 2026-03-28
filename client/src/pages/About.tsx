@@ -84,7 +84,7 @@ export default function About() {
               </p>
               <div className="space-y-4">
                 {COMPANY.partners.map((partner, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-secondary/60">
                     <Award size={18} className="text-primary" />
                     <span className="text-sm font-medium text-foreground">{partner}</span>
                   </div>
@@ -173,7 +173,7 @@ export default function About() {
                 </Button>
               </a>
               <a href={`tel:${COMPANY.phone}`}>
-                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
                   <Phone size={18} className="mr-2" />
                   Anrufen
                 </Button>

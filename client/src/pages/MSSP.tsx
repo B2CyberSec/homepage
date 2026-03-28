@@ -124,7 +124,7 @@ export default function MSSP() {
                   ))}
                 </ul>
                 <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className={`w-full font-semibold ${i === 1 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-white/10 text-foreground hover:bg-white/15"}`}>
+                  <Button className={`w-full font-semibold ${i === 1 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary border border-border text-foreground hover:bg-secondary/80"}`}>
                     Anfragen <ChevronRight size={16} className="ml-1" />
                   </Button>
                 </a>

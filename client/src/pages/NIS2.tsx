@@ -51,7 +51,7 @@ export default function NIS2() {
                 </Button>
               </a>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-secondary/60">
                   Alle NIS-2 Services
                 </Button>
               </Link>
@@ -116,7 +116,7 @@ export default function NIS2() {
               "Post & Kurier",
               "Forschung",
             ].map((sector, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/8 transition-colors">
+              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-secondary/60 hover:bg-secondary transition-colors">
                 <CheckCircle size={18} className="text-primary shrink-0" />
                 <span className="text-sm font-medium text-foreground">{sector}</span>
               </div>
@@ -252,7 +252,7 @@ export default function NIS2() {
                 ))}
               </ul>
               <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full bg-white/10 text-foreground hover:bg-white/15 font-semibold h-12">
+                <Button className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold h-12">
                   Compliance Care anfragen <ChevronRight size={16} className="ml-1" />
                 </Button>
               </a>
@@ -281,7 +281,7 @@ export default function NIS2() {
                 </Button>
               </a>
               <a href={`tel:${COMPANY.phone}`}>
-                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
                   <Phone size={18} className="mr-2" />
                   {COMPANY.phone}
                 </Button>

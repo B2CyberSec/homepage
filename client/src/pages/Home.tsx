@@ -12,11 +12,11 @@ import { COMPANY, IMAGES, NIS2_FACTS, SERVICES } from "@/lib/data";
 /* ─── Hero Section ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={IMAGES.hero} alt="" className="w-full h-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-secondary/30 to-white">
+      <div className="absolute inset-0 pointer-events-none">
+        <img src={IMAGES.hero} alt="" className="w-full h-full object-cover opacity-8" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/30" />
       </div>
 
       <div className="container relative z-10 pt-24 pb-16 lg:pt-32 lg:pb-24">
@@ -27,7 +27,7 @@ function HeroSection() {
               <span>NIS-2 Frist abgelaufen — BSI-Registrierung seit {NIS2_FACTS.bsiFrist} Pflicht</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] text-foreground">
               IT-Security{" "}
               <span className="text-gradient">einfach</span>
               <br />
@@ -41,13 +41,13 @@ function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/services">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20">
                   Services ansehen
                   <ChevronRight size={20} className="ml-2" />
                 </Button>
               </Link>
               <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-black/5">
                   Kostenloses Erstgespräch
                 </Button>
               </a>
@@ -69,15 +69,16 @@ function HeroSection() {
             </div>
           </div>
 
+          {/* Live Service Catalog Card */}
           <div className="hidden lg:block">
             <div className="relative">
-              <div className="glass-card rounded-2xl p-8 space-y-6 glow-teal">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="glass-card glow-teal rounded-2xl p-8 space-y-4">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-mono text-primary">Live Service-Katalog</span>
+                  <span className="text-sm font-mono text-primary font-semibold">Live Service-Katalog</span>
                 </div>
                 {SERVICES.slice(0, 3).map((s) => (
-                  <div key={s.id} className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/8 transition-colors">
+                  <div key={s.id} className="flex items-center justify-between p-3 rounded-xl bg-black/4 hover:bg-black/6 transition-colors border border-border/50">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                         {s.icon === "Zap" && <Zap size={16} />}
@@ -85,15 +86,15 @@ function HeroSection() {
                         {s.icon === "Search" && <Search size={16} />}
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-foreground">{s.name}</p>
+                        <p className="text-sm font-semibold text-foreground">{s.name}</p>
                         <p className="text-xs text-muted-foreground">{s.deliveryTime}</p>
                       </div>
                     </div>
-                    <span className="font-mono font-bold text-foreground">{s.price}</span>
+                    <span className="font-mono font-bold text-foreground text-sm">{s.price}</span>
                   </div>
                 ))}
                 <Link href="/services">
-                  <span className="flex items-center gap-1 text-sm text-primary font-medium hover:underline">
+                  <span className="flex items-center gap-1 text-sm text-primary font-semibold hover:underline mt-2">
                     Alle {SERVICES.length} Services ansehen <ArrowRight size={14} />
                   </span>
                 </Link>
@@ -111,60 +112,57 @@ function NIS2Banner() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={IMAGES.nis2} alt="" className="w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/90" />
-      </div>
-
-      <div className={`container relative z-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-xs font-bold uppercase tracking-wider">
-              <AlertTriangle size={14} />
-              Frist abgelaufen
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight">
-              NIS-2 ist da.{" "}
-              <span className="text-destructive">Sind Sie bereit?</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              Seit dem {NIS2_FACTS.lawDate} gilt das NIS-2-Umsetzungsgesetz. Die BSI-Registrierungsfrist
-              lief am {NIS2_FACTS.bsiFrist} ab. {NIS2_FACTS.affectedCompanies} Unternehmen in {NIS2_FACTS.sectors} Sektoren
-              sind betroffen — und {NIS2_FACTS.nonCompliant} sind noch nicht konform.
-            </p>
-            <p className="text-muted-foreground">
-              Bußgelder bis zu <span className="text-foreground font-bold">{NIS2_FACTS.maxFine}</span> oder{" "}
-              <span className="text-foreground font-bold">{NIS2_FACTS.finePercent}</span> drohen.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/nis-2">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
-                  NIS-2 Compliance prüfen
-                  <ChevronRight size={16} className="ml-1" />
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button variant="outline" className="border-border hover:bg-white/5 font-semibold">
-                  CyberSchild Audit ab 4.900 €
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { value: NIS2_FACTS.affectedCompanies, label: "Betroffene Unternehmen", icon: Users },
-              { value: NIS2_FACTS.maxFine, label: "Maximales Bußgeld", icon: AlertTriangle },
-              { value: NIS2_FACTS.nonCompliant, label: "Noch nicht konform", icon: Shield },
-              { value: `${NIS2_FACTS.sectors} Sektoren`, label: "Betroffene Branchen", icon: FileCheck },
-            ].map((stat, i) => (
-              <div key={i} className="glass-card rounded-xl p-5 space-y-2">
-                <stat.icon size={20} className="text-primary" />
-                <p className="text-2xl font-extrabold font-mono text-foreground">{stat.value}</p>
-                <p className="text-xs text-muted-foreground">{stat.label}</p>
+    <section ref={ref} className="relative py-20 overflow-hidden bg-secondary/40">
+      <div className="container relative z-10">
+        <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-xs font-bold uppercase tracking-wider">
+                <AlertTriangle size={14} />
+                Frist abgelaufen
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
+                NIS-2 ist da.{" "}
+                <span className="text-destructive">Sind Sie bereit?</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Seit dem {NIS2_FACTS.lawDate} gilt das NIS-2-Umsetzungsgesetz. Die BSI-Registrierungsfrist
+                lief am {NIS2_FACTS.bsiFrist} ab. {NIS2_FACTS.affectedCompanies} Unternehmen in {NIS2_FACTS.sectors} Sektoren
+                sind betroffen — und {NIS2_FACTS.nonCompliant} sind noch nicht konform.
+              </p>
+              <p className="text-muted-foreground">
+                Bußgelder bis zu <span className="text-foreground font-bold">{NIS2_FACTS.maxFine}</span> oder{" "}
+                <span className="text-foreground font-bold">{NIS2_FACTS.finePercent}</span> drohen.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/nis-2">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
+                    NIS-2 Compliance prüfen
+                    <ChevronRight size={16} className="ml-1" />
+                  </Button>
+                </Link>
+                <Link href="/services">
+                  <Button variant="outline" className="border-border hover:bg-black/5 font-semibold">
+                    CyberSchild Audit ab 4.900 €
+                  </Button>
+                </Link>
               </div>
-            ))}
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { value: NIS2_FACTS.affectedCompanies, label: "Betroffene Unternehmen", icon: Users },
+                { value: NIS2_FACTS.maxFine, label: "Maximales Bußgeld", icon: AlertTriangle },
+                { value: NIS2_FACTS.nonCompliant, label: "Noch nicht konform", icon: Shield },
+                { value: `${NIS2_FACTS.sectors} Sektoren`, label: "Betroffene Branchen", icon: FileCheck },
+              ].map((stat, i) => (
+                <div key={i} className="glass-card rounded-xl p-5 space-y-2">
+                  <stat.icon size={20} className="text-primary" />
+                  <p className="text-2xl font-extrabold font-mono text-foreground">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -178,7 +176,7 @@ function FeaturedServices() {
   const iconMap: Record<string, any> = { Shield, Search, Zap, ShieldCheck, Eye, UserCog, FileCheck, ShieldAlert: Shield };
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-white">
       <div className="container">
         <SectionHeading
           badge="Service-Katalog"
@@ -214,11 +212,11 @@ function FeaturedServices() {
                   <div className="flex items-center gap-1"><Clock size={14} className="text-primary" />{service.deliveryTime}</div>
                   <StarRating rating={service.rating} size="sm" />
                 </div>
-                <div className="p-3 rounded-xl bg-primary/5 border border-primary/10">
+                <div className="p-3 rounded-xl bg-primary/5 border border-primary/15">
                   <p className="text-sm font-medium text-primary">{service.hormozi}</p>
                 </div>
                 <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
                     Jetzt buchen <ChevronRight size={16} className="ml-1" />
                   </Button>
                 </a>
@@ -229,7 +227,7 @@ function FeaturedServices() {
 
         <div className="text-center mt-12">
           <Link href="/services">
-            <Button variant="outline" size="lg" className="border-border hover:bg-white/5 font-semibold">
+            <Button variant="outline" size="lg" className="border-border hover:bg-black/5 font-semibold">
               Alle {SERVICES.length} Services ansehen
               <ArrowRight size={16} className="ml-2" />
             </Button>
@@ -251,7 +249,7 @@ function HowItWorks() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-secondary/30">
+    <section className="py-20 lg:py-28 bg-secondary/40">
       <div className="container">
         <SectionHeading
           badge="So funktioniert's"
@@ -290,7 +288,7 @@ function TrustSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-white">
       <div className="container">
         <SectionHeading
           badge="Warum B2CyberSec"
@@ -340,7 +338,7 @@ function CTASection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-secondary/40">
       <div className="container">
         <div
           ref={ref}
@@ -357,20 +355,20 @@ function CTASection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20">
                 Kostenloses Erstgespräch buchen
                 <ChevronRight size={20} className="ml-2" />
               </Button>
             </a>
             <a href={`tel:${COMPANY.phone}`}>
-              <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-white/5">
+              <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-black/5">
                 <Phone size={18} className="mr-2" />
                 Jetzt anrufen
               </Button>
             </a>
           </div>
           <p className="text-sm text-muted-foreground">
-            Oder rufen Sie uns direkt an: <span className="font-mono text-foreground">{COMPANY.phone}</span>
+            Oder rufen Sie uns direkt an: <span className="font-mono text-foreground font-semibold">{COMPANY.phone}</span>
           </p>
         </div>
       </div>
@@ -378,16 +376,15 @@ function CTASection() {
   );
 }
 
-/* ─── Home Page ─── */
 export default function Home() {
   return (
-    <>
+    <div>
       <HeroSection />
       <NIS2Banner />
       <FeaturedServices />
       <HowItWorks />
       <TrustSection />
       <CTASection />
-    </>
+    </div>
   );
 }

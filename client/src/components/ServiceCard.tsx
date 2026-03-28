@@ -23,7 +23,7 @@ export default function ServiceCard({ service, featured }: ServiceCardProps) {
       }`}
     >
       {service.popular && (
-        <div className="absolute -top-3 left-6 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+        <div className="absolute -top-3 left-6 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
           <Award size={12} />
           Beliebteste Wahl
         </div>
@@ -40,7 +40,7 @@ export default function ServiceCard({ service, featured }: ServiceCardProps) {
               <p className="text-sm text-muted-foreground">{service.subtitle}</p>
             </div>
           </div>
-          <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground px-2 py-1 rounded bg-white/5">
+          <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground px-2 py-1 rounded bg-secondary border border-border">
             {service.category === "einmalig" ? "Einmalig" : service.category === "abo" ? "Abo" : "Stunde"}
           </span>
         </div>
@@ -62,7 +62,7 @@ export default function ServiceCard({ service, featured }: ServiceCardProps) {
           <StarRating rating={service.rating} reviewCount={service.reviewCount} size="sm" />
         </div>
 
-        <div className="p-3 rounded-xl bg-primary/5 border border-primary/10">
+        <div className="p-3 rounded-xl bg-primary/5 border border-primary/15">
           <p className="text-sm font-medium text-primary">{service.hormozi}</p>
         </div>
 
@@ -77,7 +77,7 @@ export default function ServiceCard({ service, featured }: ServiceCardProps) {
 
         {service.reviews.length > 0 && (
           <div className="pt-4 border-t border-border">
-            <div className="p-3 rounded-xl bg-white/3">
+            <div className="p-3 rounded-xl bg-secondary border border-border/60">
               <div className="flex items-center gap-1 mb-1">
                 {Array.from({ length: service.reviews[0].stars }).map((_, i) => (
                   <Icons.Star key={i} size={12} className="fill-amber-400 text-amber-400" />
@@ -91,10 +91,10 @@ export default function ServiceCard({ service, featured }: ServiceCardProps) {
 
         <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
           <Button
-            className={`w-full font-semibold ${
+            className={`w-full font-semibold shadow-sm ${
               featured || service.popular
                 ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                : "bg-white/10 text-foreground hover:bg-white/15"
+                : "bg-secondary text-foreground hover:bg-secondary/80 border border-border"
             }`}
           >
             Jetzt buchen

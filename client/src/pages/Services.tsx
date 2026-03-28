@@ -42,7 +42,7 @@ export default function Services() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   category === cat.value
                     ? "bg-primary text-primary-foreground"
-                    : "bg-white/5 text-muted-foreground hover:text-foreground hover:bg-white/10"
+                    : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary border border-border"
                 }`}
               >
                 {cat.label}
@@ -90,7 +90,7 @@ export default function Services() {
                   ))}
                 </ul>
                 <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className="w-full bg-white/10 text-foreground hover:bg-white/15 font-semibold">
+                  <Button className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold">
                     Anfragen <ChevronRight size={16} className="ml-1" />
                   </Button>
                 </a>
@@ -118,7 +118,7 @@ export default function Services() {
                 </Button>
               </a>
               <a href={`tel:${COMPANY.phone}`}>
-                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
                   <Phone size={18} className="mr-2" />
                   Anrufen
                 </Button>

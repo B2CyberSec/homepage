@@ -15,7 +15,7 @@ export const COMPANY = {
   partners: ["UnityFive (Pentesting)", "Sentry Security (MSSP)", "Ridikio LLC"],
 };
 
-export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/6kHZkEnGd8BN72xVdexJiX/b2cybersec_logo_e8942293.png";
+export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/6kHZkEnGd8BN72xVdexJiX/b2cybersec_logo_full_421cf6d0.png";
 
 export const IMAGES = {
   hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/6kHZkEnGd8BN72xVdexJiX/hero-bg-hdSPb5i4J2SFtQjkRrryT8.webp",

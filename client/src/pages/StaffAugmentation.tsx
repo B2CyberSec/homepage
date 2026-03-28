@@ -118,7 +118,7 @@ export default function StaffAugmentation() {
                   ))}
                 </ul>
                 <a href={COMPANY.calendly} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button className={`w-full font-semibold ${i === 0 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-white/10 text-foreground hover:bg-white/15"}`}>
+                  <Button className={`w-full font-semibold ${i === 0 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary border border-border text-foreground hover:bg-secondary/80"}`}>
                     Experten anfragen <ChevronRight size={16} className="ml-1" />
                   </Button>
                 </a>
@@ -146,7 +146,7 @@ export default function StaffAugmentation() {
                 </Button>
               </a>
               <a href={`tel:${COMPANY.phone}`}>
-                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-white/5">
+                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
                   <Phone size={18} className="mr-2" />
                   Anrufen
                 </Button>

@@ -51,7 +51,7 @@ export default function Contact() {
                   height="500"
                   frameBorder="0"
                   title="Calendly Terminbuchung"
-                  className="bg-white/5"
+                  className="bg-secondary/60"
                 />
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Contact() {
                 </p>
 
                 <div className="space-y-4">
-                  <a href={`tel:${COMPANY.phone}`} className="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/8 transition-colors group">
+                  <a href={`tel:${COMPANY.phone}`} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60 hover:bg-secondary transition-colors group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <Phone size={20} />
                     </div>
@@ -76,7 +76,7 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  <a href={`mailto:${COMPANY.email}`} className="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/8 transition-colors group">
+                  <a href={`mailto:${COMPANY.email}`} className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60 hover:bg-secondary transition-colors group">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <Mail size={20} />
                     </div>
@@ -87,7 +87,7 @@ export default function Contact() {
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <MapPin size={20} />
                     </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-secondary/60">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
                       <Clock size={20} />
                     </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                     { q: "Brauche ich ein Erstgespräch?", a: "Nein. Sie können Services direkt buchen. Das Erstgespräch ist optional und kostenlos." },
                     { q: "Arbeiten Sie auch vor Ort?", a: "Ja, unsere Onshore-Experten kommen auch zu Ihnen. Nearshore-Experten arbeiten remote." },
                   ].map((faq, i) => (
-                    <div key={i} className="p-4 rounded-xl bg-white/5">
+                    <div key={i} className="p-4 rounded-xl bg-secondary/60">
                       <p className="font-medium text-foreground text-sm">{faq.q}</p>
                       <p className="text-sm text-muted-foreground mt-1">{faq.a}</p>
                     </div>
