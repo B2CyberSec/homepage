@@ -29,9 +29,9 @@ function HeroSection() {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1]">
               IT-Security{" "}
-              <span className="text-gradient">so einfach</span>
+              <span className="text-gradient">einfach</span>
               <br />
-              wie bei Amazon
+              direkt online buchen
             </h1>
 
             <p className="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed">

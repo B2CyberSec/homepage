@@ -120,7 +120,7 @@ function Footer() {
               <span className="text-lg font-bold">B2CyberSec</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              IT-Security so einfach wie bei Amazon. Klare Preise, schnelle Lieferung, {COMPANY.experience} Erfahrung.
+              IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, {COMPANY.experience} Erfahrung.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
               <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
