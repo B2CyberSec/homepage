@@ -46,9 +46,9 @@ export default function ProfessionalServices() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20">
-                    Projekt besprechen
-                  <ChevronRight size={20} className="ml-2" />
-                  </CalendlyButton>
+                Projekt besprechen
+                <ChevronRight size={20} className="ml-2" />
+              </CalendlyButton>
               <a href={`mailto:${COMPANY.email}`}>
                 <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-secondary/60">
                   Anfrage per E-Mail
@@ -97,38 +97,71 @@ export default function ProfessionalServices() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {STAFF_AUGMENTATION.map((model, i) => (
-              <div key={model.id} className={`glass-card rounded-2xl p-8 flex flex-col ${i === 0 ? "glow-teal border-primary/30" : "glass-card-hover"}`}>
-                {i === 0 && (
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                    Bestes Preis-Leistungs-Verhältnis
-                  </span>
-                )}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+              <div
+                key={model.id}
+                className={`glass-card rounded-2xl p-8 flex flex-col ${
+                  i === 0 ? "glow-teal border-primary/30" : "glass-card-hover"
+                }`}
+              >
+                {/* Badge row — fixed height so both cards align */}
+                <div className="h-7 mb-3">
+                  {i === 0 && (
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                      Bestes Preis-Leistungs-Verhältnis
+                    </span>
+                  )}
+                </div>
+
+                {/* Icon + two-line title */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     {i === 0 ? <Globe size={24} /> : <MapPin size={24} />}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">{model.name}</h3>
+                    <h3 className="text-xl font-bold text-foreground leading-tight whitespace-pre-line">
+                      {model.name}
+                    </h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{model.description}</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-extrabold font-mono text-foreground">{model.rate}</span>
+
+                {/* Description — fixed min-height for alignment */}
+                <p className="text-muted-foreground leading-relaxed mb-4 min-h-[4rem]">
+                  {model.description}
+                </p>
+
+                {/* Rate */}
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-4xl font-extrabold font-mono text-foreground">
+                    {model.rate}
+                  </span>
                 </div>
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+
+                {/* Availability */}
+                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-4">
                   <Clock size={14} className="text-primary" />
                   Verfügbarkeit: {model.availability}
                 </div>
-                <ul className="space-y-2">
+
+                {/* Features — grows to fill remaining space */}
+                <ul className="space-y-2 flex-1">
                   {model.features.map((f, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle size={14} className="text-primary shrink-0" />{f}
+                      <CheckCircle size={14} className="text-primary shrink-0" />
+                      {f}
                     </li>
                   ))}
                 </ul>
-                <CalendlyButton className={`w-full font-semibold ${i === 0 ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary border border-border text-foreground hover:bg-secondary/80"}`}>
-                    Projekt anfragen <ChevronRight size={16} className="ml-1" />
-                  </CalendlyButton>
+
+                {/* CTA — always at bottom */}
+                <CalendlyButton
+                  className={`w-full font-semibold mt-6 ${
+                    i === 0
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                      : "bg-secondary border border-border text-foreground hover:bg-secondary/80"
+                  }`}
+                >
+                  Projekt anfragen <ChevronRight size={16} className="ml-1" />
+                </CalendlyButton>
               </div>
             ))}
           </div>
@@ -176,9 +209,9 @@ export default function ProfessionalServices() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14 shadow-md shadow-primary/20">
-                    Kostenloses Erstgespräch
-                  <ChevronRight size={20} className="ml-2" />
-                  </CalendlyButton>
+                Kostenloses Erstgespräch
+                <ChevronRight size={20} className="ml-2" />
+              </CalendlyButton>
               <a href={`mailto:${COMPANY.email}`}>
                 <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
                   Anfrage per E-Mail

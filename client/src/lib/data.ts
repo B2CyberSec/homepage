@@ -271,9 +271,9 @@ export const SERVICES: ServicePackage[] = [
 export const STAFF_AUGMENTATION = [
   {
     id: "nearshore",
-    name: "Network & Cloud Security (Nearshore)",
+    name: "Network & Cloud Security\n(Nearshore)",
     description: "Spezialisierte Ingenieure für Network Security, Cloud-Infrastruktur und Automatisierung — europäisches Team, gleiche Zeitzone, höchste Qualität, optimiertes Kostenmodell.",
-    rate: "65–85 €/h",
+    rate: "65–95 €/h netto",
     availability: "Ab 48 Stunden",
     features: [
       "Network Security & Firewall-Engineering",
@@ -285,9 +285,9 @@ export const STAFF_AUGMENTATION = [
   },
   {
     id: "onshore",
-    name: "Professional Services (Onshore)",
+    name: "Professional Services\n(Onshore)",
     description: "Erfahrene Security-Architekten und Netzwerkspezialisten in Deutschland — für komplexe Projekte, die lokale Präsenz, Behörden-Clearance oder direkte Zusammenarbeit erfordern.",
-    rate: "95–135 €/h",
+    rate: "95–135 €/h netto",
     availability: "Ab 1 Woche",
     features: [
       "Security Architecture & Design",

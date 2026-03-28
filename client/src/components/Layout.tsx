@@ -1,6 +1,6 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, COMPANY, NAV_ITEMS } from "@/lib/data"; // LOGO_URL still used in Navbar
 import CalendlyButton from "@/components/CalendlyButton";
@@ -121,11 +121,11 @@ function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, {COMPANY.experience} Erfahrung.
             </p>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
-                <Mail size={14} />
-                {COMPANY.email}
-              </a>
+            <div className="text-sm text-muted-foreground leading-relaxed">
+              <p className="font-medium text-foreground">{COMPANY.name}</p>
+              <p>Werner-von-Siemens-Str. 6</p>
+              <p>86159 Augsburg</p>
+              <p>Deutschland</p>
             </div>
           </div>
 
