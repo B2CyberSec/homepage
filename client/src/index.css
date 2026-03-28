@@ -42,11 +42,11 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
-  /* Teal palette — matches B2CyberSec logo */
-  --color-teal-400: oklch(0.78 0.12 180);
-  --color-teal-500: oklch(0.7 0.14 180);
-  --color-teal-600: oklch(0.55 0.14 180);
-  --color-teal-700: oklch(0.45 0.13 180);
+  /* Blue palette — professional B2CyberSec accent */
+  --color-blue-400: oklch(0.72 0.18 264);
+  --color-blue-500: oklch(0.62 0.2 264);
+  --color-blue-600: oklch(0.52 0.22 264);
+  --color-blue-700: oklch(0.42 0.2 264);
 }
 
 /* ─── Light Theme (default) ─── */
@@ -57,48 +57,48 @@
   --background: oklch(0.99 0 0);
   --foreground: oklch(0.18 0.02 265);
 
-  /* Cards — very subtle off-white with slight teal tint */
-  --card: oklch(0.97 0.005 180);
+  /* Cards — very subtle off-white */
+  --card: oklch(0.97 0.004 264);
   --card-foreground: oklch(0.18 0.02 265);
 
   --popover: oklch(0.99 0 0);
   --popover-foreground: oklch(0.18 0.02 265);
 
-  /* Primary = Teal (logo color) */
-  --primary: oklch(0.55 0.14 180);
+  /* Primary = Blue (#2563eb equivalent in OKLCH) */
+  --primary: oklch(0.52 0.22 264);
   --primary-foreground: oklch(0.99 0 0);
 
-  /* Secondary = light grey */
-  --secondary: oklch(0.94 0.005 180);
+  /* Secondary = light grey-blue */
+  --secondary: oklch(0.94 0.005 264);
   --secondary-foreground: oklch(0.25 0.02 265);
 
-  --muted: oklch(0.94 0.005 180);
+  --muted: oklch(0.94 0.005 264);
   --muted-foreground: oklch(0.48 0.015 265);
 
-  --accent: oklch(0.92 0.01 180);
+  --accent: oklch(0.92 0.01 264);
   --accent-foreground: oklch(0.18 0.02 265);
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.88 0.008 180);
-  --input: oklch(0.88 0.008 180);
-  --ring: oklch(0.55 0.14 180);
+  --border: oklch(0.88 0.007 264);
+  --input: oklch(0.88 0.007 264);
+  --ring: oklch(0.52 0.22 264);
 
-  --chart-1: oklch(0.55 0.14 180);
-  --chart-2: oklch(0.65 0.13 180);
-  --chart-3: oklch(0.45 0.13 180);
-  --chart-4: oklch(0.75 0.1 180);
-  --chart-5: oklch(0.35 0.12 180);
+  --chart-1: oklch(0.52 0.22 264);
+  --chart-2: oklch(0.62 0.2 264);
+  --chart-3: oklch(0.42 0.2 264);
+  --chart-4: oklch(0.72 0.18 264);
+  --chart-5: oklch(0.35 0.18 264);
 
-  --sidebar: oklch(0.96 0.005 180);
+  --sidebar: oklch(0.96 0.005 264);
   --sidebar-foreground: oklch(0.18 0.02 265);
-  --sidebar-primary: oklch(0.55 0.14 180);
+  --sidebar-primary: oklch(0.52 0.22 264);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.92 0.01 180);
+  --sidebar-accent: oklch(0.92 0.01 264);
   --sidebar-accent-foreground: oklch(0.18 0.02 265);
-  --sidebar-border: oklch(0.88 0.008 180);
-  --sidebar-ring: oklch(0.55 0.14 180);
+  --sidebar-border: oklch(0.88 0.007 264);
+  --sidebar-ring: oklch(0.52 0.22 264);
 }
 
 @layer base {
@@ -154,24 +154,26 @@
   .glass-card {
     background: oklch(1 0 0 / 80%);
     backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.88 0.008 180);
-    box-shadow: 0 2px 12px oklch(0.55 0.14 180 / 6%), 0 1px 3px oklch(0 0 0 / 5%);
+    border: 1px solid oklch(0.88 0.007 264);
+    box-shadow: 0 2px 12px oklch(0.52 0.22 264 / 6%), 0 1px 3px oklch(0 0 0 / 5%);
   }
 
   .glass-card-hover:hover {
     background: oklch(1 0 0 / 95%);
-    border-color: oklch(0.55 0.14 180 / 40%);
-    box-shadow: 0 4px 20px oklch(0.55 0.14 180 / 12%), 0 2px 6px oklch(0 0 0 / 6%);
+    border-color: oklch(0.52 0.22 264 / 40%);
+    box-shadow: 0 4px 20px oklch(0.52 0.22 264 / 12%), 0 2px 6px oklch(0 0 0 / 6%);
   }
 
+  /* Renamed from glow-teal to glow-blue; glow-teal kept as alias for backward compat */
+  .glow-blue,
   .glow-teal {
-    box-shadow: 0 0 0 1px oklch(0.55 0.14 180 / 25%),
-                0 4px 24px oklch(0.55 0.14 180 / 12%),
-                0 8px 48px oklch(0.55 0.14 180 / 6%);
+    box-shadow: 0 0 0 1px oklch(0.52 0.22 264 / 25%),
+                0 4px 24px oklch(0.52 0.22 264 / 12%),
+                0 8px 48px oklch(0.52 0.22 264 / 6%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, oklch(0.55 0.14 180), oklch(0.45 0.13 180));
+    background: linear-gradient(135deg, oklch(0.52 0.22 264), oklch(0.42 0.2 264));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -180,7 +182,7 @@
   /* Light card variant for sections with coloured backgrounds */
   .surface-card {
     background: oklch(1 0 0);
-    border: 1px solid oklch(0.88 0.008 180);
+    border: 1px solid oklch(0.88 0.007 264);
     box-shadow: 0 2px 8px oklch(0 0 0 / 5%);
   }
 }
@@ -195,12 +197,12 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.96 0.005 180);
+  background: oklch(0.96 0.005 264);
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.78 0.08 180);
+  background: oklch(0.72 0.1 264);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.65 0.12 180);
+  background: oklch(0.62 0.15 264);
 }
