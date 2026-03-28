@@ -26,7 +26,7 @@ export default function Impressum() {
               <div className="space-y-1">
                 <p>Telefon: <span className="font-mono text-foreground">{COMPANY.phone}</span></p>
                 <p>E-Mail: <a href={`mailto:${COMPANY.email}`} className="text-primary hover:underline">{COMPANY.email}</a></p>
-                <p>Allgemein: <a href={`mailto:${COMPANY.emailGeneral}`} className="text-primary hover:underline">{COMPANY.emailGeneral}</a></p>
+                <p>Geschäftsführer: <a href={`mailto:${COMPANY.emailCeo}`} className="text-primary hover:underline">{COMPANY.emailCeo}</a></p>
                 <p>Website: <a href={`https://${COMPANY.website}`} className="text-primary hover:underline">{COMPANY.website}</a></p>
               </div>
             </div>

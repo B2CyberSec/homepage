@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import NIS2 from "./pages/NIS2";
 import Pentesting from "./pages/Pentesting";
-import MSSP from "./pages/MSSP";
 import StaffAugmentation from "./pages/StaffAugmentation";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -24,7 +23,6 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/nis-2" component={NIS2} />
         <Route path="/pentesting" component={Pentesting} />
-        <Route path="/mssp" component={MSSP} />
         <Route path="/professional-services" component={StaffAugmentation} />
         <Route path="/experten" component={StaffAugmentation} />
         <Route path="/ueber-uns" component={About} />

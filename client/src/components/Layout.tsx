@@ -134,7 +134,6 @@ function Footer() {
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li><Link href="/nis-2" className="hover:text-foreground transition-colors">NIS-2 Compliance</Link></li>
               <li><Link href="/pentesting" className="hover:text-foreground transition-colors">Pentesting</Link></li>
-              <li><Link href="/mssp" className="hover:text-foreground transition-colors">Managed Security (MSSP)</Link></li>
               <li><Link href="/professional-services" className="hover:text-foreground transition-colors">Professional Services</Link></li>
               <li><Link href="/services" className="hover:text-foreground transition-colors">Alle Services</Link></li>
             </ul>

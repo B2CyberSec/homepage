@@ -6,8 +6,8 @@ export const COMPANY = {
   ceo: "Boris Bošnjak",
   address: "Werner-von-Siemens-Str. 6, 86159 Augsburg",
   phone: "+49 (0) 821 90 789 501",
-  email: "boris@b2cybersec.com",
-  emailGeneral: "info@b2cybersec.com",
+  email: "info@b2cybersec.com",
+  emailCeo: "boris@b2cybersec.com",
   website: "www.b2cybersec.com",
   calendly: "https://calendly.com/b2cybersec/kontakt",
   hrb: "HRB 33545",
@@ -15,7 +15,7 @@ export const COMPANY = {
   founded: "2019",
   experience: "20+ Jahre",
   teamSize: 9,
-  partners: ["UnityFive (Pentesting)", "Sentry Security (MSSP)", "Ridikio LLC"],
+  pentesters: 8,
 };
 
 export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/6kHZkEnGd8BN72xVdexJiX/b2cybersec_logo_full_421cf6d0.png";
@@ -315,7 +315,6 @@ export const NAV_ITEMS = [
   { label: "Services", href: "/services" },
   { label: "NIS-2", href: "/nis-2" },
   { label: "Pentesting", href: "/pentesting" },
-  { label: "MSSP", href: "/mssp" },
   { label: "Professional Services", href: "/professional-services" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
