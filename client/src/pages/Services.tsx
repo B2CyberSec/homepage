@@ -75,14 +75,19 @@ export default function Services() {
 
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto items-stretch">
             {STAFF_AUGMENTATION.map((model) => (
-              <div key={model.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 flex flex-col gap-4">
-                <h3 className="text-xl font-bold text-foreground">{model.name}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{model.description}</p>
-                <div className="flex items-baseline gap-2">
+              <div key={model.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 flex flex-col">
+                {/* Title */}
+                <h3 className="text-xl font-bold text-foreground mb-3">{model.name}</h3>
+                {/* Description — flex-1 pushes rest down */}
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{model.description}</p>
+                {/* Rate */}
+                <div className="flex items-baseline gap-2 mb-2">
                   <span className="text-3xl font-extrabold font-mono text-foreground">{model.rate}</span>
                 </div>
-                <p className="text-sm text-muted-foreground">Verfügbarkeit: {model.availability}</p>
-                <ul className="space-y-2">
+                {/* Availability */}
+                <p className="text-sm text-muted-foreground mb-4">Verfügbarkeit: {model.availability}</p>
+                {/* Features */}
+                <ul className="space-y-2 mb-6">
                   {model.features.map((f, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -90,7 +95,8 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <CalendlyButton className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold">
+                {/* Button always at bottom */}
+                <CalendlyButton className="w-full bg-secondary border border-border text-foreground hover:bg-secondary/80 font-semibold mt-auto">
                     Projekt anfragen <ChevronRight size={16} className="ml-1" />
                   </CalendlyButton>
               </div>

@@ -153,13 +153,10 @@ function Footer() {
     <footer className="border-t border-border bg-secondary/40">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="space-y-4">
+            <div className="space-y-4">
             <Link href="/" className="block">
-              <span className="text-2xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors">
+              <span className="text-3xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors">
                 B²CyberSec
-              </span>
-              <span className="block text-xs font-semibold uppercase tracking-widest text-primary mt-0.5">
-                IT Security Solutions &amp; Services
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -167,8 +164,8 @@ function Footer() {
                 ? `IT-Security transparent und direkt online buchbar. Klare Preise, schnelle Lieferung, ${COMPANY.experience} Erfahrung.`
                 : `IT security transparent and bookable online. Clear prices, fast delivery, ${COMPANY.experience} of experience.`}
             </p>
-            <div className="text-sm text-muted-foreground leading-relaxed">
-              <p className="font-medium text-foreground">{COMPANY.name}</p>
+            <div className="text-sm text-muted-foreground leading-relaxed space-y-0.5">
+              <p className="font-semibold text-foreground">{COMPANY.name}</p>
               <p>Werner-von-Siemens-Str. 6</p>
               <p>86159 Augsburg</p>
               <p>{lang === "de" ? "Deutschland" : "Germany"}</p>
@@ -208,7 +205,6 @@ function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} {COMPANY.name}. {t("footer.rights")}</p>
-          <p>{COMPANY.address}</p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import {
   AlertTriangle, ChevronRight, Shield, CheckCircle, Clock,
   FileCheck, Users, Building, Zap, ArrowRight, Mail
@@ -9,8 +10,10 @@ import SectionHeading from "@/components/SectionHeading";
 import StarRating from "@/components/StarRating";
 import { COMPANY, IMAGES, NIS2_FACTS, SERVICES } from "@/lib/data";
 import CalendlyButton from "@/components/CalendlyButton";
+import NIS2ChecklistModal from "@/components/NIS2ChecklistModal";
 
 export default function NIS2() {
+  const [showChecklist, setShowChecklist] = useState(false);
   const cyberSchild = SERVICES.find((s) => s.id === "cyberschild-audit")!;
   const complianceCare = SERVICES.find((s) => s.id === "nis2-compliance-care")!;
   const { ref: refTimeline, isVisible: visTimeline } = useScrollAnimation();
@@ -45,10 +48,14 @@ export default function NIS2() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14">
-                    NIS-2 Check starten
-                  <ChevronRight size={20} className="ml-2" />
-                  </CalendlyButton>
+              <Button
+                size="lg"
+                onClick={() => setShowChecklist(true)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-base px-8 h-14 shadow-md shadow-primary/20"
+              >
+                NIS-2 Check herunterladen
+                <ChevronRight size={20} className="ml-2" />
+              </Button>
               <Link href="/services">
                 <Button size="lg" variant="outline" className="font-bold text-base px-8 h-14 border-border hover:bg-secondary/60">
                   Alle NIS-2 Services
@@ -75,11 +82,11 @@ export default function NIS2() {
               { icon: Shield, value: NIS2_FACTS.nonCompliant, label: "Noch nicht konform", sub: "Handeln Sie jetzt" },
               { icon: Clock, value: "Abgelaufen", label: "BSI-Registrierungsfrist", sub: `Seit ${NIS2_FACTS.bsiFrist}` },
             ].map((fact, i) => (
-              <div key={i} className="glass-card rounded-2xl p-6 space-y-3 text-center">
-                <fact.icon size={28} className="text-primary mx-auto" />
-                <p className="text-3xl font-extrabold font-mono text-foreground">{fact.value}</p>
-                <p className="text-sm font-medium text-foreground">{fact.label}</p>
-                <p className="text-xs text-muted-foreground">{fact.sub}</p>
+              <div key={i} className="glass-card rounded-2xl p-8 space-y-4 text-center">
+                <fact.icon size={36} className="text-primary mx-auto" />
+                <p className="text-4xl lg:text-5xl font-extrabold font-mono text-foreground">{fact.value}</p>
+                <p className="text-base font-semibold text-foreground">{fact.label}</p>
+                <p className="text-sm text-muted-foreground">{fact.sub}</p>
               </div>
             ))}
           </div>
@@ -272,20 +279,23 @@ export default function NIS2() {
               und wissen Sie in 14 Tagen, wo Sie stehen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CalendlyButton size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14">
-                    Jetzt NIS-2 Check starten
-                  <ChevronRight size={20} className="ml-2" />
-                  </CalendlyButton>
-              <a href={`mailto:${COMPANY.email}`}>
-                <Button size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
-                  <Mail size={18} className="mr-2" />
-                  Anfrage per E-Mail
-                </Button>
-              </a>
+              <Button
+                size="lg"
+                onClick={() => setShowChecklist(true)}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 h-14 shadow-md shadow-primary/20"
+              >
+                NIS-2 Checkliste herunterladen
+                <ChevronRight size={20} className="ml-2" />
+              </Button>
+              <CalendlyButton size="lg" variant="outline" className="font-bold px-8 h-14 border-border hover:bg-secondary/60">
+                Kostenloses Erstgespräch
+              </CalendlyButton>
             </div>
           </div>
         </div>
       </section>
+
+      <NIS2ChecklistModal isOpen={showChecklist} onClose={() => setShowChecklist(false)} />
     </div>
   );
 }

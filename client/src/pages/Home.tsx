@@ -148,17 +148,17 @@ function NIS2Banner() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-5">
               {[
                 { value: NIS2_FACTS.affectedCompanies, label: "Betroffene Unternehmen", icon: Users },
                 { value: NIS2_FACTS.maxFine, label: "Maximales Bußgeld", icon: AlertTriangle },
                 { value: NIS2_FACTS.nonCompliant, label: "Noch nicht konform", icon: Shield },
                 { value: `${NIS2_FACTS.sectors} Sektoren`, label: "Betroffene Branchen", icon: FileCheck },
               ].map((stat, i) => (
-                <div key={i} className="glass-card rounded-xl p-5 space-y-2">
-                  <stat.icon size={20} className="text-primary" />
-                  <p className="text-2xl font-extrabold font-mono text-foreground">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <div key={i} className="glass-card rounded-2xl p-7 space-y-3">
+                  <stat.icon size={28} className="text-primary" />
+                  <p className="text-3xl lg:text-4xl font-extrabold font-mono text-foreground">{stat.value}</p>
+                  <p className="text-sm font-medium text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -183,18 +183,22 @@ function FeaturedServices() {
           subtitle="Klare Preise, klare Lieferzeiten, klare Ergebnisse. Kein Kleingedrucktes, keine versteckten Kosten."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {featured.map((service) => {
             const Icon = iconMap[service.icon] || Shield;
             return (
-              <div key={service.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 space-y-5 transition-all duration-300 hover:-translate-y-1">
-                {service.popular && (
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                    Beliebteste Wahl
-                  </span>
-                )}
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+              <div key={service.id} className="glass-card glass-card-hover rounded-2xl p-6 lg:p-8 flex flex-col transition-all duration-300 hover:-translate-y-1">
+                {/* Badge row — always present for alignment */}
+                <div className="h-7 mb-3">
+                  {service.popular && (
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                      Beliebteste Wahl
+                    </span>
+                  )}
+                </div>
+                {/* Icon + title */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <Icon size={24} />
                   </div>
                   <div>
@@ -202,19 +206,24 @@ function FeaturedServices() {
                     <p className="text-sm text-muted-foreground">{service.subtitle}</p>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
-                <div className="flex items-baseline gap-2">
+                {/* Description — flex-1 to push rest down */}
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">{service.description}</p>
+                {/* Price */}
+                <div className="flex items-baseline gap-2 mb-3">
                   <span className="text-3xl font-extrabold font-mono text-foreground">{service.price}</span>
                   {service.priceNote && <span className="text-sm text-muted-foreground">/ {service.priceNote}</span>}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                {/* Delivery + rating */}
+                <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
                   <div className="flex items-center gap-1"><Clock size={14} className="text-primary" />{service.deliveryTime}</div>
                   <StarRating rating={service.rating} size="sm" />
                 </div>
-                <div className="p-3 rounded-xl bg-primary/5 border border-primary/15">
+                {/* Hormozi guarantee */}
+                <div className="p-3 rounded-xl bg-primary/5 border border-primary/15 mb-4">
                   <p className="text-sm font-medium text-primary">{service.hormozi}</p>
                 </div>
-                <CalendlyButton className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm">
+                {/* Button always at bottom */}
+                <CalendlyButton className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm mt-auto">
                     Jetzt buchen <ChevronRight size={16} className="ml-1" />
                   </CalendlyButton>
               </div>
@@ -312,8 +321,8 @@ function TrustSection() {
             },
             {
               icon: Users,
-              title: "9 Experten, 20+ Jahre",
-              desc: "Unser Team aus 9 spezialisierten Sicherheitsexperten bringt über 20 Jahre Erfahrung in IT-Security mit.",
+              title: "17 Experten, 20+ Jahre",
+              desc: "Unser Team aus 17 spezialisierten Sicherheitsexperten — 9 Network Infrastructure Experten und 8 zertifizierte Pentester — bringt über 20 Jahre Erfahrung mit.",
             },
           ].map((item, i) => (
             <div key={i} className="glass-card rounded-2xl p-8 space-y-4 text-center">
