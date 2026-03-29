@@ -1,7 +1,7 @@
 /*
  * DESIGN: Editorial Shock — "Der Weckruf"
  * Home: Single-page scroll experience. Dark theme. Sarcastic tone.
- * Sections flow from provocation → problem → solution → pricing → contact.
+ * Sections flow from provocation → problem → solution → pricing → checklist → contact.
  */
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -11,6 +11,7 @@ import NIS2Section from "@/components/NIS2Section";
 import ServicesSection from "@/components/ServicesSection";
 import VideosSection from "@/components/VideosSection";
 import PricingSection from "@/components/PricingSection";
+import ChecklistDownload from "@/components/ChecklistDownload";
 import TeamSection from "@/components/TeamSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <ServicesSection />
       <VideosSection />
       <PricingSection />
+      <ChecklistDownload />
       <TeamSection />
       <ContactSection />
       <Footer />

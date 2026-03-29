@@ -1,25 +1,30 @@
 /*
  * DESIGN: Editorial Shock — "Der Weckruf"
- * Navbar: Minimal, dark, sticky. Logo left, sparse nav right.
- * Orange accent on hover. No fluff.
+ * Navbar: Minimal, dark, sticky. Large white logo, language switcher, sparse nav.
  */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_full_f57c79bb.png";
-
-const navLinks = [
-  { label: "Das Problem", href: "#problem" },
-  { label: "Services", href: "#services" },
-  { label: "NIS-2", href: "#nis2" },
-  { label: "Videos", href: "#videos" },
-  { label: "Preise", href: "#preise" },
-  { label: "Kontakt", href: "#kontakt" },
-];
+const WHITE_LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_white_777b9bbf.png";
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const calendlyUrl = lang === "de"
+    ? "https://calendly.com/b2cybersec/kontakt"
+    : "https://calendly.com/b2cybersec/contact";
+
+  const navLinks = [
+    { label: t("nav.problem"), href: "#problem" },
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.nis2"), href: "#nis2" },
+    { label: t("nav.videos"), href: "#videos" },
+    { label: t("nav.preise"), href: "#preise" },
+    { label: t("nav.kontakt"), href: "#kontakt" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -35,18 +40,18 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+      <div className="container flex items-center justify-between h-24 md:h-28">
+        {/* Logo — significantly larger */}
+        <a href="#" className="flex items-center gap-3 group shrink-0">
           <img
-            src={LOGO_URL}
+            src={WHITE_LOGO_URL}
             alt="B2CyberSec"
-            className="h-8 md:h-10 w-auto"
+            className="h-14 md:h-20 lg:h-24 w-auto"
           />
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -57,24 +62,75 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+
+          {/* Language Switcher */}
+          <div className="flex items-center gap-1 ml-2 border border-white/10 rounded-sm overflow-hidden">
+            <button
+              onClick={() => setLang("de")}
+              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                lang === "de"
+                  ? "bg-[#ff4500] text-white"
+                  : "bg-transparent text-white/50 hover:text-white/80"
+              }`}
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              DE
+            </button>
+            <button
+              onClick={() => setLang("en")}
+              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                lang === "en"
+                  ? "bg-[#ff4500] text-white"
+                  : "bg-transparent text-white/50 hover:text-white/80"
+              }`}
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              EN
+            </button>
+          </div>
+
           <a
-            href="https://calendly.com/b2cybersec/kontakt"
+            href={calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 px-5 py-2.5 bg-[#ff4500] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#ff5a1a] transition-all duration-200"
+            className="ml-2 px-5 py-2.5 bg-[#ff4500] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#ff5a1a] transition-all duration-200"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Aufwachen
+            {t("nav.cta")}
           </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white/80 hover:text-[#ff4500] transition-colors"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: Language + Toggle */}
+        <div className="flex lg:hidden items-center gap-3">
+          <div className="flex items-center gap-0.5 border border-white/10 rounded-sm overflow-hidden">
+            <button
+              onClick={() => setLang("de")}
+              className={`px-2 py-1 text-xs font-bold tracking-wider transition-all ${
+                lang === "de"
+                  ? "bg-[#ff4500] text-white"
+                  : "bg-transparent text-white/50"
+              }`}
+            >
+              DE
+            </button>
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2 py-1 text-xs font-bold tracking-wider transition-all ${
+                lang === "en"
+                  ? "bg-[#ff4500] text-white"
+                  : "bg-transparent text-white/50"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white/80 hover:text-[#ff4500] transition-colors"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -93,13 +149,13 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://calendly.com/b2cybersec/kontakt"
+              href={calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-5 py-3 bg-[#ff4500] text-white text-center font-bold uppercase tracking-wider"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Aufwachen
+              {t("nav.cta")}
             </a>
           </div>
         </div>
