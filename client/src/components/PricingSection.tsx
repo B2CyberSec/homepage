@@ -133,7 +133,7 @@ export default function PricingSection() {
             {t("pricing.abo_title")}
           </h3>
           <p className="text-white/40 text-sm mb-8" style={{ fontFamily: "var(--font-mono)" }}>{t("pricing.abo_sub")}</p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
+          <div className="grid md:grid-cols-3 gap-6">
             {/* CISO as a Service */}
             <div className="flex flex-col p-6 md:p-8 border border-white/10 bg-white/[0.02] hover:border-[#ff4500]/30 transition-colors">
               <h4 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
@@ -162,6 +162,45 @@ export default function PricingSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center py-3 bg-[#ff4500] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#ff5a1a] transition-all"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {lang === "de" ? "Jetzt buchen" : "Book now"}
+              </a>
+            </div>
+
+            {/* MSSP Basic */}
+            <div className="flex flex-col p-6 md:p-8 border border-white/10 bg-white/[0.02] hover:border-[#ff4500]/30 transition-colors">
+              <h4 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+                MSSP Basic
+              </h4>
+              <div className="flex items-baseline gap-1 mt-3 mb-1">
+                <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>ab 1.990 €</span>
+                <span className="text-white/40 text-sm">/Monat netto</span>
+              </div>
+              <p className="text-[#ff4500] text-xs font-bold mb-1" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Laufzeit: 12 Monate · 24/7 Monitoring" : "Term: 12 months · 24/7 monitoring"}
+              </p>
+              <p className="text-white/30 text-xs mb-5" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Dauerhafter Schutz. Rund um die Uhr." : "Continuous protection. Around the clock."}
+              </p>
+              <ul className="space-y-2 flex-1 mb-6">
+                {[
+                  lang === "de" ? "24/7 Security Monitoring" : "24/7 Security Monitoring",
+                  lang === "de" ? "Monatlicher Statusbericht" : "Monthly status report",
+                  lang === "de" ? "Incident-Hotline" : "Incident hotline",
+                  lang === "de" ? "Threat Intelligence Feed" : "Threat intelligence feed",
+                ].map((f, j) => (
+                  <li key={j} className="flex items-start gap-2">
+                    <Check className="text-[#ff4500] mt-0.5 flex-shrink-0" size={14} />
+                    <span className="text-white/70 text-sm">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-3 border border-white/20 text-white/80 font-bold text-sm uppercase tracking-wider hover:border-[#ff4500] hover:text-[#ff4500] transition-all"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {lang === "de" ? "Jetzt buchen" : "Book now"}

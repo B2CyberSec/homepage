@@ -6,76 +6,16 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-/** Inline SVG logo — matches original B2CyberSec branding, white/orange on dark */
+/** Logo using original brand file — displayed on dark background for visibility */
 function B2Logo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      {/* Shield SVG — clean teal-style shield redrawn in white */}
-      <svg
-        viewBox="0 0 120 140"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 md:h-16 lg:h-20 w-auto"
-        aria-hidden="true"
-      >
-        {/* Shield outline */}
-        <path
-          d="M60 4 L108 24 L108 72 C108 100 88 124 60 136 C32 124 12 100 12 72 L12 24 Z"
-          stroke="white"
-          strokeWidth="7"
-          fill="none"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
-        {/* B letter */}
-        <text
-          x="28"
-          y="92"
-          fontFamily="'Space Grotesk', 'Arial Black', sans-serif"
-          fontWeight="700"
-          fontSize="58"
-          fill="white"
-        >
-          B
-        </text>
-        {/* Superscript 2 */}
-        <text
-          x="72"
-          y="60"
-          fontFamily="'Space Grotesk', 'Arial Black', sans-serif"
-          fontWeight="700"
-          fontSize="28"
-          fill="#ff4500"
-        >
-          2
-        </text>
-      </svg>
-
-      {/* Text part */}
-      <div className="flex flex-col leading-none">
-        <span
-          className="text-white font-bold tracking-tight"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: "clamp(1.4rem, 2.8vw, 2rem)",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          B<sup className="text-white text-[0.5em] align-super">2</sup>
-          <span style={{ color: "white" }}>CyberSec</span>
-        </span>
-        <span
-          className="text-[#ff4500] font-bold uppercase"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: "clamp(0.5rem, 0.85vw, 0.65rem)",
-            letterSpacing: "0.2em",
-            marginTop: "3px",
-          }}
-        >
-          IT Security Solutions &amp; Services
-        </span>
-      </div>
+    <div className={`flex items-center ${className}`}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_full_fae5322b.png"
+        alt="B2CyberSec — IT Security Solutions & Services"
+        className="h-12 md:h-14 lg:h-16 w-auto"
+        style={{ filter: "brightness(0) invert(1) drop-shadow(0 0 0 transparent)" }}
+      />
     </div>
   );
 }
