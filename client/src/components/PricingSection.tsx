@@ -133,34 +133,74 @@ export default function PricingSection() {
             {t("pricing.abo_title")}
           </h3>
           <p className="text-white/40 text-sm mb-8" style={{ fontFamily: "var(--font-mono)" }}>{t("pricing.abo_sub")}</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: t("pricing.ciso_name"), price: t("pricing.ciso_price_val"), unit: t("pricing.ciso_unit"), time: t("pricing.ciso_time"),
-                features: [t("pricing.ciso_f1"), t("pricing.ciso_f2"), t("pricing.ciso_f3"), t("pricing.ciso_f4")] },
-              { name: t("pricing.nis2care_name"), price: t("pricing.nis2care_price"), unit: t("pricing.ciso_unit"), time: t("pricing.nis2care_time"),
-                features: [t("pricing.nis2care_f1"), t("pricing.nis2care_f2"), t("pricing.nis2care_f3"), t("pricing.nis2care_f4")] },
-              { name: t("pricing.mssp_basic_name"), price: t("pricing.mssp_basic_price"), unit: t("pricing.ciso_unit"), time: t("pricing.mssp_basic_time"),
-                features: [t("pricing.mssp_basic_f1"), t("pricing.mssp_basic_f2"), t("pricing.mssp_basic_f3")] },
-              { name: t("pricing.mssp_pro_name"), price: t("pricing.mssp_pro_price"), unit: t("pricing.ciso_unit"), time: t("pricing.mssp_pro_time"),
-                features: [t("pricing.mssp_pro_f1"), t("pricing.mssp_pro_f2"), t("pricing.mssp_pro_f3"), t("pricing.mssp_pro_f4")] },
-            ].map((pkg, i) => (
-              <div key={i} className="flex flex-col p-6 border border-white/5 bg-white/[0.02]">
-                <h4 className="text-base font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.name}</h4>
-                <div className="flex items-baseline gap-1 mt-2 mb-1">
-                  <span className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.price}</span>
-                  <span className="text-white/40 text-sm">{pkg.unit}</span>
-                </div>
-                <p className="text-white/30 text-xs mb-4" style={{ fontFamily: "var(--font-mono)" }}>{pkg.time}</p>
-                <ul className="space-y-2">
-                  {pkg.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2">
-                      <Check className="text-[#ff4500] mt-0.5 flex-shrink-0" size={14} />
-                      <span className="text-white/60 text-xs">{f}</span>
-                    </li>
-                  ))}
-                </ul>
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
+            {/* CISO as a Service */}
+            <div className="flex flex-col p-6 md:p-8 border border-white/10 bg-white/[0.02] hover:border-[#ff4500]/30 transition-colors">
+              <h4 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+                {t("pricing.ciso_name")}
+              </h4>
+              <div className="flex items-baseline gap-1 mt-3 mb-1">
+                <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>2.490 €</span>
+                <span className="text-white/40 text-sm">/Monat netto</span>
               </div>
-            ))}
+              <p className="text-[#ff4500] text-xs font-bold mb-1" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Laufzeit: 6 Monate · 8h/Monat dediziert" : "Term: 6 months · 8h/month dedicated"}
+              </p>
+              <p className="text-white/30 text-xs mb-5" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Gesamt: 14.940 € netto" : "Total: 14,940 € net"}
+              </p>
+              <ul className="space-y-2 flex-1 mb-6">
+                {[t("pricing.ciso_f1"), t("pricing.ciso_f2"), t("pricing.ciso_f3"), t("pricing.ciso_f4")].map((f, j) => (
+                  <li key={j} className="flex items-start gap-2">
+                    <Check className="text-[#ff4500] mt-0.5 flex-shrink-0" size={14} />
+                    <span className="text-white/70 text-sm">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-3 bg-[#ff4500] text-white font-bold text-sm uppercase tracking-wider hover:bg-[#ff5a1a] transition-all"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {lang === "de" ? "Jetzt buchen" : "Book now"}
+              </a>
+            </div>
+
+            {/* NIS-2 Compliance Care */}
+            <div className="flex flex-col p-6 md:p-8 border border-white/10 bg-white/[0.02] hover:border-[#ff4500]/30 transition-colors">
+              <h4 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
+                {t("pricing.nis2care_name")}
+              </h4>
+              <div className="flex items-baseline gap-1 mt-3 mb-1">
+                <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>990 €</span>
+                <span className="text-white/40 text-sm">/Monat netto</span>
+              </div>
+              <p className="text-[#ff4500] text-xs font-bold mb-1" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Laufzeit: 12 Monate · Monatliche Compliance-Überwachung" : "Term: 12 months · Monthly compliance monitoring"}
+              </p>
+              <p className="text-white/30 text-xs mb-5" style={{ fontFamily: "var(--font-mono)" }}>
+                {lang === "de" ? "Gesamt: 11.880 € netto" : "Total: 11,880 € net"}
+              </p>
+              <ul className="space-y-2 flex-1 mb-6">
+                {[t("pricing.nis2care_f1"), t("pricing.nis2care_f2"), t("pricing.nis2care_f3"), t("pricing.nis2care_f4")].map((f, j) => (
+                  <li key={j} className="flex items-start gap-2">
+                    <Check className="text-[#ff4500] mt-0.5 flex-shrink-0" size={14} />
+                    <span className="text-white/70 text-sm">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center py-3 border border-white/20 text-white/80 font-bold text-sm uppercase tracking-wider hover:border-[#ff4500] hover:text-[#ff4500] transition-all"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {lang === "de" ? "Jetzt buchen" : "Book now"}
+              </a>
+            </div>
           </div>
         </div>
 
