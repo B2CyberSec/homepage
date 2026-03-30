@@ -40,65 +40,54 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  /* Blue palette — professional B2CyberSec accent */
-  --color-blue-400: oklch(0.72 0.18 264);
-  --color-blue-500: oklch(0.62 0.2 264);
-  --color-blue-600: oklch(0.52 0.22 264);
-  --color-blue-700: oklch(0.42 0.2 264);
+
+  /* Custom brand colors */
+  --color-alarm: oklch(0.65 0.25 30);
+  --color-alarm-muted: oklch(0.55 0.2 30);
+  --color-warn: oklch(0.75 0.18 60);
+  --color-surface-dark: oklch(0.12 0.005 285);
+  --color-surface-darker: oklch(0.08 0.003 285);
+
+  /* Font families */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ─── Light Theme (default) ─── */
 :root {
-  --radius: 0.75rem;
-
-  /* Backgrounds */
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.18 0.02 265);
-
-  /* Cards — very subtle off-white */
-  --card: oklch(0.97 0.004 264);
-  --card-foreground: oklch(0.18 0.02 265);
-
-  --popover: oklch(0.99 0 0);
-  --popover-foreground: oklch(0.18 0.02 265);
-
-  /* Primary = Blue (#2563eb equivalent in OKLCH) */
-  --primary: oklch(0.52 0.22 264);
-  --primary-foreground: oklch(0.99 0 0);
-
-  /* Secondary = light grey-blue */
-  --secondary: oklch(0.94 0.005 264);
-  --secondary-foreground: oklch(0.25 0.02 265);
-
-  --muted: oklch(0.94 0.005 264);
-  --muted-foreground: oklch(0.48 0.015 265);
-
-  --accent: oklch(0.92 0.01 264);
-  --accent-foreground: oklch(0.18 0.02 265);
-
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.99 0 0);
-
-  --border: oklch(0.88 0.007 264);
-  --input: oklch(0.88 0.007 264);
-  --ring: oklch(0.52 0.22 264);
-
-  --chart-1: oklch(0.52 0.22 264);
-  --chart-2: oklch(0.62 0.2 264);
-  --chart-3: oklch(0.42 0.2 264);
-  --chart-4: oklch(0.72 0.18 264);
-  --chart-5: oklch(0.35 0.18 264);
-
-  --sidebar: oklch(0.96 0.005 264);
-  --sidebar-foreground: oklch(0.18 0.02 265);
-  --sidebar-primary: oklch(0.52 0.22 264);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.92 0.01 264);
-  --sidebar-accent-foreground: oklch(0.18 0.02 265);
-  --sidebar-border: oklch(0.88 0.007 264);
-  --sidebar-ring: oklch(0.52 0.22 264);
+  --radius: 0.25rem;
+  --background: oklch(0.08 0.003 285);
+  --foreground: oklch(0.93 0.005 80);
+  --card: oklch(0.12 0.005 285);
+  --card-foreground: oklch(0.93 0.005 80);
+  --popover: oklch(0.12 0.005 285);
+  --popover-foreground: oklch(0.93 0.005 80);
+  --primary: oklch(0.65 0.25 30);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.18 0.005 285);
+  --secondary-foreground: oklch(0.85 0.005 80);
+  --muted: oklch(0.2 0.005 285);
+  --muted-foreground: oklch(0.6 0.01 285);
+  --accent: oklch(0.65 0.25 30);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.65 0.25 30);
+  --chart-1: oklch(0.65 0.25 30);
+  --chart-2: oklch(0.55 0.2 30);
+  --chart-3: oklch(0.75 0.18 60);
+  --chart-4: oklch(0.45 0.15 285);
+  --chart-5: oklch(0.35 0.1 285);
+  --sidebar: oklch(0.1 0.004 285);
+  --sidebar-foreground: oklch(0.93 0.005 80);
+  --sidebar-accent: oklch(0.18 0.005 285);
+  --sidebar-accent-foreground: oklch(0.93 0.005 80);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.65 0.25 30);
+  --sidebar-primary: oklch(0.65 0.25 30);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
 }
 
 @layer base {
@@ -106,7 +95,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -118,6 +108,34 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.08 0.003 285);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.01 285);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.65 0.25 30);
   }
 }
 
@@ -146,63 +164,84 @@
     .container {
       padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px;
+      max-width: 1400px;
     }
   }
-
-  /* Light-mode glass card — white with subtle border and shadow */
-  .glass-card {
-    background: oklch(1 0 0 / 80%);
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.88 0.007 264);
-    box-shadow: 0 2px 12px oklch(0.52 0.22 264 / 6%), 0 1px 3px oklch(0 0 0 / 5%);
-  }
-
-  .glass-card-hover:hover {
-    background: oklch(1 0 0 / 95%);
-    border-color: oklch(0.52 0.22 264 / 40%);
-    box-shadow: 0 4px 20px oklch(0.52 0.22 264 / 12%), 0 2px 6px oklch(0 0 0 / 6%);
-  }
-
-  /* Renamed from glow-teal to glow-blue; glow-teal kept as alias for backward compat */
-  .glow-blue,
-  .glow-teal {
-    box-shadow: 0 0 0 1px oklch(0.52 0.22 264 / 25%),
-                0 4px 24px oklch(0.52 0.22 264 / 12%),
-                0 8px 48px oklch(0.52 0.22 264 / 6%);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, oklch(0.52 0.22 264), oklch(0.42 0.2 264));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Light card variant for sections with coloured backgrounds */
-  .surface-card {
-    background: oklch(1 0 0);
-    border: 1px solid oklch(0.88 0.007 264);
-    box-shadow: 0 2px 8px oklch(0 0 0 / 5%);
-  }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Utility animations */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-::-webkit-scrollbar-track {
-  background: oklch(0.96 0.005 264);
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-::-webkit-scrollbar-thumb {
-  background: oklch(0.72 0.1 264);
-  border-radius: 4px;
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.62 0.15 264);
+
+@keyframes pulse-alarm {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Diagonal section divider */
+.diagonal-top {
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -3rem;
+  padding-top: 6rem;
+}
+
+.diagonal-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+
+/* Strikethrough animation */
+.strike-through {
+  position: relative;
+  display: inline;
+}
+.strike-through::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  background: oklch(0.65 0.25 30);
+  transition: width 0.6s ease;
+}
+.strike-through.active::after {
+  width: 100%;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
