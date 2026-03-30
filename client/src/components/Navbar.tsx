@@ -6,16 +6,31 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-/** Logo using original brand file — displayed on dark background for visibility */
+/** Logo: Shield icon (original colors) + text in white */
 function B2Logo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex items-center gap-3 ${className}`}>
+      {/* Shield icon — original teal/red colors, no filter */}
       <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_full_fae5322b.png"
-        alt="B2CyberSec — IT Security Solutions & Services"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_a88d2f24.png"
+        alt="B2CyberSec"
         className="h-12 md:h-14 lg:h-16 w-auto"
-        style={{ filter: "brightness(0) invert(1) drop-shadow(0 0 0 transparent)" }}
       />
+      {/* Text next to icon */}
+      <div className="flex flex-col leading-none">
+        <span
+          className="font-bold text-white tracking-tight"
+          style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(1.2rem, 2.2vw, 1.7rem)" }}
+        >
+          B<sup className="text-[#ff4500] text-[0.55em] align-super">2</sup>CyberSec
+        </span>
+        <span
+          className="text-[#ff4500] font-bold uppercase"
+          style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "clamp(0.45rem, 0.7vw, 0.58rem)", letterSpacing: "0.18em", marginTop: "2px" }}
+        >
+          IT Security Solutions &amp; Services
+        </span>
+      </div>
     </div>
   );
 }
