@@ -102,13 +102,13 @@ export default function PricingSection() {
               { name: t("pricing.pentest_pro"), price: t("pricing.pentest_pro_price"), time: t("pricing.pentest_pro_time"),
                 features: [t("pricing.pentest_p_f1"), t("pricing.pentest_p_f2"), t("pricing.pentest_p_f3"), t("pricing.pentest_p_f4"), t("pricing.pentest_p_f5"), t("pricing.pentest_p_f6")] },
             ].map((pkg, i) => (
-              <div key={i} className="p-6 md:p-8 border border-white/5 bg-white/[0.02]">
+              <div key={i} className="flex flex-col p-6 md:p-8 border border-white/5 bg-white/[0.02]">
                 <h4 className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.name}</h4>
                 <div className="flex items-baseline gap-2 mt-2 mb-1">
                   <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.price}</span>
                 </div>
                 <p className="text-white/30 text-xs mb-6" style={{ fontFamily: "var(--font-mono)" }}>{pkg.time}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 flex-1">
                   {pkg.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2">
                       <Check className="text-[#ff4500] mt-0.5 flex-shrink-0" size={16} />
@@ -144,7 +144,7 @@ export default function PricingSection() {
               { name: t("pricing.mssp_pro_name"), price: t("pricing.mssp_pro_price"), unit: t("pricing.ciso_unit"), time: t("pricing.mssp_pro_time"),
                 features: [t("pricing.mssp_pro_f1"), t("pricing.mssp_pro_f2"), t("pricing.mssp_pro_f3"), t("pricing.mssp_pro_f4")] },
             ].map((pkg, i) => (
-              <div key={i} className="p-6 border border-white/5 bg-white/[0.02]">
+              <div key={i} className="flex flex-col p-6 border border-white/5 bg-white/[0.02]">
                 <h4 className="text-base font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.name}</h4>
                 <div className="flex items-baseline gap-1 mt-2 mb-1">
                   <span className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>{pkg.price}</span>

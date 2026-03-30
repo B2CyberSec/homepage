@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const WHITE_LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_white_777b9bbf.png";
+const WHITE_LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/b2cybersec_logo_wild_8765e7a2.png";
 
 export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
