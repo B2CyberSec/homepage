@@ -1,74 +1,69 @@
 /*
- * DESIGN: Editorial Shock — "Der Weckruf"
- * Team: SOC image background. Stats about the team.
+ * DESIGN: Editorial Shock — "Der Weckruf" V2
+ * Team: Full-bleed image with 4 key stats overlaid. One sentence. No paragraphs.
  */
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const TEAM_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/team_augsburg-isMkQDs3DeU7fBD9uvXdhZ.webp";
 
 export default function TeamSection() {
-  const { ref, isVisible } = useScrollAnimation(0.1);
   const { t } = useLanguage();
 
   const stats = [
-    { num: t("team.stat1_num"), label: t("team.stat1_label"), sub: t("team.stat1_sub") },
-    { num: t("team.stat2_num"), label: t("team.stat2_label"), sub: t("team.stat2_sub") },
-    { num: t("team.stat3_num"), label: t("team.stat3_label"), sub: t("team.stat3_sub") },
-    { num: t("team.stat4_num"), label: t("team.stat4_label"), sub: t("team.stat4_sub") },
-    { num: t("team.stat5_num"), label: t("team.stat5_label"), sub: t("team.stat5_sub") },
-    { num: t("team.stat6_num"), label: t("team.stat6_label"), sub: t("team.stat6_sub") },
+    { num: t("team.stat1_num"), label: t("team.stat1_label") },
+    { num: t("team.stat2_num"), label: t("team.stat2_label") },
+    { num: t("team.stat3_num"), label: t("team.stat3_label") },
+    { num: t("team.stat4_num"), label: t("team.stat4_label") },
   ];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={TEAM_IMG} alt="" className="w-full h-full object-cover opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]" />
-      </div>
+    <section className="relative bg-[#0a0a0a] py-20 md:py-28">
+      <div className="container">
+        {/* Minimal header */}
+        <div className="mb-10">
+          <p className="text-[#ff4500] text-xs font-bold uppercase tracking-[0.25em] mb-3" style={{ fontFamily: "var(--font-mono)" }}>
+            {t("team.tag")}
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+            {t("team.title1")}
+            <span className="text-white/35"> {t("team.title2")}</span>
+          </h2>
+        </div>
 
-      <div ref={ref} className="relative z-10 container">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
-            <p className="text-[#ff4500] text-sm font-bold uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-mono)" }}>
-              {t("team.tag")}
-            </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8" style={{ fontFamily: "var(--font-display)" }}>
-              {t("team.title1")}
-              <br />
-              {t("team.title2")}
-              <br />
-              <span className="text-white/40">{t("team.title3")}</span>
-            </h2>
-            <div className="space-y-4 text-white/60 text-lg leading-relaxed">
-              <p>{t("team.p1")}</p>
-              <p>
-                {t("team.p2_pre")}
-                <span className="text-white font-bold">{t("team.p2_bold")}</span>
-                {t("team.p2_post")}
-              </p>
-              <p className="text-white/40" style={{ fontFamily: "var(--font-mono)" }}>
-                {t("team.p3")}
-              </p>
-            </div>
-          </div>
+        {/* Full-width image with stats overlaid at bottom */}
+        <div className="relative w-full overflow-hidden" style={{ maxHeight: "55vh" }}>
+          <img
+            src={TEAM_IMG}
+            alt="B2CyberSec Team — 17 IT-Security-Experten aus Augsburg"
+            className="w-full h-full object-cover object-top"
+            style={{ maxHeight: "55vh" }}
+            loading="lazy"
+          />
+          {/* Dark gradient at bottom for stats readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent" />
 
-          <div className={`grid grid-cols-2 gap-6 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
+          {/* Stats overlaid at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/10">
             {stats.map((stat, i) => (
-              <div key={i} className="p-5 border border-white/5 bg-white/[0.02]">
-                <span className="text-3xl md:text-4xl font-bold text-[#ff4500] block" style={{ fontFamily: "var(--font-display)" }}>
+              <div key={i} className="px-4 md:px-8 py-5 bg-black/60 backdrop-blur-sm text-center">
+                <span className="text-[#ff4500] font-bold block text-2xl md:text-4xl leading-none" style={{ fontFamily: "var(--font-display)" }}>
                   {stat.num}
                 </span>
-                <span className="text-white text-sm font-bold block mt-1" style={{ fontFamily: "var(--font-display)" }}>
+                <span className="text-white/60 text-xs md:text-sm block mt-1 uppercase tracking-wide" style={{ fontFamily: "var(--font-mono)" }}>
                   {stat.label}
-                </span>
-                <span className="text-white/30 text-xs block mt-1" style={{ fontFamily: "var(--font-mono)" }}>
-                  {stat.sub}
                 </span>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Single sarcastic line below */}
+        <p
+          className="mt-8 text-white/35 text-sm text-center"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          {t("team.p3")}
+        </p>
       </div>
     </section>
   );

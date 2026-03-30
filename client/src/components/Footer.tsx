@@ -38,19 +38,14 @@ export default function Footer() {
       {/* Main footer content */}
       <div className="container py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Column 1: Logo & Info */}
+          {/* Column 1: Info & Address */}
           <div className="lg:col-span-1">
-            <img src={WHITE_LOGO_URL} alt="B2CyberSec" className="h-12 w-auto mb-6" />
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               {t("footer.tagline")}
               <br />
               {t("footer.location")}
             </p>
             <div className="space-y-3">
-              <a href="mailto:info@b2cybersec.com" className="flex items-center gap-2 text-white/50 text-sm hover:text-[#ff4500] transition-colors">
-                <Mail size={14} className="flex-shrink-0" />
-                info@b2cybersec.com
-              </a>
               <div className="flex items-start gap-2 text-white/50 text-sm">
                 <MapPin size={14} className="flex-shrink-0 mt-0.5" />
                 <span>
@@ -59,6 +54,10 @@ export default function Footer() {
                   86159 Augsburg
                 </span>
               </div>
+              <a href="mailto:info@b2cybersec.com" className="flex items-center gap-2 text-white/50 text-sm hover:text-[#ff4500] transition-colors">
+                <Mail size={14} className="flex-shrink-0" />
+                info@b2cybersec.com
+              </a>
             </div>
           </div>
 

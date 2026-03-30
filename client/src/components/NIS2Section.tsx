@@ -1,89 +1,85 @@
 /*
- * DESIGN: Editorial Shock — "Der Weckruf"
- * NIS2: Dramatic urgency section. Expired deadline. Massive fine.
+ * DESIGN: Editorial Shock — "Der Weckruf" V2
+ * NIS2: Full-bleed background image. Deadline badge. 3 key facts as icons. No walls of text.
  */
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { AlertTriangle, Euro, Clock } from "lucide-react";
 
 const NIS2_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/nis2_warning-R6oDALLvTSZbdCTdEMEehF.webp";
 
 export default function NIS2Section() {
-  const { ref, isVisible } = useScrollAnimation(0.1);
   const { lang, t } = useLanguage();
 
   const calendlyUrl = lang === "de"
     ? "https://calendly.com/b2cybersec/kontakt"
     : "https://calendly.com/b2cybersec/contact";
 
-  const requirements = [
-    { title: t("nis2.req1_title"), desc: t("nis2.req1_desc") },
-    { title: t("nis2.req2_title"), desc: t("nis2.req2_desc") },
-    { title: t("nis2.req3_title"), desc: t("nis2.req3_desc") },
-    { title: t("nis2.req4_title"), desc: t("nis2.req4_desc") },
-    { title: t("nis2.req5_title"), desc: t("nis2.req5_desc") },
-    { title: t("nis2.req6_title"), desc: t("nis2.req6_desc") },
+  const facts = [
+    { Icon: Clock, value: "6. März 2026", label: t("nis2.fact_deadline") },
+    { Icon: Euro, value: "10 Mio. €", label: t("nis2.fact_fine") },
+    { Icon: AlertTriangle, value: "29.508", label: t("nis2.fact_companies") },
   ];
 
   return (
-    <section id="nis2" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="nis2" className="relative min-h-[70vh] flex items-center overflow-hidden">
+      {/* Full-bleed background */}
       <div className="absolute inset-0">
-        <img src={NIS2_BG} alt="" className="w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/70" />
+        <img src={NIS2_BG} alt="" className="w-full h-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/85 to-[#0a0a0a]/60" />
       </div>
 
-      <div ref={ref} className="relative z-10 container">
-        <div className="max-w-4xl">
-          <div className={`inline-flex items-center gap-3 mb-8 px-4 py-2 bg-[#ff4500]/10 border border-[#ff4500]/30 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-            <span className="w-2 h-2 bg-[#ff4500] rounded-full animate-pulse" />
-            <span className="text-[#ff4500] text-sm font-bold uppercase tracking-wider" style={{ fontFamily: "var(--font-mono)" }}>
-              {t("nis2.badge")}
-            </span>
-          </div>
+      <div className="relative z-10 container py-20 md:py-28">
+        {/* Expired badge */}
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-[#ff4500] text-white">
+          <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+          <span className="text-sm font-bold uppercase tracking-widest" style={{ fontFamily: "var(--font-mono)" }}>
+            {t("nis2.badge")}
+          </span>
+        </div>
 
-          <h2 className={`text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ fontFamily: "var(--font-display)" }}>
-            {t("nis2.title1")}
-            <br />
-            <span className="text-[#ff4500]">{t("nis2.title2")}</span>
-            <br />
-            <span className="text-white/40">{t("nis2.title3")}</span>
-          </h2>
+        {/* Headline — 2 lines max */}
+        <h2
+          className="font-bold text-white leading-tight mb-10"
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
+        >
+          {t("nis2.title1")}
+          <br />
+          <span className="text-[#ff4500]">{t("nis2.title2")}</span>
+        </h2>
 
-          <div className={`space-y-6 mb-12 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl">
-              {t("nis2.text1_pre")}
-              <span className="text-white font-bold">{t("nis2.text1_date1")}</span>
-              {t("nis2.text1_mid")}
-              <span className="text-[#ff4500] font-bold">{t("nis2.text1_date2")}</span>
-              {t("nis2.text1_post")}
-            </p>
-            <p className="text-base text-white/50" style={{ fontFamily: "var(--font-mono)" }}>
-              {t("nis2.text2")}
-            </p>
-          </div>
+        {/* 3 key facts as horizontal cards — visual, scannable */}
+        <div className="grid grid-cols-3 gap-4 mb-10 max-w-2xl">
+          {facts.map(({ Icon, value, label }, i) => (
+            <div key={i} className="p-4 border border-white/10 bg-black/40 backdrop-blur-sm text-center">
+              <Icon className="text-[#ff4500] mx-auto mb-2" size={22} />
+              <p className="text-white font-bold text-lg md:text-2xl leading-none" style={{ fontFamily: "var(--font-display)" }}>
+                {value}
+              </p>
+              <p className="text-white/45 text-xs mt-1 uppercase tracking-wide" style={{ fontFamily: "var(--font-mono)" }}>
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
 
-          <p className="text-white font-bold text-lg uppercase tracking-wide mb-6" style={{ fontFamily: "var(--font-display)" }}>
-            {t("nis2.what_title")}
-          </p>
-
-          <div className={`grid sm:grid-cols-2 gap-4 mb-12 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            {requirements.map((item, i) => (
-              <div key={i} className="p-4 border border-white/5 bg-white/[0.02]">
-                <p className="text-white font-bold text-sm uppercase tracking-wide" style={{ fontFamily: "var(--font-display)" }}>
-                  {item.title}
-                </p>
-                <p className="text-white/50 text-sm mt-1">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <a href="#preise" className="inline-flex items-center justify-center px-8 py-4 bg-[#ff4500] text-white font-bold text-lg uppercase tracking-wider hover:bg-[#ff5a1a] transition-all" style={{ fontFamily: "var(--font-display)" }}>
-              {t("nis2.cta1")}
-            </a>
-            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/20 text-white/80 font-bold uppercase tracking-wider hover:border-[#ff4500] hover:text-[#ff4500] transition-all" style={{ fontFamily: "var(--font-display)" }}>
-              {t("nis2.cta2")}
-            </a>
-          </div>
+        {/* Single CTA */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#preise"
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#ff4500] text-white font-bold uppercase tracking-wider hover:bg-[#ff5a1a] transition-all"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {t("nis2.cta1")} →
+          </a>
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white/70 font-bold uppercase tracking-wider hover:border-[#ff4500] hover:text-[#ff4500] transition-all"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {t("nis2.cta2")}
+          </a>
         </div>
       </div>
     </section>

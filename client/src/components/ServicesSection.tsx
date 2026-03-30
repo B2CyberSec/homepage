@@ -1,84 +1,93 @@
 /*
- * DESIGN: Editorial Shock — "Der Weckruf"
- * Services: Dark cards with orange accents. Sarcastic descriptions.
+ * DESIGN: Editorial Shock — "Der Weckruf" V2
+ * Services: Icon grid image as visual anchor. Each card: icon + title + price only.
+ * No long descriptions. Let the price and title do the talking.
  */
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Shield, Search, Users, Zap, Lock, HeadphonesIcon } from "lucide-react";
+import { Shield, Search, Zap, Lock, Users, HeadphonesIcon } from "lucide-react";
+
+const SERVICES_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/services_grid_v2-g2WW4tq7uULrbSxgNWoTX3.webp";
 
 export default function ServicesSection() {
-  const { ref, isVisible } = useScrollAnimation(0.05);
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+
+  const calendlyUrl = lang === "de"
+    ? "https://calendly.com/b2cybersec/kontakt"
+    : "https://calendly.com/b2cybersec/contact";
 
   const services = [
-    { icon: Shield, titleKey: "services.nis2_title", subKey: "services.nis2_sub", descKey: "services.nis2_desc", priceKey: "services.nis2_price", noteKey: "services.nis2_note" },
-    { icon: Search, titleKey: "services.pentest_title", subKey: "services.pentest_sub", descKey: "services.pentest_desc", priceKey: "services.pentest_price", noteKey: "services.pentest_note" },
-    { icon: Zap, titleKey: "services.quickcheck_title", subKey: "services.quickcheck_sub", descKey: "services.quickcheck_desc", priceKey: "services.quickcheck_price", noteKey: "services.quickcheck_note" },
-    { icon: Lock, titleKey: "services.ciso_title", subKey: "services.ciso_sub", descKey: "services.ciso_desc", priceKey: "services.ciso_price", noteKey: "services.ciso_note" },
-    { icon: Users, titleKey: "services.staff_title", subKey: "services.staff_sub", descKey: "services.staff_desc", priceKey: "services.staff_price", noteKey: "services.staff_note" },
-    { icon: HeadphonesIcon, titleKey: "services.mssp_title", subKey: "services.mssp_sub", descKey: "services.mssp_desc", priceKey: "services.mssp_price", noteKey: "services.mssp_note" },
+    { Icon: Shield, titleKey: "services.nis2_title", priceKey: "services.nis2_price" },
+    { Icon: Search, titleKey: "services.pentest_title", priceKey: "services.pentest_price" },
+    { Icon: Zap, titleKey: "services.quickcheck_title", priceKey: "services.quickcheck_price" },
+    { Icon: Lock, titleKey: "services.ciso_title", priceKey: "services.ciso_price" },
+    { Icon: Users, titleKey: "services.staff_title", priceKey: "services.staff_price" },
+    { Icon: HeadphonesIcon, titleKey: "services.mssp_title", priceKey: "services.mssp_price" },
   ];
 
   return (
-    <section id="services" className="relative py-24 md:py-32 bg-[#0a0a0a]">
+    <section id="services" className="relative bg-[#0a0a0a] py-20 md:py-28">
       <div className="container">
-        <div className="mb-16 md:mb-20">
-          <p className="text-[#ff4500] text-sm font-bold uppercase tracking-[0.2em] mb-4" style={{ fontFamily: "var(--font-mono)" }}>
+        {/* Minimal header */}
+        <div className="mb-12">
+          <p className="text-[#ff4500] text-xs font-bold uppercase tracking-[0.25em] mb-3" style={{ fontFamily: "var(--font-mono)" }}>
             {t("services.tag")}
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "var(--font-display)" }}>
             {t("services.title1")}
-            <br />
-            <span className="text-white/40">{t("services.title2")}</span>
+            <span className="text-white/35"> {t("services.title2")}</span>
           </h2>
-          <p className="text-white/50 text-lg mt-6 max-w-2xl">
-            {t("services.desc")}
-          </p>
         </div>
 
-        <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            return (
+        {/* Two-column layout: image left, service list right */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left: Services icon grid image */}
+          <div className="relative rounded-sm overflow-hidden bg-[#111]">
+            <img
+              src={SERVICES_IMG}
+              alt="B2CyberSec Services: NIS-2, Pentest, Quick Check, CISO as a Service, Professional Services, Compliance Care"
+              className="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Right: Compact service list — title + price, no description */}
+          <div className="flex flex-col gap-3">
+            {services.map(({ Icon, titleKey, priceKey }, i) => (
               <div
                 key={i}
-                className={`group relative p-6 md:p-8 border border-white/5 bg-white/[0.02] hover:border-[#ff4500]/30 hover:bg-[#ff4500]/[0.03] transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${i * 100}ms` }}
+                className="group flex items-center gap-4 px-5 py-4 border border-white/5 bg-white/[0.02] hover:border-[#ff4500]/30 hover:bg-[#ff4500]/[0.03] transition-all duration-300 cursor-default"
               >
-                <div className="w-12 h-12 flex items-center justify-center border border-white/10 group-hover:border-[#ff4500]/30 transition-colors mb-6">
-                  <Icon className="text-[#ff4500]" size={24} />
+                <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-white/10 group-hover:border-[#ff4500]/40 transition-colors">
+                  <Icon className="text-[#ff4500]" size={18} />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-display)" }}>
-                  {t(service.titleKey)}
-                </h3>
-                <p className="text-[#ff4500] text-sm font-bold mb-4" style={{ fontFamily: "var(--font-mono)" }}>
-                  {t(service.subKey)}
-                </p>
-                <p className="text-white/60 text-sm leading-relaxed mb-6">
-                  {t(service.descKey)}
-                </p>
-                <div className="mt-auto">
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-display)" }}>
-                      {t(service.priceKey)}
-                    </span>
-                  </div>
-                  <p className="text-white/30 text-xs" style={{ fontFamily: "var(--font-mono)" }}>
-                    {t(service.noteKey)}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-bold text-sm md:text-base truncate" style={{ fontFamily: "var(--font-display)" }}>
+                    {t(titleKey)}
                   </p>
                 </div>
-                <div className="absolute top-6 right-6 text-white/10 group-hover:text-[#ff4500] transition-colors">
-                  <span className="text-2xl">&rarr;</span>
+                <div className="flex-shrink-0 text-right">
+                  <span className="text-[#ff4500] font-bold text-sm md:text-base" style={{ fontFamily: "var(--font-display)" }}>
+                    {t(priceKey)}
+                  </span>
                 </div>
+                <span className="text-white/15 group-hover:text-[#ff4500] transition-colors text-lg ml-1">→</span>
               </div>
-            );
-          })}
-        </div>
+            ))}
 
-        <div className="mt-16 text-center">
-          <p className="text-white/40 text-sm mb-6" style={{ fontFamily: "var(--font-mono)" }}>
-            {t("pricing.netto_note")}
-          </p>
+            {/* Single CTA */}
+            <a
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-center justify-center gap-2 px-6 py-4 bg-[#ff4500] text-white font-bold uppercase tracking-wider hover:bg-[#ff5a1a] transition-colors"
+              style={{ fontFamily: "var(--font-display)", fontSize: "0.9rem" }}
+            >
+              {t("hero.cta1")} →
+            </a>
+            <p className="text-white/25 text-xs text-center" style={{ fontFamily: "var(--font-mono)" }}>
+              {t("pricing.netto_note")}
+            </p>
+          </div>
         </div>
       </div>
     </section>

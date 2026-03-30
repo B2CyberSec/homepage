@@ -95,6 +95,9 @@ const translations: Record<string, Record<Lang, string>> = {
   "nis2.req6_desc": { de: "Persönliche Haftung der Geschäftsführung. Ja, persönlich.", en: "Personal liability of management. Yes, personal." },
   "nis2.cta1": { de: "NIS-2 AUDIT BUCHEN — AB 4.900 €", en: "BOOK NIS-2 AUDIT — FROM €4,900" },
   "nis2.cta2": { de: "ERSTGESPRÄCH — KOSTENLOS", en: "INITIAL CONSULTATION — FREE" },
+  "nis2.fact_deadline": { de: "BSI-FRIST ABGELAUFEN", en: "BSI DEADLINE EXPIRED" },
+  "nis2.fact_fine": { de: "MAX. BUSSGELD", en: "MAX. FINE" },
+  "nis2.fact_companies": { de: "BETROFFENE UNTERNEHMEN", en: "AFFECTED COMPANIES" },
 
   // Services
   "services.tag": { de: "// Was wir tun", en: "// What we do" },
