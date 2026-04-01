@@ -1,13 +1,13 @@
 /*
- * DESIGN: Editorial Shock — "Der Weckruf" V2
- * Services: Premium dark grid image + detailed service cards.
- * Each card shows icon, title, short punchy description, and price.
- * Layout: image-led top half, card grid below — premium, not cheap.
+ * DESIGN: Editorial Shock — "Der Weckruf" V3
+ * Services: Premium 3D glass icon grid image + detailed service cards.
+ * Each card shows lucide icon, title, short punchy description, and price.
+ * The generated image is used as a visual hero; the cards provide the detail.
  */
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Shield, Search, Zap, Lock, Users, HeadphonesIcon } from "lucide-react";
 
-const SERVICES_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/services_premium_v3-d9hoCG6NGYFN6CaqpeXqsy.webp";
+const SERVICES_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/nFZEie8kzRFKviGqGmc9gt/services_grid_v3-6btLEKvr8a6yDRL3dRH5aY.webp";
 
 export default function ServicesSection() {
   const { lang, t } = useLanguage();
@@ -60,26 +60,30 @@ export default function ServicesSection() {
       <div className="container">
         {/* Section header */}
         <div className="mb-12">
-          <p className="text-[#ff4500] text-xs font-bold uppercase tracking-[0.25em] mb-3" style={{ fontFamily: "var(--font-mono)" }}>
+          <p
+            className="text-[#ff4500] text-xs font-bold uppercase tracking-[0.25em] mb-3"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
             {t("services.tag")}
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+          <h2
+            className="text-3xl md:text-5xl font-bold text-white leading-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             {t("services.title1")}
             <span className="text-white/35"> {t("services.title2")}</span>
           </h2>
         </div>
 
-        {/* Premium image — full width, edge-to-edge feel */}
-        <div className="relative w-full overflow-hidden mb-12" style={{ maxHeight: "480px" }}>
+        {/* Premium 3D glass icon grid image */}
+        <div className="relative w-full overflow-hidden mb-14 bg-black rounded-sm">
           <img
             src={SERVICES_IMG}
             alt="B2CyberSec Services: NIS-2, Pentest, Quick Check, CISO as a Service, Professional Services, Managed Security"
-            className="w-full h-full object-cover object-center"
-            style={{ maxHeight: "480px" }}
+            className="w-full h-auto object-contain mx-auto"
+            style={{ maxHeight: "520px" }}
             loading="lazy"
           />
-          {/* Subtle bottom fade into section bg */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
         </div>
 
         {/* Service cards — 3-column grid, premium dark cards */}
@@ -94,16 +98,25 @@ export default function ServicesSection() {
                 <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center border border-white/10 group-hover:border-[#ff4500]/40 transition-colors">
                   <Icon className="text-[#ff4500]" size={18} />
                 </div>
-                <span className="text-[#ff4500] font-bold text-sm" style={{ fontFamily: "var(--font-display)" }}>
+                <span
+                  className="text-[#ff4500] font-bold text-sm"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
                   {t(priceKey)}
                 </span>
               </div>
               {/* Title */}
-              <p className="text-white font-bold text-base leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+              <p
+                className="text-white font-bold text-base leading-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 {t(titleKey)}
               </p>
               {/* Short punchy sub */}
-              <p className="text-white/40 text-xs leading-relaxed" style={{ fontFamily: "var(--font-mono)" }}>
+              <p
+                className="text-white/40 text-xs leading-relaxed"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
                 {t(subKey)}
               </p>
             </div>
@@ -121,7 +134,10 @@ export default function ServicesSection() {
           >
             {t("hero.cta1")} →
           </a>
-          <p className="text-white/25 text-xs" style={{ fontFamily: "var(--font-mono)" }}>
+          <p
+            className="text-white/25 text-xs"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
             {t("pricing.netto_note")}
           </p>
         </div>
