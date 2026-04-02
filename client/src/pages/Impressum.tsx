@@ -1,65 +1,112 @@
-import { Shield, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import { COMPANY } from "@/lib/data";
 
 export default function Impressum() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="container py-20 md:py-32 max-w-3xl">
-        <Link href="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors mb-12 font-body text-sm">
-          <ArrowLeft className="w-4 h-4" />
-          Zurück
-        </Link>
-
-        <div className="flex items-center gap-3 mb-8">
-          <Shield className="w-6 h-6 text-white/60" strokeWidth={1.5} />
-          <h1 className="font-display font-bold text-3xl md:text-4xl">Impressum</h1>
+    <div className="min-h-screen bg-white text-[#1d1d1f]">
+      {/* Simple top bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/5">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 h-14 flex items-center">
+          <Link href="/" className="text-sm font-medium text-[#e8530e] hover:text-[#c44400] transition-colors">
+            &larr; Zurück zur Startseite
+          </Link>
         </div>
+      </nav>
 
-        <div className="space-y-8 text-white/70 font-body text-sm leading-relaxed">
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Angaben gemäß § 5 TMG</h2>
-            <p>
-              B2CyberSec GmbH<br />
-              Werner-von-Siemens-Str. 6<br />
-              86159 Augsburg
-            </p>
-          </div>
+      <section className="pt-24 pb-16 lg:pt-28 lg:pb-24">
+        <div className="max-w-[700px] mx-auto px-6 lg:px-8">
+          <h1 className="text-3xl lg:text-4xl font-bold tracking-tight mb-12">Impressum</h1>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Vertreten durch</h2>
-            <p>Boris Bošnjak, Geschäftsführer</p>
-          </div>
+          <div className="space-y-10 text-[#86868b] leading-relaxed">
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Angaben gemäß § 5 TMG</h2>
+              <p className="font-medium text-[#1d1d1f]">{COMPANY.name}</p>
+              <p>{COMPANY.address}</p>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Kontakt</h2>
-            <p>
-              Telefon: +49 (0) 821 90 789 500<br />
-              E-Mail: info@b2cybersec.com
-            </p>
-          </div>
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Vertreten durch</h2>
+              <p>Geschäftsführer: {COMPANY.ceo}</p>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Registereintrag</h2>
-            <p>
-              Eintragung im Handelsregister.<br />
-              Registergericht: Amtsgericht Augsburg<br />
-              Registernummer: HRB [auf Anfrage]
-            </p>
-          </div>
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Kontakt</h2>
+              <p>Telefon: <span className="text-[#1d1d1f]">{COMPANY.phone}</span></p>
+              <p>E-Mail: <a href={`mailto:${COMPANY.email}`} className="text-[#e8530e] hover:underline">{COMPANY.email}</a></p>
+              <p>Geschäftsführer: <a href={`mailto:${COMPANY.emailCeo}`} className="text-[#e8530e] hover:underline">{COMPANY.emailCeo}</a></p>
+              <p>Website: <a href={`https://${COMPANY.website}`} className="text-[#e8530e] hover:underline">{COMPANY.website}</a></p>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Umsatzsteuer-ID</h2>
-            <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: [auf Anfrage]</p>
-          </div>
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Registereintrag</h2>
+              <p>Eintragung im Handelsregister.</p>
+              <p>Registergericht: Amtsgericht Augsburg</p>
+              <p className="text-[#1d1d1f] font-medium">{COMPANY.hrb}</p>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg text-white mb-2">Haftungsausschluss</h2>
-            <p>
-              Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
-            </p>
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Umsatzsteuer-ID</h2>
+              <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</p>
+              <p className="text-[#1d1d1f] font-medium">{COMPANY.ustId}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+              <p className="text-[#1d1d1f] font-medium">{COMPANY.ceo}</p>
+              <p>{COMPANY.address}</p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Streitschlichtung</h2>
+              <p>
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" className="text-[#e8530e] hover:underline">
+                  https://ec.europa.eu/consumers/odr/
+                </a>
+              </p>
+              <p className="mt-2">
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Haftung für Inhalte</h2>
+              <p>
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
+                allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+                verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen
+                zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+              </p>
+              <p className="mt-2">
+                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen
+                Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt
+                der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
+                Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Haftung für Links</h2>
+              <p>
+                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+                Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
+                verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-lg font-semibold text-[#1d1d1f] mb-3">Urheberrecht</h2>
+              <p>
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem
+                deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung
+                außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen
+                Autors bzw. Erstellers.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
