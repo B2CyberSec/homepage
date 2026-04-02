@@ -267,13 +267,13 @@ function TransitionSection() {
           <p className="text-white/30 font-body text-sm tracking-[0.4em] uppercase mb-6">Es gibt einen anderen Weg</p>
         </FadeIn>
         <FadeIn delay={0.2}>
-          <div className="w-px h-20 bg-gradient-to-b from-red-500/50 to-green-500/50 mx-auto mb-8" />
+          <div className="w-px h-20 bg-gradient-to-b from-red-500/50 to-blue-500/50 mx-auto mb-8" />
         </FadeIn>
         <FadeIn delay={0.4}>
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white leading-tight">
             Was wäre, wenn Sie
             <br />
-            <span className="text-green-400">ruhig schlafen</span> könnten?
+            <span className="text-blue-400">ruhig schlafen</span> könnten?
           </h2>
         </FadeIn>
       </div>
@@ -298,7 +298,7 @@ function HeroSolution() {
       <div className="frame-overlay-safe" />
       <div className="relative z-10 container text-center px-4">
         <FadeIn>
-          <p className="text-green-400 font-body text-sm md:text-base tracking-[0.3em] uppercase mb-4 md:mb-6">
+          <p className="text-blue-400 font-body text-sm md:text-base tracking-[0.3em] uppercase mb-4 md:mb-6">
             So fühlt sich Sicherheit an
           </p>
         </FadeIn>
@@ -306,7 +306,7 @@ function HeroSolution() {
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white leading-[0.95] tracking-tight">
             Alles unter
             <br />
-            <span className="text-green-400">Kontrolle.</span>
+            <span className="text-blue-400">Kontrolle.</span>
           </h2>
         </FadeIn>
         <FadeIn delay={0.4}>
@@ -314,9 +314,9 @@ function HeroSolution() {
             {["NIS-2 Compliant", "24/7 Monitoring", "Experten in 48h"].map((item, i) => (
               <span
                 key={i}
-                className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-green-500/30 text-green-400 font-body text-sm md:text-base tracking-wide"
+                className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-blue-500/30 text-blue-400 font-body text-sm md:text-base tracking-wide"
               >
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                 {item}
               </span>
             ))}
@@ -345,7 +345,7 @@ function SOCSection() {
       <div className="relative z-10 container">
         <div className="max-w-2xl">
           <FadeIn>
-            <p className="text-green-400/80 font-body text-xs md:text-sm tracking-[0.3em] uppercase mb-4">Managed Security</p>
+            <p className="text-blue-400/80 font-body text-xs md:text-sm tracking-[0.3em] uppercase mb-4">Managed Security</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight">
@@ -358,7 +358,7 @@ function SOCSection() {
             <div className="mt-8 flex flex-col gap-3">
               {["Rund-um-die-Uhr Überwachung", "Sofortige Incident Response", "Monatliche Security Reports"].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/70 font-body text-sm md:text-base">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
                   {item}
                 </div>
               ))}
@@ -418,7 +418,7 @@ function ServicesSection() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <h2 className="text-center font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-16 md:mb-20">
-            Sieben Wege zur <span className="text-green-400">Sicherheit</span>
+            Sieben Wege zur <span className="text-blue-400">Sicherheit</span>
           </h2>
         </FadeIn>
 
@@ -460,7 +460,7 @@ function TrustSection() {
             <br />
             Persönlich.
             <br />
-            <span className="text-green-400">Aus Augsburg.</span>
+            <span className="text-blue-400">Aus Augsburg.</span>
           </h2>
         </FadeIn>
         <FadeIn delay={0.2}>
@@ -477,16 +477,16 @@ function TrustSection() {
 function CTASection() {
   return (
     <section id="contact" className="py-24 md:py-40 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-green-950/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/20 to-transparent" />
       <div className="relative z-10 container text-center">
         <FadeIn>
-          <p className="text-green-400/80 font-body text-xs md:text-sm tracking-[0.3em] uppercase mb-6">Bereit?</p>
+          <p className="text-blue-400/80 font-body text-xs md:text-sm tracking-[0.3em] uppercase mb-6">Bereit?</p>
         </FadeIn>
         <FadeIn delay={0.1}>
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-8">
             Lassen Sie uns
             <br />
-            <span className="text-green-400">reden.</span>
+            <span className="text-blue-400">reden.</span>
           </h2>
         </FadeIn>
         <FadeIn delay={0.2}>
@@ -495,7 +495,7 @@ function CTASection() {
               href="https://calendly.com/b2cybersec"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-display font-bold text-base md:text-lg hover:bg-green-400 hover:text-black transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-display font-bold text-base md:text-lg hover:bg-blue-400 hover:text-black transition-all duration-300"
             >
               <Calendar className="w-5 h-5" />
               Termin buchen
