@@ -2,7 +2,7 @@ import { ArrowRight, CheckCircle2, Clock3, ShieldCheck, Users, Phone, Mail } fro
 
 const offers = [
   {
-    name: "Expert Match",
+    name: "Experten-Vermittlung",
     badge: "Basis",
     description:
       "Die schnellste Option für eine klar definierte Security-Rolle. Sie erhalten in kurzer Zeit passende Kandidatenvorschläge und einen schlanken, verlässlichen Prozess.",
@@ -13,7 +13,7 @@ const offers = [
     ],
   },
   {
-    name: "Rapid Cyber Placement",
+    name: "Schnellbesetzung",
     badge: "Kernangebot",
     description:
       "Unser Standard für Unternehmen, die nicht nur CVs, sondern einen echten Besetzungsprozess brauchen — von der Rollenklärung bis zum erfolgreichen Onboarding.",
@@ -26,7 +26,7 @@ const offers = [
     ],
   },
   {
-    name: "Cyber Bench on Demand",
+    name: "Security-Team auf Abruf",
     badge: "Premium",
     description:
       "Für Teams mit hohem Zeitdruck, mehreren offenen Positionen oder erhöhtem Qualitätsanspruch. Priorisiert, skalierbar und mit zusätzlicher Absicherung.",
