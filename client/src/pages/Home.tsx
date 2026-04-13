@@ -1,300 +1,520 @@
-import { ArrowRight, CheckCircle2, Clock3, ShieldCheck, Users, Phone, Mail } from "lucide-react";
+/**
+ * Design reminder for Home.tsx
+ * Light Cinematic Futurism: monumentale Headlines, helle Premium-Flächen,
+ * asymmetrische Kompositionen, große Bildfenster, minimaler Text,
+ * technischer Vertrauensaufbau statt klassischer Cyber-Düsternis.
+ */
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  CalendarDays,
+  Globe2,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-const offers = [
-  {
-    name: "Experten-Vermittlung",
-    badge: "Basis",
-    description:
-      "Die schnellste Option für eine klar definierte Security-Rolle. Sie erhalten in kurzer Zeit passende Kandidatenvorschläge und einen schlanken, verlässlichen Prozess.",
-    features: [
-      "1 Rolle gleichzeitig",
-      "Kandidatenvorschläge",
-      "Standard-Support",
-    ],
-  },
-  {
-    name: "Schnellbesetzung",
-    badge: "Kernangebot",
-    description:
-      "Unser Standard für Unternehmen, die nicht nur CVs, sondern einen echten Besetzungsprozess brauchen — von der Rollenklärung bis zum erfolgreichen Onboarding.",
-    features: [
-      "Rollenworkshop",
-      "Shortlist",
-      "Interview-Koordination",
-      "Besetzungsbegleitung",
-      "Onboarding",
-    ],
-  },
-  {
-    name: "Security-Team auf Abruf",
-    badge: "Premium",
-    description:
-      "Für Teams mit hohem Zeitdruck, mehreren offenen Positionen oder erhöhtem Qualitätsanspruch. Priorisiert, skalierbar und mit zusätzlicher Absicherung.",
-    features: [
-      "Priorisierte Besetzung",
-      "Mehrere Rollen parallel",
-      "SLA",
-      "Qualitätskontrolle",
-      "Backup-Kandidat",
-    ],
-  },
-];
+type Language = "de" | "en";
 
-const processSteps = [
-  {
-    title: "Rolle schärfen",
-    text: "Wir klären fachliche Anforderungen, Seniorität, Teamfit und Zielprofil, damit nicht nur gesucht, sondern passend gesucht wird.",
-  },
-  {
-    title: "Passende Security-Experten identifizieren",
-    text: "Wir priorisieren Qualität vor Volumen und liefern Kandidaten, die fachlich und kulturell zur Rolle passen.",
-  },
-  {
-    title: "Besetzung in 14 Tagen vorantreiben",
-    text: "Sie bekommen einen klaren, geführten Prozess mit enger Koordination statt unverbundener Profile und langem Hin und Her.",
-  },
-  {
-    title: "Kostenlos nacharbeiten, bis es passt",
-    text: "Wenn der Match nicht passt, arbeiten wir ohne Zusatzkosten nach, bis die Rolle passend besetzt ist.",
-  },
-];
+const heroImage =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/EwEqphW4QWhsHd3m98p6bW/b2cybersec-hero-cyber-command-mNnBy4HQDP6TPmyZ7kswJG.webp";
+const nis2Image =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/EwEqphW4QWhsHd3m98p6bW/b2cybersec-nis2-compliance-VwMzS9iSctsiTBc9Z5E63e.webp";
+const servicesImage =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/EwEqphW4QWhsHd3m98p6bW/b2cybersec-professional-services-BGEWttYxXSzj3FHftcFabf.webp";
+const contactImage =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/EwEqphW4QWhsHd3m98p6bW/b2cybersec-contact-trust-nKtnbY9tNCr33CeXUZYHa7.webp";
 
-const differentiators = [
-  "Fokus auf Security-Rollen statt Generalisten-Recruiting",
-  "Klare Positionierung mit verbindlichem 14-Tage-Versprechen",
-  "Vom ersten Briefing bis zum Onboarding begleitet",
-  "Höhere Sicherheit durch strukturierte Qualitätskontrolle",
-];
+const content = {
+  de: {
+    nav: {
+      solutions: "Lösungen",
+      plans: "Pakete",
+      contact: "Kontakt",
+      cta: "Termin buchen",
+    },
+    hero: {
+      eyebrow: "B2CYBERSEC GMBH | DACH",
+      title: "CYBERSECURITY FÜR ENTSCHEIDER.",
+      text: "NIS-2, Beratung und Experten auf Abruf. Klar, schnell und wirksam.",
+      primary: "Beratung buchen",
+      secondary: "Pakete ansehen",
+      stats: ["NIS-2 READY", "EXPERTS ON DEMAND", "DACH FOCUS"],
+    },
+    statement: "WENIG TEXT. KLARE SICHERHEIT.",
+    sectionLabel: "Lösungen",
+    sectionTitle: "ZWEI FOKUS-BEREICHE. EIN KLARES VERSPRECHEN.",
+    sectionText:
+      "Compliance dort, wo Regulierung zählt. Experten dort, wo Geschwindigkeit zählt.",
+    solutions: [
+      {
+        label: "NIS-2",
+        title: "COMPLIANCE, DIE VOM BOARD BIS ZUR UMSETZUNG FUNKTIONIERT.",
+        text: "Assessment, Roadmap, Begleitung und klare Prioritäten für Ihre NIS-2-Reife.",
+        cta: "NIS-2 ansehen",
+        href: "#plans",
+        image: nis2Image,
+      },
+      {
+        label: "PROFESSIONAL SERVICES",
+        title: "SECURITY-EXPERTEN AUF ABRUF FÜR KRITISCHE MOMENTE.",
+        text: "Architektur, Advisory, Incident-nahe Unterstützung und operative Spezialisten, wenn sie gebraucht werden.",
+        cta: "Services ansehen",
+        href: "#plans",
+        image: servicesImage,
+      },
+    ],
+    pricingLabel: "Pakete",
+    pricingTitle: "KLAR STRUKTURIERT. SCHNELL VERSTANDEN.",
+    pricingText:
+      "Einfache Angebotslogik im Tarif-Stil — reduziert auf das, was Entscheider sofort brauchen.",
+    plans: [
+      {
+        category: "NIS-2",
+        name: "START",
+        price: "AUF ANFRAGE",
+        cadence: "Projektbasiert",
+        features: ["Gap-Analyse", "Management-Briefing", "Priorisierte Roadmap"],
+      },
+      {
+        category: "NIS-2",
+        name: "READY",
+        price: "AUF ANFRAGE",
+        cadence: "Begleitetes Paket",
+        features: ["Umsetzungsbegleitung", "Dokumentationspaket", "Kontroll-Review"],
+      },
+      {
+        category: "PRO SERVICES",
+        name: "FLEX",
+        price: "RETAINER",
+        cadence: "Monatlich",
+        features: ["Experten auf Abruf", "Remote oder vor Ort", "Skalierbare Kontingente"],
+      },
+      {
+        category: "PRO SERVICES",
+        name: "DEDICATED",
+        price: "INDIVIDUELL",
+        cadence: "Für kritische Vorhaben",
+        features: ["Lead Expert / Interim Advisory", "Strategische Begleitung", "Priorisierte Verfügbarkeit"],
+      },
+    ],
+    contact: {
+      label: "Kontakt",
+      title: "DER NÄCHSTE SCHRITT IST EINFACH.",
+      text: "Sprechen Sie mit B2CyberSec über NIS-2, Security Advisory oder Experten auf Abruf.",
+      primary: "Calendly öffnen",
+      secondary: "Website besuchen",
+      detailsTitle: "B2CYBERSEC GMBH",
+      details: [
+        "CEO: Boris Bošnjak",
+        "Region: DACH",
+        "Telefon: +49 (0) 821 90 789 500",
+        "Website: www.b2cybersec.com",
+      ],
+    },
+    footer: "Cybersecurity Consulting | NIS-2 Compliance | Professional Services",
+  },
+  en: {
+    nav: {
+      solutions: "Solutions",
+      plans: "Packages",
+      contact: "Contact",
+      cta: "Book a call",
+    },
+    hero: {
+      eyebrow: "B2CYBERSEC GMBH | DACH",
+      title: "CYBERSECURITY FOR DECISION-MAKERS.",
+      text: "NIS-2, advisory and experts on demand. Clear, fast and effective.",
+      primary: "Book a consultation",
+      secondary: "View packages",
+      stats: ["NIS-2 READY", "EXPERTS ON DEMAND", "DACH FOCUS"],
+    },
+    statement: "LESS TEXT. MORE SECURITY CLARITY.",
+    sectionLabel: "Solutions",
+    sectionTitle: "TWO CORE AREAS. ONE CLEAR PROMISE.",
+    sectionText:
+      "Compliance where regulation matters. Experts where speed matters.",
+    solutions: [
+      {
+        label: "NIS-2",
+        title: "COMPLIANCE THAT WORKS FROM BOARDROOM TO EXECUTION.",
+        text: "Assessment, roadmap, implementation guidance and clear priorities for your NIS-2 maturity.",
+        cta: "Explore NIS-2",
+        href: "#plans",
+        image: nis2Image,
+      },
+      {
+        label: "PROFESSIONAL SERVICES",
+        title: "ON-DEMAND SECURITY EXPERTS FOR CRITICAL MOMENTS.",
+        text: "Architecture, advisory, incident-adjacent support and operational specialists when you need them.",
+        cta: "Explore services",
+        href: "#plans",
+        image: servicesImage,
+      },
+    ],
+    pricingLabel: "Packages",
+    pricingTitle: "CLEAR STRUCTURE. FAST TO UNDERSTAND.",
+    pricingText:
+      "A reduced tariff-style offer system built around what decision-makers need to see instantly.",
+    plans: [
+      {
+        category: "NIS-2",
+        name: "START",
+        price: "ON REQUEST",
+        cadence: "Project-based",
+        features: ["Gap analysis", "Management briefing", "Prioritized roadmap"],
+      },
+      {
+        category: "NIS-2",
+        name: "READY",
+        price: "ON REQUEST",
+        cadence: "Guided package",
+        features: ["Implementation guidance", "Documentation package", "Control review"],
+      },
+      {
+        category: "PRO SERVICES",
+        name: "FLEX",
+        price: "RETAINER",
+        cadence: "Monthly",
+        features: ["Experts on demand", "Remote or on-site", "Scalable capacity"],
+      },
+      {
+        category: "PRO SERVICES",
+        name: "DEDICATED",
+        price: "CUSTOM",
+        cadence: "For critical initiatives",
+        features: ["Lead expert / interim advisory", "Strategic guidance", "Priority availability"],
+      },
+    ],
+    contact: {
+      label: "Contact",
+      title: "THE NEXT STEP IS SIMPLE.",
+      text: "Talk to B2CyberSec about NIS-2, security advisory or experts on demand.",
+      primary: "Open Calendly",
+      secondary: "Visit website",
+      detailsTitle: "B2CYBERSEC GMBH",
+      details: [
+        "CEO: Boris Bošnjak",
+        "Region: DACH",
+        "Phone: +49 (0) 821 90 789 500",
+        "Website: www.b2cybersec.com",
+      ],
+    },
+    footer: "Cybersecurity Consulting | NIS-2 Compliance | Professional Services",
+  },
+} as const;
+
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.8 },
+};
 
 export default function Home() {
-  const openCalendly = () => {
-    window.open("https://calendly.com/b2cybersec/kontakt", "_blank", "noopener,noreferrer");
-  };
+  const [language, setLanguage] = useState<Language>("de");
+  const t = content[language];
 
   return (
-    <div className="min-h-screen bg-white text-[#111827]">
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/85 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <a href="#hero" className="text-lg font-semibold tracking-tight text-[#111827]">
-            B2CyberSec
-          </a>
-          <nav className="hidden items-center gap-8 md:flex">
-            <a href="#angebote" className="text-sm font-medium text-[#4b5563] hover:text-[#111827]">Angebot</a>
-            <a href="#ablauf" className="text-sm font-medium text-[#4b5563] hover:text-[#111827]">Ablauf</a>
-            <a href="#warum" className="text-sm font-medium text-[#4b5563] hover:text-[#111827]">Warum wir</a>
-            <a href="#kontakt" className="text-sm font-medium text-[#4b5563] hover:text-[#111827]">Kontakt</a>
-          </nav>
-          <button
-            onClick={openCalendly}
-            className="rounded-full bg-[#e8530e] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#c44400]"
-          >
-            Termin buchen
-          </button>
+    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(132,149,171,0.18),_transparent_28%),radial-gradient(circle_at_85%_15%,_rgba(181,194,210,0.2),_transparent_24%),linear-gradient(180deg,_rgba(255,255,255,0.92),_rgba(246,248,251,0.98))]" />
+
+      <header className="fixed inset-x-0 top-0 z-50">
+        <div className="container pt-4">
+          <div className="frame-panel flex items-center justify-between gap-4 px-4 py-3 md:px-6">
+            <a href="#top" className="flex items-center gap-3 text-sm font-semibold tracking-[0.22em] text-slate-900">
+              <span className="inline-flex h-2.5 w-2.5 rounded-full bg-slate-900" />
+              B2CYBERSEC
+            </a>
+
+            <nav className="hidden items-center gap-8 text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-slate-600 lg:flex">
+              <a href="#solutions" className="transition-colors hover:text-slate-950">
+                {t.nav.solutions}
+              </a>
+              <a href="#plans" className="transition-colors hover:text-slate-950">
+                {t.nav.plans}
+              </a>
+              <a href="#contact" className="transition-colors hover:text-slate-950">
+                {t.nav.contact}
+              </a>
+            </nav>
+
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="inline-flex items-center rounded-full border border-black/8 bg-white/80 p-1 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+                <button
+                  type="button"
+                  onClick={() => setLanguage("de")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all ${
+                    language === "de"
+                      ? "bg-slate-950 text-white"
+                      : "text-slate-500 hover:text-slate-900"
+                  }`}
+                >
+                  DE
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLanguage("en")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] transition-all ${
+                    language === "en"
+                      ? "bg-slate-950 text-white"
+                      : "text-slate-500 hover:text-slate-900"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+
+              <Button asChild className="hidden rounded-full bg-slate-950 px-5 text-white shadow-[0_16px_36px_rgba(15,23,42,0.16)] sm:inline-flex">
+                <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
+                  {t.nav.cta}
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </header>
 
-      <main>
-        <section id="hero" className="relative overflow-hidden px-6 py-24 lg:px-8 lg:py-32">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(232,83,14,0.14),_transparent_35%)]" />
-          <div className="relative mx-auto max-w-7xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#fed7aa] bg-[#fff7ed] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#c2410c]">
-              <ShieldCheck className="h-4 w-4" />
-              Cybersecurity Recruiting
-            </div>
-            <div className="mt-8 grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-              <div>
-                <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-[#111827] sm:text-5xl lg:text-7xl">
-                  Passender Security-Experte in 14 Tagen — oder wir arbeiten kostenlos nach, bis es passt.
-                </h1>
-                <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#4b5563] sm:text-xl">
-                  B2CyberSec hilft Ihnen, Security-Rollen schneller und treffsicherer zu besetzen — vom ersten Rollenbriefing bis zur erfolgreichen Übergabe ins Onboarding.
-                </p>
-                <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#6b7280]">
-                  Für CISO, Security Engineer, IAM, SOC, GRC, Cloud Security und weitere spezialisierte Rollen.
-                </p>
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <button
-                    onClick={openCalendly}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e8530e] px-8 py-4 text-base font-semibold text-white transition hover:bg-[#c44400]"
-                  >
-                    Erstgespräch buchen
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                  <a
-                    href="#angebote"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d1d5db] px-8 py-4 text-base font-semibold text-[#111827] transition hover:bg-[#f9fafb]"
-                  >
-                    Angebote ansehen
+      <main id="top" className="relative z-10">
+        <section className="container min-h-screen pt-28 pb-14 sm:pt-32 lg:pb-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:gap-20">
+            <motion.div {...fadeUp} className="max-w-3xl">
+              <div className="section-kicker mb-6">{t.hero.eyebrow}</div>
+              <h1 className="max-w-4xl text-[clamp(3.6rem,9vw,8.2rem)] font-semibold uppercase leading-[0.92] tracking-[-0.06em] text-slate-950">
+                {t.hero.title}
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                {t.hero.text}
+              </p>
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Button asChild size="lg" className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]">
+                  <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
+                    {t.hero.primary}
+                    <CalendarDays className="ml-2 h-4 w-4" />
                   </a>
-                </div>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="rounded-full border-black/10 bg-white/70 px-7 text-slate-950 backdrop-blur-xl">
+                  <a href="#plans">
+                    {t.hero.secondary}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
               </div>
 
-              <div className="rounded-3xl border border-[#e5e7eb] bg-[#f9fafb] p-8 shadow-sm">
-                <div className="flex items-center gap-3 text-[#111827]">
-                  <Clock3 className="h-5 w-5 text-[#e8530e]" />
-                  <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2410c]">Unser Versprechen</span>
-                </div>
-                <p className="mt-5 text-2xl font-semibold leading-snug text-[#111827]">
-                  Passung vor Masse.
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-[#4b5563]">
-                  Sie kaufen bei uns keine CV-Flut, sondern einen strukturierten Match-Prozess mit klarer Verantwortlichkeit, enger Abstimmung und verbindlicher Nacharbeit, falls es nicht sofort passt.
-                </p>
-                <div className="mt-6 space-y-3">
-                  {[
-                    "Spezialisiert auf Security-Rollen",
-                    "Klare Kommunikation im Recruiting-Prozess",
-                    "Verbindliche Nacharbeit ohne Zusatzkosten",
-                  ].map((item) => (
-                    <div key={item} className="flex items-start gap-3 text-sm text-[#374151]">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#e8530e]" />
-                      <span>{item}</span>
+              <div className="mt-10 flex flex-wrap gap-3">
+                {t.hero.stats.map((stat) => (
+                  <span
+                    key={stat}
+                    className="inline-flex items-center rounded-full border border-black/7 bg-white/80 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+                  >
+                    {stat}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }}>
+              <div className="frame-panel relative overflow-hidden p-3 sm:p-4">
+                <img
+                  src={heroImage}
+                  alt="Bright premium cybersecurity consulting environment"
+                  className="hero-image h-[32rem] w-full object-cover object-center sm:h-[40rem]"
+                />
+                <div className="absolute inset-x-6 bottom-6 grid gap-3 sm:grid-cols-3">
+                  <div className="glass-panel px-4 py-4">
+                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      NIS-2
                     </div>
-                  ))}
+                    <div className="mt-2 text-lg font-semibold text-slate-950">Governance</div>
+                  </div>
+                  <div className="glass-panel px-4 py-4">
+                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Advisory
+                    </div>
+                    <div className="mt-2 text-lg font-semibold text-slate-950">Expert Pool</div>
+                  </div>
+                  <div className="glass-panel px-4 py-4">
+                    <div className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      Region
+                    </div>
+                    <div className="mt-2 text-lg font-semibold text-slate-950">DACH</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        <section id="angebote" className="bg-[#f8fafc] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2410c]">3-Stufen-Angebot</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#111827] sm:text-5xl">
-                Das passende Angebotsmodell für Ihren Besetzungsdruck.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-[#4b5563]">
-                Vom fokussierten Einzel-Match bis zum priorisierten Multi-Role-Setup: Jede Stufe baut auf einem klaren Ergebnis und einer eindeutigen Verantwortung auf.
-              </p>
-            </div>
-            <div className="mt-14 grid gap-6 lg:grid-cols-3">
-              {offers.map((offer, index) => (
-                <article
-                  key={offer.name}
-                  className={`flex h-full flex-col rounded-3xl border p-8 shadow-sm ${
-                    index === 1 ? "border-[#fdba74] bg-white" : "border-[#e5e7eb] bg-white"
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] ${
-                      index === 1
-                        ? "bg-[#fff7ed] text-[#c2410c]"
-                        : "bg-[#f3f4f6] text-[#4b5563]"
-                    }`}>
-                      {offer.badge}
-                    </span>
-                    {index === 1 && (
-                      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c2410c]">
-                        Empfohlen
-                      </span>
-                    )}
+        <section className="container py-8 sm:py-12">
+          <motion.div
+            {...fadeUp}
+            className="frame-panel px-6 py-10 text-center sm:px-10 md:px-14 md:py-14"
+          >
+            <p className="text-[clamp(2rem,6vw,5rem)] font-semibold uppercase leading-[0.95] tracking-[-0.05em] text-slate-950">
+              {t.statement}
+            </p>
+          </motion.div>
+        </section>
+
+        <section id="solutions" className="container py-16 sm:py-20 lg:py-24">
+          <motion.div {...fadeUp} className="max-w-4xl">
+            <div className="section-kicker">{t.sectionLabel}</div>
+            <h2 className="mt-4 text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+              {t.sectionTitle}
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+              {t.sectionText}
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+            {t.solutions.map((item, index) => (
+              <motion.article
+                key={item.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.08 * index }}
+                className="solution-card"
+              >
+                <div className="absolute inset-0">
+                  <img src={item.image} alt={item.label} className="h-full w-full object-cover object-center" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,250,252,0.06),rgba(248,250,252,0.88)_64%,rgba(248,250,252,0.96)_100%)]" />
+                </div>
+                <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8 lg:p-10">
+                  <div className="section-kicker mb-4">{item.label}</div>
+                  <h3 className="max-w-2xl text-[clamp(2rem,4vw,3.35rem)] font-semibold uppercase leading-[0.98] tracking-[-0.05em] text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+                    {item.text}
+                  </p>
+                  <div className="mt-7">
+                    <Button asChild variant="outline" className="rounded-full border-black/10 bg-white/82 px-6 text-slate-950 backdrop-blur-xl">
+                      <a href={item.href}>
+                        {item.cta}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
                   </div>
-                  <h3 className="mt-6 text-2xl font-bold text-[#111827]">{offer.name}</h3>
-                  <p className="mt-4 flex-1 text-base leading-relaxed text-[#4b5563]">{offer.description}</p>
-                  <ul className="mt-8 space-y-3">
-                    {offer.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-[#374151]">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#e8530e]" />
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section id="plans" className="container py-16 sm:py-20 lg:py-24">
+          <motion.div {...fadeUp} className="max-w-4xl">
+            <div className="section-kicker">{t.pricingLabel}</div>
+            <h2 className="mt-4 text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+              {t.pricingTitle}
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+              {t.pricingText}
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {t.plans.map((plan, index) => (
+              <motion.article
+                key={`${plan.category}-${plan.name}`}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: 0.06 * index }}
+                className="plan-card flex h-full flex-col justify-between px-5 py-6 sm:px-6 sm:py-7"
+              >
+                <div>
+                  <div className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-slate-500">
+                    {plan.category}
+                  </div>
+                  <div className="mt-3 text-3xl font-semibold uppercase tracking-[-0.04em] text-slate-950">
+                    {plan.name}
+                  </div>
+                  <div className="mt-6 text-xl font-semibold uppercase tracking-[-0.03em] text-slate-950">
+                    {plan.price}
+                  </div>
+                  <div className="mt-1 text-sm text-slate-500">{plan.cadence}</div>
+                </div>
+
+                <div className="mt-8 border-t border-black/7 pt-6">
+                  <ul className="space-y-3">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
+                        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-slate-950" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="ablauf" className="px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2410c]">Ablauf</p>
-                <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#111827] sm:text-5xl">
-                  So wird aus einer offenen Rolle in kurzer Zeit ein passender Match.
-                </h2>
-                <p className="mt-5 text-lg leading-relaxed text-[#4b5563]">
-                  Unser Prozess ist darauf ausgelegt, Entscheidungsgeschwindigkeit und Qualitätskontrolle gleichzeitig zu erhöhen — ohne unnötige Schleifen.
-                </p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {processSteps.map((step, index) => (
-                  <div key={step.title} className="rounded-3xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
-                    <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2410c]">0{index + 1}</div>
-                    <h3 className="mt-4 text-xl font-semibold text-[#111827]">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-[#4b5563]">{step.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="warum" className="bg-[#111827] px-6 py-24 text-white lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#fdba74]">Warum B2CyberSec</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-                Recruiting für Security-Rollen braucht mehr als nur Suchvolumen.
-              </h2>
-              <p className="mt-5 text-lg leading-relaxed text-white/70">
-                Wir verbinden Security-Verständnis, strukturierte Auswahl und klare Prozessführung. So steigt die Chance auf einen Match, der fachlich und im Team wirklich funktioniert.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {differentiators.map((item) => (
-                <div key={item} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                  <Users className="h-5 w-5 text-[#fdba74]" />
-                  <p className="mt-4 text-base leading-relaxed text-white/85">{item}</p>
                 </div>
-              ))}
-            </div>
+              </motion.article>
+            ))}
           </div>
         </section>
 
-        <section id="kontakt" className="px-6 py-24 lg:px-8 lg:py-32">
-          <div className="mx-auto max-w-5xl rounded-[2rem] border border-[#e5e7eb] bg-[#fff7ed] p-8 shadow-sm sm:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c2410c]">Kontakt</p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#111827] sm:text-5xl">
-              Lassen Sie uns Ihre Security-Rolle sauber und schnell besetzen.
-            </h2>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#4b5563]">
-              Im Erstgespräch klären wir, welche Rolle Sie besetzen wollen, welches Angebotsmodell passt und wie wir das 14-Tage-Versprechen für Ihren Fall konkret umsetzen.
-            </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <button
-                onClick={openCalendly}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#e8530e] px-8 py-4 text-base font-semibold text-white transition hover:bg-[#c44400]"
-              >
-                Termin buchen
-                <ArrowRight className="h-4 w-4" />
-              </button>
-              <a
-                href="tel:+4982190789500"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d1d5db] bg-white px-8 py-4 text-base font-semibold text-[#111827]"
-              >
-                <Phone className="h-4 w-4" />
-                +49 (0) 821 90 789 500
-              </a>
+        <section id="contact" className="container py-16 sm:py-20 lg:py-24">
+          <motion.div {...fadeUp} className="frame-panel relative overflow-hidden p-3 sm:p-4">
+            <div className="absolute inset-0">
+              <img
+                src={contactImage}
+                alt="Bright premium consultation environment"
+                className="h-full w-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,250,252,0.96)_0%,rgba(248,250,252,0.88)_44%,rgba(248,250,252,0.56)_70%,rgba(248,250,252,0.22)_100%)]" />
             </div>
-            <div className="mt-10 grid gap-4 border-t border-[#fed7aa] pt-8 sm:grid-cols-2">
-              <div className="flex items-center gap-3 text-sm text-[#374151]">
-                <Mail className="h-4 w-4 text-[#e8530e]" />
-                info@b2cybersec.com
+
+            <div className="relative z-10 grid min-h-[36rem] gap-10 p-6 sm:p-8 lg:grid-cols-[0.95fr_0.65fr] lg:p-10 xl:p-14">
+              <div className="flex max-w-2xl flex-col justify-between">
+                <div>
+                  <div className="section-kicker">{t.contact.label}</div>
+                  <h2 className="mt-4 max-w-xl text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+                    {t.contact.title}
+                  </h2>
+                  <p className="mt-5 max-w-lg text-base leading-7 text-slate-600 sm:text-lg">
+                    {t.contact.text}
+                  </p>
+                </div>
+
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <Button asChild size="lg" className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]">
+                    <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
+                      {t.contact.primary}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="rounded-full border-black/10 bg-white/76 px-7 text-slate-950 backdrop-blur-xl">
+                    <a href="https://www.b2cybersec.com" target="_blank" rel="noreferrer">
+                      {t.contact.secondary}
+                      <Globe2 className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
-              <div className="text-sm text-[#374151]">
-                Werner-von-Siemens-Str. 6, 86159 Augsburg
+
+              <div className="glass-panel self-end p-6 sm:p-7">
+                <div className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-slate-500">
+                  {t.contact.detailsTitle}
+                </div>
+                <div className="mt-5 space-y-4 text-sm leading-6 text-slate-700 sm:text-base">
+                  {t.contact.details.map((detail) => (
+                    <p key={detail}>{detail}</p>
+                  ))}
+                </div>
+                <a
+                  href="tel:+4982190789500"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-slate-950"
+                >
+                  <Phone className="h-4 w-4" />
+                  +49 (0) 821 90 789 500
+                </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 
-      <footer className="border-t border-black/5 px-6 py-8 text-sm text-[#6b7280] lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>B2CyberSec GmbH · Cybersecurity Recruiting</p>
-          <p>Passender Security-Experte in 14 Tagen — oder wir arbeiten kostenlos nach, bis es passt.</p>
+      <footer className="relative z-10 border-t border-black/6 py-8">
+        <div className="container flex flex-col gap-3 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <div className="font-semibold uppercase tracking-[0.18em] text-slate-700">B2CYBERSEC GMBH</div>
+          <div>{t.footer}</div>
         </div>
       </footer>
     </div>
