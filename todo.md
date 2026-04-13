@@ -1,0 +1,10 @@
+- [ ] Hero-Layout so überarbeiten, dass Headline und Bild auf großen Screens sauber nebeneinander stehen und sich nicht überlappen
+- [ ] Headline-Typografie auf einen eleganteren Google Font umstellen und Schriftbreiten harmonisieren
+- [ ] Abstände, Bildproportionen und Gesamtkomposition der Seite feinjustieren
+- [ ] Build lokal prüfen und Deployment der korrigierten Version durchführen
+- [ ] Finalen Stand erneut mit GitHub synchronisieren
+- [ ] Externe Calendly-Links durch eingebettetes In-Site-Booking ersetzen
+- [ ] Alle Buchungs-Buttons auf Calendly-Popup innerhalb der Website umstellen
+- [ ] Calendly-Script sauber in das HTML integrieren
+- [ ] Build und Booking-Flow lokal prüfen
+- [ ] Aktualisierte Version erneut deployen und synchronisieren

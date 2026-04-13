@@ -1,8 +1,8 @@
 /**
  * Design reminder for Home.tsx
- * Light Cinematic Futurism: monumentale Headlines, helle Premium-Flächen,
- * asymmetrische Kompositionen, große Bildfenster, minimaler Text,
- * technischer Vertrauensaufbau statt klassischer Cyber-Düsternis.
+ * Light Cinematic Futurism: helle High-Key-Komposition, präzise Premium-Typografie,
+ * kontrollierte Monumentalität statt Breite, klare Zweispalten-Heroes ohne Überlappung,
+ * große Bildfenster und viel ruhiger Weißraum.
  */
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+
+const CALENDLY_URL = "https://calendly.com/b2cybersec/kontakt";
 
 type Language = "de" | "en";
 
@@ -216,14 +218,29 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("de");
   const t = content[language];
 
+  const openCalendlyPopup = () => {
+    const calendly = (
+      window as Window & {
+        Calendly?: {
+          initPopupWidget: (options: { url: string }) => void;
+        };
+      }
+    ).Calendly;
+
+    calendly?.initPopupWidget({ url: CALENDLY_URL });
+  };
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(132,149,171,0.18),_transparent_28%),radial-gradient(circle_at_85%_15%,_rgba(181,194,210,0.2),_transparent_24%),linear-gradient(180deg,_rgba(255,255,255,0.92),_rgba(246,248,251,0.98))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(132,149,171,0.16),_transparent_26%),radial-gradient(circle_at_84%_12%,_rgba(181,194,210,0.16),_transparent_22%),linear-gradient(180deg,_rgba(255,255,255,0.92),_rgba(246,248,251,0.98))]" />
 
       <header className="fixed inset-x-0 top-0 z-50">
         <div className="container pt-4">
           <div className="frame-panel flex items-center justify-between gap-4 px-4 py-3 md:px-6">
-            <a href="#top" className="flex items-center gap-3 text-sm font-semibold tracking-[0.22em] text-slate-900">
+            <a
+              href="#top"
+              className="flex items-center gap-3 text-sm font-semibold tracking-[0.22em] text-slate-900"
+            >
               <span className="inline-flex h-2.5 w-2.5 rounded-full bg-slate-900" />
               B2CYBERSEC
             </a>
@@ -266,10 +283,12 @@ export default function Home() {
                 </button>
               </div>
 
-              <Button asChild className="hidden rounded-full bg-slate-950 px-5 text-white shadow-[0_16px_36px_rgba(15,23,42,0.16)] sm:inline-flex">
-                <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
-                  {t.nav.cta}
-                </a>
+              <Button
+                type="button"
+                onClick={openCalendlyPopup}
+                className="hidden rounded-full bg-slate-950 px-5 text-white shadow-[0_16px_36px_rgba(15,23,42,0.14)] lg:inline-flex"
+              >
+                {t.nav.cta}
               </Button>
             </div>
           </div>
@@ -277,25 +296,33 @@ export default function Home() {
       </header>
 
       <main id="top" className="relative z-10">
-        <section className="container min-h-screen pt-28 pb-14 sm:pt-32 lg:pb-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:gap-20">
-            <motion.div {...fadeUp} className="max-w-3xl">
+        <section className="container min-h-screen pt-28 pb-16 sm:pt-32 lg:pb-24 xl:pt-36">
+          <div className="grid items-center gap-10 lg:min-h-[calc(100vh-10rem)] lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.04fr)] lg:gap-12 xl:gap-16">
+            <motion.div {...fadeUp} className="relative z-10 max-w-[35rem] lg:pr-4 xl:max-w-[38rem] xl:pr-6">
               <div className="section-kicker mb-6">{t.hero.eyebrow}</div>
-              <h1 className="max-w-4xl text-[clamp(3.6rem,9vw,8.2rem)] font-semibold uppercase leading-[0.92] tracking-[-0.06em] text-slate-950">
+              <h1 className="max-w-[10ch] text-[clamp(3rem,5.7vw,6.4rem)] font-semibold uppercase leading-[0.9] tracking-[-0.075em] text-slate-950">
                 {t.hero.title}
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              <p className="mt-7 max-w-xl text-[1.02rem] leading-7 text-slate-600 sm:text-[1.08rem] sm:leading-8">
                 {t.hero.text}
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button asChild size="lg" className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]">
-                  <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
-                    {t.hero.primary}
-                    <CalendarDays className="ml-2 h-4 w-4" />
-                  </a>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <Button
+                  type="button"
+                  size="lg"
+                  onClick={openCalendlyPopup}
+                  className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]"
+                >
+                  {t.hero.primary}
+                  <CalendarDays className="ml-2 h-4 w-4" />
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full border-black/10 bg-white/70 px-7 text-slate-950 backdrop-blur-xl">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full border-black/10 bg-white/70 px-7 text-slate-950 backdrop-blur-xl"
+                >
                   <a href="#plans">
                     {t.hero.secondary}
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -307,7 +334,7 @@ export default function Home() {
                 {t.hero.stats.map((stat) => (
                   <span
                     key={stat}
-                    className="inline-flex items-center rounded-full border border-black/7 bg-white/80 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl"
+                    className="inline-flex items-center rounded-full border border-black/7 bg-white/82 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl"
                   >
                     {stat}
                   </span>
@@ -315,14 +342,18 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.12 }}>
+            <motion.div
+              {...fadeUp}
+              transition={{ ...fadeUp.transition, delay: 0.12 }}
+              className="lg:ml-auto lg:w-full lg:max-w-[48rem]"
+            >
               <div className="frame-panel relative overflow-hidden p-3 sm:p-4">
                 <img
                   src={heroImage}
                   alt="Bright premium cybersecurity consulting environment"
-                  className="hero-image h-[32rem] w-full object-cover object-center sm:h-[40rem]"
+                  className="hero-image h-[28rem] w-full object-cover object-center sm:h-[34rem] lg:h-[42rem]"
                 />
-                <div className="absolute inset-x-6 bottom-6 grid gap-3 sm:grid-cols-3">
+                <div className="absolute inset-x-4 bottom-4 grid gap-3 sm:inset-x-6 sm:bottom-6 sm:grid-cols-3">
                   <div className="glass-panel px-4 py-4">
                     <div className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
                       NIS-2
@@ -347,12 +378,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container py-8 sm:py-12">
+        <section className="container py-10 sm:py-14">
           <motion.div
             {...fadeUp}
             className="frame-panel px-6 py-10 text-center sm:px-10 md:px-14 md:py-14"
           >
-            <p className="text-[clamp(2rem,6vw,5rem)] font-semibold uppercase leading-[0.95] tracking-[-0.05em] text-slate-950">
+            <p className="mx-auto max-w-[13ch] text-[clamp(2rem,5vw,4.7rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
               {t.statement}
             </p>
           </motion.div>
@@ -361,15 +392,15 @@ export default function Home() {
         <section id="solutions" className="container py-16 sm:py-20 lg:py-24">
           <motion.div {...fadeUp} className="max-w-4xl">
             <div className="section-kicker">{t.sectionLabel}</div>
-            <h2 className="mt-4 text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+            <h2 className="mt-4 max-w-[12ch] text-[clamp(2.35rem,5.1vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
               {t.sectionTitle}
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
               {t.sectionText}
             </p>
           </motion.div>
 
-          <div className="mt-10 grid gap-6 xl:grid-cols-2">
+          <div className="mt-12 grid gap-6 xl:grid-cols-2">
             {t.solutions.map((item, index) => (
               <motion.article
                 key={item.title}
@@ -379,18 +410,22 @@ export default function Home() {
               >
                 <div className="absolute inset-0">
                   <img src={item.image} alt={item.label} className="h-full w-full object-cover object-center" />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,250,252,0.06),rgba(248,250,252,0.88)_64%,rgba(248,250,252,0.96)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,250,252,0.04),rgba(248,250,252,0.88)_65%,rgba(248,250,252,0.97)_100%)]" />
                 </div>
                 <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8 lg:p-10">
                   <div className="section-kicker mb-4">{item.label}</div>
-                  <h3 className="max-w-2xl text-[clamp(2rem,4vw,3.35rem)] font-semibold uppercase leading-[0.98] tracking-[-0.05em] text-slate-950">
+                  <h3 className="max-w-[14ch] text-[clamp(2rem,4vw,3.15rem)] font-semibold uppercase leading-[0.96] tracking-[-0.06em] text-slate-950">
                     {item.title}
                   </h3>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base sm:leading-7">
                     {item.text}
                   </p>
                   <div className="mt-7">
-                    <Button asChild variant="outline" className="rounded-full border-black/10 bg-white/82 px-6 text-slate-950 backdrop-blur-xl">
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="rounded-full border-black/10 bg-white/82 px-6 text-slate-950 backdrop-blur-xl"
+                    >
                       <a href={item.href}>
                         {item.cta}
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -406,15 +441,15 @@ export default function Home() {
         <section id="plans" className="container py-16 sm:py-20 lg:py-24">
           <motion.div {...fadeUp} className="max-w-4xl">
             <div className="section-kicker">{t.pricingLabel}</div>
-            <h2 className="mt-4 text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+            <h2 className="mt-4 max-w-[11ch] text-[clamp(2.35rem,5.1vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
               {t.pricingTitle}
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
               {t.pricingText}
             </p>
           </motion.div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {t.plans.map((plan, index) => (
               <motion.article
                 key={`${plan.category}-${plan.name}`}
@@ -426,7 +461,7 @@ export default function Home() {
                   <div className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-slate-500">
                     {plan.category}
                   </div>
-                  <div className="mt-3 text-3xl font-semibold uppercase tracking-[-0.04em] text-slate-950">
+                  <div className="mt-3 text-[2rem] font-semibold uppercase tracking-[-0.05em] text-slate-950">
                     {plan.name}
                   </div>
                   <div className="mt-6 text-xl font-semibold uppercase tracking-[-0.03em] text-slate-950">
@@ -458,29 +493,37 @@ export default function Home() {
                 alt="Bright premium consultation environment"
                 className="h-full w-full object-cover object-center"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,250,252,0.96)_0%,rgba(248,250,252,0.88)_44%,rgba(248,250,252,0.56)_70%,rgba(248,250,252,0.22)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(248,250,252,0.96)_0%,rgba(248,250,252,0.9)_46%,rgba(248,250,252,0.58)_72%,rgba(248,250,252,0.24)_100%)]" />
             </div>
 
             <div className="relative z-10 grid min-h-[36rem] gap-10 p-6 sm:p-8 lg:grid-cols-[0.95fr_0.65fr] lg:p-10 xl:p-14">
               <div className="flex max-w-2xl flex-col justify-between">
                 <div>
                   <div className="section-kicker">{t.contact.label}</div>
-                  <h2 className="mt-4 max-w-xl text-[clamp(2.4rem,6vw,5rem)] font-semibold uppercase leading-[0.96] tracking-[-0.05em] text-slate-950">
+                  <h2 className="mt-4 max-w-[11ch] text-[clamp(2.35rem,5.1vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
                     {t.contact.title}
                   </h2>
-                  <p className="mt-5 max-w-lg text-base leading-7 text-slate-600 sm:text-lg">
+                  <p className="mt-5 max-w-lg text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
                     {t.contact.text}
                   </p>
                 </div>
 
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <Button asChild size="lg" className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]">
-                    <a href="https://calendly.com/b2cybersec/kontakt" target="_blank" rel="noreferrer">
-                      {t.contact.primary}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
+                  <Button
+                    type="button"
+                    size="lg"
+                    onClick={openCalendlyPopup}
+                    className="rounded-full bg-slate-950 px-7 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)]"
+                  >
+                    {t.contact.primary}
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="rounded-full border-black/10 bg-white/76 px-7 text-slate-950 backdrop-blur-xl">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-black/10 bg-white/76 px-7 text-slate-950 backdrop-blur-xl"
+                  >
                     <a href="https://www.b2cybersec.com" target="_blank" rel="noreferrer">
                       {t.contact.secondary}
                       <Globe2 className="ml-2 h-4 w-4" />
