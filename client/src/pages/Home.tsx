@@ -19,7 +19,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const trustBadges = ["Cisco", "Fortinet", "Palo Alto", "CompTIA", "BSI"];
+const trustBadges = ["Cisco", "Check Point", "Palo Alto", "CompTIA", "BSI"];
 
 const heroStats = [
   { value: "20+", label: "Jahre Erfahrung in Network & Security" },
@@ -30,7 +30,7 @@ const heroStats = [
 const professionalServices = [
   "IT Network & Security Experten on-demand",
   "Remote-first Delivery mit maximal 10 % Onsite",
-  "Höchste Zertifizierungen von Cisco, Fortinet, Palo Alto und weiteren Herstellern",
+  "Höchste Zertifizierungen von Cisco, Check Point, Palo Alto und weiteren Herstellern",
   "20+ Jahre Erfahrung in anspruchsvollen Enterprise-Umgebungen",
   "Schneller Start ohne lange Ramp-up-Phase",
 ];
