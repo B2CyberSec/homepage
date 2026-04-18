@@ -259,18 +259,18 @@ export default function Home() {
             <div className="flex items-center gap-3 sm:gap-4">
               <a
                 href="#top"
-                className="min-w-0 flex-1 text-[0.78rem] font-semibold tracking-[0.14em] text-slate-950 sm:flex-none sm:text-sm sm:tracking-[0.2em]"
+                className="min-w-0 flex-1 text-[0.78rem] font-semibold tracking-[0.14em] text-[#0b1f6d] sm:flex-none sm:text-sm sm:tracking-[0.2em]"
                 onClick={closeMobileMenu}
               >
                 <span className="flex items-center gap-2.5 sm:gap-3">
-                  <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-slate-900" />
+                  <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-[#0b1f6d]" />
                   <span className="truncate">B2CYBERSEC</span>
                 </span>
               </a>
 
               <nav className="hidden items-center gap-7 text-[0.76rem] font-semibold uppercase tracking-[0.18em] text-slate-600 lg:flex">
                 {navItems.map((item) => (
-                  <a key={item.href} href={item.href} className="transition-colors hover:text-slate-950">
+                  <a key={item.href} href={item.href} className="transition-colors hover:text-[#0b1f6d]">
                     {item.label}
                   </a>
                 ))}
@@ -283,8 +283,8 @@ export default function Home() {
                     onClick={() => setLanguage("de")}
                     className={`rounded-full px-2 py-1.25 text-[0.62rem] font-semibold uppercase tracking-[0.12em] transition-all sm:px-3 sm:py-1.5 sm:text-[0.68rem] sm:tracking-[0.16em] ${
                       language === "de"
-                        ? "bg-slate-950 text-white"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-[#0b1f6d] text-white"
+                        : "text-slate-500 hover:text-[#0b1f6d]"
                     }`}
                   >
                     DE
@@ -294,8 +294,8 @@ export default function Home() {
                     onClick={() => setLanguage("en")}
                     className={`rounded-full px-2 py-1.25 text-[0.62rem] font-semibold uppercase tracking-[0.12em] transition-all sm:px-3 sm:py-1.5 sm:text-[0.68rem] sm:tracking-[0.16em] ${
                       language === "en"
-                        ? "bg-slate-950 text-white"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-[#0b1f6d] text-white"
+                        : "text-slate-500 hover:text-[#0b1f6d]"
                     }`}
                   >
                     EN
@@ -305,14 +305,14 @@ export default function Home() {
                 <Button
                   type="button"
                   onClick={openCalendlyPopup}
-                  className="hidden rounded-full bg-slate-950 px-5 text-white shadow-[0_16px_36px_rgba(15,23,42,0.14)] lg:inline-flex"
+                  className="hidden rounded-full bg-[#0b1f6d] px-5 text-white shadow-[0_16px_36px_rgba(15,23,42,0.14)] lg:inline-flex"
                 >
                   {t.nav.cta}
                 </Button>
 
                 <button
                   type="button"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/8 bg-white/82 text-slate-950 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-colors hover:bg-white lg:hidden sm:h-11 sm:w-11"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/8 bg-white/82 text-[#0b1f6d] shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-colors hover:bg-white lg:hidden sm:h-11 sm:w-11"
                   aria-expanded={mobileMenuOpen}
                   aria-label={mobileMenuOpen ? t.nav.close : t.nav.menu}
                   onClick={() => setMobileMenuOpen((open) => !open)}
@@ -334,8 +334,8 @@ export default function Home() {
                       onClick={() => setLanguage("de")}
                       className={`rounded-full px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] transition-all ${
                         language === "de"
-                          ? "bg-slate-950 text-white"
-                          : "text-slate-500 hover:text-slate-900"
+                          ? "bg-[#0b1f6d] text-white"
+                          : "text-slate-500 hover:text-[#0b1f6d]"
                       }`}
                     >
                       DE
@@ -345,8 +345,8 @@ export default function Home() {
                       onClick={() => setLanguage("en")}
                       className={`rounded-full px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] transition-all ${
                         language === "en"
-                          ? "bg-slate-950 text-white"
-                          : "text-slate-500 hover:text-slate-900"
+                          ? "bg-[#0b1f6d] text-white"
+                          : "text-slate-500 hover:text-[#0b1f6d]"
                       }`}
                     >
                       EN
@@ -359,7 +359,7 @@ export default function Home() {
                       key={item.href}
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className="rounded-[1.15rem] border border-black/7 bg-white/72 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:text-slate-950"
+                      className="rounded-[1.15rem] border border-black/7 bg-white/72 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-slate-700 shadow-[0_10px_24px_rgba(15,23,42,0.05)] backdrop-blur-xl transition-colors hover:text-[#0b1f6d]"
                     >
                       {item.label}
                     </a>
@@ -371,7 +371,7 @@ export default function Home() {
                     closeMobileMenu();
                     openCalendlyPopup();
                   }}
-                  className="mt-3 w-full rounded-full bg-slate-950 text-white shadow-[0_18px_36px_rgba(15,23,42,0.14)]"
+                  className="mt-3 w-full rounded-full bg-[#0b1f6d] text-white shadow-[0_18px_36px_rgba(15,23,42,0.14)]"
                 >
                   {t.nav.cta}
                   <CalendarDays className="ml-2 h-4 w-4" />
@@ -387,7 +387,7 @@ export default function Home() {
           <div className="grid items-start gap-8 lg:min-h-[calc(100vh-10rem)] lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.02fr)] lg:items-center lg:gap-12 xl:gap-16">
             <motion.div {...fadeUp} className="relative z-10 max-w-[35rem] lg:pr-4 xl:max-w-[38rem] xl:pr-6">
               <div className="section-kicker mb-5">{t.hero.eyebrow}</div>
-              <h1 className="max-w-[10ch] text-[clamp(2.08rem,9.6vw,4.1rem)] font-semibold uppercase leading-[0.9] tracking-[-0.08em] text-slate-950 sm:max-w-[10ch] sm:text-[clamp(2.9rem,10vw,6.25rem)]">
+              <h1 className="max-w-[10ch] text-[clamp(2.08rem,9.6vw,4.1rem)] font-semibold uppercase leading-[0.9] tracking-[-0.08em] text-[#0b1f6d] sm:max-w-[10ch] sm:text-[clamp(2.9rem,10vw,6.25rem)]">
                 {t.hero.title}
               </h1>
               <p className="mt-5 max-w-xl text-[0.98rem] leading-7 text-slate-600 sm:mt-7 sm:text-[1.05rem] sm:leading-8">
@@ -399,7 +399,7 @@ export default function Home() {
                   type="button"
                   size="lg"
                   onClick={openCalendlyPopup}
-                  className="w-full rounded-full bg-slate-950 px-6 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)] sm:w-auto sm:px-7"
+                  className="w-full rounded-full bg-[#0b1f6d] px-6 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)] sm:w-auto sm:px-7"
                 >
                   {t.hero.primary}
                   <CalendarDays className="ml-2 h-4 w-4" />
@@ -408,7 +408,7 @@ export default function Home() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="w-full rounded-full border-black/10 bg-white/74 px-6 text-slate-950 backdrop-blur-xl sm:w-auto sm:px-7"
+                  className="w-full rounded-full border-black/10 bg-white/74 px-6 text-[#0b1f6d] backdrop-blur-xl sm:w-auto sm:px-7"
                 >
                   <a href="#plans">
                     {t.hero.secondary}
@@ -445,19 +445,19 @@ export default function Home() {
                     <div className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
                       NIS-2
                     </div>
-                    <div className="mt-1.5 text-base font-semibold text-slate-950 sm:mt-2 sm:text-lg">Governance</div>
+                    <div className="mt-1.5 text-base font-semibold text-[#0b1f6d] sm:mt-2 sm:text-lg">Governance</div>
                   </div>
                   <div className="glass-panel px-4 py-3.5">
                     <div className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Advisory
                     </div>
-                    <div className="mt-1.5 text-base font-semibold text-slate-950 sm:mt-2 sm:text-lg">Expert Pool</div>
+                    <div className="mt-1.5 text-base font-semibold text-[#0b1f6d] sm:mt-2 sm:text-lg">Expert Pool</div>
                   </div>
                   <div className="glass-panel px-4 py-3.5">
                     <div className="text-[0.66rem] font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Region
                     </div>
-                    <div className="mt-1.5 text-base font-semibold text-slate-950 sm:mt-2 sm:text-lg">DACH</div>
+                    <div className="mt-1.5 text-base font-semibold text-[#0b1f6d] sm:mt-2 sm:text-lg">DACH</div>
                   </div>
                 </div>
               </div>
@@ -470,7 +470,7 @@ export default function Home() {
             {...fadeUp}
             className="frame-panel px-5 py-8 text-left sm:px-10 sm:py-12 md:px-14 md:py-14 md:text-center"
           >
-            <p className="max-w-[13ch] text-[clamp(1.95rem,9vw,4.7rem)] font-semibold uppercase leading-[0.94] tracking-[-0.07em] text-slate-950 md:mx-auto">
+            <p className="max-w-[13ch] text-[clamp(1.95rem,9vw,4.7rem)] font-semibold uppercase leading-[0.94] tracking-[-0.07em] text-[#0b1f6d] md:mx-auto">
               {t.statement}
             </p>
           </motion.div>
@@ -479,7 +479,7 @@ export default function Home() {
         <section id="solutions" className="container py-14 sm:py-18 lg:py-24">
           <motion.div {...fadeUp} className="max-w-4xl">
             <div className="section-kicker">{t.sectionLabel}</div>
-            <h2 className="mt-4 max-w-[12ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
+            <h2 className="mt-4 max-w-[12ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-[#0b1f6d]">
               {t.sectionTitle}
             </h2>
             <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -501,7 +501,7 @@ export default function Home() {
                 </div>
                 <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-8 lg:p-10">
                   <div className="section-kicker mb-4">{item.label}</div>
-                  <h3 className="max-w-[14ch] text-[clamp(1.75rem,8vw,3.15rem)] font-semibold uppercase leading-[0.96] tracking-[-0.06em] text-slate-950">
+                  <h3 className="max-w-[14ch] text-[clamp(1.75rem,8vw,3.15rem)] font-semibold uppercase leading-[0.96] tracking-[-0.06em] text-[#0b1f6d]">
                     {item.title}
                   </h3>
                   <p className="mt-4 max-w-xl text-sm leading-6.5 text-slate-600 sm:text-base sm:leading-7">
@@ -511,7 +511,7 @@ export default function Home() {
                     <Button
                       asChild
                       variant="outline"
-                      className="w-full rounded-full border-black/10 bg-white/82 px-6 text-slate-950 backdrop-blur-xl sm:w-auto"
+                      className="w-full rounded-full border-black/10 bg-white/82 px-6 text-[#0b1f6d] backdrop-blur-xl sm:w-auto"
                     >
                       <a href={item.href}>
                         {item.cta}
@@ -528,7 +528,7 @@ export default function Home() {
         <section id="plans" className="container py-14 sm:py-18 lg:py-24">
           <motion.div {...fadeUp} className="max-w-4xl">
             <div className="section-kicker">{t.pricingLabel}</div>
-            <h2 className="mt-4 max-w-[11ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
+            <h2 className="mt-4 max-w-[11ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-[#0b1f6d]">
               {t.pricingTitle}
             </h2>
             <p className="mt-5 max-w-2xl text-[0.98rem] leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -548,10 +548,10 @@ export default function Home() {
                   <div className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-slate-500">
                     {plan.category}
                   </div>
-                  <div className="mt-3 text-[1.85rem] font-semibold uppercase tracking-[-0.05em] text-slate-950 sm:text-[2rem]">
+                  <div className="mt-3 text-[1.85rem] font-semibold uppercase tracking-[-0.05em] text-[#0b1f6d] sm:text-[2rem]">
                     {plan.name}
                   </div>
-                  <div className="mt-5 text-lg font-semibold uppercase tracking-[-0.03em] text-slate-950 sm:mt-6 sm:text-xl">
+                  <div className="mt-5 text-lg font-semibold uppercase tracking-[-0.03em] text-[#0b1f6d] sm:mt-6 sm:text-xl">
                     {plan.price}
                   </div>
                   <div className="mt-1 text-sm text-slate-500">{plan.cadence}</div>
@@ -561,7 +561,7 @@ export default function Home() {
                   <ul className="space-y-3">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-slate-950" />
+                        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#0b1f6d]" />
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -587,7 +587,7 @@ export default function Home() {
               <div className="flex max-w-2xl flex-col justify-between">
                 <div>
                   <div className="section-kicker">{t.contact.label}</div>
-                  <h2 className="mt-4 max-w-[11ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-slate-950">
+                  <h2 className="mt-4 max-w-[11ch] text-[clamp(2.05rem,10vw,4.8rem)] font-semibold uppercase leading-[0.94] tracking-[-0.065em] text-[#0b1f6d]">
                     {t.contact.title}
                   </h2>
                   <p className="mt-5 max-w-lg text-[0.98rem] leading-7 text-slate-600 sm:text-lg sm:leading-8">
@@ -600,7 +600,7 @@ export default function Home() {
                     type="button"
                     size="lg"
                     onClick={openCalendlyPopup}
-                    className="w-full rounded-full bg-slate-950 px-6 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)] sm:w-auto sm:px-7"
+                    className="w-full rounded-full bg-[#0b1f6d] px-6 text-white shadow-[0_18px_42px_rgba(15,23,42,0.16)] sm:w-auto sm:px-7"
                   >
                     {t.contact.primary}
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -609,7 +609,7 @@ export default function Home() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="w-full rounded-full border-black/10 bg-white/76 px-6 text-slate-950 backdrop-blur-xl sm:w-auto sm:px-7"
+                    className="w-full rounded-full border-black/10 bg-white/76 px-6 text-[#0b1f6d] backdrop-blur-xl sm:w-auto sm:px-7"
                   >
                     <a href="https://www.b2cybersec.com" target="_blank" rel="noreferrer">
                       {t.contact.secondary}
@@ -630,7 +630,7 @@ export default function Home() {
                 </div>
                 <a
                   href="tel:+4982190789500"
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-slate-950"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#0b1f6d]"
                 >
                   <Phone className="h-4 w-4" />
                   +49 (0) 821 90 789 500
