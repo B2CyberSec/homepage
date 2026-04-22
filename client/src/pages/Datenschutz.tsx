@@ -63,7 +63,7 @@ export default function Datenschutz() {
                 <p className="text-white font-semibold">B2CyberSec GmbH</p>
                 <p>Vertreten durch: Boris Bošnjak (Geschäftsführer)</p>
                 <p className="mt-3">Telefon: +49 (0) 821 90 789 500</p>
-                <p>E-Mail: <a href="mailto:boris@b2cybersec.com" className="text-[#0A84FF] hover:underline">boris@b2cybersec.com</a></p>
+                <p>E-Mail: <a href="mailto:info@b2cybersec.com" className="text-[#0A84FF] hover:underline">info@b2cybersec.com</a></p>
               </div>
             </section>
 
@@ -134,7 +134,7 @@ export default function Datenschutz() {
                 <p>Bei Fragen zum Datenschutz wenden Sie sich bitte an:</p>
                 <p className="mt-3 text-white font-semibold">Boris Bošnjak</p>
                 <p>B2CyberSec GmbH</p>
-                <p>E-Mail: <a href="mailto:boris@b2cybersec.com" className="text-[#0A84FF] hover:underline">boris@b2cybersec.com</a></p>
+                <p>E-Mail: <a href="mailto:datenschutz@b2cybersec.com" className="text-[#0A84FF] hover:underline">datenschutz@b2cybersec.com</a></p>
                 <p>Telefon: +49 (0) 821 90 789 500</p>
               </div>
             </section>
