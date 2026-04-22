@@ -214,6 +214,10 @@ export default function Home() {
                   src={IMG_PROFESSIONAL}
                   alt="Professional IT Services — Experten für Netzwerk, Cloud und Security"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="416"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
                 <div className="absolute top-4 left-4">
@@ -263,6 +267,10 @@ export default function Home() {
                   src={IMG_NIS2}
                   alt="NIS-2 Compliance und Governance — CISSP-zertifizierter Ex-CISO"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="416"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
                 <div className="absolute top-4 left-4">
@@ -312,6 +320,10 @@ export default function Home() {
                   src={IMG_PENTEST}
                   alt="Penetration Testing — Wir denken wie Angreifer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="416"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
                 <div className="absolute top-4 left-4">
@@ -427,6 +439,10 @@ export default function Home() {
                   alt="B2CyberSec Team — Drei Cybersecurity-Experten"
                   className="w-full h-auto object-cover"
                   style={{ maxHeight: "480px" }}
+                  loading="lazy"
+                  decoding="async"
+                  width="960"
+                  height="720"
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%)" }} />
                 <div className="absolute bottom-6 left-6 right-6">

@@ -219,6 +219,25 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    target: "es2020",
+    cssCodeSplit: true,
+    minify: "esbuild",
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react") || id.includes("scheduler") || id.includes("wouter")) {
+              return "react-vendor";
+            }
+            if (id.includes("@radix-ui") || id.includes("sonner") || id.includes("vaul") || id.includes("cmdk")) {
+              return "ui-vendor";
+            }
+            return "vendor";
+          }
+        },
+      },
+    },
   },
   server: {
     port: 3000,
