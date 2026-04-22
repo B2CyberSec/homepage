@@ -67,7 +67,7 @@ export const translations = {
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 GESCHÄFTSFÜHRER-HAFTUNG",
     "urgency.headline": "Bußgelder bis 10 Mio. €. Persönliche Haftung. Heute.",
-    "urgency.body": "Seit dem 17. Oktober 2024 ist NIS-2 in Deutschland verbindlich. Geschäftsführer können persönlich haftbar gemacht werden, wenn keine angemessenen Cybersecurity-Maßnahmen nachweisbar sind. Wir helfen Ihnen, die Pflichten in 90 Tagen umzusetzen.",
+    "urgency.body": "Seit April 2025 ist NIS-2 in Deutschland verbindlich. Geschäftsführer können persönlich haftbar gemacht werden, wenn keine angemessenen Cybersecurity-Maßnahmen nachweisbar sind. Wir helfen Ihnen, die Pflichten in 90 Tagen umzusetzen.",
     "urgency.bullet1": "BSI-Meldepflicht innerhalb von 24 Stunden",
     "urgency.bullet2": "Nachweispflicht von Risikomanagement-Maßnahmen",
     "urgency.bullet3": "Persönliche Haftung der Geschäftsführung",
@@ -310,7 +310,7 @@ export const translations = {
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 DIRECTOR LIABILITY",
     "urgency.headline": "Fines up to € 10 million. Personal liability. Today.",
-    "urgency.body": "NIS-2 is binding in Germany. Directors can be held personally liable if no adequate cybersecurity measures can be evidenced. We help you implement the obligations in 90 days.",
+    "urgency.body": "Since April 2025, NIS-2 is binding in Germany. Directors can be held personally liable if no adequate cybersecurity measures can be evidenced. We help you implement the obligations in 90 days.",
     "urgency.bullet1": "24-hour notification duty to the BSI",
     "urgency.bullet2": "Documented evidence of risk-management measures",
     "urgency.bullet3": "Personal liability of management",
