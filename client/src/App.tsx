@@ -11,6 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 
 // Code-splitting: lazy-load secondary routes to keep the initial bundle small.
@@ -36,12 +37,27 @@ function Router() {
           <Assessment />
         </Suspense>
       </Route>
+      <Route path="/readiness-check">
+        <Suspense fallback={<RouteFallback />}>
+          <Assessment />
+        </Suspense>
+      </Route>
       <Route path="/impressum">
         <Suspense fallback={<RouteFallback />}>
           <Impressum />
         </Suspense>
       </Route>
+      <Route path="/imprint">
+        <Suspense fallback={<RouteFallback />}>
+          <Impressum />
+        </Suspense>
+      </Route>
       <Route path="/datenschutz">
+        <Suspense fallback={<RouteFallback />}>
+          <Datenschutz />
+        </Suspense>
+      </Route>
+      <Route path="/privacy">
         <Suspense fallback={<RouteFallback />}>
           <Datenschutz />
         </Suspense>
@@ -64,10 +80,12 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </LanguageProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

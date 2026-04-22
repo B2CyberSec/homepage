@@ -1,606 +1,595 @@
 /*
- * B2CyberSec NIS-2 Readiness Check
- * Design: Apple Dark Mode + Editorial Precision
- * Flow: Questions → Lead Form → Score + Recommendation → Calendly redirect
- * HubSpot: Lead creation via API (key configurable via VITE_HUBSPOT_API_KEY)
+ * B2CyberSec — NIS-2 Director Readiness Check
+ * Bilingual via LanguageContext (DE/EN). Default DE.
+ *
+ * Flow: intro -> questions (12) -> lead form -> result (score + area bars + gaps + CTA)
+ * Design: matches site palette — black background, Apple-blue accents, glassmorphic cards.
  */
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Link } from "wouter";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  ShieldAlert,
+  ShieldCheck,
+  ShieldX,
+  Sparkles,
+  Lock,
+  Calendar,
+  RefreshCw,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Link } from "wouter";
+import { useT } from "@/contexts/LanguageContext";
+import type { TranslationKey } from "@/lib/translations";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type Answer = "yes" | "partial" | "no" | null;
+type Answer = "yes" | "no" | "dontknow";
+type AreaId = "applicability" | "accountability" | "risk" | "incidents" | "audit";
 
 interface Question {
   id: number;
-  category: string;
-  text: string;
-  hint: string;
-  weights: { yes: number; partial: number; no: number };
+  area: AreaId;
+  textKey: TranslationKey;
 }
-
-interface LeadData {
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-}
-
-// ─── Questions ────────────────────────────────────────────────────────────────
 
 const QUESTIONS: Question[] = [
-  {
-    id: 1,
-    category: "Governance",
-    text: "Hat Ihr Unternehmen eine dokumentierte Informationssicherheits-Richtlinie?",
-    hint: "Eine schriftliche Policy, die regelt, wie mit Informationen und IT-Systemen umgegangen wird.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 2,
-    category: "Governance",
-    text: "Gibt es eine klare Verantwortlichkeit für Informationssicherheit (z.B. CISO oder ISB)?",
-    hint: "Eine benannte Person oder Funktion, die für IT-Sicherheit verantwortlich ist.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 3,
-    category: "Risikomanagement",
-    text: "Führen Sie regelmäßige Risikoanalysen für Ihre IT-Systeme durch?",
-    hint: "Mindestens jährliche Bewertung von Bedrohungen, Schwachstellen und deren Auswirkungen.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 4,
-    category: "Risikomanagement",
-    text: "Haben Sie einen dokumentierten Business Continuity Plan (BCP) oder Notfallplan?",
-    hint: "Ein Plan, der beschreibt, wie der Betrieb bei einem Sicherheitsvorfall aufrechterhalten wird.",
-    weights: { yes: 8, partial: 4, no: 0 },
-  },
-  {
-    id: 5,
-    category: "Technische Maßnahmen",
-    text: "Sind alle Systeme mit aktuellen Sicherheitsupdates und Patches versorgt?",
-    hint: "Regelmäßiges Patching von Betriebssystemen, Anwendungen und Firmware.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 6,
-    category: "Technische Maßnahmen",
-    text: "Nutzen Sie Multi-Faktor-Authentifizierung (MFA) für kritische Systeme und Remote-Zugriffe?",
-    hint: "MFA für VPN, Admin-Zugänge, E-Mail und Cloud-Dienste.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 7,
-    category: "Technische Maßnahmen",
-    text: "Werden Ihre Systeme regelmäßig auf Schwachstellen gescannt oder getestet?",
-    hint: "Vulnerability Scans, Penetration Tests oder externe Security-Audits.",
-    weights: { yes: 8, partial: 4, no: 0 },
-  },
-  {
-    id: 8,
-    category: "Incident Management",
-    text: "Haben Sie einen definierten Prozess zur Erkennung und Meldung von Sicherheitsvorfällen?",
-    hint: "NIS-2 verlangt die Meldung erheblicher Vorfälle innerhalb von 24 Stunden.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 9,
-    category: "Incident Management",
-    text: "Wurden Ihre Mitarbeiter in den letzten 12 Monaten zu Cybersicherheit geschult?",
-    hint: "Security Awareness Training, Phishing-Simulationen oder ähnliche Maßnahmen.",
-    weights: { yes: 8, partial: 4, no: 0 },
-  },
-  {
-    id: 10,
-    category: "Supply Chain",
-    text: "Bewerten Sie die Sicherheit Ihrer wichtigsten IT-Dienstleister und Lieferanten?",
-    hint: "NIS-2 fordert explizit das Management von Risiken in der Lieferkette.",
-    weights: { yes: 8, partial: 4, no: 0 },
-  },
-  {
-    id: 11,
-    category: "Datenschutz & Compliance",
-    text: "Ist Ihr Unternehmen bereits nach ISO 27001 oder einem vergleichbaren Standard zertifiziert?",
-    hint: "ISO 27001, SOC 2, BSI IT-Grundschutz oder ähnliche Zertifizierungen.",
-    weights: { yes: 10, partial: 5, no: 0 },
-  },
-  {
-    id: 12,
-    category: "Datenschutz & Compliance",
-    text: "Wissen Sie, ob Ihr Unternehmen unter die NIS-2-Richtlinie fällt?",
-    hint: "NIS-2 gilt für Unternehmen in 18 kritischen Sektoren mit 50+ Mitarbeitern oder 10 Mio. € Umsatz.",
-    weights: { yes: 6, partial: 3, no: 0 },
-  },
+  { id: 1, area: "applicability", textKey: "as.q1" },
+  { id: 2, area: "applicability", textKey: "as.q2" },
+  { id: 3, area: "accountability", textKey: "as.q3" },
+  { id: 4, area: "accountability", textKey: "as.q4" },
+  { id: 5, area: "accountability", textKey: "as.q5" },
+  { id: 6, area: "risk", textKey: "as.q6" },
+  { id: 7, area: "risk", textKey: "as.q7" },
+  { id: 8, area: "incidents", textKey: "as.q8" },
+  { id: 9, area: "incidents", textKey: "as.q9" },
+  { id: 10, area: "incidents", textKey: "as.q10" },
+  { id: 11, area: "audit", textKey: "as.q11" },
+  { id: 12, area: "audit", textKey: "as.q12" },
 ];
 
-const MAX_SCORE = QUESTIONS.reduce((sum, q) => sum + q.weights.yes, 0);
+const AREA_ORDER: AreaId[] = ["applicability", "accountability", "risk", "incidents", "audit"];
 
-// ─── Score interpretation ─────────────────────────────────────────────────────
+const AREA_LABEL_KEY: Record<AreaId, TranslationKey> = {
+  applicability: "as.area.applicability",
+  accountability: "as.area.accountability",
+  risk: "as.area.risk",
+  incidents: "as.area.incidents",
+  audit: "as.area.audit",
+};
 
-function getScoreResult(score: number) {
-  const pct = (score / MAX_SCORE) * 100;
-  if (pct >= 75) {
-    return {
-      level: "Gut aufgestellt",
-      color: "#30D158",
-      colorClass: "score-high",
-      bgClass: "bg-[#30D158]/10 border-[#30D158]/30",
-      icon: "✓",
-      description: "Ihr Unternehmen hat bereits solide Grundlagen. Es gibt noch Optimierungspotenzial, aber Sie sind auf einem guten Weg zur NIS-2-Compliance.",
-      recommendation: "Wir empfehlen ein gezieltes Gap-Assessment, um die verbleibenden Lücken zu schließen und Ihre Dokumentation zu vervollständigen.",
-      calendlyUrl: "https://calendly.com/b2cybersec-team/pro-services",
-      expert: "Senad Džananović",
-      expertRole: "NIS-2 & Compliance",
-    };
-  } else if (pct >= 45) {
-    return {
-      level: "Handlungsbedarf",
-      color: "#FF9F0A",
-      colorClass: "score-medium",
-      bgClass: "bg-[#FF9F0A]/10 border-[#FF9F0A]/30",
-      icon: "!",
-      description: "Es bestehen erhebliche Lücken in Ihrer Sicherheitsstrategie. Ohne Maßnahmen riskieren Sie Bußgelder und persönliche Haftung als Geschäftsführer.",
-      recommendation: "Wir empfehlen ein umfassendes NIS-2-Readiness-Assessment mit anschließendem Umsetzungsplan. Starten Sie jetzt, bevor Aufsichtsbehörden aktiv werden.",
-      calendlyUrl: "https://calendly.com/b2cybersec-team/pro-services",
-      expert: "Senad Džananović",
-      expertRole: "NIS-2 & Compliance",
-    };
-  } else {
-    return {
-      level: "Kritischer Nachholbedarf",
-      color: "#FF453A",
-      colorClass: "score-low",
-      bgClass: "bg-[#FF453A]/10 border-[#FF453A]/30",
-      icon: "✗",
-      description: "Ihr Unternehmen ist erheblichen Risiken ausgesetzt. Die aktuelle Situation stellt eine direkte Gefahr für Ihren Betrieb und Ihre persönliche Haftung als Geschäftsführer dar.",
-      recommendation: "Sofortiger Handlungsbedarf. Wir empfehlen ein Notfall-Assessment innerhalb der nächsten 2 Wochen, um die kritischsten Lücken zu identifizieren und zu schließen.",
-      calendlyUrl: "https://calendly.com/b2cybersec-team/pro-services",
-      expert: "Senad Džananović",
-      expertRole: "NIS-2 & Compliance",
-    };
-  }
-}
+const AREA_SHORT_KEY: Record<AreaId, TranslationKey> = {
+  applicability: "as.area.applicability.short",
+  accountability: "as.area.accountability.short",
+  risk: "as.area.risk.short",
+  incidents: "as.area.incidents.short",
+  audit: "as.area.audit.short",
+};
 
-// ─── HubSpot Lead Submission ──────────────────────────────────────────────────
-
-async function submitHubSpotLead(lead: LeadData, score: number, answers: (Answer | null)[]) {
-  // HubSpot Forms API (no CORS issues, works from frontend)
-  // Portal ID and Form ID can be configured — using a placeholder until API key is provided
-  const portalId = import.meta.env.VITE_HUBSPOT_PORTAL_ID || "PLACEHOLDER";
-  const formId = import.meta.env.VITE_HUBSPOT_FORM_ID || "PLACEHOLDER";
-
-  const payload = {
-    fields: [
-      { name: "firstname", value: lead.name.split(" ")[0] || lead.name },
-      { name: "lastname", value: lead.name.split(" ").slice(1).join(" ") || "" },
-      { name: "company", value: lead.company },
-      { name: "email", value: lead.email },
-      { name: "phone", value: lead.phone },
-      { name: "nis2_score", value: String(score) },
-      { name: "nis2_score_pct", value: String(Math.round((score / MAX_SCORE) * 100)) },
-      { name: "lead_source", value: "NIS-2 Readiness Check" },
-    ],
-    context: {
-      pageUri: window.location.href,
-      pageName: "NIS-2 Readiness Check",
-    },
-  };
-
-  if (portalId === "PLACEHOLDER" || formId === "PLACEHOLDER") {
-    // HubSpot not yet configured — log and continue
-    console.log("[B2CyberSec] HubSpot not configured. Lead data:", payload);
-    return { success: true, mock: true };
-  }
-
-  try {
-    const res = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }
-    );
-    return { success: res.ok };
-  } catch (e) {
-    console.error("[B2CyberSec] HubSpot submission error:", e);
-    return { success: false };
-  }
-}
-
-// ─── Component ────────────────────────────────────────────────────────────────
+const SENAD_CALENDLY = "https://calendly.com/b2cybersec-team/pro-services";
 
 type Phase = "intro" | "questions" | "lead" | "result";
 
+interface LeadData {
+  name: string;
+  email: string;
+  company: string;
+  role: string;
+  consent: boolean;
+}
+
+const EMPTY_LEAD: LeadData = { name: "", email: "", company: "", role: "", consent: false };
+
 export default function Assessment() {
+  const { t, lang } = useT();
   const [phase, setPhase] = useState<Phase>("intro");
-  const [currentQ, setCurrentQ] = useState(0);
-  const [answers, setAnswers] = useState<(Answer | null)[]>(new Array(QUESTIONS.length).fill(null));
-  const [lead, setLead] = useState<LeadData>({ name: "", company: "", email: "", phone: "" });
+  const [current, setCurrent] = useState(0);
+  const [answers, setAnswers] = useState<Record<number, Answer>>({});
+  const [lead, setLead] = useState<LeadData>(EMPTY_LEAD);
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
 
-  const totalScore = answers.reduce((sum, ans, i) => {
-    if (!ans) return sum;
-    return sum + QUESTIONS[i].weights[ans];
-  }, 0);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [phase]);
 
-  const scoreResult = getScoreResult(totalScore);
-  const progress = ((currentQ + 1) / QUESTIONS.length) * 100;
+  const totalAnswered = Object.keys(answers).length;
+  const progress = Math.round((current / QUESTIONS.length) * 100);
 
-  function handleAnswer(answer: Answer) {
-    const newAnswers = [...answers];
-    newAnswers[currentQ] = answer;
-    setAnswers(newAnswers);
+  const result = useMemo(() => {
+    const yesCount = QUESTIONS.filter((q) => answers[q.id] === "yes").length;
+    const tier =
+      yesCount <= 4
+        ? ("critical" as const)
+        : yesCount <= 8
+        ? ("action" as const)
+        : yesCount <= 11
+        ? ("onTrack" as const)
+        : ("exemplary" as const);
 
+    const byArea = AREA_ORDER.map((area) => {
+      const qs = QUESTIONS.filter((q) => q.area === area);
+      const yes = qs.filter((q) => answers[q.id] === "yes").length;
+      return {
+        id: area,
+        total: qs.length,
+        yes,
+        pct: qs.length === 0 ? 0 : Math.round((yes / qs.length) * 100),
+      };
+    });
+
+    const gaps = QUESTIONS.filter((q) => answers[q.id] !== "yes");
+
+    return { yesCount, tier, byArea, gaps };
+  }, [answers]);
+
+  const tierMeta = {
+    critical: {
+      label: t("as.tier.critical.label"),
+      desc: t("as.tier.critical.desc"),
+      color: "text-red-400",
+      ring: "from-red-500 to-red-700",
+      icon: ShieldX,
+    },
+    action: {
+      label: t("as.tier.action.label"),
+      desc: t("as.tier.action.desc"),
+      color: "text-amber-300",
+      ring: "from-amber-400 to-amber-600",
+      icon: ShieldAlert,
+    },
+    onTrack: {
+      label: t("as.tier.onTrack.label"),
+      desc: t("as.tier.onTrack.desc"),
+      color: "text-[#0A84FF]",
+      ring: "from-[#0A84FF] to-[#0066CC]",
+      icon: ShieldCheck,
+    },
+    exemplary: {
+      label: t("as.tier.exemplary.label"),
+      desc: t("as.tier.exemplary.desc"),
+      color: "text-emerald-400",
+      ring: "from-emerald-400 to-emerald-600",
+      icon: CheckCircle2,
+    },
+  }[result.tier];
+  const TierIcon = tierMeta.icon;
+
+  function start() {
+    setPhase("questions");
+    setCurrent(0);
+  }
+
+  function pickAnswer(a: Answer) {
+    const q = QUESTIONS[current];
+    setAnswers((prev) => ({ ...prev, [q.id]: a }));
     setTimeout(() => {
-      if (currentQ < QUESTIONS.length - 1) {
-        setCurrentQ(currentQ + 1);
+      if (current < QUESTIONS.length - 1) {
+        setCurrent(current + 1);
       } else {
         setPhase("lead");
       }
-    }, 300);
+    }, 220);
   }
 
-  async function handleLeadSubmit(e: React.FormEvent) {
+  function goBack() {
+    if (current > 0) setCurrent(current - 1);
+  }
+
+  function goNext() {
+    if (!answers[QUESTIONS[current].id]) return;
+    if (current < QUESTIONS.length - 1) setCurrent(current + 1);
+    else setPhase("lead");
+  }
+
+  async function submitLead(e: React.FormEvent) {
     e.preventDefault();
-    if (!lead.name || !lead.company || !lead.email) {
-      setError("Bitte füllen Sie alle Pflichtfelder aus.");
-      return;
-    }
-    setError("");
+    if (!lead.name || !lead.email || !lead.company || !lead.consent) return;
     setSubmitting(true);
-    await submitHubSpotLead(lead, totalScore, answers);
-    setSubmitting(false);
-    setPhase("result");
+    try {
+      const portalId = (import.meta as any).env?.VITE_HUBSPOT_PORTAL_ID;
+      const formId = (import.meta as any).env?.VITE_HUBSPOT_FORM_ID;
+      if (portalId && formId) {
+        await fetch(
+          `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              fields: [
+                { name: "firstname", value: lead.name.split(" ")[0] || lead.name },
+                { name: "lastname", value: lead.name.split(" ").slice(1).join(" ") },
+                { name: "email", value: lead.email },
+                { name: "company", value: lead.company },
+                { name: "jobtitle", value: lead.role },
+                { name: "nis2_score", value: String(result.yesCount) },
+                { name: "nis2_tier", value: result.tier },
+                { name: "language", value: lang },
+              ],
+              context: {
+                pageUri: window.location.href,
+                pageName: "NIS-2 Director Readiness Check",
+              },
+            }),
+          },
+        ).catch(() => {});
+      }
+    } finally {
+      setSubmitting(false);
+      setPhase("result");
+    }
   }
 
-  const q = QUESTIONS[currentQ];
-  const answeredCount = answers.filter(Boolean).length;
+  function restart() {
+    setAnswers({});
+    setLead(EMPTY_LEAD);
+    setCurrent(0);
+    setPhase("intro");
+  }
+
+  const question = QUESTIONS[current];
+  const selected = question ? answers[question.id] : undefined;
 
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
 
-      <div className="pt-24 pb-20 min-h-screen flex flex-col">
-        {/* ── INTRO ── */}
-        {phase === "intro" && (
-          <div className="container flex-1 flex items-center">
-            <div className="max-w-3xl mx-auto text-center py-16">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card-blue mb-8">
-                <div className="w-2 h-2 rounded-full bg-[#0A84FF] animate-pulse" />
-                <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  Kostenlos · 5 Minuten · Sofortige Auswertung
-                </span>
-              </div>
-              <h1
-                className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
-              >
-                NIS-2
-                <br />
-                <span className="text-gradient-blue">Readiness Check</span>
-              </h1>
-              <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-                12 Fragen. 5 Minuten. Eine ehrliche Einschätzung, ob Ihr Unternehmen NIS-2-konform ist — und was Sie als Geschäftsführer riskieren, wenn nicht.
-              </p>
+      <main className="pt-24 pb-24">
+        <section className="container max-w-4xl">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {lang === "de" ? "Zurück zur Startseite" : "Back to home"}
+          </Link>
 
-              <div className="grid grid-cols-3 gap-4 mb-10 max-w-lg mx-auto">
-                {[
-                  { icon: "📋", label: "12 Fragen" },
-                  { icon: "⚡", label: "Sofort-Ergebnis" },
-                  { icon: "🎯", label: "Persönliche Empfehlung" },
-                ].map((item) => (
-                  <div key={item.label} className="glass-card rounded-xl p-4 text-center">
-                    <div className="text-2xl mb-1">{item.icon}</div>
-                    <div className="text-white/60 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>{item.label}</div>
-                  </div>
-                ))}
+          {phase === "intro" && (
+            <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0A84FF]/10 border border-[#0A84FF]/30 text-[#0A84FF] font-mono text-xs uppercase tracking-widest">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  {t("as.intro.duration")}
+                </span>
+                <h1 className="mt-6 font-display font-extrabold text-5xl md:text-6xl leading-[0.95] tracking-tight">
+                  {t("as.title")}
+                </h1>
+                <p className="mt-5 text-xl text-white/70 leading-relaxed">{t("as.subtitle")}</p>
+                <p className="mt-6 text-base text-white/60 leading-relaxed">{t("as.intro.body")}</p>
+
+                <ul className="mt-8 space-y-3">
+                  {(["as.intro.point1", "as.intro.point2", "as.intro.point3"] as TranslationKey[]).map(
+                    (k) => (
+                      <li key={k} className="flex items-start gap-3 text-base text-white/80">
+                        <CheckCircle2 className="w-5 h-5 text-[#0A84FF] mt-0.5 flex-none" />
+                        <span>{t(k)}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
+
+                <Button
+                  onClick={start}
+                  size="lg"
+                  className="mt-10 h-14 px-8 text-base bg-[#0A84FF] hover:bg-[#0A84FF]/90 text-white shadow-[0_8px_30px_-8px_rgba(10,132,255,0.6)]"
+                >
+                  {t("as.intro.cta")}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
               </div>
 
-              <button
-                onClick={() => setPhase("questions")}
-                className="inline-flex items-center gap-2 px-10 py-5 rounded-xl text-lg font-bold text-white btn-primary"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-              >
-                Check starten
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* ── QUESTIONS ── */}
-        {phase === "questions" && (
-          <div className="container flex-1 flex flex-col items-center justify-center py-8">
-            {/* Progress bar */}
-            <div className="w-full max-w-2xl mb-8">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-white/40 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  Frage {currentQ + 1} von {QUESTIONS.length}
-                </span>
-                <span className="text-[#0A84FF] text-xs font-semibold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  {answeredCount} beantwortet
-                </span>
-              </div>
-              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <div className="relative">
                 <div
-                  className="h-full bg-[#0A84FF] rounded-full transition-all duration-500"
-                  style={{ width: `${progress}%` }}
+                  className="absolute -inset-4 bg-gradient-to-br from-[#0A84FF]/20 via-transparent to-transparent blur-2xl"
+                  aria-hidden
                 />
-              </div>
-            </div>
-
-            {/* Question card */}
-            <div className="w-full max-w-2xl gradient-border p-8 md:p-10">
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md glass-card-blue mb-6">
-                <span className="text-[#0A84FF] text-xs font-semibold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  {q.category}
-                </span>
-              </div>
-
-              <h2
-                className="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}
-              >
-                {q.text}
-              </h2>
-
-              <p className="text-white/40 text-sm mb-8" style={{ fontFamily: "'Inter', sans-serif" }}>
-                {q.hint}
-              </p>
-
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  { value: "yes" as Answer, label: "Ja, vollständig umgesetzt", icon: "✓", color: "#30D158" },
-                  { value: "partial" as Answer, label: "Teilweise / in Arbeit", icon: "~", color: "#FF9F0A" },
-                  { value: "no" as Answer, label: "Nein / nicht vorhanden", icon: "✗", color: "#FF453A" },
-                ].map((option) => (
-                  <button
-                    key={option.value}
-                    onClick={() => handleAnswer(option.value)}
-                    className={`flex items-center gap-4 p-4 rounded-xl text-left transition-all duration-200 border ${
-                      answers[currentQ] === option.value
-                        ? "border-[#0A84FF] bg-[#0A84FF]/10"
-                        : "border-white/10 hover:border-white/30 glass-card"
-                    }`}
-                  >
-                    <div
-                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-sm"
-                      style={{ background: `${option.color}20`, color: option.color, fontFamily: "'JetBrains Mono', monospace" }}
-                    >
-                      {option.icon}
-                    </div>
-                    <span className="text-white font-medium text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-                      {option.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-between mt-8">
-                <button
-                  onClick={() => currentQ > 0 && setCurrentQ(currentQ - 1)}
-                  disabled={currentQ === 0}
-                  className="flex items-center gap-2 text-white/40 hover:text-white disabled:opacity-30 text-sm transition-colors"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Zurück
-                </button>
-                {answers[currentQ] && currentQ < QUESTIONS.length - 1 && (
-                  <button
-                    onClick={() => setCurrentQ(currentQ + 1)}
-                    className="flex items-center gap-2 text-[#0A84FF] hover:text-white text-sm font-semibold transition-colors"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    Weiter
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                )}
-                {answers[currentQ] && currentQ === QUESTIONS.length - 1 && (
-                  <button
-                    onClick={() => setPhase("lead")}
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-bold text-white btn-primary"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                  >
-                    Ergebnis anzeigen
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── LEAD FORM ── */}
-        {phase === "lead" && (
-          <div className="container flex-1 flex items-center justify-center py-8">
-            <div className="w-full max-w-lg">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card-blue mb-4">
-                  <div className="w-2 h-2 rounded-full bg-[#30D158] animate-pulse" />
-                  <span className="text-[#30D158] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                    Fast fertig
-                  </span>
+                <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8">
+                  <h3 className="font-display font-bold text-xl mb-6">
+                    {lang === "de" ? "5 Bereiche, abgeleitet aus dem BSIG" : "5 areas, derived from BSIG"}
+                  </h3>
+                  <ol className="space-y-4">
+                    {AREA_ORDER.map((area, i) => (
+                      <li key={area} className="flex items-start gap-4">
+                        <span className="font-mono text-xs text-[#0A84FF] bg-[#0A84FF]/10 border border-[#0A84FF]/30 rounded-md px-2 py-1 flex-none">
+                          0{i + 1}
+                        </span>
+                        <div>
+                          <div className="font-semibold text-white">{t(AREA_LABEL_KEY[area])}</div>
+                          <div className="text-sm text-white/50 font-mono">{t(AREA_SHORT_KEY[area])}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
                 </div>
-                <h2
-                  className="text-3xl md:text-4xl font-extrabold text-white mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
-                >
-                  Ihr Ergebnis ist bereit.
-                </h2>
-                <p className="text-white/50 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Bitte geben Sie Ihre Kontaktdaten ein, damit wir Ihnen eine persönliche Auswertung zusenden können.
-                </p>
+              </div>
+            </div>
+          )}
+
+          {phase === "questions" && question && (
+            <div>
+              <div className="mb-10">
+                <div className="flex items-center justify-between mb-3 text-sm font-mono text-white/50 uppercase tracking-widest">
+                  <span>
+                    {t("as.progress")
+                      .replace("{current}", String(current + 1))
+                      .replace("{total}", String(QUESTIONS.length))}
+                  </span>
+                  <span>{t(AREA_LABEL_KEY[question.area])}</span>
+                </div>
+                <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-[#0A84FF] to-[#5EB6FF] transition-all duration-500"
+                    style={{ width: `${((current + 1) / QUESTIONS.length) * 100}%` }}
+                  />
+                </div>
               </div>
 
-              <form onSubmit={handleLeadSubmit} className="gradient-border p-8 space-y-4">
-                {[
-                  { key: "name", label: "Ihr Name *", placeholder: "Max Mustermann", type: "text" },
-                  { key: "company", label: "Unternehmen *", placeholder: "Mustermann GmbH", type: "text" },
-                  { key: "email", label: "E-Mail-Adresse *", placeholder: "max@mustermann.de", type: "email" },
-                  { key: "phone", label: "Telefon (optional)", placeholder: "+49 821 123456", type: "tel" },
-                ].map((field) => (
-                  <div key={field.key}>
-                    <label className="block text-white/60 text-xs mb-1.5 uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type}
-                      placeholder={field.placeholder}
-                      value={lead[field.key as keyof LeadData]}
-                      onChange={(e) => setLead({ ...lead, [field.key]: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl glass-card text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#0A84FF] border border-white/10 transition-colors"
-                      style={{ fontFamily: "'Inter', sans-serif", background: "rgba(255,255,255,0.04)" }}
-                    />
-                  </div>
-                ))}
-
-                {error && (
-                  <p className="text-[#FF453A] text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{error}</p>
-                )}
-
-                <p className="text-white/30 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben. Datenschutzerklärung: <Link href="/datenschutz" className="text-[#0A84FF] hover:underline">b2cybersec.com/datenschutz</Link>
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-12">
+                <p className="font-mono text-xs uppercase tracking-widest text-[#0A84FF] mb-4">
+                  {t(AREA_SHORT_KEY[question.area])}
                 </p>
+                <h2 className="font-display font-bold text-2xl md:text-3xl leading-snug">
+                  {t(question.textKey)}
+                </h2>
 
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full py-4 rounded-xl text-base font-bold text-white btn-primary disabled:opacity-50"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                <div className="grid gap-3 mt-10 md:grid-cols-3">
+                  {(["yes", "no", "dontknow"] as Answer[]).map((opt) => {
+                    const isSelected = selected === opt;
+                    const labelKey = `as.opt.${opt}` as TranslationKey;
+                    return (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => pickAnswer(opt)}
+                        className={[
+                          "group relative h-16 rounded-2xl border text-left px-5 font-semibold transition-all",
+                          isSelected
+                            ? "bg-[#0A84FF] border-[#0A84FF] text-white shadow-[0_8px_30px_-8px_rgba(10,132,255,0.6)]"
+                            : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/30 hover:text-white",
+                        ].join(" ")}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-base">{t(labelKey)}</span>
+                          <span
+                            className={[
+                              "w-6 h-6 rounded-full border-2 flex items-center justify-center transition",
+                              isSelected ? "border-white bg-white/20" : "border-white/30 group-hover:border-white/60",
+                            ].join(" ")}
+                          >
+                            {isSelected && <CheckCircle2 className="w-4 h-4" />}
+                          </span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between mt-8">
+                <Button
+                  variant="ghost"
+                  onClick={goBack}
+                  disabled={current === 0}
+                  className="text-white/70 hover:text-white hover:bg-white/5 disabled:opacity-30"
                 >
-                  {submitting ? "Wird übermittelt..." : "Ergebnis anzeigen →"}
-                </button>
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  {t("as.btn.back")}
+                </Button>
+                <span className="text-xs font-mono text-white/40">
+                  {totalAnswered}/{QUESTIONS.length} · {progress}%
+                </span>
+                <Button
+                  onClick={goNext}
+                  disabled={!selected}
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/10 disabled:opacity-40"
+                >
+                  {current === QUESTIONS.length - 1 ? t("as.btn.results") : t("as.btn.next")}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {phase === "lead" && (
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] items-start">
+              <div>
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs uppercase tracking-widest">
+                  <Lock className="w-3.5 h-3.5" />
+                  {lang === "de" ? "Letzter Schritt" : "Last step"}
+                </span>
+                <h2 className="mt-5 font-display font-extrabold text-4xl md:text-5xl leading-[0.95] tracking-tight">
+                  {t("as.lead.title")}
+                </h2>
+                <p className="mt-4 text-lg text-white/70">{t("as.lead.subtitle")}</p>
+                <p className="mt-4 text-sm text-white/50">{t("as.lead.privacyNote")}</p>
+              </div>
+
+              <form
+                onSubmit={submitLead}
+                className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8"
+              >
+                <div className="grid gap-4">
+                  <Input
+                    placeholder={t("as.lead.name")}
+                    value={lead.name}
+                    onChange={(e) => setLead({ ...lead, name: e.target.value })}
+                    required
+                    className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF]"
+                  />
+                  <Input
+                    type="email"
+                    placeholder={t("as.lead.email")}
+                    value={lead.email}
+                    onChange={(e) => setLead({ ...lead, email: e.target.value })}
+                    required
+                    className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF]"
+                  />
+                  <Input
+                    placeholder={t("as.lead.company")}
+                    value={lead.company}
+                    onChange={(e) => setLead({ ...lead, company: e.target.value })}
+                    required
+                    className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF]"
+                  />
+                  <Input
+                    placeholder={t("as.lead.role.placeholder")}
+                    value={lead.role}
+                    onChange={(e) => setLead({ ...lead, role: e.target.value })}
+                    className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF]"
+                  />
+                  <label className="flex items-start gap-3 cursor-pointer mt-2">
+                    <Checkbox
+                      checked={lead.consent}
+                      onCheckedChange={(c) => setLead({ ...lead, consent: c === true })}
+                      className="mt-0.5 border-white/30 data-[state=checked]:bg-[#0A84FF] data-[state=checked]:border-[#0A84FF]"
+                    />
+                    <span className="text-sm text-white/60 leading-relaxed">{t("as.lead.consent")}</span>
+                  </label>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={!lead.name || !lead.email || !lead.company || !lead.consent || submitting}
+                  className="w-full mt-6 h-13 py-3 text-base bg-[#0A84FF] hover:bg-[#0A84FF]/90 disabled:opacity-40 shadow-[0_8px_30px_-8px_rgba(10,132,255,0.6)]"
+                >
+                  {submitting ? (
+                    <span className="inline-flex items-center gap-2">
+                      <RefreshCw className="w-4 h-4 animate-spin" />
+                      {lang === "de" ? "Wird gesendet…" : "Sending…"}
+                    </span>
+                  ) : (
+                    <>
+                      {t("as.lead.cta")}
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </>
+                  )}
+                </Button>
               </form>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* ── RESULT ── */}
-        {phase === "result" && (
-          <div className="container flex-1 flex flex-col items-center justify-center py-8">
-            <div className="w-full max-w-2xl">
-              {/* Score display */}
-              <div className="text-center mb-8">
+          {phase === "result" && (
+            <div className="grid gap-12">
+              <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-xl p-10 md:p-14 relative overflow-hidden">
                 <div
-                  className="inline-flex items-center justify-center w-28 h-28 rounded-full border-4 mx-auto mb-6"
-                  style={{ borderColor: scoreResult.color, background: `${scoreResult.color}15` }}
-                >
+                  className={`absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-30 bg-gradient-to-br ${tierMeta.ring}`}
+                  aria-hidden
+                />
+                <div className="relative">
+                  <p className="font-mono text-xs uppercase tracking-widest text-white/50">{t("as.result.your")}</p>
+                  <div className="flex items-baseline gap-3 mt-3">
+                    <span className="font-display font-extrabold text-7xl md:text-8xl leading-none">
+                      {result.yesCount}
+                    </span>
+                    <span className="text-2xl text-white/50 font-mono">/ {QUESTIONS.length}</span>
+                  </div>
+                  <p className="mt-2 text-base text-white/60">{t("as.result.scoreOf")}</p>
+
+                  <div className="mt-8 inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/15 bg-black/30">
+                    <TierIcon className={`w-5 h-5 ${tierMeta.color}`} />
+                    <span className={`font-bold text-lg ${tierMeta.color}`}>{tierMeta.label}</span>
+                  </div>
+                  <p className="mt-4 max-w-2xl text-base text-white/70 leading-relaxed">{tierMeta.desc}</p>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-display font-bold text-2xl md:text-3xl mb-6">{t("as.result.byArea")}</h3>
+                <div className="space-y-4">
+                  {result.byArea.map((a) => (
+                    <div key={a.id} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                      <div className="flex items-center justify-between mb-3">
+                        <div>
+                          <div className="font-semibold text-white">{t(AREA_LABEL_KEY[a.id])}</div>
+                          <div className="text-xs font-mono text-white/40 mt-0.5">{t(AREA_SHORT_KEY[a.id])}</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-mono text-2xl font-bold text-white">
+                            {a.yes}/{a.total}
+                          </div>
+                          <div className="text-xs text-white/40">{a.pct}%</div>
+                        </div>
+                      </div>
+                      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-[#0A84FF] to-[#5EB6FF] transition-all duration-700"
+                          style={{ width: `${a.pct}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-display font-bold text-2xl md:text-3xl mb-6">{t("as.result.gaps")}</h3>
+                {result.gaps.length === 0 ? (
+                  <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-6 text-emerald-300">
+                    {t("as.result.gaps.empty")}
+                  </div>
+                ) : (
+                  <ul className="space-y-3">
+                    {result.gaps.map((q) => (
+                      <li
+                        key={q.id}
+                        className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5"
+                      >
+                        <span className="font-mono text-xs text-white/50 bg-white/5 border border-white/10 rounded-md px-2 py-1 flex-none">
+                          Q{q.id}
+                        </span>
+                        <div>
+                          <div className="text-xs font-mono uppercase tracking-widest text-[#0A84FF] mb-1">
+                            {t(AREA_LABEL_KEY[q.area])}
+                          </div>
+                          <p className="text-base text-white/85 leading-snug">{t(q.textKey)}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              <div className="rounded-3xl border border-[#0A84FF]/40 bg-gradient-to-br from-[#0A84FF]/10 to-transparent p-10 md:p-14 relative overflow-hidden">
+                <div
+                  className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#0A84FF]/20 blur-3xl"
+                  aria-hidden
+                />
+                <div className="relative grid gap-8 md:grid-cols-[1.4fr_1fr] items-center">
                   <div>
-                    <div
-                      className="text-3xl font-extrabold"
-                      style={{ color: scoreResult.color, fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                    <h3 className="font-display font-extrabold text-3xl md:text-4xl leading-tight">
+                      {t("as.result.cta.title")}
+                    </h3>
+                    <p className="mt-4 text-lg text-white/75 leading-relaxed">{t("as.result.cta.body")}</p>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href={SENAD_CALENDLY}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 h-14 px-6 rounded-full bg-[#0A84FF] hover:bg-[#0A84FF]/90 text-white font-semibold transition shadow-[0_8px_30px_-8px_rgba(10,132,255,0.6)]"
                     >
-                      {Math.round((totalScore / MAX_SCORE) * 100)}%
-                    </div>
-                    <div className="text-white/40 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>Score</div>
-                  </div>
-                </div>
-
-                <h2
-                  className="text-3xl md:text-4xl font-extrabold text-white mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
-                >
-                  {scoreResult.level}
-                </h2>
-                <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  {scoreResult.description}
-                </p>
-              </div>
-
-              {/* Recommendation */}
-              <div className={`rounded-xl p-6 border mb-6 ${scoreResult.bgClass}`}>
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: scoreResult.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <div className="text-white font-semibold text-sm mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>Unsere Empfehlung</div>
-                    <p className="text-white/70 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{scoreResult.recommendation}</p>
+                      <Calendar className="w-5 h-5" />
+                      {t("as.result.cta.button")}
+                    </a>
+                    <button
+                      onClick={restart}
+                      className="inline-flex items-center justify-center gap-2 h-14 px-6 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white/80 hover:text-white font-medium transition"
+                    >
+                      <RefreshCw className="w-4 h-4" />
+                      {t("as.result.restart")}
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* Category breakdown */}
-              <div className="gradient-border p-6 mb-6">
-                <h3 className="text-white font-bold mb-4 text-sm uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>Auswertung nach Kategorien</h3>
-                {["Governance", "Risikomanagement", "Technische Maßnahmen", "Incident Management", "Supply Chain", "Datenschutz & Compliance"].map((cat) => {
-                  const catQuestions = QUESTIONS.filter(q => q.category === cat);
-                  const catMax = catQuestions.reduce((s, q) => s + q.weights.yes, 0);
-                  const catScore = catQuestions.reduce((s, q, i) => {
-                    const qi = QUESTIONS.indexOf(q);
-                    const ans = answers[qi];
-                    return s + (ans ? q.weights[ans] : 0);
-                  }, 0);
-                  const pct = catMax > 0 ? (catScore / catMax) * 100 : 0;
-                  const color = pct >= 75 ? "#30D158" : pct >= 45 ? "#FF9F0A" : "#FF453A";
-                  return (
-                    <div key={cat} className="mb-3">
-                      <div className="flex justify-between text-xs mb-1">
-                        <span className="text-white/60" style={{ fontFamily: "'Inter', sans-serif" }}>{cat}</span>
-                        <span style={{ color, fontFamily: "'JetBrains Mono', monospace" }}>{Math.round(pct)}%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-white/10 rounded-full">
-                        <div className="h-full rounded-full transition-all duration-700" style={{ width: `${pct}%`, background: color }} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* CTA */}
-              <div className="glass-card-blue rounded-xl p-6 text-center">
-                <div className="text-white/60 text-sm mb-2" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Nächster Schritt: Sprechen Sie mit unserem Experten
-                </div>
-                <div className="text-white font-bold text-lg mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                  {scoreResult.expert}
-                </div>
-                <div className="text-white/40 text-xs mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  {scoreResult.expertRole}
-                </div>
-                <a
-                  href={scoreResult.calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                >
-                  Kostenloses Erstgespräch buchen
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-                <p className="mt-3 text-white/30 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Kein Verkaufsdruck · Ehrliche Einschätzung · 30 Minuten
-                </p>
-              </div>
-
-              <div className="text-center mt-6">
-                <Link href="/" className="text-white/40 hover:text-white text-sm transition-colors" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  ← Zurück zur Startseite
-                </Link>
-              </div>
+              <p className="text-center text-xs text-white/40 font-mono italic">{t("as.result.disclaimer")}</p>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </section>
+      </main>
 
       <Footer />
     </div>

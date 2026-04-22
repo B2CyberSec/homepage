@@ -1,28 +1,26 @@
-/*
- * B2CyberSec Home Page
+/**
+ * B2CyberSec Home Page — fully bilingual (DE/EN)
  * Design: Apple Dark Mode + Editorial Precision
- * Section Rhythm (Apple-style alternating): 
- *   Hero → DARK (black)
- *   Stats → DARK (deep navy)
- *   Services → LIGHT (white/near-white)
- *   NIS-2 Urgency → DARK (black)
- *   Assessment CTA → LIGHT (light gray)
- *   FAQ → DARK (black)
- *   Contact → LIGHT (white)
- * Images: Hero bg, 3 service images, team image
+ * Section Rhythm: Hero(dark) → Stats(dark) → Services(light) → Urgency(dark) → Team(light) → FAQ(dark) → Contact(light)
+ * All copy via useT() — see /lib/translations.ts
  */
 
 import { useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { useT } from "@/contexts/LanguageContext";
 
-// Image URLs (CDN)
+// Image URLs (CDN — already WebP)
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/hero-cyber-dark-UCuzooJMhpjD4UWMkdL5mS.webp";
 const IMG_PROFESSIONAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-professional-abstract-Y7YVQUagMSUp6raRXa6ova.webp";
 const IMG_NIS2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-nis2-abstract-YNSNeNBSRyGN6zBzVrBaV6.webp";
 const IMG_PENTEST = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-pentest-abstract-FoPqCjQsKJeLEEY34ro3tm.webp";
 const IMG_TEAM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/team-illustration-ghp6WRU645qyKjakcbd5ta.webp";
+
+const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
+const CALENDLY_SENAD = "https://calendly.com/b2cybersec-team/pro-services"; // Platzhalter, wird später ausgetauscht
+const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
 // Scroll reveal hook
 function useScrollReveal() {
@@ -30,15 +28,12 @@ function useScrollReveal() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
     );
-    const elements = document.querySelectorAll(".reveal");
-    elements.forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 }
@@ -73,21 +68,78 @@ function StatNumber({ value, suffix = "" }: { value: number; suffix?: string }) 
 
 export default function Home() {
   useScrollReveal();
+  const { t, lang } = useT();
+
+  const services = [
+    {
+      id: "professional-services",
+      tagKey: "services.s1.tag" as const,
+      titleKey: "services.s1.title" as const,
+      descKey: "services.s1.desc" as const,
+      leadInitials: "BB",
+      leadNameKey: "services.s1.lead.name" as const,
+      leadRoleKey: "services.s1.lead.role" as const,
+      ctaKey: "services.s1.cta" as const,
+      img: IMG_PROFESSIONAL,
+      url: CALENDLY_BORIS,
+    },
+    {
+      id: "nis2",
+      tagKey: "services.s2.tag" as const,
+      titleKey: "services.s2.title" as const,
+      descKey: "services.s2.desc" as const,
+      leadInitials: "SD",
+      leadNameKey: "services.s2.lead.name" as const,
+      leadRoleKey: "services.s2.lead.role" as const,
+      ctaKey: "services.s2.cta" as const,
+      img: IMG_NIS2,
+      url: CALENDLY_SENAD,
+    },
+    {
+      id: "pentesting",
+      tagKey: "services.s3.tag" as const,
+      titleKey: "services.s3.title" as const,
+      descKey: "services.s3.desc" as const,
+      leadInitials: "BK",
+      leadNameKey: "services.s3.lead.name" as const,
+      leadRoleKey: "services.s3.lead.role" as const,
+      ctaKey: "services.s3.cta" as const,
+      img: IMG_PENTEST,
+      url: CALENDLY_BOJAN,
+    },
+  ];
+
+  const team = [
+    { initials: "BB", name: t("services.s1.lead.name"), role: t("team.boris.role"), detail: t("team.boris.detail") },
+    { initials: "SD", name: t("services.s2.lead.name"), role: t("team.senad.role"), detail: t("team.senad.detail") },
+    { initials: "BK", name: t("services.s3.lead.name"), role: t("team.bojan.role"), detail: t("team.bojan.detail") },
+  ];
+
+  const faqs = [
+    { q: t("faq.q1"), a: t("faq.a1") },
+    { q: t("faq.q2"), a: t("faq.a2") },
+    { q: t("faq.q3"), a: t("faq.a3") },
+    { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+    { q: t("faq.q6"), a: t("faq.a6") },
+  ];
+
+  const contactCards = [
+    { name: t("services.s1.lead.name"), role: t("contact.boris.title"), desc: t("contact.boris.desc"), url: CALENDLY_BORIS },
+    { name: t("services.s2.lead.name"), role: t("contact.senad.title"), desc: t("contact.senad.desc"), url: CALENDLY_SENAD },
+    { name: t("services.s3.lead.name"), role: t("contact.bojan.title"), desc: t("contact.bojan.desc"), url: CALENDLY_BOJAN },
+  ];
+
+  const assessmentPath = lang === "en" ? "/readiness-check" : "/nis2-check";
 
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
 
-      {/* ═══════════════════════════════════════════════════
-          HERO — DARK (black + hero image)
-      ═══════════════════════════════════════════════════ */}
+      {/* HERO — DARK */}
       <section
         className="relative min-h-screen flex items-center overflow-hidden"
-        style={{
-          backgroundImage: `url(${HERO_BG})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-        }}
+        style={{ backgroundImage: `url(${HERO_BG})`, backgroundSize: "cover", backgroundPosition: "center right" }}
       >
         <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.25) 100%)" }} />
 
@@ -96,7 +148,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card-blue mb-8 reveal">
               <div className="w-2 h-2 rounded-full bg-[#0A84FF] animate-pulse" />
               <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                NIS-2 tritt in Kraft — Sind Sie bereit?
+                {t("hero.eyebrow")}
               </span>
             </div>
 
@@ -104,37 +156,35 @@ export default function Home() {
               className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.0] mb-6 reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", transitionDelay: "0.1s" }}
             >
-              Hacker schlafen nicht.
+              <span className="text-gradient-blue">{t("hero.h1.line1")}</span>
               <br />
-              <span className="text-gradient-blue">Ihre IT-Abteilung</span>
-              <br />
-              schon.
+              {t("hero.h1.line2")}
             </h1>
 
             <p
               className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed mb-10 reveal"
               style={{ fontFamily: "'Inter', sans-serif", transitionDelay: "0.2s" }}
             >
-              Als Geschäftsführer haften Sie persönlich für Sicherheitsvorfälle. NIS-2 macht das zur Pflicht. Wir machen es zur Stärke — in 20+ Jahren haben wir gelernt, wie.
+              {t("hero.sub")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 reveal" style={{ transitionDelay: "0.3s" }}>
               <Link
-                href="/nis2-check"
+                href={assessmentPath}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Kostenloser NIS-2 Check
+                {t("hero.cta.primary")}
               </Link>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold btn-outline-blue"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                Services ansehen
+                {t("hero.cta.secondary")}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -151,19 +201,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          STATS — DARK (deep navy)
-      ═══════════════════════════════════════════════════ */}
+      {/* STATS — DARK */}
       <section className="py-16 border-y border-white/10" style={{ background: "linear-gradient(135deg, #050A14 0%, #0A1628 100%)" }}>
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 20, suffix: "+", label: "Jahre Erfahrung" },
-              { value: 200, suffix: "+", label: "Projekte abgeschlossen" },
-              { value: 10, suffix: "+", label: "Spezialisierte Experten" },
-              { value: 100, suffix: "%", label: "Compliance-Fokus" },
+              { value: 20, suffix: "+", labelKey: "stats.years" as const },
+              { value: 200, suffix: "+", labelKey: "stats.projects" as const },
+              { value: 10, suffix: "+", labelKey: "stats.experts" as const },
+              { value: 100, suffix: "%", labelKey: "stats.compliance" as const },
             ].map((stat) => (
-              <div key={stat.label} className="reveal">
+              <div key={stat.labelKey} className="reveal">
                 <div
                   className="text-4xl md:text-5xl font-extrabold text-[#0A84FF] mb-1"
                   style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
@@ -171,7 +219,7 @@ export default function Home() {
                   <StatNumber value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-white/50 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </div>
               </div>
             ))}
@@ -179,199 +227,91 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          SERVICES — LIGHT (white background)
-      ═══════════════════════════════════════════════════ */}
+      {/* SERVICES — LIGHT */}
       <section id="services" className="py-24 md:py-32" style={{ background: "#f5f7fa" }}>
         <div className="container">
           <div className="mb-16 reveal">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: "rgba(10,132,255,0.08)", border: "1px solid rgba(10,132,255,0.2)" }}>
               <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                Unsere 3 Säulen
+                {t("services.eyebrow")}
               </span>
             </div>
             <h2
               className="text-4xl md:text-6xl font-extrabold leading-tight"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
             >
-              Fokussiert.<br />
-                <span className="text-gradient-blue">Spezialisiert.</span><br />
-                Ergebnisorientiert.
-              </h2>
-              <p className="mt-2 text-xl font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0A84FF", letterSpacing: "-0.01em" }}>
-                Drei Disziplinen. Ein Team.
-              </p>
-            <p className="mt-4 text-gray-500 text-lg max-w-xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Wir verkaufen keine IT-Security-Pakete. Wir lösen konkrete Probleme — mit dem richtigen Experten aus unserem Team für Ihr spezifisches Thema.
+              {t("services.headline.line1")}<br />
+              <span className="text-gradient-blue">{t("services.headline.line2")}</span>
+            </h2>
+            <p className="mt-2 text-xl font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0A84FF", letterSpacing: "-0.01em" }}>
+              {t("services.subline")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            {/* Service 1: Professional Services */}
-            <div id="professional-services" className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal group flex flex-col">
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={IMG_PROFESSIONAL}
-                  alt="Professional IT Services — Experten für Netzwerk, Cloud und Security"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="416"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
-                <div className="absolute top-4 left-4">
-                  <span className="px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ background: "#0A84FF", fontFamily: "'JetBrains Mono', monospace" }}>
-                    Säule 01
-                  </span>
-                </div>
-              </div>
-              <div className="p-7 flex flex-col flex-1">
-                <h3
-                  className="text-2xl font-extrabold mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em", color: "#0a0a0a" }}
-                >
-                  Professional Services
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Sie brauchen einen Netzwerk-Spezialisten für 3 Monate? Einen Cloud-Architekten für die Migration? Wir liefern den richtigen Experten — ohne Headhunter-Gebühren, ohne Monate des Wartens.
-                </p>
-                <div className="flex items-center gap-3 mb-6 p-3 rounded-xl" style={{ background: "#f5f7fa" }}>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
-                    <span className="text-[#0A84FF] text-xs font-bold">BB</span>
-                  </div>
-                  <div>
-                    <div className="text-base font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>Boris Bošnjak</div>
-                    <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>CEO, 20+ Jahre IT-Erfahrung</div>
+            {services.map((s, i) => (
+              <div
+                key={s.id}
+                id={s.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal group flex flex-col"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={t(s.titleKey)}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="416"
+                  />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ background: "#0A84FF", fontFamily: "'JetBrains Mono', monospace" }}>
+                      {t(s.tagKey)}
+                    </span>
                   </div>
                 </div>
-                <a
-                  href="https://calendly.com/b2cybersec-team/pro-services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white w-full justify-center btn-primary"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                >
-                  Termin mit Boris buchen
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Service 2: NIS-2 / Compliance */}
-            <div id="nis2" className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal group flex flex-col" style={{ transitionDelay: "0.1s" }}>
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={IMG_NIS2}
-                  alt="NIS-2 Compliance und Governance — CISSP-zertifizierter Ex-CISO"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="416"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
-                <div className="absolute top-4 left-4">
-                  <span className="px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ background: "#0A84FF", fontFamily: "'JetBrains Mono', monospace" }}>
-                    Säule 02
-                  </span>
+                <div className="p-7 flex flex-col flex-1">
+                  <h3
+                    className="text-2xl font-extrabold mb-3"
+                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em", color: "#0a0a0a" }}
+                  >
+                    {t(s.titleKey)}
+                  </h3>
+                  <p className="text-gray-500 text-base leading-relaxed mb-6 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {t(s.descKey)}
+                  </p>
+                  <div className="flex items-center gap-3 mb-6 p-3 rounded-xl" style={{ background: "#f5f7fa" }}>
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
+                      <span className="text-[#0A84FF] text-xs font-bold">{s.leadInitials}</span>
+                    </div>
+                    <div>
+                      <div className="text-base font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>{t(s.leadNameKey)}</div>
+                      <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{t(s.leadRoleKey)}</div>
+                    </div>
+                  </div>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white w-full justify-center btn-primary"
+                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+                  >
+                    {t(s.ctaKey)}
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
-              <div className="p-7 flex flex-col flex-1">
-                <h3
-                  className="text-2xl font-extrabold mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em", color: "#0a0a0a" }}
-                >
-                  NIS-2 & Compliance
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Als Geschäftsführer haften Sie persönlich. NIS-2, ISO 27001, DORA, GDPR — kein Unternehmen kann es sich leisten, diese Pflichten zu ignorieren. Unser CISSP-zertifizierter Ex-CISO mit Big-4-Beratungserfahrung macht Compliance zu Ihrem Wettbewerbsvorteil.
-                </p>
-                <div className="flex items-center gap-3 mb-6 p-3 rounded-xl" style={{ background: "#f5f7fa" }}>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
-                    <span className="text-[#0A84FF] text-xs font-bold">SD</span>
-                  </div>
-                  <div>
-                    <div className="text-base font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>Senad Džananović</div>
-                    <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>CISSP, ex-CISO, Big-4-Erfahrung, 20+ Jahre</div>
-                  </div>
-                </div>
-                <a
-                  href="https://calendly.com/b2cybersec-team/pro-services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white w-full justify-center btn-primary"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                >
-                  Termin mit Senad buchen
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Service 3: Pentesting */}
-            <div id="pentesting" className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal group flex flex-col" style={{ transitionDelay: "0.2s" }}>
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={IMG_PENTEST}
-                  alt="Penetration Testing — Wir denken wie Angreifer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="416"
-                />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%)" }} />
-                <div className="absolute top-4 left-4">
-                  <span className="px-2.5 py-1 rounded-full text-xs font-bold text-white" style={{ background: "#0A84FF", fontFamily: "'JetBrains Mono', monospace" }}>
-                    Säule 03
-                  </span>
-                </div>
-              </div>
-              <div className="p-7 flex flex-col flex-1">
-                <h3
-                  className="text-2xl font-extrabold mb-3"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em", color: "#0a0a0a" }}
-                >
-                  Penetration Testing
-                </h3>
-                <p className="text-gray-500 text-base leading-relaxed mb-6 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
-                  Wissen Sie wirklich, wie sicher Ihre Systeme sind? Oder glauben Sie es nur? Wir denken wie Angreifer — und finden die Lücken, bevor es andere tun. Mit spezialisierten Partnern in Sarajevo und Kosovo für maximale Tiefe.
-                </p>
-                <div className="flex items-center gap-3 mb-6 p-3 rounded-xl" style={{ background: "#f5f7fa" }}>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
-                    <span className="text-[#0A84FF] text-xs font-bold">BK</span>
-                  </div>
-                  <div>
-                    <div className="text-base font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>Bojan Kornijenko</div>
-                    <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>Offensive Security, Red Team, OSCP</div>
-                  </div>
-                </div>
-                <a
-                  href="https://calendly.com/b2cybersec-team/pentesting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white w-full justify-center btn-primary"
-                  style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                >
-                  Termin mit Bojan buchen
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          NIS-2 URGENCY — DARK (black)
-      ═══════════════════════════════════════════════════ */}
+      {/* NIS-2 URGENCY — DARK */}
       <section className="py-24 md:py-32 relative overflow-hidden bg-black">
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(ellipse 80% 50% at 50% 50%, rgba(10,132,255,0.3) 0%, transparent 70%)" }} />
         <div className="container relative z-10">
@@ -379,77 +319,66 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card-blue mb-8 reveal">
               <div className="w-2 h-2 rounded-full bg-[#FF453A] animate-pulse" />
               <span className="text-[#FF453A] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                Achtung: Persönliche Haftung
+                {t("urgency.eyebrow")}
               </span>
             </div>
             <h2
               className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
             >
-              NIS-2 ist kein
-              <br />
-              IT-Problem.
-              <br />
-              <span className="text-gradient-blue">Es ist Ihr Problem.</span>
+              {t("urgency.headline")}
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-10 reveal" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Die NIS-2-Richtlinie macht Geschäftsführer persönlich haftbar für Cybersicherheitsvorfälle. Bußgelder bis zu 10 Millionen Euro oder 2% des weltweiten Jahresumsatzes. Keine Ausreden, keine Delegation. Wissen Sie, wo Ihr Unternehmen steht?
+              {t("urgency.body")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 reveal">
-              {[
-                { icon: "⚠️", title: "Persönliche Haftung", desc: "Geschäftsführer haften mit privatem Vermögen" },
-                { icon: "💶", title: "Bis 10 Mio. Euro", desc: "Bußgelder für Verstöße gegen NIS-2" },
-                { icon: "⏰", title: "Jetzt Pflicht", desc: "Umsetzungsfrist ist abgelaufen" },
-              ].map((item) => (
-                <div key={item.title} className="glass-card rounded-xl p-5 text-left">
-                  <div className="text-2xl mb-2">{item.icon}</div>
-                  <div className="text-white font-semibold text-base mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>{item.title}</div>
-                  <div className="text-white/50 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>{item.desc}</div>
+              {[t("urgency.bullet1"), t("urgency.bullet2"), t("urgency.bullet3")].map((bullet, i) => (
+                <div key={i} className="glass-card rounded-xl p-5 text-left">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ background: "rgba(10,132,255,0.15)" }}>
+                    <svg className="w-5 h-5 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div className="text-white text-sm font-semibold leading-snug" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {bullet}
+                  </div>
                 </div>
               ))}
             </div>
             <Link
-              href="/nis2-check"
-              className="inline-flex items-center gap-2 px-10 py-5 rounded-xl text-lg font-bold text-white btn-primary reveal"
+              href={assessmentPath}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >
+              {t("urgency.cta")}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-              Jetzt NIS-2 Readiness Check starten — kostenlos
             </Link>
-            <p className="mt-3 text-white/30 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Dauert 5 Minuten · Sofortige Auswertung · Keine Verpflichtung
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          TEAM / ÜBER UNS — LIGHT (off-white)
-      ═══════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32" style={{ background: "#ffffff" }}>
+      {/* TEAM — LIGHT */}
+      <section id="team" className="py-24 md:py-32" style={{ background: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
             <div className="reveal order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <img
                   src={IMG_TEAM}
-                  alt="B2CyberSec Team — Drei Cybersecurity-Experten"
-                  className="w-full h-auto object-cover"
-                  style={{ maxHeight: "480px" }}
+                  alt={t("team.headline.line1") + " " + t("team.headline.line2")}
+                  className="w-full h-auto"
                   loading="lazy"
                   decoding="async"
-                  width="960"
-                  height="720"
+                  width="800"
+                  height="600"
                 />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%)" }} />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full inline-flex" style={{ background: "rgba(10,132,255,0.9)" }}>
-                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                <div className="absolute bottom-4 left-4 right-4 flex">
+                  <div className="px-3 py-1.5 rounded-lg" style={{ background: "rgba(10,132,255,0.95)" }}>
                     <span className="text-white text-xs font-semibold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                      20+ Jahre kombinierte Erfahrung
+                      {t("team.image.badge")}
                     </span>
                   </div>
                 </div>
@@ -460,27 +389,22 @@ export default function Home() {
             <div className="reveal order-1 lg:order-2" style={{ transitionDelay: "0.15s" }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: "rgba(10,132,255,0.08)", border: "1px solid rgba(10,132,255,0.2)" }}>
                 <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  Wer wir sind
+                  {t("team.eyebrow")}
                 </span>
               </div>
               <h2
                 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
               >
-                Echte Experten.
-                <br />
-                <span className="text-gradient-blue">Keine Berater-Floskeln.</span>
+                {t("team.headline.line1")}<br />
+                <span className="text-gradient-blue">{t("team.headline.line2")}</span>
               </h2>
               <p className="text-gray-500 text-base leading-relaxed mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
-                B2CyberSec ist keine Agentur mit Zertifikaten auf dem Papier. Wir sind ein wachsendes Team aus über 10 Spezialisten — mit Erfahrung in kritischen Infrastrukturen, internationalen Top-Beratungen und echten Sicherheitsvorfällen. Drei erfahrene Leads steuern unsere Kernbereiche:
+                {t("team.body")}
               </p>
               <div className="space-y-4">
-                {[
-                  { initials: "BB", name: "Boris Bošnjak", role: "CEO & Professional Services", detail: "20+ Jahre IT-Erfahrung, Netzwerk & Security" },
-                  { initials: "SD", name: "Senad Džananović", role: "NIS-2 & Compliance", detail: "CISSP, ex-CISO, Big-4-Erfahrung, 20+ Jahre GRC" },
-                  { initials: "BK", name: "Bojan Kornijenko", role: "Penetration Testing Lead", detail: "Offensive Security, Red Team, OSCP" },
-                ].map((person) => (
-                  <div key={person.name} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: "#f5f7fa" }}>
+                {team.map((person) => (
+                  <div key={person.initials} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: "#f5f7fa" }}>
                     <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
                       <span className="text-[#0A84FF] text-sm font-bold">{person.initials}</span>
                     </div>
@@ -497,55 +421,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          FAQ — DARK (black)
-      ═══════════════════════════════════════════════════ */}
+      {/* FAQ — DARK */}
       <section id="faq" className="py-24 md:py-32 bg-black">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-16 reveal">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card mb-6">
                 <span className="text-white/50 text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  Häufige Fragen
+                  {t("faq.eyebrow")}
                 </span>
               </div>
               <h2
                 className="text-4xl md:text-5xl font-extrabold text-white"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
               >
-                Was Sie wirklich
-                <br />
-                <span className="text-gradient-blue">wissen wollen</span>
+                {t("faq.headline")}
               </h2>
             </div>
 
             <div className="space-y-4">
-              {[
-                {
-                  q: "Was kostet NIS-2 Compliance?",
-                  a: "Das hängt von Ihrer Unternehmensgröße und dem aktuellen Reifegrad ab. Für mittelständische Unternehmen rechnen wir typischerweise mit einem initialen Assessment von 3.000–8.000 Euro, gefolgt von einem Umsetzungsprojekt von 15.000–50.000 Euro. Die Alternative — ein Bußgeld von bis zu 10 Millionen Euro — macht die Investition zur einfachsten Entscheidung des Jahres."
-                },
-                {
-                  q: "Brauche ich einen CISO?",
-                  a: "Nicht unbedingt einen Vollzeit-CISO. Was Sie brauchen, ist jemanden, der die Verantwortung für Ihre Informationssicherheit trägt und die richtigen Entscheidungen trifft. Unser Fractional-CISO-Modell gibt Ihnen die Expertise eines erfahrenen CISOs (CISSP-zertifiziert, Big-4-Erfahrung) zu einem Bruchteil der Kosten — ohne Headhunter, ohne Einarbeitungszeit."
-                },
-                {
-                  q: "Wie lange dauert ein Penetration Test?",
-                  a: "Ein fokussierter Pentest einer Webanwendung dauert typischerweise 3–5 Tage. Ein umfassendes Netzwerk-Pentest-Projekt für ein mittelständisches Unternehmen 2–4 Wochen. Sie erhalten einen detaillierten Bericht mit allen gefundenen Schwachstellen, Risikobewertung und konkreten Handlungsempfehlungen — keine generischen Templates."
-                },
-                {
-                  q: "Fällt mein Unternehmen unter NIS-2?",
-                  a: "NIS-2 betrifft Unternehmen in 18 kritischen Sektoren mit mehr als 50 Mitarbeitern oder 10 Millionen Euro Jahresumsatz. Dazu gehören Energie, Transport, Gesundheit, Finanzwesen, digitale Infrastruktur und viele mehr. Machen Sie unseren kostenlosen NIS-2 Readiness Check — in 5 Minuten wissen Sie, wo Sie stehen."
-                },
-                {
-                  q: "Was unterscheidet B2CyberSec von anderen IT-Security-Anbietern?",
-                  a: "Drei Dinge: Erstens, wir haben echte Experten — kein Junior-Team mit Zertifikaten, sondern Leute mit 20+ Jahren Praxiserfahrung als CISO, in internationalen Top-Beratungen und in kritischen Infrastrukturen. Zweitens, wir verkaufen Ergebnisse, keine Stunden. Drittens, wir sind persönlich genug, um zuzuhören, und erfahren genug, um es richtig zu machen."
-                },
-                {
-                  q: "Wie schnell kann B2CyberSec einen IT-Experten vermitteln?",
-                  a: "In der Regel innerhalb von 1–2 Wochen. Wir haben ein Netzwerk spezialisierter IT-Experten für Netzwerk, Security, Cloud und Infrastruktur. Kein Headhunter-Prozess, keine monatelange Suche — wir kennen die Leute persönlich und können schnell handeln."
-                },
-              ].map((item, i) => (
+              {faqs.map((item, i) => (
                 <details
                   key={i}
                   className="glass-card rounded-xl group reveal"
@@ -571,41 +466,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════
-          CONTACT — LIGHT (white)
-      ═══════════════════════════════════════════════════ */}
+      {/* CONTACT — LIGHT */}
       <section id="kontakt" className="py-24 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid #e5e7eb" }}>
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 reveal">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: "rgba(10,132,255,0.08)", border: "1px solid rgba(10,132,255,0.2)" }}>
+                <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+                  {t("contact.eyebrow")}
+                </span>
+              </div>
               <h2
                 className="text-4xl md:text-6xl font-extrabold mb-4"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
               >
-                Sprechen wir.
-                <br />
-                <span className="text-gradient-blue">Ohne Verkaufsdruck.</span>
+                {t("contact.headline.line1")}<br />
+                <span className="text-gradient-blue">{t("contact.headline.line2")}</span>
               </h2>
               <p className="text-gray-500 text-lg max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
-                Kein Pitch, kein Druck. Wir hören zu, stellen die richtigen Fragen und geben Ihnen eine ehrliche Einschätzung — ob wir zusammenpassen oder nicht.
+                {t("contact.subline")}
               </p>
             </div>
 
-            {/* Calendly expert cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { name: "Boris Bošnjak", role: "Professional Services", url: "https://calendly.com/b2cybersec-team/pro-services" },
-                { name: "Senad Džananović", role: "NIS-2 & Compliance", url: "https://calendly.com/b2cybersec-team/pro-services" },
-                { name: "Bojan Kornijenko", role: "Penetration Testing", url: "https://calendly.com/b2cybersec-team/pentesting" },
-              ].map((expert, i) => (
-                <div key={expert.name} className="rounded-2xl p-6 text-center reveal shadow-sm" style={{ background: "#f5f7fa", border: "1px solid #e5e7eb", transitionDelay: `${i * 0.1}s` }}>
+              {contactCards.map((expert, i) => (
+                <div
+                  key={expert.name}
+                  className="rounded-2xl p-6 text-center reveal shadow-sm flex flex-col"
+                  style={{ background: "#f5f7fa", border: "1px solid #e5e7eb", transitionDelay: `${i * 0.1}s` }}
+                >
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(10,132,255,0.1)", border: "1px solid rgba(10,132,255,0.2)" }}>
                     <span className="text-[#0A84FF] text-xl font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                       {expert.name.split(" ").map(n => n[0]).join("")}
                     </span>
                   </div>
                   <div className="font-bold mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.01em", color: "#0a0a0a" }}>{expert.name}</div>
-                  <div className="text-gray-400 text-sm mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.role}</div>
+                  <div className="text-[#0A84FF] text-sm font-semibold mb-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.role}</div>
+                  <div className="text-gray-500 text-sm mb-5 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.desc}</div>
                   <a
                     href={expert.url}
                     target="_blank"
@@ -613,7 +510,7 @@ export default function Home() {
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white btn-primary w-full justify-center"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                   >
-                    Termin buchen
+                    {t("contact.cta")}
                   </a>
                 </div>
               ))}
@@ -622,20 +519,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Schema.org FAQ structured data */}
+      {/* Schema.org FAQ structured data — language-aware */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              { "@type": "Question", "name": "Was kostet NIS-2 Compliance?", "acceptedAnswer": { "@type": "Answer", "text": "Für mittelständische Unternehmen rechnen wir typischerweise mit einem initialen Assessment von 3.000–8.000 Euro, gefolgt von einem Umsetzungsprojekt von 15.000–50.000 Euro." } },
-              { "@type": "Question", "name": "Brauche ich einen CISO?", "acceptedAnswer": { "@type": "Answer", "text": "Nicht unbedingt einen Vollzeit-CISO. Unser Fractional-CISO-Modell gibt Ihnen die Expertise eines erfahrenen CISOs zu einem Bruchteil der Kosten." } },
-              { "@type": "Question", "name": "Wie lange dauert ein Penetration Test?", "acceptedAnswer": { "@type": "Answer", "text": "Ein fokussierter Pentest einer Webanwendung dauert typischerweise 3–5 Tage. Ein umfassendes Netzwerk-Pentest-Projekt 2–4 Wochen." } },
-              { "@type": "Question", "name": "Fällt mein Unternehmen unter NIS-2?", "acceptedAnswer": { "@type": "Answer", "text": "NIS-2 betrifft Unternehmen in 18 kritischen Sektoren mit mehr als 50 Mitarbeitern oder 10 Millionen Euro Jahresumsatz." } }
-            ]
-          })
+            "inLanguage": lang === "en" ? "en" : "de",
+            "mainEntity": faqs.map(f => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a },
+            })),
+          }),
         }}
       />
 

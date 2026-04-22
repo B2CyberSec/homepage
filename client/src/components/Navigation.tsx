@@ -2,15 +2,18 @@
  * B2CyberSec Navigation
  * Design: Sticky, blur backdrop, Apple-dark style
  * Mobile: Hamburger menu with full-screen overlay
+ * i18n: DE/EN via LanguageContext
  */
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { useT, type Lang } from "@/contexts/LanguageContext";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { lang, setLang, t } = useT();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -22,13 +25,17 @@ export default function Navigation() {
     setMenuOpen(false);
   }, [location]);
 
+  const assessmentHref = lang === "de" ? "/nis2-check" : "/readiness-check";
+
   const navLinks = [
-    { href: "/#services", label: "Services" },
-    { href: "/#nis2", label: "NIS-2" },
-    { href: "/#pentesting", label: "Pentesting" },
-    { href: "/nis2-check", label: "Readiness Check" },
-    { href: "/#kontakt", label: "Kontakt" },
+    { href: "/#services", label: t("nav.services") },
+    { href: "/#nis2", label: t("nav.nis2") },
+    { href: "/#pentesting", label: t("nav.pentesting") },
+    { href: assessmentHref, label: t("nav.assessment") },
+    { href: "/#kontakt", label: t("nav.contact") },
   ];
+
+  const switchLang = (next: Lang) => setLang(next);
 
   return (
     <>
@@ -46,7 +53,10 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z" />
                 </svg>
               </div>
-              <span className="text-white font-bold text-lg tracking-tight hidden sm:block" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}>
+              <span
+                className="text-white font-bold text-lg tracking-tight hidden sm:block"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}
+              >
                 B2CyberSec
               </span>
             </Link>
@@ -65,14 +75,42 @@ export default function Navigation() {
               ))}
             </div>
 
-            {/* CTA + Mobile Toggle */}
+            {/* Right cluster: Language switch + CTA + Hamburger */}
             <div className="flex items-center gap-3">
+              {/* Language switcher (desktop + tablet) */}
+              <div
+                role="group"
+                aria-label={t("lang.switchTo")}
+                className="hidden sm:flex items-center text-[11px] tracking-wider rounded-full border border-white/15 bg-white/5 backdrop-blur overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => switchLang("de")}
+                  aria-pressed={lang === "de"}
+                  className={`px-2.5 py-1 transition-colors ${
+                    lang === "de" ? "bg-white text-black font-semibold" : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  DE
+                </button>
+                <button
+                  type="button"
+                  onClick={() => switchLang("en")}
+                  aria-pressed={lang === "en"}
+                  className={`px-2.5 py-1 transition-colors ${
+                    lang === "en" ? "bg-white text-black font-semibold" : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+
               <a
-                href="/nis2-check"
+                href={assessmentHref}
                 className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg text-sm font-bold text-white btn-primary"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                NIS-2 Check starten
+                {t("nav.cta")}
               </a>
 
               {/* Hamburger */}
@@ -97,7 +135,7 @@ export default function Navigation() {
         }`}
         style={{ background: "rgba(0,0,0,0.97)", backdropFilter: "blur(20px)" }}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+        <div className="flex flex-col items-center justify-center h-full gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -109,13 +147,42 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
+
+          {/* Language switcher in mobile menu */}
+          <div
+            role="group"
+            aria-label={t("lang.switchTo")}
+            className="mt-2 flex items-center text-sm tracking-wider rounded-full border border-white/15 bg-white/5 overflow-hidden"
+          >
+            <button
+              type="button"
+              onClick={() => switchLang("de")}
+              aria-pressed={lang === "de"}
+              className={`px-4 py-1.5 transition-colors ${
+                lang === "de" ? "bg-white text-black font-semibold" : "text-white/70"
+              }`}
+            >
+              DE
+            </button>
+            <button
+              type="button"
+              onClick={() => switchLang("en")}
+              aria-pressed={lang === "en"}
+              className={`px-4 py-1.5 transition-colors ${
+                lang === "en" ? "bg-white text-black font-semibold" : "text-white/70"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+
           <a
-            href="/nis2-check"
+            href={assessmentHref}
             onClick={() => setMenuOpen(false)}
             className="mt-4 px-8 py-4 rounded-xl text-lg font-bold text-white btn-primary"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
           >
-            NIS-2 Check starten
+            {t("nav.cta")}
           </a>
         </div>
       </div>
