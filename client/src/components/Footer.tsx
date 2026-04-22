@@ -37,14 +37,14 @@ export default function Footer() {
                 +49 (0) 821 90 789 500
               </a>
               <a
-                href="mailto:boris@b2cybersec.com"
+                href="mailto:info@b2cybersec.com"
                 className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 <svg className="w-4 h-4 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                boris@b2cybersec.com
+                info@b2cybersec.com
               </a>
             </div>
           </div>
