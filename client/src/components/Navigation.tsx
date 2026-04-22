@@ -27,7 +27,7 @@ export default function Navigation() {
     { href: "/#nis2", label: "NIS-2" },
     { href: "/#pentesting", label: "Pentesting" },
     { href: "/nis2-check", label: "Readiness Check" },
-    { href: "/impressum", label: "Kontakt" },
+    { href: "/#kontakt", label: "Kontakt" },
   ];
 
   return (
