@@ -134,7 +134,7 @@ export const translations = {
     "footer.copyright": "© {year} B2CyberSec GmbH. Alle Rechte vorbehalten.",
 
     // ──────────────────────────  ASSESSMENT (NIS-2-RICHTLINIE CHECK)  ──────────────────────────
-    "as.title": "NIS-2-Richtlinie Readiness Check",
+    "as.title": "NIS-2-Richtlinie Bereitschafts-Check",
     "as.subtitle": "12 Fragen. 5 Bereiche. Ein klares Bild Ihrer NIS-2-Pflichten.",
     "as.intro.body": "Als Geschäftsführer haften Sie persönlich. Dieser Check beantwortet in unter 5 Minuten, ob Sie die wichtigsten NIS-2-Pflichten erfüllen — basierend auf den §§28, 30, 32, 33, 38, 39 BSIG.",
     "as.intro.point1": "Anonym & sicher — DSGVO-konform",
@@ -308,7 +308,7 @@ export const translations = {
     "services.s3.cta": "Book a call with Bojan",
 
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
-    "urgency.eyebrow": "NIS-2 DIRECTOR LIABILITY",
+    "urgency.eyebrow": "NIS-2 MANAGEMENT LIABILITY",
     "urgency.headline": "Fines up to € 10 million. Personal liability. Today.",
     "urgency.body": "Since April 2025, NIS-2 is binding in Germany. Directors can be held personally liable if no adequate cybersecurity measures can be evidenced. We help you implement the obligations in 90 days.",
     "urgency.bullet1": "24-hour notification duty to the BSI",
@@ -388,7 +388,7 @@ export const translations = {
 
     "as.area.applicability": "Applicability",
     "as.area.applicability.short": "§28 BSIG",
-    "as.area.accountability": "Director liability",
+    "as.area.accountability": "Management Liability",
     "as.area.accountability.short": "§38 BSIG",
     "as.area.risk": "Risk management",
     "as.area.risk.short": "§30 BSIG",

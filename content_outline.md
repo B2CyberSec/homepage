@@ -20,7 +20,7 @@
 
 ### AI-Optimierte FAQ-Sektion
 - Fragen, die AI-Crawler lieben und direkt beantwortet werden:
-  - "Was kostet NIS2 Compliance?"
+  - "Was kostet NIS-2 Compliance?"
   - "Brauche ich einen CISO?"
   - Weitere relevante Fragen zu den Services
 
