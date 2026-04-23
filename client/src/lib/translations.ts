@@ -133,8 +133,8 @@ export const translations = {
     "footer.link.privacy": "Datenschutz",
     "footer.copyright": "© {year} B2CyberSec GmbH. Alle Rechte vorbehalten.",
 
-    // ──────────────────────────  ASSESSMENT (NIS-2 DIRECTIVE CHECK)  ──────────────────────────
-    "as.title": "NIS-2 Directive Readiness Check",
+    // ──────────────────────────  ASSESSMENT (NIS-2-RICHTLINIE CHECK)  ──────────────────────────
+    "as.title": "NIS-2-Richtlinie Readiness Check",
     "as.subtitle": "12 Fragen. 5 Bereiche. Ein klares Bild Ihrer NIS-2-Pflichten.",
     "as.intro.body": "Als Geschäftsführer haften Sie persönlich. Dieser Check beantwortet in unter 5 Minuten, ob Sie die wichtigsten NIS-2-Pflichten erfüllen — basierend auf den §§28, 30, 32, 33, 38, 39 BSIG.",
     "as.intro.point1": "Anonym & sicher — DSGVO-konform",
@@ -154,7 +154,7 @@ export const translations = {
     "as.area.audit": "Registrierung & Audit",
     "as.area.audit.short": "§33/§39 BSIG",
 
-    "as.q1": "Hat Ihr Unternehmen geprüft, ob es unter das NIS2-Umsetzungsgesetz fällt — z.B. als Betreiber kritischer Infrastrukturen, wichtige oder besonders wichtige Einrichtung?",
+    "as.q1": "Hat Ihr Unternehmen geprüft, ob es von der NIS-2-Richtlinie betroffen ist — z.B. als Betreiber kritischer Infrastrukturen, wichtige oder besonders wichtige Einrichtung?",
     "as.q2": "Liegt eine dokumentierte Analyse vor, die belegt, warum Ihr Unternehmen betroffen oder nicht betroffen ist?",
     "as.q3": "Haben Sie als Geschäftsführer die Cybersecurity-Risikomanagement-Maßnahmen persönlich und schriftlich genehmigt?",
     "as.q4": "Ist Ihnen bewusst, dass das NIS2UmsuCG (NIS-2-Umsetzungs- und Cybersicherheitsstärkungsgesetz) eine persönliche Haftung für Geschäftsführer einführt — einschließlich persönlicher Bußgelder?",
