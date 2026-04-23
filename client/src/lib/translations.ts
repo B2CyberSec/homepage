@@ -133,8 +133,8 @@ export const translations = {
     "footer.link.privacy": "Datenschutz",
     "footer.copyright": "© {year} B2CyberSec GmbH. Alle Rechte vorbehalten.",
 
-    // ──────────────────────────  ASSESSMENT (NIS-2 DIRECTOR CHECK)  ──────────────────────────
-    "as.title": "NIS-2 Director Readiness Check",
+    // ──────────────────────────  ASSESSMENT (NIS-2 DIRECTIVE CHECK)  ──────────────────────────
+    "as.title": "NIS-2 Directive Readiness Check",
     "as.subtitle": "12 Fragen. 5 Bereiche. Ein klares Bild Ihrer NIS-2-Pflichten.",
     "as.intro.body": "Als Geschäftsführer haften Sie persönlich. Dieser Check beantwortet in unter 5 Minuten, ob Sie die wichtigsten NIS-2-Pflichten erfüllen — basierend auf den §§28, 30, 32, 33, 38, 39 BSIG.",
     "as.intro.point1": "Anonym & sicher — DSGVO-konform",
@@ -377,7 +377,7 @@ export const translations = {
     "footer.copyright": "© {year} B2CyberSec GmbH. All rights reserved.",
 
     // ──────────────────────────  ASSESSMENT  ──────────────────────────
-    "as.title": "NIS-2 Director Readiness Check",
+    "as.title": "NIS-2 Directive Readiness Check",
     "as.subtitle": "12 questions. 5 areas. A clear picture of your NIS-2 obligations.",
     "as.intro.body": "As a director you are personally liable. In under 5 minutes this check tells you whether you meet the key NIS-2 obligations — based on §§ 28, 30, 32, 33, 38, 39 of the German BSIG.",
     "as.intro.point1": "Anonymous & secure — GDPR-compliant",

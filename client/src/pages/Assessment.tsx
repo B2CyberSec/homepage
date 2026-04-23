@@ -1,5 +1,5 @@
 /*
- * B2CyberSec — NIS-2 Director Readiness Check
+ * B2CyberSec — NIS-2 Directive Readiness Check
  * Bilingual via LanguageContext (DE/EN). Default DE.
  *
  * Flow: intro -> questions (12) -> lead form -> result (score + area bars + gaps + CTA)
@@ -211,7 +211,7 @@ export default function Assessment() {
               ],
               context: {
                 pageUri: window.location.href,
-                pageName: "NIS-2 Director Readiness Check",
+                pageName: "NIS-2 Directive Readiness Check",
               },
             }),
           },
