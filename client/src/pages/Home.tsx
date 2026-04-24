@@ -18,7 +18,7 @@ const IMG_NIS2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5Ea
 const IMG_PENTEST = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-pentest-abstract-FoPqCjQsKJeLEEY34ro3tm.webp";
 const IMG_TEAM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/team-illustration-ghp6WRU645qyKjakcbd5ta.webp";
 
-const CALENDLY_BORIS = "https://calendly.com/b2cybersec/kontakt";
+const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
 const CALENDLY_SENAD = "https://calendly.com/senad-b2cybersec/nis2";
 const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
