@@ -67,7 +67,7 @@ export const translations = {
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 GESCHÄFTSFÜHRER-HAFTUNG",
     "urgency.headline": "Bußgelder bis 10 Mio. €. Persönliche Haftung. Heute.",
-    "urgency.body": "Seit dem 6. Dezember 2025 in Kraft. Geschäftsführer haften JETZT persönlich — wenn keine angemessenen Cybersecurity-Maßnahmen nachweisbar sind. Wir helfen Ihnen, die Pflichten in 90 Tagen umzusetzen.",
+    "urgency.body": "Seit Dezember 2025 haften Geschäftsführer persönlich — das NIS2UmsuCG ist seit dem 6. Dezember 2025 in Kraft. Wenn keine angemessenen Cybersecurity-Maßnahmen nachweisbar sind, drohen Bußgelder und persönliche Haftung. Wir helfen Ihnen, die Pflichten in 90 Tagen umzusetzen.",
     "urgency.bullet1": "BSI-Meldepflicht innerhalb von 24 Stunden",
     "urgency.bullet2": "Nachweispflicht von Risikomanagement-Maßnahmen",
     "urgency.bullet3": "Persönliche Haftung der Geschäftsführung",
@@ -310,7 +310,7 @@ export const translations = {
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 MANAGEMENT LIABILITY",
     "urgency.headline": "Fines up to € 10 million. Personal liability. Today.",
-    "urgency.body": "In force since 6 December 2025. Directors are NOW personally liable — if no adequate cybersecurity measures can be evidenced. We help you implement the obligations in 90 days.",
+    "urgency.body": "Since December 2025, directors are personally liable — the NIS2UmsuCG has been in force since 6 December 2025. If no adequate cybersecurity measures can be evidenced, fines and personal liability apply. We help you implement the obligations in 90 days.",
     "urgency.bullet1": "24-hour notification duty to the BSI",
     "urgency.bullet2": "Documented evidence of risk-management measures",
     "urgency.bullet3": "Personal liability of management",

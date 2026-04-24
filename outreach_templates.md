@@ -58,7 +58,7 @@ Hallo {{firstName}},
 
 kurzes Follow-up zu meiner letzten Nachricht.
 
-Ein Datenpunkt, der viele unserer Partner-Systemhäuser bewegt: Seit der verbindlichen Einführung von NIS-2 in Deutschland (April 2025) ist die Nachfrage nach Security-Audits, NIS-2 Readiness Checks und Pentestings sprunghaft gestiegen. Gleichzeitig fehlen laut Bitkom aktuell rund 109.000 IT-Fachkräfte in Deutschland — der Security-Bereich ist besonders betroffen.
+Ein Datenpunkt, der viele unserer Partner-Systemhäuser bewegt: Seit der verbindlichen Einführung von NIS-2 in Deutschland (Dezember 2025, NIS2UmsuCG in Kraft seit 6. Dezember 2025) ist die Nachfrage nach Security-Audits, NIS-2 Readiness Checks und Pentestings sprunghaft gestiegen. Gleichzeitig fehlen laut Bitkom aktuell rund 109.000 IT-Fachkräfte in Deutschland — der Security-Bereich ist besonders betroffen.
 
 Viele unserer Partner nutzen uns genau für diese Lastspitzen: Wir übernehmen NIS-2 Readiness Checks, Firewall-Migrationen oder komplexe Infrastruktur-Pentests für ihre Endkunden — schnell, zertifiziert und ohne Fixkosten für {{companyName}}.
 
@@ -147,7 +147,7 @@ Technologien: Cisco (CCNP/CCIE), Fortinet (NSE), Palo Alto (PCNSE), Check Point 
 Einsatzgebiete: Firewall-Migrationen, SD-WAN, Network-Architecture, Cloud-Security, VPN/Zero-Trust
 
 **NIS-2 & Compliance Consulting**
-Die NIS-2-Richtlinie ist seit April 2025 in Deutschland verbindlich. Geschäftsführer Ihrer Kunden haften persönlich. Wir machen deren Unternehmen compliance-ready — strukturiert und nachweisbar.
+Das NIS2UmsuCG ist seit dem 6. Dezember 2025 in Kraft. Geschäftsführer Ihrer Kunden haften seitdem persönlich. Wir machen deren Unternehmen compliance-ready — strukturiert und nachweisbar.
 
 Leistungen: NIS-2 Readiness Checks, Gap-Analysen, ISO 27001, DORA, Fractional CISO
 Team: CISSP-zertifizierter Ex-CISO mit Big-4-Beratungshintergrund und 20+ Jahren Erfahrung

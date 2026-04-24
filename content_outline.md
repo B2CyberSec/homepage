@@ -32,12 +32,12 @@
 ### 2.1 Professional Services (Boris)
 - Detaillierte Beschreibung der IT-Experten-Vermittlung
 - Fokus auf Netzwerk, Security, Cloud, Infrastruktur
-- Call to Action: Calendly-Embed für Boris: https://calendly.com/b2cybersec-team/pro-services
+- Call to Action: Calendly-Embed für Boris: https://calendly.com/b2cybersec/kontakt
 
 ### 2.2 NIS-2 / Compliance / AI Governance (Senad)
 - Detaillierte Beschreibung: NIS-2 Readiness, ISO 27001, DORA, GDPR, AI Governance
 - Betonung der Erfahrung von Senad
-- Call to Action: Calendly-Embed für Senad: https://calendly.com/senad-b2cybersec/nis2
+- Call to Action: Calendly-Embed für Senad (NIS-2): https://calendly.com/senad-b2cybersec/nis2
 
 ### 2.3 Pentesting (Bojan)
 - Detaillierte Beschreibung: Penetration Testing, Vulnerability Assessment
