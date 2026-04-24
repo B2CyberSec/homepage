@@ -70,7 +70,7 @@ const AREA_SHORT_KEY: Record<AreaId, TranslationKey> = {
   audit: "as.area.audit.short",
 };
 
-const SENAD_CALENDLY = "https://calendly.com/b2cybersec-team/pro-services";
+const SENAD_CALENDLY = "https://calendly.com/senad-b2cybersec/nis2";
 
 type Phase = "intro" | "questions" | "lead" | "result";
 

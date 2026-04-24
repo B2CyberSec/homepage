@@ -37,7 +37,7 @@
 ### 2.2 NIS-2 / Compliance / AI Governance (Senad)
 - Detaillierte Beschreibung: NIS-2 Readiness, ISO 27001, DORA, GDPR, AI Governance
 - Betonung der Erfahrung von Senad
-- Call to Action: Calendly-Embed (Platzhalter: Boris' Link: https://calendly.com/b2cybersec-team/pro-services)
+- Call to Action: Calendly-Embed für Senad: https://calendly.com/senad-b2cybersec/nis2
 
 ### 2.3 Pentesting (Bojan)
 - Detaillierte Beschreibung: Penetration Testing, Vulnerability Assessment

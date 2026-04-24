@@ -19,7 +19,7 @@ const IMG_PENTEST = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p
 const IMG_TEAM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/team-illustration-ghp6WRU645qyKjakcbd5ta.webp";
 
 const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
-const CALENDLY_SENAD = "https://calendly.com/b2cybersec-team/pro-services"; // Platzhalter, wird später ausgetauscht
+const CALENDLY_SENAD = "https://calendly.com/senad-b2cybersec/nis2"; // NIS-2 Termine mit Senad
 const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
 // Scroll reveal hook
