@@ -22,6 +22,10 @@ const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
 const CALENDLY_SENAD = "https://calendly.com/senad-b2cybersec/nis2";
 const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
+// NIS-2 explainer video (hosted on CDN, ~44 MB)
+const NIS2_VIDEO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/yaVPiPBedKAitidB.mp4";
+const NIS2_VIDEO_POSTER = "/videos/nis2-poster.jpg";
+
 // Scroll reveal hook
 function useScrollReveal() {
   useEffect(() => {
@@ -307,6 +311,91 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NIS-2 EXPLAINER VIDEO — DARK */}
+      <section
+        id="nis2-video"
+        className="py-24 md:py-32 relative overflow-hidden bg-black"
+      >
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(10,132,255,0.25) 0%, transparent 70%)",
+          }}
+        />
+        <div className="container relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card-blue mb-6 reveal">
+                <svg
+                  className="w-3.5 h-3.5 text-[#0A84FF]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span
+                  className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider"
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {t("nis2video.eyebrow")}
+                </span>
+              </div>
+              <h2
+                className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 reveal"
+                style={{
+                  fontFamily: "'Bricolage Grotesque', sans-serif",
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                {t("nis2video.headline")}
+              </h2>
+              <p
+                className="text-white/60 text-lg leading-relaxed reveal"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                {t("nis2video.body")}
+              </p>
+            </div>
+
+            <div className="relative reveal">
+              {/* Glow backdrop */}
+              <div
+                className="absolute -inset-4 rounded-3xl opacity-60 blur-2xl"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(10,132,255,0.35), rgba(10,132,255,0.05) 60%, transparent)",
+                }}
+                aria-hidden="true"
+              />
+              {/* Gradient-border video card */}
+              <div className="relative gradient-border rounded-2xl overflow-hidden">
+                <div className="relative aspect-video bg-black">
+                  <video
+                    className="w-full h-full object-cover bg-black"
+                    src={NIS2_VIDEO_URL}
+                    poster={NIS2_VIDEO_POSTER}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    controlsList="nodownload"
+                    aria-label={t("nis2video.aria")}
+                  >
+                    {t("nis2video.fallback")}
+                  </video>
+                </div>
+              </div>
+              <p
+                className="mt-4 text-center text-xs text-white/40"
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                {t("nis2video.caption")}
+              </p>
+            </div>
           </div>
         </div>
       </section>

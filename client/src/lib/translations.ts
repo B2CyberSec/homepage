@@ -64,6 +64,14 @@ export const translations = {
     "services.s3.lead.role": "Penetration Testing Lead, OSCP, Red Team",
     "services.s3.cta": "Termin mit Bojan buchen",
 
+    // ──────────────────────────  NIS-2 EXPLAINER VIDEO  ──────────────────────────
+    "nis2video.eyebrow": "NIS-2 IN 2 MINUTEN ERKLÄRT",
+    "nis2video.headline": "Die NIS-2-Richtlinie verstehen.",
+    "nis2video.body": "Was verlangt NIS-2 konkret von Ihrem Unternehmen — und warum betrifft es Sie als Geschäftsführung persönlich? Unser kurzer Erklärfilm bringt die wichtigsten Pflichten, Fristen und Haftungsfragen auf den Punkt.",
+    "nis2video.caption": "Erklärvideo · ca. 2 Minuten · B2CyberSec GmbH",
+    "nis2video.aria": "Erklärvideo zur NIS-2-Richtlinie abspielen",
+    "nis2video.fallback": "Ihr Browser unterstützt keine eingebetteten Videos. Bitte laden Sie das Video direkt herunter, um es anzusehen.",
+
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 GESCHÄFTSFÜHRER-HAFTUNG",
     "urgency.headline": "Bußgelder bis 10 Mio. €. Persönliche Haftung. Heute.",
@@ -306,6 +314,14 @@ export const translations = {
     "services.s3.lead.name": "Bojan Kornijenko",
     "services.s3.lead.role": "Penetration Testing Lead, OSCP, Red Team",
     "services.s3.cta": "Book a call with Bojan",
+
+    // ──────────────────────────  NIS-2 EXPLAINER VIDEO  ──────────────────────────
+    "nis2video.eyebrow": "NIS-2 EXPLAINED IN 2 MINUTES",
+    "nis2video.headline": "Understand the NIS-2 directive.",
+    "nis2video.body": "What does NIS-2 actually require from your organisation — and why does it put you personally on the hook as a director? Our short explainer sums up the key obligations, deadlines and liability questions.",
+    "nis2video.caption": "Explainer video · approx. 2 minutes · B2CyberSec GmbH",
+    "nis2video.aria": "Play the NIS-2 directive explainer video",
+    "nis2video.fallback": "Your browser does not support embedded video. Please download the file directly to watch it.",
 
     // ──────────────────────────  NIS-2 URGENCY  ──────────────────────────
     "urgency.eyebrow": "NIS-2 MANAGEMENT LIABILITY",
