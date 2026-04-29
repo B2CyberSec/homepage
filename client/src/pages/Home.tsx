@@ -145,7 +145,7 @@ export default function Home() {
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{ backgroundImage: `url(${HERO_BG})`, backgroundSize: "cover", backgroundPosition: "center right" }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.25) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0.4) 100%)" }} />
 
         <div className="container relative z-10 pt-24 pb-20">
           <div className="max-w-3xl">
@@ -205,8 +205,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS — DARK */}
-      <section className="py-16 border-y border-white/10" style={{ background: "linear-gradient(135deg, #050A14 0%, #0A1628 100%)" }}>
+      {/* STATS — LIGHT */}
+      <section className="py-16 border-y" style={{ background: "linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%)", borderColor: "rgba(0,0,0,0.06)" }}>
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[

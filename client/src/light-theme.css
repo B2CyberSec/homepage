@@ -1,0 +1,335 @@
+/*
+ * B2CyberSec — Light Theme Override
+ * Apple-inspired: weißer Hintergrund (#fff), dunkler Text (#1d1d1f),
+ * Akzent Blau #2563eb. Wird NACH index.css geladen, überschreibt also
+ * die Dark-Theme-Tokens und gezielte Hex-Klassen, ohne Komponenten zu ändern.
+ *
+ * Zweck: Light-Theme-Variante als Alternative zur Dark-Variante – alle
+ * Inhalte, Komponenten, Sprachumschaltung (DE/EN) und Funktionen bleiben
+ * unverändert.
+ */
+
+/* ---------------------------------------------------------------- *
+ *  1. Theme-Tokens überschreiben (auf :root und .dark, weil das
+ *     ThemeContext im App.tsx die Klasse "dark" aufs <html> setzt).
+ * ---------------------------------------------------------------- */
+:root,
+:root.dark,
+.dark {
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --card: #fbfbfd;
+  --card-foreground: #1d1d1f;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f7;
+  --secondary-foreground: #1d1d1f;
+  --muted: #f5f5f7;
+  --muted-foreground: #86868b;
+  --accent: #f5f5f7;
+  --accent-foreground: #1d1d1f;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #1d1d1f;
+  --chart-3: #86868b;
+  --chart-4: #d2d2d7;
+  --chart-5: #f5f5f7;
+  --sidebar: #f5f5f7;
+  --sidebar-foreground: #1d1d1f;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffffff;
+  --sidebar-accent-foreground: #1d1d1f;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #2563eb;
+
+  /* Custom B2 Tokens (Light-Variante) */
+  --color-b2-blue: #2563eb;
+  --color-b2-blue-glow: rgba(37, 99, 235, 0.18);
+  --color-b2-blue-subtle: rgba(37, 99, 235, 0.06);
+  --color-b2-surface-1: #fbfbfd;
+  --color-b2-surface-2: #f5f5f7;
+  --color-b2-border: rgba(0, 0, 0, 0.08);
+  --color-b2-border-blue: rgba(37, 99, 235, 0.25);
+  --color-b2-success: #16a34a;
+  --color-b2-danger: #dc2626;
+  --color-b2-warning: #d97706;
+}
+
+/* ---------------------------------------------------------------- *
+ *  2. Body & Schriften
+ * ---------------------------------------------------------------- */
+html,
+body {
+  background-color: #ffffff !important;
+  color: #1d1d1f !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings bleiben Bricolage Grotesque, dunkel */
+h1, h2, h3, h4, h5, h6 {
+  color: #1d1d1f;
+}
+
+/* ---------------------------------------------------------------- *
+ *  3. Hintergrund- und Textklassen umkehren
+ *     (überall wo bg-black / text-white hardcoded waren)
+ * ---------------------------------------------------------------- */
+.bg-black {
+  background-color: #ffffff !important;
+}
+
+.bg-black\/50,
+.bg-black\/60,
+.bg-black\/70,
+.bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Sektionen mit bg-black bekommen einen sehr dezenten alternierenden Ton,
+   damit lange Seiten nicht uniform wirken. Das wird per nth-of-type
+   abgewechselt. */
+section.bg-black:nth-of-type(even) {
+  background-color: #fbfbfd !important;
+}
+section.bg-black:nth-of-type(odd) {
+  background-color: #ffffff !important;
+}
+
+/* Spezifischer dunkler CTA-Block (Apple-Stil): Section mit "bg-black"
+   und einem dunklen CTA-Button, hier behalten wir dunkel im Container,
+   wenn er als Card-Variante kommt. Hier nicht angewandt – wir setzen
+   alles hell um für Konsistenz. */
+
+.text-white {
+  color: #1d1d1f !important;
+}
+
+.text-white\/40 { color: rgba(29, 29, 31, 0.45) !important; }
+.text-white\/50 { color: rgba(29, 29, 31, 0.55) !important; }
+.text-white\/60 { color: rgba(29, 29, 31, 0.65) !important; }
+.text-white\/70 { color: rgba(29, 29, 31, 0.72) !important; }
+.text-white\/80 { color: rgba(29, 29, 31, 0.82) !important; }
+.text-white\/90 { color: rgba(29, 29, 31, 0.92) !important; }
+
+.border-white {
+  border-color: #1d1d1f !important;
+}
+.border-white\/5 { border-color: rgba(0, 0, 0, 0.05) !important; }
+.border-white\/10 { border-color: rgba(0, 0, 0, 0.08) !important; }
+.border-white\/20 { border-color: rgba(0, 0, 0, 0.12) !important; }
+.border-white\/30 { border-color: rgba(0, 0, 0, 0.18) !important; }
+.border-white\/40 { border-color: rgba(0, 0, 0, 0.22) !important; }
+.border-white\/60 { border-color: rgba(0, 0, 0, 0.4) !important; }
+
+/* Helle "Glas"-Flächen, die im Dark-Modus weißliche Transparenz waren */
+.bg-white\/5,
+.bg-white\/\[0\.03\],
+.bg-white\/\[0\.04\],
+.bg-white\/\[0\.05\] {
+  background-color: #f8f8f7 !important;
+}
+
+.bg-white\/10,
+.bg-white\/\[0\.08\] {
+  background-color: #f0f0f3 !important;
+}
+
+.bg-white\/20 {
+  background-color: #e8e8ec !important;
+}
+
+.hover\:bg-white\/5:hover,
+.hover\:bg-white\/10:hover {
+  background-color: #eeeef2 !important;
+}
+
+.hover\:bg-white\/20:hover {
+  background-color: #e4e4e9 !important;
+}
+
+.hover\:text-white:hover {
+  color: #1d1d1f !important;
+}
+
+.hover\:border-white\/30:hover,
+.hover\:border-white\/60:hover {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ---------------------------------------------------------------- *
+ *  4. B2 Akzent-Blau — von Apple-System-Blau (#0A84FF) auf #2563eb
+ * ---------------------------------------------------------------- */
+.bg-\[\#0A84FF\] {
+  background-color: #2563eb !important;
+}
+
+.hover\:bg-\[\#0A84FF\]\/90:hover {
+  background-color: #1d4ed8 !important;
+}
+
+.bg-\[\#0A84FF\]\/10 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+}
+.bg-\[\#0A84FF\]\/20 {
+  background-color: rgba(37, 99, 235, 0.12) !important;
+}
+
+.text-\[\#0A84FF\] {
+  color: #2563eb !important;
+}
+
+.border-\[\#0A84FF\] {
+  border-color: #2563eb !important;
+}
+.border-\[\#0A84FF\]\/30,
+.border-\[\#0A84FF\]\/40 {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Score-Farben behalten ihre Bedeutung, aber etwas kräftiger für hellen Hintergrund */
+.score-low { color: #dc2626 !important; }
+.score-medium { color: #d97706 !important; }
+.score-high { color: #16a34a !important; }
+
+.bg-\[\#FF453A\] { background-color: #dc2626 !important; }
+.text-\[\#FF453A\] { color: #dc2626 !important; }
+.bg-\[\#30D158\] { background-color: #16a34a !important; }
+.text-\[\#30D158\] { color: #16a34a !important; }
+.bg-\[\#FF9F0A\] { background-color: #d97706 !important; }
+.text-\[\#FF9F0A\] { color: #d97706 !important; }
+
+/* ---------------------------------------------------------------- *
+ *  5. Components: Glass / Buttons / Nav-Blur / Divider
+ * ---------------------------------------------------------------- */
+.glass-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card-blue {
+  background: rgba(37, 99, 235, 0.06) !important;
+  border: 1px solid rgba(37, 99, 235, 0.2) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.gradient-border {
+  background: #ffffff !important;
+}
+.gradient-border::before {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.45),
+    rgba(37, 99, 235, 0.1),
+    transparent
+  ) !important;
+}
+
+.btn-primary {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.4) !important;
+}
+.btn-primary:hover {
+  background: #1d4ed8 !important;
+  box-shadow: 0 12px 30px -8px rgba(37, 99, 235, 0.5) !important;
+}
+
+.btn-outline-blue {
+  background: transparent !important;
+  color: #2563eb !important;
+  border: 1px solid rgba(37, 99, 235, 0.4) !important;
+}
+.btn-outline-blue:hover {
+  background: rgba(37, 99, 235, 0.06) !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.25) !important;
+}
+
+.section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(37, 99, 235, 0.35),
+    transparent
+  ) !important;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #2563eb, #60a5fa) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.nav-blur {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ---------------------------------------------------------------- *
+ *  6. Feinheiten: Loader, Video-Container, Logo, Skeletons
+ * ---------------------------------------------------------------- */
+/* Lazy-Route Loader: schwarzer Hintergrund -> weiß */
+.bg-black.flex.items-center.justify-center {
+  background-color: #ffffff !important;
+}
+
+/* Video- und Mediencontainer dürfen schwarz bleiben (Letterboxing wirkt
+   so professioneller). Erzwinge das mit einem speziellen Marker:
+   nur <video> / <iframe> Container, die per aspect-video bg-black erstellt
+   wurden, behalten dunklen Hintergrund. */
+div.aspect-video.bg-black,
+.video-frame.bg-black,
+[data-keep-dark="true"] {
+  background-color: #000000 !important;
+}
+
+/* Inputs sichtbar */
+input,
+textarea,
+select {
+  background-color: #ffffff;
+  color: #1d1d1f;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* shadcn-Variants: data-state Selectors */
+.data-\[state\=active\]\:bg-\[\#0A84FF\][data-state="active"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* Subtile Hintergrund-Texturen: vorhandene Radial-Gradients in Sektionen
+   werden über Style-Attribute gesetzt; Sicherheits-Reset für extrem dunkle
+   Inline-Backgrounds */
+[style*="rgba(10, 132, 255"] {
+  /* Inline Blue-Glow bleibt — Farbe stimmt visuell auch hell, nur die
+     Umgebung wird heller. */
+}
+
+/* Footer / Card-Borders Korrektur */
+hr {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Selection */
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: #1d1d1f;
+}

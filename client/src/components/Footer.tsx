@@ -31,26 +31,26 @@ export default function Footer() {
   const cityLine = lang === "de" ? "Augsburg, Deutschland" : "Augsburg, Germany";
 
   return (
-    <footer className="bg-black border-t border-white/10 pt-16 pb-8">
+    <footer className="bg-[#fbfbfd] border-t border-black/10 pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#0A84FF] flex items-center justify-center shadow-[0_0_16px_rgba(10,132,255,0.4)]">
+              <div className="w-8 h-8 rounded-lg bg-[#2563eb] flex items-center justify-center shadow-[0_4px_14px_rgba(37,99,235,0.25)]">
                 <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z" />
                 </svg>
               </div>
               <span
-                className="text-white font-bold text-lg"
+                className="text-[#1d1d1f] font-bold text-lg"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}
               >
                 B2CyberSec GmbH
               </span>
             </div>
             <p
-              className="text-white/55 text-base leading-relaxed max-w-sm"
+              className="text-[#1d1d1f]/65 text-base leading-relaxed max-w-sm"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {t("footer.tagline")}
@@ -60,7 +60,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4
-              className="text-white font-semibold text-sm mb-4 uppercase tracking-wider"
+              className="text-[#1d1d1f] font-semibold text-sm mb-4 uppercase tracking-wider"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "0.08em" }}
             >
               {t("footer.col.services")}
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-white/55 hover:text-white text-sm transition-colors"
+                    className="text-[#1d1d1f]/65 hover:text-[#2563eb] text-sm transition-colors"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {item.label}
@@ -83,7 +83,7 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4
-              className="text-white font-semibold text-sm mb-4 uppercase tracking-wider"
+              className="text-[#1d1d1f] font-semibold text-sm mb-4 uppercase tracking-wider"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "0.08em" }}
             >
               {t("footer.col.legal")}
@@ -93,7 +93,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/55 hover:text-white text-sm transition-colors"
+                    className="text-[#1d1d1f]/65 hover:text-[#2563eb] text-sm transition-colors"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {item.label}
@@ -107,10 +107,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="section-divider mb-6" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/35 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-[#86868b] text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
             {copyright}
           </p>
-          <p className="text-white/35 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+          <p className="text-[#86868b] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
             {cityLine}
           </p>
         </div>
