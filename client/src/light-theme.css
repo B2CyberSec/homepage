@@ -242,6 +242,11 @@ section.bg-black:nth-of-type(odd) {
   background: #2563eb !important;
   color: #ffffff !important;
   box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.4) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+.btn-primary *,
+.btn-primary svg {
+  color: #ffffff !important;
 }
 .btn-primary:hover {
   background: #1d4ed8 !important;
@@ -578,8 +583,16 @@ section[class*="bg-black"] [style*="radial-gradient"] {
 
 /* 7.15 CTA Primary-Button: sicherstellen dass Text weiß auf blau bleibt */
 .btn-primary,
-.btn-primary * {
+.btn-primary *,
+.btn-primary svg {
   color: #ffffff !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+}
+
+/* Override inline Bricolage Grotesque font-family on buttons */
+[style*="Bricolage"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 /* 7.16 Stats-Section "text-white/50"-Labels (unter Zahlen) dunkler */
@@ -624,15 +637,30 @@ footer a.text-\[\#1d1d1f\]\/65:hover {
 }
 
 /* ---------------------------------------------------------------- *
- *  8. Apple System Font — übernommen von Referenzseite
+ *  8. Inter Font — clean Apple-Style Schriftart (von Referenzseite)
+ *     Inter wird bereits via Google Fonts geladen (index.html).
+ *     Hier überschreiben wir Bricolage Grotesque mit Inter überall.
  * ---------------------------------------------------------------- */
 :root,
 :root.dark,
 .dark,
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display",
-    "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-    "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif !important;
+}
+
+/* Headlines die Bricolage Grotesque nutzen → auf Inter umstellen */
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+[class*="Bricolage"],
+[style*="Bricolage"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Spezifische Klassen die Bricolage setzen */
+.font-\[\'Bricolage_Grotesque\'\],
+.font-\[Bricolage_Grotesque\] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 /* ---------------------------------------------------------------- *
