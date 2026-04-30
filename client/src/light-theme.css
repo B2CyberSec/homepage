@@ -721,3 +721,27 @@ button.text-white.btn-primary,
   color: #ffffff !important;
   stroke: #ffffff !important;
 }
+
+/* ---------------------------------------------------------------- *
+ *  NUCLEAR FIX: ANY element with both btn-primary and text-white
+ *  classes, or any child/descendant of btn-primary, MUST be white.
+ *  Using extremely high specificity to beat the .text-white override.
+ * ---------------------------------------------------------------- */
+.btn-primary,
+.btn-primary *,
+a.btn-primary,
+a.btn-primary *,
+button.btn-primary,
+button.btn-primary *,
+[class~="btn-primary"],
+[class~="btn-primary"] * {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+/* Also cover bg-blue buttons that don't use btn-primary class */
+.bg-blue-600,
+.bg-blue-600 *,
+[class*="bg-blue-"] *,
+[class*="bg-\[#2563eb\]"] * {
+  color: #ffffff !important;
+}
