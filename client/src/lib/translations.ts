@@ -275,8 +275,8 @@ export const translations = {
 
     // ──────────────────────────  HERO  ──────────────────────────
     "hero.eyebrow": "NIS-2 IS LIVE — ARE YOU READY?",
-    "hero.h1.line1": "Hackers don't sleep.",
-    "hero.h1.line2": "Your IT department does.",
+    "hero.h1.line1": "NIS-2 is mandatory.",
+    "hero.h1.line2": "The right experts are the solution.",
     "hero.sub": "As a director, you are personally liable for security incidents. NIS-2 makes it law. We turn it into a strength — with 20+ years of hands-on experience.",
     "hero.cta.primary": "Start free NIS-2 check",
     "hero.cta.secondary": "Book a direct call",
