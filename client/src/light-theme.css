@@ -702,19 +702,6 @@ a[class*="bg-primary"] * {
 [style*="background: #2563eb"] * {
   color: #ffffff !important;
 }
-
-/* ---------------------------------------------------------------- *
- *  TARGETED FIX: White text only on FILLED blue buttons
- *  (NOT on outline buttons like btn-outline-blue)
- * ---------------------------------------------------------------- */
-/* Assessment page buttons with bg-[#0A84FF] */
-.bg-\[\#0A84FF\],
-.bg-\[\#0A84FF\] * {
-  color: #ffffff !important;
-}
-.bg-\[\#0A84FF\] svg {
-  color: #ffffff !important;
-  stroke: #ffffff !important;
 }
 
 /* Ensure outline buttons keep blue text (override any generic white rules) */
@@ -723,4 +710,27 @@ a[class*="bg-primary"] * {
 .btn-outline-blue svg {
   color: #2563eb !important;
   stroke: #2563eb !important;
+}
+
+/* ---------------------------------------------------------------- *
+ *  TARGETED: Only these 4 specific filled blue buttons get white text
+ *  1. Hero CTA "Kostenlosen NIS-2 Check starten" (btn-primary + text-white)
+ *  2. Nav CTA "NIS-2 Check starten" (btn-primary + text-white)  
+ *  3. Assessment "Check starten" (bg-[#0A84FF] + text-white)
+ *  4. Mobile Nav CTA (btn-primary + text-white)
+ * ---------------------------------------------------------------- */
+.btn-primary.text-white,
+a.btn-primary.text-white,
+button.bg-\[\#0A84FF\].text-white,
+.btn-primary.text-white *,
+a.btn-primary.text-white *,
+button.bg-\[\#0A84FF\].text-white * {
+  color: #ffffff !important;
+}
+.btn-primary.text-white svg,
+a.btn-primary.text-white svg,
+button.bg-\[\#0A84FF\].text-white svg,
+button.bg-\[\#0A84FF\] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
