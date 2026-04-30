@@ -95,7 +95,7 @@ export const translations = {
     "ps.offer.b2": "Netzwerk, Cloud, Security, Datacenter — wir decken die gesamte IT-Infrastruktur ab",
     "ps.offer.b3": "Flexibel: 3 Monate, 6 Monate, projektbasiert — Sie entscheiden",
     "ps.offer.b4": "Kein Risiko: Wenn der Experte nicht passt, tauschen wir — ohne Diskussion",
-    "ps.offer.proof": "200+ Projekte abgeschlossen. VWFS, Deutsche Glasfaser, Conscia Group und mehr vertrauen auf unsere Leute.",
+    "ps.offer.proof": "200+ Projekte abgeschlossen. DAX-Konzerne, Telkos und Mittelstand vertrauen auf unsere Leute.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
     "faq.eyebrow": "HÄUFIGE FRAGEN",
@@ -348,7 +348,7 @@ export const translations = {
     "ps.offer.b2": "Network, cloud, security, datacenter — we cover the entire IT infrastructure stack",
     "ps.offer.b3": "Flexible: 3 months, 6 months, project-based — you decide",
     "ps.offer.b4": "Zero risk: if the expert doesn’t fit, we swap — no questions asked",
-    "ps.offer.proof": "200+ projects delivered. VWFS, Deutsche Glasfaser, Conscia Group and more trust our people.",
+    "ps.offer.proof": "200+ projects delivered. DAX corporations, telcos and mid-market companies trust our people.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
     "faq.eyebrow": "FREQUENT QUESTIONS",
