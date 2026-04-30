@@ -333,3 +333,292 @@ hr {
   background: rgba(37, 99, 235, 0.2);
   color: #1d1d1f;
 }
+
+/* ---------------------------------------------------------------- *
+ *  7. Contrast & Visibility Boost (Apple-Style Reference)
+ *     Referenz: https://b2cybersec-jbtggu4e.manus.space
+ *     Ziel: Texte, Buttons, Formularfelder auf hellem Hintergrund
+ *     deutlich sichtbar mit WCAG-AA-Kontrast.
+ * ---------------------------------------------------------------- */
+
+/* 7.1 Überschriften & große Texte deutlich dunkler für Apple-Clarity */
+h1, h2, h3, h4, h5, h6 {
+  color: #1d1d1f !important;
+}
+
+/* Inline style color:"#0a0a0a" bleibt erhalten (kein Override nötig) */
+
+/* 7.2 Graue Texte: von gray-400/gray-500 auf mindestens #52525b (AA) */
+.text-gray-400 {
+  color: #52525b !important;
+}
+.text-gray-500 {
+  color: #3f3f46 !important;
+}
+.text-gray-600 {
+  color: #27272a !important;
+}
+
+/* 7.3 Text-white/... Stufen noch stärker kontrastieren (Headlines-Lead-Subtitles) */
+.text-white\/40 { color: #52525b !important; }
+.text-white\/50 { color: #3f3f46 !important; }
+.text-white\/60 { color: #1d1d1f !important; }
+.text-white\/65 { color: #1d1d1f !important; }
+.text-white\/70 { color: #1d1d1f !important; }
+.text-white\/75 { color: #1d1d1f !important; }
+.text-white\/80 { color: #1d1d1f !important; }
+.text-white\/85 { color: #1d1d1f !important; }
+.text-white\/90 { color: #1d1d1f !important; }
+
+/* 7.4 Dunkle Sektionen (bg-black) und deren Inhalte konsequent umdrehen */
+section.bg-black {
+  background-color: #ffffff !important;
+}
+section.bg-black:nth-of-type(even) {
+  background-color: #fbfbfd !important;
+}
+
+/* Verhindert, dass radial-gradients in dunklen Sektionen den Text überdecken */
+section[class*="bg-black"] > div[class*="opacity-20"] {
+  opacity: 0.35 !important;
+}
+
+/* 7.5 Hero-Overlay: white gradient ist ok — aber Hero-Text war weiß, also
+ *      muss er auf dem hellen Verlauf dunkel sein. */
+section .text-white,
+section h1.text-white,
+section h2.text-white {
+  color: #1d1d1f !important;
+}
+
+/* 7.6 Glass-Cards innerhalb dunkler Sektionen auf hellem Hintergrund */
+.glass-card,
+.glass-card-blue {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+}
+.glass-card-blue {
+  background: rgba(37, 99, 235, 0.05) !important;
+  border: 1px solid rgba(37, 99, 235, 0.25) !important;
+}
+
+/* 7.7 Assessment-Seite: Formularfelder, Buttons, Cards gut sichtbar */
+
+/* Intro-Card & Question-Card (dunkle Glass-Cards) */
+.rounded-3xl.bg-white\/\[0\.03\],
+.rounded-2xl.bg-white\/\[0\.03\],
+.bg-white\/\[0\.03\],
+.bg-white\/\[0\.06\] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Input-Felder im Assessment-Form */
+input.bg-white\/5,
+textarea.bg-white\/5,
+select.bg-white\/5 {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.18) !important;
+  color: #1d1d1f !important;
+}
+input.bg-white\/5:focus,
+textarea.bg-white\/5:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
+  outline: none !important;
+}
+input.placeholder\:text-white\/40::placeholder,
+textarea.placeholder\:text-white\/40::placeholder {
+  color: #86868b !important;
+}
+
+/* Generell: alle <input>, <textarea>, <select> kriegen Standard-Kontrast */
+input,
+textarea,
+select {
+  background-color: #ffffff !important;
+  color: #1d1d1f !important;
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #86868b !important;
+  opacity: 1 !important;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: #2563eb !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15) !important;
+}
+
+/* Assessment-Question-Buttons (yes/no/dontknow): unselected state sichtbar */
+button.bg-white\/5 {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #1d1d1f !important;
+}
+button.bg-white\/5:hover {
+  background-color: #f5f5f7 !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #1d1d1f !important;
+}
+button.hover\:bg-white\/10:hover {
+  background-color: #f5f5f7 !important;
+}
+button.hover\:bg-white\/20:hover {
+  background-color: #e8e8ec !important;
+}
+
+/* Ghost / Secondary Buttons im Assessment: bg-white/10 -> helle Surface */
+.bg-white\/10 {
+  background-color: #f5f5f7 !important;
+}
+.bg-white\/10.text-white {
+  color: #1d1d1f !important;
+}
+.bg-white\/10:hover,
+.hover\:bg-white\/20:hover {
+  background-color: #e8e8ec !important;
+}
+
+/* Result-Screen: Progress-Bars (bg-white/10) auf hellen Grund */
+.h-1\.5.bg-white\/10,
+.h-2.bg-white\/10 {
+  background-color: #e5e5ea !important;
+}
+
+/* Small badge "Q1/Q2..." im Gaps-List */
+.bg-white\/5.border.border-white\/10 {
+  background-color: #f5f5f7 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Emerald Success / Amber Warning in Tier-Badges — für hellen BG angepasst */
+.text-emerald-300 { color: #047857 !important; }
+.text-emerald-400 { color: #059669 !important; }
+.border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.35) !important; }
+.bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08) !important; }
+
+.text-amber-300 { color: #b45309 !important; }
+.text-red-400 { color: #dc2626 !important; }
+
+/* CTA-Panel im Result mit Blue-Glow: besser auf hell sichtbar */
+.border-\[\#0A84FF\]\/40 {
+  border-color: rgba(37, 99, 235, 0.35) !important;
+}
+.bg-\[\#0A84FF\]\/20 {
+  background-color: rgba(37, 99, 235, 0.12) !important;
+}
+.from-\[\#0A84FF\]\/10 {
+  --tw-gradient-from: rgba(37, 99, 235, 0.08) !important;
+}
+
+/* "Restart"-Button mit bg-white/5 in Result */
+button.bg-white\/5.hover\:bg-white\/10 {
+  background-color: #f5f5f7 !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #1d1d1f !important;
+}
+button.bg-white\/5.hover\:bg-white\/10:hover {
+  background-color: #e8e8ec !important;
+  color: #1d1d1f !important;
+}
+
+/* Back-link & ghost buttons mit text-white/50, text-white/70 im Assessment */
+.text-white\/50.hover\:text-white {
+  color: #3f3f46 !important;
+}
+.text-white\/50.hover\:text-white:hover {
+  color: #1d1d1f !important;
+}
+
+/* 7.8 FAQ-Sektion: glass-card summary text & body — Apple-Clarity */
+details.glass-card summary .text-white {
+  color: #1d1d1f !important;
+}
+details.glass-card .text-white\/60 {
+  color: #3f3f46 !important;
+}
+
+/* 7.9 Hero-Eyebrow: durchsichtiger glass-card-blue mit blauem Text braucht
+ *      keine Änderung — #2563eb auf hellem BG = AA-Kontrast. Aber der
+ *      Hero-Hintergrund (radial gradient) im dunklen Modus soll nicht schwarz
+ *      durchbrennen: schon durch white-gradient abgedeckt. */
+
+/* 7.10 Bricolage-Grotesque: Kleine Tracking-Optimierung für mehr Apple-Feel */
+h1, h2, h3 {
+  letter-spacing: -0.035em;
+}
+
+/* 7.11 Nav-Bar: etwas stärkere Trennlinie für bessere Sichtbarkeit */
+.nav-blur {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 7.12 Mobile Menu Overlay muss weiß bleiben; Text dunkel */
+.fixed.inset-0 .text-\[\#1d1d1f\] {
+  color: #1d1d1f !important;
+}
+
+/* 7.13 URG-Sektion Bullets (glass-cards mit bg-white/[0.04]) */
+.bg-white\/\[0\.04\] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 7.14 Radial-Gradient Blue Glow auf schwarzen Sektionen abschwächen */
+section[class*="bg-black"] [style*="radial-gradient"] {
+  opacity: 0.6;
+}
+
+/* 7.15 CTA Primary-Button: sicherstellen dass Text weiß auf blau bleibt */
+.btn-primary,
+.btn-primary * {
+  color: #ffffff !important;
+}
+
+/* 7.16 Stats-Section "text-white/50"-Labels (unter Zahlen) dunkler */
+section[style*="fbfbfd"] .text-white\/50 {
+  color: #3f3f46 !important;
+}
+
+/* 7.17 Root Page-Wrapper (min-h-screen bg-black text-white) der alle Seiten umschließt */
+.min-h-screen.bg-black,
+.min-h-screen.bg-black.text-white {
+  background-color: #ffffff !important;
+  color: #1d1d1f !important;
+}
+
+/* 7.18 Hero: Der Hintergrund ist ein dunkles Bild mit weißem Overlay.
+ *       Damit der Text auch dunkel gelesen werden kann, brauchen wir einen
+ *       noch deckender-weißen Overlay im Light-Theme. */
+section.relative.min-h-screen .absolute.inset-0[style*="linear-gradient(90deg"] {
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.92) 55%,
+    rgba(255, 255, 255, 0.75) 100%) !important;
+}
+
+/* 7.19 Hero-Subline text-white/70 — jetzt dunkel */
+section.relative.min-h-screen .text-white\/70 {
+  color: #3f3f46 !important;
+}
+
+/* 7.20 Hero-Scroll-Indicator (text-white/30 etc): auf dunkles Blau */
+section.relative.min-h-screen .text-white\/30 {
+  color: rgba(37, 99, 235, 0.6) !important;
+}
+section.relative.min-h-screen .bg-gradient-to-b.from-transparent.to-white\/30 {
+  background: linear-gradient(to bottom, transparent, rgba(37, 99, 235, 0.4)) !important;
+}
+
+/* 7.21 Footer: bereits fbfbfd — sicherstellen dass alle Hover-States
+ *       blau Apple-Style statt dunkelgrau sind */
+footer a.text-\[\#1d1d1f\]\/65:hover {
+  color: #2563eb !important;
+}
