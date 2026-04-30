@@ -24,8 +24,8 @@ export const translations = {
 
     // ──────────────────────────  HERO  ──────────────────────────
     "hero.eyebrow": "NIS-2 TRITT IN KRAFT — SIND SIE BEREIT?",
-    "hero.h1.line1": "Hacker schlafen nicht.",
-    "hero.h1.line2": "Ihre IT-Abteilung schon.",
+    "hero.h1.line1": "NIS-2 ist Pflicht.",
+    "hero.h1.line2": "Die richtigen Experten sind die L\u00f6sung.",
     "hero.sub": "Als Geschäftsführer haften Sie persönlich für Sicherheitsvorfälle. NIS-2 macht das zur Pflicht. Wir machen es zur Stärke — in 20+ Jahren haben wir gelernt, wie.",
     "hero.cta.primary": "Kostenlosen NIS-2 Check starten",
     "hero.cta.secondary": "Direktes Gespräch buchen",
@@ -275,8 +275,8 @@ export const translations = {
 
     // ──────────────────────────  HERO  ──────────────────────────
     "hero.eyebrow": "NIS-2 IS LIVE — ARE YOU READY?",
-    "hero.h1.line1": "Hackers don't sleep.",
-    "hero.h1.line2": "Your IT department does.",
+    "hero.h1.line1": "NIS-2 is mandatory.",
+    "hero.h1.line2": "The right experts are the solution.",
     "hero.sub": "As a director, you are personally liable for security incidents. NIS-2 makes it law. We turn it into a strength — with 20+ years of hands-on experience.",
     "hero.cta.primary": "Start free NIS-2 check",
     "hero.cta.secondary": "Book a direct call",
