@@ -30,7 +30,6 @@ export default function Navigation() {
   const navLinks = [
     { href: "/#services", label: t("nav.services") },
     { href: "/#nis2", label: t("nav.nis2") },
-    { href: "/#pentesting", label: t("nav.pentesting") },
     { href: assessmentHref, label: t("nav.assessment") },
     { href: "/#kontakt", label: t("nav.contact") },
   ];
