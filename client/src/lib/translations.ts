@@ -68,7 +68,7 @@ export const translations = {
     "nis2video.eyebrow": "NIS-2 IN 2 MINUTEN ERKLÄRT",
     "nis2video.headline": "Die NIS-2-Richtlinie verstehen.",
     "nis2video.body": "Was verlangt NIS-2 konkret von Ihrem Unternehmen — und warum betrifft es Sie als Geschäftsführung persönlich? Unser kurzer Erklärfilm bringt die wichtigsten Pflichten, Fristen und Haftungsfragen auf den Punkt.",
-    "nis2video.caption": "Erklärvideo · ca. 2 Minuten · B2CyberSec GmbH",
+    "nis2video.caption": "Erklärvideo · in wenigen Minuten erklärt · B2CyberSec GmbH",
     "nis2video.aria": "Erklärvideo zur NIS-2-Richtlinie abspielen",
     "nis2video.fallback": "Ihr Browser unterstützt keine eingebetteten Videos. Bitte laden Sie das Video direkt herunter, um es anzusehen.",
 
@@ -319,7 +319,7 @@ export const translations = {
     "nis2video.eyebrow": "NIS-2 EXPLAINED IN 2 MINUTES",
     "nis2video.headline": "Understand the NIS-2 directive.",
     "nis2video.body": "What does NIS-2 actually require from your organisation — and why does it put you personally on the hook as a director? Our short explainer sums up the key obligations, deadlines and liability questions.",
-    "nis2video.caption": "Explainer video · approx. 2 minutes · B2CyberSec GmbH",
+    "nis2video.caption": "Explainer video · explained in a few minutes · B2CyberSec GmbH",
     "nis2video.aria": "Play the NIS-2 directive explainer video",
     "nis2video.fallback": "Your browser does not support embedded video. Please download the file directly to watch it.",
 
