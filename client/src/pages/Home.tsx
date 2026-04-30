@@ -206,8 +206,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS — LIGHT */}
-      <section className="py-16 border-y" style={{ background: "linear-gradient(135deg, #fbfbfd 0%, #f5f5f7 100%)", borderColor: "rgba(0,0,0,0.06)" }}>
+      {/* STATS — DARK */}
+      <section className="py-16 border-y" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -223,7 +223,7 @@ export default function Home() {
                 >
                   <StatNumber value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/50 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <div className="text-white/70 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
                   {t(stat.labelKey)}
                 </div>
               </div>
@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT — LIGHT */}
-      <section id="kontakt" className="py-24 md:py-32" style={{ background: "#ffffff", borderTop: "1px solid #e5e7eb" }}>
+      <section id="kontakt" className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)" }}>
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 reveal">
@@ -568,12 +568,12 @@ export default function Home() {
               </div>
               <h2
                 className="text-4xl md:text-6xl font-extrabold mb-4"
-                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#ffffff" }}
               >
                 {t("contact.headline.line1")}<br />
                 <span className="text-gradient-blue">{t("contact.headline.line2")}</span>
               </h2>
-              <p className="text-gray-500 text-lg max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-white/60 text-lg max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {t("contact.subline")}
               </p>
             </div>
@@ -583,16 +583,16 @@ export default function Home() {
                 <div
                   key={expert.name}
                   className="rounded-2xl p-6 text-center reveal shadow-sm flex flex-col"
-                  style={{ background: "#f5f7fa", border: "1px solid #e5e7eb", transitionDelay: `${i * 0.1}s` }}
+                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", transitionDelay: `${i * 0.1}s` }}
                 >
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(10,132,255,0.1)", border: "1px solid rgba(10,132,255,0.2)" }}>
                     <span className="text-[#0A84FF] text-xl font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
                       {expert.name.split(" ").map(n => n[0]).join("")}
                     </span>
                   </div>
-                  <div className="font-bold mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.01em", color: "#0a0a0a" }}>{expert.name}</div>
+                  <div className="font-bold mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.01em", color: "#ffffff" }}>{expert.name}</div>
                   <div className="text-[#0A84FF] text-sm font-semibold mb-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.role}</div>
-                  <div className="text-gray-500 text-sm mb-5 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.desc}</div>
+                  <div className="text-white/60 text-sm mb-5 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.desc}</div>
                   <a
                     href={expert.url}
                     target="_blank"
