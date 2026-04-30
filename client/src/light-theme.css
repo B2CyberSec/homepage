@@ -702,3 +702,22 @@ a[class*="bg-primary"] * {
 [style*="background: #2563eb"] * {
   color: #ffffff !important;
 }
+
+/* ---------------------------------------------------------------- *
+ *  CRITICAL FIX: .text-white inside .btn-primary must stay white!
+ *  The generic .text-white override turns all white text dark,
+ *  but buttons need white text on blue background.
+ * ---------------------------------------------------------------- */
+.btn-primary.text-white,
+a.text-white.btn-primary,
+button.text-white.btn-primary,
+.btn-primary .text-white,
+[class*="btn-primary"][class*="text-white"] {
+  color: #ffffff !important;
+}
+.btn-primary span,
+.btn-primary a,
+.btn-primary svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
