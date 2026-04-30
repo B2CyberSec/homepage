@@ -110,8 +110,37 @@ section.bg-black:nth-of-type(odd) {
    wenn er als Card-Variante kommt. Hier nicht angewandt – wir setzen
    alles hell um für Konsistenz. */
 
+/* .text-white → dark, BUT NOT inside blue buttons */
 .text-white {
   color: #1d1d1f !important;
+}
+/* Override: text-white stays white inside ANY filled blue button */
+.btn-primary.text-white,
+.btn-primary .text-white,
+.btn-primary,
+[class*="bg-[#0A84FF]"].text-white,
+[class*="bg-[#0A84FF]"] .text-white,
+[class*="bg-[#0A84FF]"],
+[class*="bg-[#2563eb]"].text-white,
+[class*="bg-[#2563eb]"] .text-white,
+[class*="bg-blue-600"].text-white,
+[class*="bg-blue-600"] .text-white,
+[class*="bg-blue-700"].text-white,
+[class*="bg-blue-700"] .text-white {
+  color: #ffffff !important;
+}
+.btn-primary *,
+.btn-primary svg,
+[class*="bg-[#0A84FF]"] *,
+[class*="bg-[#0A84FF]"] svg,
+[class*="bg-[#2563eb]"] *,
+[class*="bg-[#2563eb]"] svg,
+[class*="bg-blue-600"] *,
+[class*="bg-blue-600"] svg,
+[class*="bg-blue-700"] *,
+[class*="bg-blue-700"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 .text-white\/40 { color: rgba(29, 29, 31, 0.45) !important; }
