@@ -94,7 +94,7 @@ export const translations = {
     "ps.offer.b1": "Senior-Experten mit 10–25 Jahren Erfahrung — ab Tag 1 produktiv",
     "ps.offer.b2": "Netzwerk, Cloud, Security, Datacenter — wir decken die gesamte IT-Infrastruktur ab",
     "ps.offer.b3": "Flexibel: 3 Monate, 6 Monate, projektbasiert — Sie entscheiden",
-    "ps.offer.b4": "Geld-zurück-Garantie: Nicht zufrieden nach dem ersten Monat? Sie zahlen nichts.",
+    "ps.offer.b4": "Kein Vermittler-Aufschlag: Sie zahlen den Experten — nicht drei Zwischenhändler.",
     "ps.offer.proof": "200+ Projekte abgeschlossen. DAX-Konzerne, Telkos und Mittelstand vertrauen auf unsere Leute.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
@@ -347,7 +347,7 @@ export const translations = {
     "ps.offer.b1": "Senior specialists with 10–25 years of experience — productive from day 1",
     "ps.offer.b2": "Network, cloud, security, datacenter — we cover the entire IT infrastructure stack",
     "ps.offer.b3": "Flexible: 3 months, 6 months, project-based — you decide",
-    "ps.offer.b4": "Money-back guarantee: not satisfied after the first month? You don't pay.",
+    "ps.offer.b4": "No middleman markup: you pay for the expert — not three layers of overhead.",
     "ps.offer.proof": "200+ projects delivered. DAX corporations, telcos and mid-market companies trust our people.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
