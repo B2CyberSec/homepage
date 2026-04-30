@@ -745,3 +745,19 @@ button.btn-primary *,
 [class*="bg-\[#2563eb\]"] * {
   color: #ffffff !important;
 }
+
+/* ---------------------------------------------------------------- *
+ *  FIX: All #0A84FF blue buttons (Assessment page) need white text
+ * ---------------------------------------------------------------- */
+[class*="bg-\[#0A84FF\]"],
+[class*="bg-\[#0A84FF\]"] *,
+[class*="bg-\[#0A84FF\]"] span,
+[class*="bg-\[#0A84FF\]"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+/* Generic: any element with text-white class that also has a blue bg */
+[class*="bg-"][class*="text-white"],
+[class*="bg-"][class*="text-white"] * {
+  color: #ffffff !important;
+}
