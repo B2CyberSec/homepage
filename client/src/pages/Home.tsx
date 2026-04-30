@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* CONTACT — LIGHT */}
-      <section id="kontakt" className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)" }}>
+      <section id="kontakt" className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%)" }}>
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 reveal">
