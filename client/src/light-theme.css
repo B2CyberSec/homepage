@@ -731,7 +731,6 @@ a[class*="bg-primary"] * {
 [style*="background: #2563eb"] * {
   color: #ffffff !important;
 }
-}
 
 /* Ensure outline buttons keep blue text (override any generic white rules) */
 .btn-outline-blue,
