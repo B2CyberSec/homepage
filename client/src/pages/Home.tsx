@@ -16,7 +16,7 @@ const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJ
 const IMG_PROFESSIONAL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-professional-abstract-Y7YVQUagMSUp6raRXa6ova.webp";
 const IMG_NIS2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-nis2-abstract-YNSNeNBSRyGN6zBzVrBaV6.webp";
 const IMG_PENTEST = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/svc-pentest-abstract-FoPqCjQsKJeLEEY34ro3tm.webp";
-const IMG_TEAM = "https://d2xsxph8kpxj0f.cloudfront.net/310519663406320538/2p5EaJetTcCK87pY49WvpP/team-illustration-ghp6WRU645qyKjakcbd5ta.webp";
+
 
 const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
 const CALENDLY_SENAD = "https://calendly.com/senad-b2cybersec/nis2";
@@ -114,11 +114,6 @@ export default function Home() {
     },
   ];
 
-  const team = [
-    { initials: "BB", name: t("services.s1.lead.name"), role: t("team.boris.role"), detail: t("team.boris.detail") },
-    { initials: "SD", name: t("services.s2.lead.name"), role: t("team.senad.role"), detail: t("team.senad.detail") },
-    { initials: "BK", name: t("services.s3.lead.name"), role: t("team.bojan.role"), detail: t("team.bojan.detail") },
-  ];
 
   const faqs = [
     { q: t("faq.q1"), a: t("faq.a1") },
@@ -449,63 +444,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TEAM — LIGHT */}
-      <section id="team" className="py-24 md:py-32" style={{ background: "#ffffff" }}>
+      {/* PROFESSIONAL SERVICES — HORMOZI STYLE */}
+      <section id="ps" className="py-24 md:py-32" style={{ background: "#ffffff" }}>
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image */}
-            <div className="reveal order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src={IMG_TEAM}
-                  alt={t("team.headline.line1") + " " + t("team.headline.line2")}
-                  className="w-full h-auto"
-                  loading="lazy"
-                  decoding="async"
-                  width="800"
-                  height="600"
-                />
-                <div className="absolute bottom-4 left-4 right-4 flex">
-                  <div className="px-3 py-1.5 rounded-lg" style={{ background: "rgba(10,132,255,0.95)" }}>
-                    <span className="text-white text-xs font-semibold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                      {t("team.image.badge")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Text */}
-            <div className="reveal order-1 lg:order-2" style={{ transitionDelay: "0.15s" }}>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="reveal">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: "rgba(10,132,255,0.08)", border: "1px solid rgba(10,132,255,0.2)" }}>
                 <span className="text-[#0A84FF] text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-                  {t("team.eyebrow")}
+                  {t("ps.eyebrow")}
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+                className="text-4xl md:text-6xl font-extrabold leading-tight mb-6"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
               >
-                {t("team.headline.line1")}<br />
-                <span className="text-gradient-blue">{t("team.headline.line2")}</span>
+                {t("ps.headline.line1")}<br />
+                <span className="text-gradient-blue">{t("ps.headline.line2")}</span>
               </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-6" style={{ fontFamily: "'Inter', sans-serif" }}>
-                {t("team.body")}
+              <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+                {t("ps.body")}
               </p>
-              <div className="space-y-4">
-                {team.map((person) => (
-                  <div key={person.initials} className="flex items-center gap-4 p-4 rounded-xl" style={{ background: "#f5f7fa" }}>
-                    <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
-                      <span className="text-[#0A84FF] text-sm font-bold">{person.initials}</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-base" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>{person.name}</div>
-                      <div className="text-[#0A84FF] text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>{person.role}</div>
-                      <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{person.detail}</div>
-                    </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              {[
+                { icon: "\u26A1", labelKey: "ps.seg.network" as const },
+                { icon: "\u2601\uFE0F", labelKey: "ps.seg.cloud" as const },
+                { icon: "\uD83D\uDD12", labelKey: "ps.seg.security" as const },
+                { icon: "\uD83D\uDCCA", labelKey: "ps.seg.infra" as const },
+              ].map((seg) => (
+                <div key={seg.labelKey} className="reveal p-5 rounded-2xl" style={{ background: "#f5f7fa", border: "1px solid #e5e7eb" }}>
+                  <div className="text-3xl mb-2">{seg.icon}</div>
+                  <div className="font-bold text-sm" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>{t(seg.labelKey)}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal rounded-2xl p-8 md:p-12 text-left" style={{ background: "linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%)" }}>
+              <h3
+                className="text-2xl md:text-3xl font-extrabold text-white mb-4"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}
+              >
+                {t("ps.offer.headline")}
+              </h3>
+              <div className="space-y-3 mb-6">
+                {["ps.offer.b1" as const, "ps.offer.b2" as const, "ps.offer.b3" as const, "ps.offer.b4" as const].map((key) => (
+                  <div key={key} className="flex items-start gap-3">
+                    <span className="text-[#0A84FF] text-lg mt-0.5">\u2713</span>
+                    <span className="text-white/80 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>{t(key)}</span>
                   </div>
                 ))}
               </div>
+              <p className="text-white/50 text-sm italic" style={{ fontFamily: "'Inter', sans-serif" }}>
+                {t("ps.offer.proof")}
+              </p>
             </div>
           </div>
         </div>

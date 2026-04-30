@@ -81,19 +81,21 @@ export const translations = {
     "urgency.bullet3": "Persönliche Haftung der Geschäftsführung",
     "urgency.cta": "NIS-2 Readiness Check starten",
 
-    // ──────────────────────────  TEAM SECTION  ──────────────────────────
-    "team.eyebrow": "WER WIR SIND",
-    "team.headline.line1": "Echte Experten.",
-    "team.headline.line2": "Keine Berater-Floskeln.",
-    "team.body": "B2CyberSec ist keine Agentur mit Zertifikaten auf dem Papier. Wir sind ein wachsendes Team aus über 10 Spezialisten — mit Erfahrung in kritischen Infrastrukturen, internationalen Top-Beratungen und echten Sicherheitsvorfällen. Drei erfahrene Leads steuern unsere Kernbereiche:",
-    "team.image.badge": "20+ Jahre kombinierte Erfahrung",
-
-    "team.boris.role": "CEO & Professional Services",
-    "team.boris.detail": "20+ Jahre IT-Erfahrung, Netzwerk & Security",
-    "team.senad.role": "NIS-2 & Compliance",
-    "team.senad.detail": "CISSP, ex-CISO, Big-4-Erfahrung",
-    "team.bojan.role": "Penetration Testing Lead",
-    "team.bojan.detail": "OSCP, Offensive Security, Red Team",
+    // ──────────────────────────  PROFESSIONAL SERVICES  ──────────────────────────
+    "ps.eyebrow": "PROFESSIONAL SERVICES",
+    "ps.headline.line1": "Sie brauchen Experten.",
+    "ps.headline.line2": "Wir liefern. Sofort.",
+    "ps.body": "Kein Headhunter. Kein 6-Monats-Recruiting. Kein Junior, der mit Ihrem Budget lernt. Wir stellen Ihnen den richtigen Spezialisten — innerhalb von Tagen, nicht Monaten.",
+    "ps.seg.network": "Netzwerk & Routing",
+    "ps.seg.cloud": "Cloud & Migration",
+    "ps.seg.security": "Security & Firewalls",
+    "ps.seg.infra": "Infrastruktur & DC",
+    "ps.offer.headline": "Was Sie bekommen — und was nicht.",
+    "ps.offer.b1": "Senior-Experten mit 10–25 Jahren Erfahrung — ab Tag 1 produktiv",
+    "ps.offer.b2": "Netzwerk, Cloud, Security, Datacenter — wir decken die gesamte IT-Infrastruktur ab",
+    "ps.offer.b3": "Flexibel: 3 Monate, 6 Monate, projektbasiert — Sie entscheiden",
+    "ps.offer.b4": "Kein Risiko: Wenn der Experte nicht passt, tauschen wir — ohne Diskussion",
+    "ps.offer.proof": "200+ Projekte abgeschlossen. VWFS, Deutsche Glasfaser, Conscia Group und mehr vertrauen auf unsere Leute.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
     "faq.eyebrow": "HÄUFIGE FRAGEN",
@@ -332,19 +334,21 @@ export const translations = {
     "urgency.bullet3": "Personal liability of management",
     "urgency.cta": "Start NIS-2 readiness check",
 
-    // ──────────────────────────  TEAM SECTION  ──────────────────────────
-    "team.eyebrow": "WHO WE ARE",
-    "team.headline.line1": "Real experts.",
-    "team.headline.line2": "No consulting fluff.",
-    "team.body": "B2CyberSec is not an agency with paper certificates. We are a growing team of more than 10 specialists — with hands-on experience in critical infrastructure, top-tier international consultancies and real security incidents. Three experienced leads run our core areas:",
-    "team.image.badge": "20+ years combined experience",
-
-    "team.boris.role": "CEO & Professional Services",
-    "team.boris.detail": "20+ years in IT, network & security",
-    "team.senad.role": "NIS-2 & Compliance",
-    "team.senad.detail": "CISSP, ex-CISO, Big-4 background",
-    "team.bojan.role": "Penetration Testing Lead",
-    "team.bojan.detail": "OSCP, Offensive Security, Red Team",
+    // ──────────────────────────  PROFESSIONAL SERVICES  ──────────────────────────
+    "ps.eyebrow": "PROFESSIONAL SERVICES",
+    "ps.headline.line1": "You need experts.",
+    "ps.headline.line2": "We deliver. Now.",
+    "ps.body": "No headhunter. No 6-month recruiting cycle. No junior learning on your budget. We place the right specialist with you — in days, not months.",
+    "ps.seg.network": "Network & Routing",
+    "ps.seg.cloud": "Cloud & Migration",
+    "ps.seg.security": "Security & Firewalls",
+    "ps.seg.infra": "Infrastructure & DC",
+    "ps.offer.headline": "What you get — and what you don’t.",
+    "ps.offer.b1": "Senior specialists with 10–25 years of experience — productive from day 1",
+    "ps.offer.b2": "Network, cloud, security, datacenter — we cover the entire IT infrastructure stack",
+    "ps.offer.b3": "Flexible: 3 months, 6 months, project-based — you decide",
+    "ps.offer.b4": "Zero risk: if the expert doesn’t fit, we swap — no questions asked",
+    "ps.offer.proof": "200+ projects delivered. VWFS, Deutsche Glasfaser, Conscia Group and more trust our people.",
 
     // ──────────────────────────  FAQ  ──────────────────────────
     "faq.eyebrow": "FREQUENT QUESTIONS",
