@@ -22,8 +22,9 @@ const CALENDLY_BORIS = "https://calendly.com/b2cybersec-team/pro-services";
 const CALENDLY_SENAD = "https://calendly.com/senad-b2cybersec/nis2";
 const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
-// NIS-2 explainer video (hosted on CDN, ~44 MB)
-const NIS2_VIDEO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/yaVPiPBedKAitidB.mp4";
+// NIS-2 explainer video (hosted on CDN)
+const NIS2_VIDEO_URL_DE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/yaVPiPBedKAitidB.mp4";
+const NIS2_VIDEO_URL_EN = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/NIS2-Compliance.mov";
 const NIS2_VIDEO_POSTER = "/videos/nis2-poster.jpg";
 
 // Scroll reveal hook
@@ -377,7 +378,7 @@ export default function Home() {
                 <div className="relative aspect-video bg-black">
                   <video
                     className="w-full h-full object-cover bg-black"
-                    src={NIS2_VIDEO_URL}
+                    src={lang === "en" ? NIS2_VIDEO_URL_EN : NIS2_VIDEO_URL_DE}
                     poster={NIS2_VIDEO_POSTER}
                     controls
                     preload="metadata"
