@@ -207,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* STATS — DARK */}
-      <section className="py-16 border-y" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", borderColor: "rgba(255,255,255,0.06)" }}>
+      <section className="py-16 border-y" style={{ background: "linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%)", borderColor: "rgba(255,255,255,0.08)" }}>
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -218,7 +218,7 @@ export default function Home() {
             ].map((stat) => (
               <div key={stat.labelKey} className="reveal">
                 <div
-                  className="text-4xl md:text-5xl font-extrabold text-[#0A84FF] mb-1"
+                  className="text-4xl md:text-5xl font-extrabold text-white mb-1"
                   style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
                 >
                   <StatNumber value={stat.value} suffix={stat.suffix} />
