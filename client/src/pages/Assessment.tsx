@@ -91,6 +91,29 @@ export default function Assessment() {
   const [answers, setAnswers] = useState<Record<number, Answer>>({});
   const [lead, setLead] = useState<LeadData>(EMPTY_LEAD);
   const [submitting, setSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState("");
+
+  const BLOCKED_DOMAINS = [
+    "gmail.com", "googlemail.com", "yahoo.com", "yahoo.de", "hotmail.com",
+    "hotmail.de", "outlook.com", "live.com", "live.de", "web.de", "gmx.de",
+    "gmx.net", "gmx.at", "gmx.ch", "t-online.de", "freenet.de", "arcor.de",
+    "aol.com", "icloud.com", "me.com", "mac.com", "mail.com", "protonmail.com",
+    "proton.me", "zoho.com", "yandex.com", "tutanota.com", "posteo.de",
+    "mailbox.org", "fastmail.com"
+  ];
+
+  function validateEmail(email: string): string {
+    if (!email) return "";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return lang === "de" ? "Bitte geben Sie eine gültige E-Mail-Adresse ein." : "Please enter a valid email address.";
+    }
+    const domain = email.split("@")[1]?.toLowerCase();
+    if (BLOCKED_DOMAINS.includes(domain)) {
+      return lang === "de" ? "Bitte verwenden Sie Ihre geschäftliche E-Mail-Adresse." : "Please use your business email address.";
+    }
+    return "";
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -188,6 +211,8 @@ export default function Assessment() {
   async function submitLead(e: React.FormEvent) {
     e.preventDefault();
     if (!lead.name || !lead.email || !lead.company || !lead.consent) return;
+    const error = validateEmail(lead.email);
+    if (error) { setEmailError(error); return; }
     setSubmitting(true);
     try {
       const portalId = (import.meta as any).env?.VITE_HUBSPOT_PORTAL_ID;
@@ -423,10 +448,12 @@ export default function Assessment() {
                     type="email"
                     placeholder={t("as.lead.email")}
                     value={lead.email}
-                    onChange={(e) => setLead({ ...lead, email: e.target.value })}
+                    onChange={(e) => { setLead({ ...lead, email: e.target.value }); setEmailError(""); }}
+                    onBlur={() => { if (lead.email) setEmailError(validateEmail(lead.email)); }}
                     required
-                    className="h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF]"
+                    className={`h-12 bg-white/5 border-white/10 text-white placeholder:text-white/40 focus-visible:ring-[#0A84FF] ${emailError ? "border-red-500" : ""}`}
                   />
+                  {emailError && <p className="text-red-400 text-xs mt-1">{emailError}</p>}
                   <Input
                     placeholder={t("as.lead.company")}
                     value={lead.company}
