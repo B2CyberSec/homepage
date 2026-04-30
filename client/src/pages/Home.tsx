@@ -468,13 +468,13 @@ export default function Home() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
               {[
-                { icon: "\u26A1", labelKey: "ps.seg.network" as const },
-                { icon: "\u2601\uFE0F", labelKey: "ps.seg.cloud" as const },
-                { icon: "\uD83D\uDD12", labelKey: "ps.seg.security" as const },
-                { icon: "\uD83D\uDCCA", labelKey: "ps.seg.infra" as const },
+                { labelKey: "ps.seg.network" as const, svg: <svg className="w-8 h-8 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9 9 0 013 12c0-1.47.353-2.856.978-4.082" /></svg> },
+                { labelKey: "ps.seg.cloud" as const, svg: <svg className="w-8 h-8 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" /></svg> },
+                { labelKey: "ps.seg.security" as const, svg: <svg className="w-8 h-8 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg> },
+                { labelKey: "ps.seg.infra" as const, svg: <svg className="w-8 h-8 text-[#0A84FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg> },
               ].map((seg) => (
                 <div key={seg.labelKey} className="reveal p-5 rounded-2xl" style={{ background: "#f5f7fa", border: "1px solid #e5e7eb" }}>
-                  <div className="text-3xl mb-2">{seg.icon}</div>
+                  <div className="mb-3 flex justify-center">{seg.svg}</div>
                   <div className="font-bold text-sm" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>{t(seg.labelKey)}</div>
                 </div>
               ))}
@@ -490,7 +490,7 @@ export default function Home() {
               <div className="space-y-3 mb-6">
                 {["ps.offer.b1" as const, "ps.offer.b2" as const, "ps.offer.b3" as const, "ps.offer.b4" as const].map((key) => (
                   <div key={key} className="flex items-start gap-3">
-                    <span className="text-[#0A84FF] text-lg mt-0.5">\u2713</span>
+                    <svg className="w-5 h-5 text-[#0A84FF] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                     <span className="text-white/80 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>{t(key)}</span>
                   </div>
                 ))}
