@@ -146,7 +146,7 @@ export default function Home() {
         className="relative min-h-screen flex items-center overflow-hidden"
         style={{ backgroundImage: `url(${HERO_BG})`, backgroundSize: "cover", backgroundPosition: "center right" }}
       >
-        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 55%, rgba(255,255,255,0.4) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0.25) 100%)" }} />
 
         <div className="container relative z-10 pt-24 pb-20">
           <div className="max-w-3xl">
