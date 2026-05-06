@@ -24,7 +24,7 @@ const CALENDLY_BOJAN = "https://calendly.com/b2cybersec-team/pentesting";
 
 // NIS-2 explainer video (hosted on CDN)
 const NIS2_VIDEO_URL_DE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/yaVPiPBedKAitidB.mp4";
-const NIS2_VIDEO_URL_EN = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/NIS2-Compliance.mov";
+const NIS2_VIDEO_URL_EN = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/DyqKDTOwBWmqGQHm.mp4";
 const NIS2_VIDEO_POSTER = "/videos/nis2-poster.jpg";
 
 // Scroll reveal hook
