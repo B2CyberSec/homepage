@@ -190,33 +190,27 @@ export default function Assessment() {
     if (!lead.name || !lead.email || !lead.company || !lead.consent) return;
     setSubmitting(true);
     try {
-      const portalId = (import.meta as any).env?.VITE_HUBSPOT_PORTAL_ID;
-      const formId = (import.meta as any).env?.VITE_HUBSPOT_FORM_ID;
-      if (portalId && formId) {
-        await fetch(
-          `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              fields: [
-                { name: "firstname", value: lead.name.split(" ")[0] || lead.name },
-                { name: "lastname", value: lead.name.split(" ").slice(1).join(" ") },
-                { name: "email", value: lead.email },
-                { name: "company", value: lead.company },
-                { name: "jobtitle", value: lead.role },
-                { name: "nis2_score", value: String(result.yesCount) },
-                { name: "nis2_tier", value: result.tier },
-                { name: "language", value: lang },
-              ],
-              context: {
-                pageUri: window.location.href,
-                pageName: "NIS-2 Directive Readiness Check",
-              },
-            }),
-          },
-        ).catch(() => {});
-      }
+      const webhook =
+        (import.meta as any).env?.VITE_LEAD_WEBHOOK_URL ||
+        "https://hook.eu1.make.com/ukuqu1lm6exb4tuk8lhc874xzkldsfsg";
+      await fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: lead.name.split(" ")[0] || lead.name,
+          lastname: lead.name.split(" ").slice(1).join(" "),
+          name: lead.name,
+          email: lead.email,
+          company: lead.company,
+          jobtitle: lead.role,
+          nis2_score: String(result.yesCount),
+          nis2_tier: result.tier,
+          language: lang,
+          consent: lead.consent,
+          page_url: window.location.href,
+          submitted_at: new Date().toISOString(),
+        }),
+      }).catch(() => {});
     } finally {
       setSubmitting(false);
       setPhase("result");
