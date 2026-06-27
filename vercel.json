@@ -4,8 +4,6 @@
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [
-    { "source": "/cyber-status-check", "destination": "/cyber-status-check/index.html" },
-    { "source": "/cyber-status-check/(.*)", "destination": "/cyber-status-check/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
