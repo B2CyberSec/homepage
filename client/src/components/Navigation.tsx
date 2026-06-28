@@ -105,7 +105,7 @@ export default function Navigation() {
               </div>
 
               <a
-                href={assessmentHref}
+                href="/cyber-status-check"
                 className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg text-sm font-bold text-white btn-primary"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
@@ -176,7 +176,7 @@ export default function Navigation() {
           </div>
 
           <a
-            href={assessmentHref}
+            href="/cyber-status-check"
             onClick={() => setMenuOpen(false)}
             className="mt-4 px-8 py-4 rounded-xl text-lg font-bold text-white btn-primary"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
