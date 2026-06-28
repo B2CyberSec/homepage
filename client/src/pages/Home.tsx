@@ -148,7 +148,7 @@ export default function Home() {
             </div>
 
             <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.0] mb-6 reveal"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", transitionDelay: "0.1s" }}
             >
               <span className="text-gradient-blue">{t("hero.h1.line1")}</span>
