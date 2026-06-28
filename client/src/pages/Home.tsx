@@ -316,7 +316,7 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 reveal"
+                className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   letterSpacing: "-0.03em",
@@ -488,7 +488,7 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-5xl font-extrabold text-white"
+                className="text-4xl md:text-6xl font-extrabold text-white"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
               >
                 {t("faq.headline")}
