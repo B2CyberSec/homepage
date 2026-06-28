@@ -23,12 +23,12 @@ export const translations = {
     "lang.switchTo": "Sprache wechseln",
 
     // ──────────────────────────  HERO  ──────────────────────────
-    "hero.eyebrow": "NIS-2 TRITT IN KRAFT — SIND SIE BEREIT?",
-    "hero.h1.line1": "NIS-2 ist Pflicht.",
-    "hero.h1.line2": "Die richtigen Experten sind die Lösung.",
-    "hero.sub": "Als Geschäftsführer haften Sie persönlich für Sicherheitsvorfälle. NIS-2 macht das zur Pflicht. Wir machen es zur Stärke — in 20+ Jahren haben wir gelernt, wie.",
-    "hero.cta.primary": "Kostenlosen NIS-2 Check starten",
-    "hero.cta.secondary": "Direktes Gespräch buchen",
+    "hero.eyebrow": "FÜR IT-LEITER & GESCHÄFTSFÜHRER, DIE KLARHEIT WOLLEN",
+    "hero.h1.line1": "Endlich Klarheit",
+    "hero.h1.line2": "über Ihre IT-Sicherheit.",
+    "hero.sub": "Sie müssen nicht alles im Kopf haben. Unser CYBER-STATUS-CHECK liefert in 14 Tagen einen vorstandstauglichen Status — Pentest, Konfig-Check, Compliance, klare 3-Schritte-Roadmap. Dahinter: ein Team mit 20+ Jahren Senior-Erfahrung für Ihre IT-Sicherheits- und Netzwerk-Projekte.",
+    "hero.cta.primary": "CYBER-STATUS-CHECK ansehen",
+    "hero.cta.secondary": "Unsere Leistungen",
     "hero.tag.compliant": "DSGVO-konform · 100% Compliance-Fokus",
 
     // ──────────────────────────  STATS  ──────────────────────────
@@ -276,12 +276,12 @@ export const translations = {
     "lang.switchTo": "Switch language",
 
     // ──────────────────────────  HERO  ──────────────────────────
-    "hero.eyebrow": "NIS-2 IS LIVE — ARE YOU READY?",
-    "hero.h1.line1": "NIS-2 is mandatory.",
-    "hero.h1.line2": "The right experts are the solution.",
-    "hero.sub": "As a director, you are personally liable for security incidents. NIS-2 makes it law. We turn it into a strength — with 20+ years of hands-on experience.",
-    "hero.cta.primary": "Start free NIS-2 check",
-    "hero.cta.secondary": "Book a direct call",
+    "hero.eyebrow": "FOR IT LEADERS & DIRECTORS WHO WANT CLARITY",
+    "hero.h1.line1": "Finally, clarity",
+    "hero.h1.line2": "on your IT security.",
+    "hero.sub": "You don't have to keep it all in your head. Our CYBER-STATUS-CHECK delivers a board-ready security status in 14 days — pen test, config check, compliance, a clear 3-step roadmap. Behind it: a team with 20+ years of senior experience for your IT-security and network projects.",
+    "hero.cta.primary": "See the CYBER-STATUS-CHECK",
+    "hero.cta.secondary": "Our services",
     "hero.tag.compliant": "GDPR-compliant · 100% compliance focus",
 
     // ──────────────────────────  STATS  ──────────────────────────
