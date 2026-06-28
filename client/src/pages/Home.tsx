@@ -169,8 +169,8 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 reveal" style={{ transitionDelay: "0.3s" }}>
-              <Link
-                href={assessmentPath}
+              <a
+                href="/cyber-status-check"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
@@ -178,7 +178,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 {t("hero.cta.primary")}
-              </Link>
+              </a>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold btn-outline-blue"
