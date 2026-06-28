@@ -17,7 +17,7 @@ export const translations = {
     "nav.pentesting": "Pentesting",
     "nav.assessment": "Readiness Check",
     "nav.contact": "Kontakt",
-    "nav.cta": "NIS-2 Check starten",
+    "nav.cta": "CYBER-STATUS-CHECK ansehen",
     "lang.de": "DE",
     "lang.en": "EN",
     "lang.switchTo": "Sprache wechseln",
@@ -123,7 +123,7 @@ export const translations = {
     "contact.eyebrow": "TERMIN BUCHEN",
     "contact.headline.line1": "Sprechen wir.",
     "contact.headline.line2": "Ohne Verkaufsdruck.",
-    "contact.subline": "30 Minuten direkt mit unseren Leads — kein Sales-Funnel, keine generischen Slides. Sie wählen Ihren Experten und Termin.",
+    "contact.subline": "30 Minuten direkt mit Bojan, unserem Senior Security Consultant — IT zu IT, ohne Sales-Funnel, ohne generische Slides. Ehrliche Einschätzung, sofort.",
 
     "contact.boris.title": "Professional Services",
     "contact.boris.desc": "IT-Experten, Cloud-Migration, Netzwerk-Architektur",
@@ -131,7 +131,7 @@ export const translations = {
     "contact.senad.desc": "Readiness, ISO 27001, DORA, GRC, AI Governance",
     "contact.bojan.title": "Penetration Testing",
     "contact.bojan.desc": "Webapp, Infrastruktur, Red Team, OSCP",
-    "contact.cta": "Termin buchen",
+    "contact.cta": "Termin mit Bojan",
 
     // ──────────────────────────  FOOTER  ──────────────────────────
     "footer.tagline": "IT-Infrastruktur, NIS-2 Compliance und Penetration Testing. 20+ Jahre Erfahrung. Augsburg, Deutschland.",
@@ -270,7 +270,7 @@ export const translations = {
     "nav.pentesting": "Pentesting",
     "nav.assessment": "Readiness Check",
     "nav.contact": "Contact",
-    "nav.cta": "Start NIS-2 Check",
+    "nav.cta": "See the CYBER-STATUS-CHECK",
     "lang.de": "DE",
     "lang.en": "EN",
     "lang.switchTo": "Switch language",
@@ -376,7 +376,7 @@ export const translations = {
     "contact.eyebrow": "BOOK A CALL",
     "contact.headline.line1": "Let's talk.",
     "contact.headline.line2": "No sales pressure.",
-    "contact.subline": "30 minutes directly with our leads — no funnel, no generic slides. You pick the expert and the slot.",
+    "contact.subline": "30 minutes directly with Bojan, our senior security consultant — IT to IT, no funnel, no generic slides. An honest assessment, right away.",
 
     "contact.boris.title": "Professional Services",
     "contact.boris.desc": "IT experts, cloud migration, network architecture",
@@ -384,7 +384,7 @@ export const translations = {
     "contact.senad.desc": "Readiness, ISO 27001, DORA, GRC, AI Governance",
     "contact.bojan.title": "Penetration Testing",
     "contact.bojan.desc": "Web, infrastructure, red team, OSCP",
-    "contact.cta": "Book a call",
+    "contact.cta": "Book a call with Bojan",
 
     // ──────────────────────────  FOOTER  ──────────────────────────
     "footer.tagline": "IT infrastructure, NIS-2 compliance and penetration testing. 20+ years of experience. Augsburg, Germany.",
