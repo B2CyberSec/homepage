@@ -131,7 +131,7 @@ export const translations = {
     "contact.senad.desc": "Readiness, ISO 27001, DORA, GRC, AI Governance",
     "contact.bojan.title": "Penetration Testing",
     "contact.bojan.desc": "Webapp, Infrastruktur, Red Team, OSCP",
-    "contact.cta": "Termin mit Bojan",
+    "contact.cta": "CYBER-STATUS-CHECK ansehen",
 
     // ──────────────────────────  FOOTER  ──────────────────────────
     "footer.tagline": "IT-Infrastruktur, NIS-2 Compliance und Penetration Testing. 20+ Jahre Erfahrung. Augsburg, Deutschland.",
@@ -384,7 +384,7 @@ export const translations = {
     "contact.senad.desc": "Readiness, ISO 27001, DORA, GRC, AI Governance",
     "contact.bojan.title": "Penetration Testing",
     "contact.bojan.desc": "Web, infrastructure, red team, OSCP",
-    "contact.cta": "Book a call with Bojan",
+    "contact.cta": "See the CYBER-STATUS-CHECK",
 
     // ──────────────────────────  FOOTER  ──────────────────────────
     "footer.tagline": "IT infrastructure, NIS-2 compliance and penetration testing. 20+ years of experience. Augsburg, Germany.",
