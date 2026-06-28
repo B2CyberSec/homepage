@@ -124,11 +124,6 @@ export default function Home() {
     { q: t("faq.q6"), a: t("faq.a6") },
   ];
 
-  const contactCards = [
-    { name: t("services.s1.lead.name"), role: t("contact.boris.title"), desc: t("contact.boris.desc"), url: CALENDLY_BORIS },
-    { name: t("services.s2.lead.name"), role: t("contact.senad.title"), desc: t("contact.senad.desc"), url: CALENDLY_SENAD },
-    { name: t("services.s3.lead.name"), role: t("contact.bojan.title"), desc: t("contact.bojan.desc"), url: CALENDLY_BOJAN },
-  ];
 
   const assessmentPath = lang === "en" ? "/readiness-check" : "/nis2-check";
 
@@ -283,27 +278,6 @@ export default function Home() {
                   <p className="text-gray-500 text-base leading-relaxed mb-6 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
                     {t(s.descKey)}
                   </p>
-                  <div className="flex items-center gap-3 mb-6 p-3 rounded-xl" style={{ background: "#f5f7fa" }}>
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(10,132,255,0.12)" }}>
-                      <span className="text-[#0A84FF] text-xs font-bold">{s.leadInitials}</span>
-                    </div>
-                    <div>
-                      <div className="text-base font-semibold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", color: "#0a0a0a" }}>{t(s.leadNameKey)}</div>
-                      <div className="text-gray-400 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>{t(s.leadRoleKey)}</div>
-                    </div>
-                  </div>
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white w-full justify-center btn-primary"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                  >
-                    {t(s.ctaKey)}
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
                 </div>
               </div>
             ))}
@@ -570,32 +544,17 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {contactCards.map((expert, i) => (
-                <div
-                  key={expert.name}
-                  className="rounded-2xl p-6 text-center reveal shadow-sm flex flex-col"
-                  style={{ background: "#f5f7fa", border: "1px solid #e5e7eb", transitionDelay: `${i * 0.1}s` }}
-                >
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(10,132,255,0.1)", border: "1px solid rgba(10,132,255,0.2)" }}>
-                    <span className="text-[#0A84FF] text-xl font-bold" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>
-                      {expert.name.split(" ").map(n => n[0]).join("")}
-                    </span>
-                  </div>
-                  <div className="font-bold mb-1" style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.01em", color: "#0a0a0a" }}>{expert.name}</div>
-                  <div className="text-[#0A84FF] text-sm font-semibold mb-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.role}</div>
-                  <div className="text-gray-500 text-sm mb-5 flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>{expert.desc}</div>
-                  <a
-                    href={expert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white btn-primary w-full justify-center"
-                    style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
-                  >
-                    {t("contact.cta")}
-                  </a>
-                </div>
-              ))}
+            <div className="text-center reveal">
+              <a
+                href="/cyber-status-check"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+              >
+                {t("contact.cta")}
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
