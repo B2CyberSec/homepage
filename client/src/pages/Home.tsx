@@ -506,14 +506,14 @@ export default function Home() {
                     className="flex items-center justify-between p-6 cursor-pointer list-none"
                     style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
                   >
-                    <span className="text-white font-semibold text-base pr-4" style={{ letterSpacing: "-0.01em" }}>{item.q}</span>
+                    <span className="text-white font-semibold text-2xl pr-4" style={{ letterSpacing: "-0.01em" }}>{item.q}</span>
                     <svg className="w-5 h-5 text-[#0A84FF] flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
                   <div className="px-6 pb-6">
                     <div className="section-divider mb-4" />
-                    <p className="text-white/60 text-base leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{item.a}</p>
+                    <p className="text-white/60 text-lg leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{item.a}</p>
                   </div>
                 </details>
               ))}
