@@ -148,7 +148,7 @@ export default function Home() {
             </div>
 
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 reveal"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] mb-6 reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", transitionDelay: "0.1s" }}
             >
               <span className="text-gradient-blue">{t("hero.h1.line1")}</span>
@@ -157,7 +157,7 @@ export default function Home() {
             </h1>
 
             <p
-              className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed mb-10 reveal"
+              className="text-xl md:text-2xl text-white/70 max-w-xl leading-relaxed mb-10 reveal"
               style={{ fontFamily: "'Inter', sans-serif", transitionDelay: "0.2s" }}
             >
               {t("hero.sub")}
@@ -232,7 +232,7 @@ export default function Home() {
               </span>
             </div>
             <h2
-              className="text-4xl md:text-6xl font-extrabold leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
             >
               {t("services.headline.line1")}<br />
@@ -316,7 +316,7 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4 reveal"
                 style={{
                   fontFamily: "'Bricolage Grotesque', sans-serif",
                   letterSpacing: "-0.03em",
@@ -325,7 +325,7 @@ export default function Home() {
                 {t("nis2video.headline")}
               </h2>
               <p
-                className="text-white/60 text-lg leading-relaxed reveal"
+                className="text-white/60 text-xl leading-relaxed reveal"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {t("nis2video.body")}
@@ -382,12 +382,12 @@ export default function Home() {
               </span>
             </div>
             <h2
-              className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 reveal"
+              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
             >
               {t("urgency.headline")}
             </h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-10 reveal" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <p className="text-white/60 text-xl leading-relaxed mb-10 reveal" style={{ fontFamily: "'Inter', sans-serif" }}>
               {t("urgency.body")}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 reveal">
@@ -429,13 +429,13 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-6xl font-extrabold leading-tight mb-6"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
               >
                 {t("ps.headline.line1")}<br />
                 <span className="text-gradient-blue">{t("ps.headline.line2")}</span>
               </h2>
-              <p className="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto mb-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-gray-500 text-xl leading-relaxed max-w-2xl mx-auto mb-12" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {t("ps.body")}
               </p>
             </div>
@@ -488,7 +488,7 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-6xl font-extrabold text-white"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em" }}
               >
                 {t("faq.headline")}
@@ -533,13 +533,13 @@ export default function Home() {
                 </span>
               </div>
               <h2
-                className="text-4xl md:text-6xl font-extrabold mb-4"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.03em", color: "#0a0a0a" }}
               >
                 {t("contact.headline.line1")}<br />
                 <span className="text-gradient-blue">{t("contact.headline.line2")}</span>
               </h2>
-              <p className="text-gray-500 text-lg max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <p className="text-gray-500 text-xl max-w-xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {t("contact.subline")}
               </p>
             </div>
