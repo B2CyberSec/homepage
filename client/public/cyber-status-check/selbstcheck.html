@@ -167,9 +167,12 @@ function evaluate(){
 }
 function capture(e){
  e.preventDefault();
- // TODO: an HubSpot-Formular / Make.com-Webhook anbinden (Lead-Routing + Nurture). Aktuell Frontend-Bestätigung.
- const payload={name:document.getElementById('name').value,email:document.getElementById('email').value,answers,ts:new Date().toISOString()};
- console.log('LEAD',payload);
+ var nm=document.getElementById('name').value.trim();
+ var em=document.getElementById('email').value.trim();
+ var score=answers.reduce(function(s,a){return s+(a===null?0:OPT[a].v);},0);
+ var key=score>=11?'green':score>=6?'amber':'red';
+ var payload={firstname:nm.split(' ')[0]||nm,lastname:nm.split(' ').slice(1).join(' '),name:nm,email:em,company:'',jobtitle:'',cyber_score:score+'/14',cyber_status:T[key][lang],source:'Cyber-Status-Selbstcheck',language:lang,page_url:location.href,submitted_at:new Date().toISOString()};
+ fetch('https://hook.eu1.make.com/t32dbgn2rjxrg68y4s9fyftdekih7hpk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
  document.getElementById('leadform').classList.add('hide');
  document.getElementById('thanks').textContent=T.thanks[lang];
  return false;

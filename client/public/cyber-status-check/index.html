@@ -225,12 +225,13 @@ nav a:hover { color: var(--blue); }
   justify-content: center; margin-bottom: 40px;
 }
 .hero-selbstcheck {
-  display: inline-block; margin: -22px 0 34px;
-  color: var(--cyan); font-size: 15px; font-weight: 600;
-  text-decoration: none; border-bottom: 1px solid transparent;
-  transition: border-color .2s ease;
+  display:inline-flex; align-items:center; gap:9px; margin:2px 0 30px;
+  color:var(--cyan); font-size:16px; font-weight:700; font-family:'Inter Tight';
+  text-decoration:none; padding:13px 26px; border-radius:100px;
+  border:1.6px solid var(--cyan); transition:all .18s ease;
 }
-.hero-selbstcheck:hover { border-bottom-color: var(--cyan); }
+.hero-selbstcheck svg{width:18px;height:18px;flex:none}
+.hero-selbstcheck:hover{ background:var(--cyan); color:#0a1320; transform:translateY(-1px); }
 .hero-meta {
   display: flex; gap: 36px; flex-wrap: wrap;
   justify-content: center;
@@ -996,7 +997,7 @@ footer a:hover { color: var(--blue); }
       <a href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener" class="btn btn-primary btn-huge">Lass uns sprechen →</a>
       <a href="#ablauf" class="btn btn-ghost-dark btn-huge">So funktioniert es</a>
     </div>
-    <a href="/cyber-status-check/selbstcheck.html" class="hero-selbstcheck">Lieber erst testen? → Kostenloser Cyber-Status-Selbstcheck (2 Min)</a>
+    <a href="/cyber-status-check/selbstcheck.html" class="hero-selbstcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Lieber erst testen? → Kostenloser Cyber-Status-Selbstcheck (2 Min)</a>
     <div class="hero-meta">
       <span>Festpreis 7.900 €</span>
       <span>Qualitäts-Garantie</span>
