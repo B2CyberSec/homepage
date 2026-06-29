@@ -25,12 +25,9 @@ export default function Navigation() {
     setMenuOpen(false);
   }, [location]);
 
-  const assessmentHref = lang === "de" ? "/nis2-check" : "/readiness-check";
-
   const navLinks = [
     { href: "/#services", label: t("nav.services") },
     { href: "/#nis2-video", label: t("nav.nis2") },
-    { href: assessmentHref, label: t("nav.assessment") },
     { href: "/#kontakt", label: t("nav.contact") },
   ];
 
