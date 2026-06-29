@@ -71,7 +71,7 @@
 
   <!-- QUIZ -->
   <div class="card" id="quiz"></div>
-  <div style="margin-top:18px"><button class="cta lg" id="eval" disabled onclick="evaluate()"></button>
+  <div style="margin-top:18px"><button class="cta lg" id="eval" disabled onclick="auswerten()"></button>
     <p class="muted" id="progress" style="text-align:center;margin-top:10px"></p>
   </div>
 
@@ -153,7 +153,7 @@ function render(){
  document.getElementById('progress').textContent=T.progress[lang](done);
  const ev=document.getElementById('eval'); ev.disabled=done<7; ev.textContent=T.eval[lang];
 }
-function evaluate(){
+function auswerten(){
  const score=answers.reduce((s,a,i)=>s+(a===null?0:OPT[a].v),0);
  let key=score>=11?'green':score>=6?'amber':'red';
  const col={green:getCss('--green'),amber:getCss('--amber'),red:getCss('--red')}[key];
