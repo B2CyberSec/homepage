@@ -170,7 +170,7 @@ export default function Assessment() {
       if (current < QUESTIONS.length - 1) {
         setCurrent(current + 1);
       } else {
-        setPhase("lead");
+        setPhase("result");
       }
     }, 220);
   }
@@ -182,7 +182,7 @@ export default function Assessment() {
   function goNext() {
     if (!answers[QUESTIONS[current].id]) return;
     if (current < QUESTIONS.length - 1) setCurrent(current + 1);
-    else setPhase("lead");
+    else setPhase("result");
   }
 
   async function submitLead(e: React.FormEvent) {

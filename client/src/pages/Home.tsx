@@ -8,7 +8,6 @@
 import { useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Link } from "wouter";
 import { useT } from "@/contexts/LanguageContext";
 
 // Image URLs (CDN — already WebP)
@@ -125,7 +124,6 @@ export default function Home() {
   ];
 
 
-  const assessmentPath = lang === "en" ? "/readiness-check" : "/nis2-check";
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -175,6 +173,17 @@ export default function Home() {
                 {t("hero.cta.primary")}
               </a>
               <a
+                href="/cyber-status-check/selbstcheck.html"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold btn-outline-blue"
+                style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 11l3 3L22 4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                </svg>
+                {lang === "en" ? "Free Self-Check" : "Kostenloser Selbstcheck"}
+              </a>
+              <a
                 href="#services"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold btn-outline-blue"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
@@ -185,13 +194,6 @@ export default function Home() {
                 </svg>
               </a>
             </div>
-            <a
-              href="/cyber-status-check/selbstcheck.html"
-              className="inline-block mt-4 text-sm font-semibold reveal hover:underline"
-              style={{ color: "#0A84FF", fontFamily: "'Inter', sans-serif", transitionDelay: "0.4s" }}
-            >
-              {lang === "en" ? "Prefer to test first? \u2192 Free Cyber Status Self-Check (2 min)" : "Lieber erst testen? \u2192 Kostenloser Cyber-Status-Selbstcheck (2 Min)"}
-            </a>
           </div>
         </div>
 
@@ -411,16 +413,16 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link
-              href={assessmentPath}
+            <a
+              href="/cyber-status-check"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white btn-primary reveal"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
             >
-              {t("urgency.cta")}
+              {lang === "en" ? "See the CYBER-STATUS-CHECK" : "CYBER-STATUS-CHECK ansehen"}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
