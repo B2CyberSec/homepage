@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cyber-Status-Selbstcheck — B2CyberSec</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B2447; --navy2:#0a1628; --blue:#0A84FF; --green:#10d080; --amber:#f5a623; --red:#ff5a5f;
+    --ink:#0f1b2d; --muted:#5a6b80; --line:#e6edf5; --bg:#f6f9fc; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+  .wrap{max-width:720px;margin:0 auto;padding:28px 20px 60px}
+  h1,h2,h3,.h{font-family:'Inter Tight','Inter',sans-serif;letter-spacing:-.02em}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Inter Tight';font-weight:800;color:var(--navy);font-size:19px}
+  .logo{width:30px;height:30px;border-radius:8px;background:var(--blue);display:grid;place-items:center}
+  .logo svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+  .lang{display:flex;gap:4px;background:#eaf1f9;border-radius:100px;padding:3px}
+  .lang button{border:0;background:transparent;font:inherit;font-weight:600;color:var(--muted);padding:5px 12px;border-radius:100px;cursor:pointer;font-size:13px}
+  .lang button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(11,36,71,.12)}
+  .eyebrow{color:var(--blue);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  h1{font-size:clamp(28px,6vw,42px);color:var(--navy);font-weight:800;line-height:1.08}
+  .lead{color:var(--muted);font-size:17px;margin:14px 0 6px;max-width:560px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:22px;box-shadow:0 6px 24px rgba(11,36,71,.05)}
+  .q{padding:16px 0;border-bottom:1px solid var(--line)}
+  .q:last-child{border-bottom:0}
+  .q .qt{font-weight:600;font-size:15.5px;color:var(--ink);margin-bottom:11px;display:flex;gap:9px}
+  .q .num{color:var(--blue);font-family:'Inter Tight';font-weight:800}
+  .opts{display:flex;gap:8px;flex-wrap:wrap}
+  .opts button{flex:1;min-width:96px;border:1.5px solid var(--line);background:#fff;font:inherit;font-weight:600;font-size:14px;color:var(--muted);padding:10px 8px;border-radius:11px;cursor:pointer;transition:.12s}
+  .opts button:hover{border-color:#bcd3ee}
+  .opts button.sel{border-color:var(--blue);background:var(--blue);color:#fff}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-weight:700;font-size:15.5px;border:0;border-radius:100px;padding:14px 26px;cursor:pointer;text-decoration:none;font-family:'Inter Tight'}
+  .cta:disabled{background:#9fc4ee;cursor:not-allowed}
+  .cta.lg{width:100%;justify-content:center;margin-top:4px}
+  .ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line)}
+  .muted{color:var(--muted);font-size:13.5px}
+  .result{display:none}
+  .ampel{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .dot{width:54px;height:54px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 6px rgba(255,255,255,.6)}
+  .badge{font-family:'Inter Tight';font-weight:800;font-size:22px}
+  .scoreline{font-size:14px;color:var(--muted)}
+  .rbox{border-radius:14px;padding:16px 18px;margin:14px 0;border:1px solid var(--line);background:#f8fbff}
+  .form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .form input{flex:1;min-width:200px;border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit}
+  .pill{display:inline-block;background:#eef5ff;color:var(--blue);font-weight:700;font-size:12px;padding:4px 11px;border-radius:100px;margin:2px 4px 2px 0}
+  .foot{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;line-height:1.6}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8-8 11-4.5-3-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      B2CyberSec
+    </div>
+    <div class="lang">
+      <button id="bde" class="on" onclick="setLang('de')">DE</button>
+      <button id="ben" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+
+  <div class="eyebrow" data-de="In 2 Minuten · kostenlos · anonym" data-en="In 2 minutes · free · anonymous"></div>
+  <h1 data-de="Cyber-Status-Selbstcheck" data-en="Cyber Status Self-Check"></h1>
+  <p class="lead" data-de="Sieben ehrliche Fragen. Am Ende sehen Sie auf einen Blick, wo Ihre IT-Sicherheit heute steht — und was der nächste sinnvolle Schritt ist. Kein Fachchinesisch." data-en="Seven honest questions. At the end you see at a glance where your IT security stands today — and what the next sensible step is. No jargon."></p>
+
+  <!-- QUIZ -->
+  <div class="card" id="quiz"></div>
+  <div style="margin-top:18px"><button class="cta lg" id="eval" disabled onclick="evaluate()"></button>
+    <p class="muted" id="progress" style="text-align:center;margin-top:10px"></p>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card result" id="result">
+    <div class="ampel">
+      <span class="dot" id="dot"></span>
+      <div><div class="badge" id="badge"></div><div class="scoreline" id="scoreline"></div></div>
+    </div>
+    <p id="rtext" style="margin-top:6px"></p>
+    <div class="rbox">
+      <strong data-de="Genau das liefert der CYBER-STATUS-CHECK — in 14 Tagen, vollständig &amp; unabhängig:" data-en="That's exactly what the CYBER-STATUS-CHECK delivers — in 14 days, complete &amp; independent:"></strong>
+      <div style="margin-top:8px">
+        <span class="pill" data-de="Interner Pentest" data-en="Internal pentest"></span>
+        <span class="pill" data-de="FW-Config-Check" data-en="FW config check"></span>
+        <span class="pill" data-de="Compliance (NIS-2 · ISO · DSGVO)" data-en="Compliance (NIS-2 · ISO · GDPR)"></span>
+        <span class="pill" data-de="Vorstand-Report + 90-Tage-Plan" data-en="Board report + 90-day plan"></span>
+      </div>
+    </div>
+    <a class="cta lg" id="book" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener"></a>
+    <p class="muted" style="text-align:center;margin:12px 0 4px" data-de="— oder —" data-en="— or —"></p>
+    <div>
+      <p class="muted" id="maillabel"></p>
+      <form class="form" id="leadform" onsubmit="return capture(event)">
+        <input type="text" id="name" required placeholder="Name">
+        <input type="email" id="email" required placeholder="firmen@e-mail.de">
+        <button class="cta ghost" type="submit" id="mailbtn"></button>
+      </form>
+      <p class="muted" id="thanks" style="margin-top:10px;color:var(--green);font-weight:600"></p>
+    </div>
+  </div>
+
+  <p class="foot" data-de="B2CyberSec GmbH · Werner-von-Siemens-Str. 6 · 86159 Augsburg · AG Augsburg HRB 33545 · Orientierungshilfe, keine Rechtsberatung." data-en="B2CyberSec GmbH · Werner-von-Siemens-Str. 6 · 86159 Augsburg · For orientation, not legal advice."></p>
+</div>
+
+<script>
+const Q=[
+ {de:"Wurde Ihre IT-Sicherheit in den letzten 12 Monaten von jemand Unabhängigem geprüft (nicht Ihr eigenes Team)?",en:"Has your IT security been checked by someone independent in the last 12 months (not your own team)?"},
+ {de:"Wissen Sie genau, welche Systeme aus dem Internet erreichbar sind — und sind sie abgesichert?",en:"Do you know exactly which systems are reachable from the internet — and are they secured?"},
+ {de:"Sind Firewall-Regeln, Netzwerk-Segmentierung und VPN dokumentiert und aktuell sauber konfiguriert?",en:"Are firewall rules, network segmentation and VPN documented and currently cleanly configured?"},
+ {de:"Existiert ein getesteter Notfallplan und ein Backup, das zuletzt erfolgreich wiederhergestellt wurde?",en:"Is there a tested recovery plan and a backup that was last restored successfully?"},
+ {de:"Können Sie Ihren Sicherheits-Status im Ernstfall (Audit, Kunde, Vorfall) schwarz auf weiß belegen?",en:"Can you prove your security status in black and white if needed (audit, customer, incident)?"},
+ {de:"Hat Ihr Team genug Kapazität und Security-Spezialwissen, um das laufend zu stemmen — nicht „nebenbei"?",en:"Does your team have enough capacity and security expertise to handle this continuously — not 'on the side'?"},
+ {de:"Hätten Sie morgen eine klare, belastbare Antwort auf „Wie sicher sind wir?" für die Geschäftsführung?",en:"Would you have a clear, solid answer to 'How secure are we?' for management tomorrow?"}
+];
+const OPT=[{de:"Ja",en:"Yes",v:2},{de:"Teilweise",en:"Partly",v:1},{de:"Nein",en:"No",v:0}];
+const T={
+ eval:{de:"Auswerten",en:"See result"},
+ book:{de:"Kostenloses 30-Min-Gespräch mit Bojan",en:"Free 30-min call with Bojan"},
+ maillabel:{de:"Ergebnis + 5 Sofort-Maßnahmen per Mail (nur Firmen-E-Mail):",en:"Result + 5 immediate actions by email (business email only):"},
+ mailbtn:{de:"Senden",en:"Send"},
+ progress:{de:n=>`${n}/7 beantwortet`,en:n=>`${n}/7 answered`},
+ thanks:{de:"Danke! Wir senden Ihr Ergebnis + die nächsten Schritte an Ihre Firmen-E-Mail.",en:"Thanks! We'll send your result + next steps to your business email."},
+ green:{de:"Grün — gute Basis",en:"Green — solid base"},
+ amber:{de:"Gelb — wichtige Lücken",en:"Amber — important gaps"},
+ red:{de:"Rot — akutes Risiko",en:"Red — acute risk"},
+ score:{de:p=>`${p} von 14 Punkten`,en:p=>`${p} of 14 points`},
+ rgreen:{de:"Solide Grundlage. Jetzt geht es um Nachweisbarkeit und Feinschliff — damit Sie es im Ernstfall auch belegen können.",en:"Solid foundation. Now it's about provability and fine-tuning — so you can prove it when it counts."},
+ ramber:{de:"Wichtige Lücken. Handlungsbedarf in den nächsten Wochen, bevor es teuer oder haftungsrelevant wird.",en:"Important gaps. Action needed in the coming weeks before it gets expensive or liability-relevant."},
+ rred:{de:"Akutes Risiko. Ein schnelles, strukturiertes Vorgehen ist jetzt entscheidend — am besten mit unabhängigem Blick.",en:"Acute risk. Fast, structured action is now decisive — ideally with an independent view."}
+};
+let lang='de', answers=Array(7).fill(null);
+
+function render(){
+ const q=document.getElementById('quiz'); q.innerHTML='';
+ Q.forEach((item,i)=>{
+   const d=document.createElement('div'); d.className='q';
+   d.innerHTML=`<div class="qt"><span class="num">${i+1}</span><span>${item[lang]}</span></div>`;
+   const o=document.createElement('div'); o.className='opts';
+   OPT.forEach((opt,j)=>{
+     const b=document.createElement('button'); b.textContent=opt[lang];
+     if(answers[i]===j) b.classList.add('sel');
+     b.onclick=()=>{answers[i]=j; render();};
+     o.appendChild(b);
+   });
+   d.appendChild(o); q.appendChild(d);
+ });
+ const done=answers.filter(a=>a!==null).length;
+ document.getElementById('progress').textContent=T.progress[lang](done);
+ const ev=document.getElementById('eval'); ev.disabled=done<7; ev.textContent=T.eval[lang];
+}
+function evaluate(){
+ const score=answers.reduce((s,a,i)=>s+(a===null?0:OPT[a].v),0);
+ let key=score>=11?'green':score>=6?'amber':'red';
+ const col={green:getCss('--green'),amber:getCss('--amber'),red:getCss('--red')}[key];
+ document.getElementById('dot').style.background=col;
+ document.getElementById('badge').textContent=T[key][lang];
+ document.getElementById('badge').style.color=col;
+ document.getElementById('scoreline').textContent=T.score[lang](score);
+ document.getElementById('rtext').textContent=T['r'+key][lang];
+ document.getElementById('result').style.display='block';
+ document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function capture(e){
+ e.preventDefault();
+ // TODO: an HubSpot-Formular / Make.com-Webhook anbinden (Lead-Routing + Nurture). Aktuell Frontend-Bestätigung.
+ const payload={name:document.getElementById('name').value,email:document.getElementById('email').value,answers,ts:new Date().toISOString()};
+ console.log('LEAD',payload);
+ document.getElementById('leadform').classList.add('hide');
+ document.getElementById('thanks').textContent=T.thanks[lang];
+ return false;
+}
+function getCss(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+function setLang(l){
+ lang=l;
+ document.getElementById('bde').classList.toggle('on',l==='de');
+ document.getElementById('ben').classList.toggle('on',l==='en');
+ document.documentElement.lang=l;
+ document.querySelectorAll('[data-de]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+l);});
+ document.getElementById('book').textContent=T.book[lang];
+ document.getElementById('maillabel').textContent=T.maillabel[lang];
+ document.getElementById('mailbtn').textContent=T.mailbtn[lang];
+ render();
+}
+setLang('de');
+</script>
+</body>
+</html>
