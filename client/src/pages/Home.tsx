@@ -185,6 +185,13 @@ export default function Home() {
                 </svg>
               </a>
             </div>
+            <a
+              href="/cyber-status-check/selbstcheck.html"
+              className="inline-block mt-4 text-sm font-semibold reveal hover:underline"
+              style={{ color: "#0A84FF", fontFamily: "'Inter', sans-serif", transitionDelay: "0.4s" }}
+            >
+              {lang === "en" ? "Prefer to test first? \u2192 Free Cyber Status Self-Check (2 min)" : "Lieber erst testen? \u2192 Kostenloser Cyber-Status-Selbstcheck (2 Min)"}
+            </a>
           </div>
         </div>
 
