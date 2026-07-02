@@ -19,6 +19,7 @@ export default function Datenschutz() {
     { title: t("ds.s5.title"), body: t("ds.s5.body") },
     { title: t("ds.s6.title"), body: t("ds.s6.body") },
     { title: t("ds.s7.title"), body: t("ds.s7.body") },
+    { title: t("ds.s8.title"), body: t("ds.s8.body") },
   ];
 
   return (
