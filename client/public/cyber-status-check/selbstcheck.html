@@ -175,6 +175,7 @@ function capture(e){
  fetch('https://hook.eu1.make.com/t32dbgn2rjxrg68y4s9fyftdekih7hpk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
  document.getElementById('leadform').classList.add('hide');
  document.getElementById('thanks').textContent=T.thanks[lang];
+ if(window.fbq){fbq("track","Lead");}
  return false;
 }
 function getCss(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
@@ -191,5 +192,45 @@ function setLang(l){
 }
 setLang('de');
 </script>
+<!-- Meta Pixel (2096384047973111) mit Consent-Opt-in (TTDSG/DSGVO) - feuert erst nach Zustimmung -->
+<style>
+#b2cs-consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;background:#0a1628;color:#eaf2ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;line-height:1.5;padding:14px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.35);display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+#b2cs-consent p{margin:0;max-width:680px}
+#b2cs-consent a{color:#2A9DFF;text-decoration:underline}
+#b2cs-consent .b2cs-btns{display:flex;gap:10px;flex-wrap:wrap}
+#b2cs-consent button{cursor:pointer;border:0;border-radius:8px;padding:9px 18px;font-weight:600;font-size:14px}
+#b2cs-c-yes{background:#0A84FF;color:#fff}
+#b2cs-c-no{background:transparent;color:#9fb3c8;border:1px solid #33455c}
+</style>
+<script>
+(function(){
+  var PIXEL_ID="2096384047973111";
+  var KEY="b2cs_consent_marketing";
+  var T={de:{msg:"Wir verwenden Marketing-Cookies (Meta-Pixel), um die Relevanz unserer Werbung zu messen - nur mit Ihrer Zustimmung.",more:"Datenschutz",yes:"Akzeptieren",no:"Ablehnen",href:"/datenschutz"},
+         en:{msg:"We use marketing cookies (Meta pixel) to measure ad relevance - only with your consent.",more:"Privacy",yes:"Accept",no:"Decline",href:"/privacy"}};
+  function L(){var l=(document.documentElement.lang||"de").slice(0,2);return T[l]?l:"de";}
+  function loadPixel(){
+    if(window.fbq)return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init",PIXEL_ID);fbq("track","PageView");
+  }
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function setv(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function hide(){var b=document.getElementById("b2cs-consent");if(b&&b.parentNode)b.parentNode.removeChild(b);}
+  function grant(){setv("granted");loadPixel();hide();}
+  function deny(){setv("denied");hide();}
+  function banner(){
+    var t=T[L()];
+    var d=document.createElement("div");d.id="b2cs-consent";
+    d.innerHTML='<p>'+t.msg+' <a href="'+t.href+'" target="_blank" rel="noopener">'+t.more+'</a></p><span class="b2cs-btns"><button id="b2cs-c-no" type="button">'+t.no+'</button><button id="b2cs-c-yes" type="button">'+t.yes+'</button></span>';
+    document.body.appendChild(d);
+    document.getElementById("b2cs-c-yes").onclick=grant;
+    document.getElementById("b2cs-c-no").onclick=deny;
+  }
+  function init(){var s=get();if(s==="granted"){loadPixel();}else if(s!=="denied"){banner();}}
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init);}else{init();}
+})();
+</script>
+<!-- End Meta Pixel + Consent -->
 </body>
 </html>
