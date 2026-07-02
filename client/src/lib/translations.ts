@@ -261,6 +261,8 @@ export const translations = {
     "ds.s6.body": "Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wenden Sie sich dazu an datenschutz@b2cybersec.com. Beschwerderecht besteht bei der zuständigen Aufsichtsbehörde.",
     "ds.s7.title": "7. Kontakt Datenschutz",
     "ds.s7.body": "Bei Fragen zum Datenschutz wenden Sie sich bitte an: datenschutz@b2cybersec.com",
+    "ds.s8.title": "8. Marketing-Cookies & Meta-Pixel",
+    "ds.s8.body": "Auf dieser Website setzen wir den Meta-Pixel (Anbieter: Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin, Irland) ein, um die Wirksamkeit unserer Werbeanzeigen zu messen und Reichweiten auszuwerten. Der Pixel wird ausschließlich nach Ihrer vorherigen Einwilligung über unser Cookie-Banner geladen (Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Ohne Ihre Zustimmung werden keine Marketing-Cookies gesetzt und keine Daten an Meta übermittelt. Mit Ihrer Einwilligung können personenbezogene Daten (u. a. IP-Adresse, Browser- und Geräteinformationen, besuchte Seiten und ausgelöste Aktionen wie das Absenden des Selbstchecks) durch Meta verarbeitet und in die USA übertragen werden; hierfür stützen wir uns auf die EU-Standardvertragsklauseln. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die in Ihrem Browser gespeicherten Cookies löschen. Weitere Informationen finden Sie in den Datenschutzrichtlinien von Meta: https://www.facebook.com/privacy/policy",
   },
 
   en: {
@@ -511,6 +513,8 @@ export const translations = {
     "ds.s6.body": "You have the right at any time to information, rectification, erasure, restriction of processing, data portability and objection. To exercise these rights, contact datenschutz@b2cybersec.com. You also have the right to lodge a complaint with the competent supervisory authority.",
     "ds.s7.title": "7. Privacy contact",
     "ds.s7.body": "For privacy-related questions please contact: datenschutz@b2cybersec.com",
+    "ds.s8.title": "8. Marketing cookies & Meta pixel",
+    "ds.s8.body": "On this website we use the Meta pixel (provider: Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin, Ireland) to measure the effectiveness of our advertising and to analyse reach. The pixel is loaded only after your prior consent via our cookie banner (legal basis: Art. 6(1)(a) GDPR, Sec. 25(1) TDDDG). Without your consent, no marketing cookies are set and no data is transmitted to Meta. With your consent, personal data (including IP address, browser and device information, pages visited and actions triggered such as submitting the self-check) may be processed by Meta and transferred to the USA; we rely on the EU Standard Contractual Clauses for this. You can withdraw your consent at any time with effect for the future by deleting the cookies stored in your browser. For more information see Meta\u2019s privacy policy: https://www.facebook.com/privacy/policy",
   },
 } as const;
 
