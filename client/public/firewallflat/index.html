@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230A84FF'/%3E%3Cg transform='translate(3.6 3.6) scale(0.7)'%3E%3Cpath d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E">
+<title>B2 FirewallFlat — Digitaler Schutz als Abo | B2CyberSec</title>
+<meta name="description" content="Zwei Firewalls im HA-Verbund, Umzug von jedem Hersteller, Live-Übersicht — ein fester Monatsbetrag. Geräte inklusive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FFFFFF;--bg-soft:#F6F8FB;--ink:#0A1628;--ink-soft:#4A5A6E;--ink-muted:#7B8696;--blue:#0A84FF;--cyan:#2A9DFF;--cyan-glow:rgba(42,157,255,.45);--blue-glow:rgba(10,132,255,.35);--success:#16A864;--danger:#E24B4A;--dark:#07111F;--line:rgba(10,22,40,.08)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-size:20px;line-height:1.6;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.tight{font-family:'Inter Tight','Inter',sans-serif;letter-spacing:-.025em}
+section{padding:130px 0}
+.bg-soft{background:var(--bg-soft)}
+.bg-dark{background:var(--dark);color:#EAF2FF}
+.center{text-align:center}
+h2.big{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-.025em;margin-bottom:14px}
+.one-line{font-size:22px;color:var(--ink-soft);max-width:640px;margin:0 auto}
+.bg-dark .one-line{color:#A7BBD0}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:100px;padding:20px 42px;font-size:21px;font-weight:600;text-decoration:none;transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;border:none}
+.btn-primary{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;box-shadow:0 10px 30px var(--blue-glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px var(--blue-glow),0 6px 16px var(--cyan-glow)}
+.link-ghost{color:#BFE0FF;font-size:19px;text-decoration:none;border-bottom:1px solid rgba(191,224,255,.4);padding-bottom:2px}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{border-bottom-color:var(--line)}
+.hd-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+.logo-shield{width:34px;height:34px;background:linear-gradient(135deg,var(--blue) 0%,#0066D6 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px var(--blue-glow)}
+.logo-shield svg{width:18px;height:18px;color:#fff}
+.logo-badge{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:4px 9px;text-transform:uppercase;font-family:'Inter',sans-serif}
+.hd-cta{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 22px;border-radius:100px;box-shadow:0 6px 18px var(--blue-glow)}
+/* hero */
+.hero{position:relative;padding:190px 0 120px;text-align:center;background-image:radial-gradient(circle at 50% 25%,rgba(10,132,255,.3),transparent 55%),radial-gradient(circle at 12% 85%,rgba(42,157,255,.14),transparent 50%)}
+.hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(44px,6.4vw,90px);line-height:1.02;letter-spacing:-.03em;margin-bottom:22px}
+.hero .accent{color:var(--cyan);text-shadow:0 0 44px var(--cyan-glow)}
+.hero-line{font-size:23px;color:#A7BBD0;margin-bottom:44px}
+.hero-ctas{display:flex;gap:26px;justify-content:center;align-items:center;flex-wrap:wrap}
+.paths{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.path-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(42,157,255,.1);border:1px solid rgba(42,157,255,.3);color:#BFE0FF;border-radius:100px;padding:10px 20px;font-size:16px}
+.path-pill .v{color:#3DDC84;font-weight:800}
+.hero-anim{margin:60px auto 0;max-width:540px}
+.hero-anim svg{width:100%;height:auto;filter:drop-shadow(0 24px 50px rgba(10,132,255,.35))}
+.ringp{animation:ringp 3s ease-in-out infinite}
+@keyframes ringp{0%,100%{opacity:.5}50%{opacity:1}}
+.atk{transform-box:fill-box;transform-origin:center}
+.atk1{animation:atk1 5.2s linear infinite}
+.atk2{animation:atk2 5.2s linear infinite 1.3s}
+.atk3{animation:atk3 5.2s linear infinite 2.6s}
+.atk4{animation:atk4 5.2s linear infinite 3.9s}
+@keyframes atk1{0%{transform:translate(0,0) scale(1);opacity:0}8%{opacity:1}62%{transform:translate(140px,93px) scale(1);opacity:1}74%,100%{transform:translate(140px,93px) scale(2.2);opacity:0}}
+@keyframes atk2{0%{transform:translate(0,0) scale(1);opacity:0}8%{opacity:1}62%{transform:translate(-136px,80px) scale(1);opacity:1}74%,100%{transform:translate(-136px,80px) scale(2.2);opacity:0}}
+@keyframes atk3{0%{transform:translate(0,0) scale(1);opacity:0}8%{opacity:1}62%{transform:translate(119px,-76px) scale(1);opacity:1}74%,100%{transform:translate(119px,-76px) scale(2.2);opacity:0}}
+@keyframes atk4{0%{transform:translate(0,0) scale(1);opacity:0}8%{opacity:1}62%{transform:translate(-117px,-69px) scale(1);opacity:1}74%,100%{transform:translate(-117px,-69px) scale(2.2);opacity:0}}
+/* big anims */
+.anim-ill{margin:64px auto 0;max-width:700px}
+.anim-ill svg{width:100%;height:auto}
+.flow{stroke-dasharray:10 8;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-36}}
+.flowA{animation:dash 1s linear infinite,flowA 10s linear infinite}
+@keyframes flowA{0%,42%{opacity:1}46%,94%{opacity:0}98%,100%{opacity:1}}
+.flowB{animation:dash 1s linear infinite,flowB 10s linear infinite}
+@keyframes flowB{0%,46%{opacity:0}50%,94%{opacity:1}98%,100%{opacity:0}}
+.boxA{animation:boxA 10s linear infinite}
+@keyframes boxA{0%,42%{fill:#0A84FF}44%,46%{fill:#E24B4A}48%,94%{fill:#3A4657}96%,100%{fill:#0A84FF}}
+.boxB{animation:boxB 10s linear infinite}
+@keyframes boxB{0%,46%{fill:#33415A}50%,94%{fill:#16A864}98%,100%{fill:#33415A}}
+.lblA{animation:lblA 10s linear infinite;opacity:0}
+@keyframes lblA{0%,43%{opacity:0}46%,70%{opacity:1}74%,100%{opacity:0}}
+.lblB{animation:lblB 10s linear infinite;opacity:0}
+@keyframes lblB{0%,49%{opacity:0}52%,80%{opacity:1}84%,100%{opacity:0}}
+.led{animation:blink 1.6s infinite}
+.led:nth-child(2){animation-delay:.4s}.led:nth-child(3){animation-delay:.8s}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.tagswing{transform-box:fill-box;transform-origin:top center;animation:swing 3s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.bar{transform-box:fill-box;transform-origin:bottom;animation:bargrow 2.6s ease-in-out infinite alternate}
+.bar:nth-child(2){animation-delay:.3s}.bar:nth-child(3){animation-delay:.6s}.bar:nth-child(4){animation-delay:.9s}.bar:nth-child(5){animation-delay:1.2s}.bar:nth-child(6){animation-delay:1.5s}
+@keyframes bargrow{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.draw{stroke-dasharray:420;animation:draw 5s ease-in-out infinite}
+@keyframes draw{0%{stroke-dashoffset:420}55%,100%{stroke-dashoffset:0}}
+.pulse{animation:blink 1.4s infinite}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:56px;max-width:920px;margin-left:auto;margin-right:auto}
+.chip{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:100px;padding:16px 26px;font-size:19px;font-weight:600;box-shadow:0 4px 14px rgba(10,22,40,.05);transition:transform .3s}
+.chip:hover{transform:translateY(-4px)}
+.chip .e{font-size:24px}
+.foot-note{font-size:15px;color:var(--ink-muted);margin-top:26px}
+.all-in{display:inline-flex;margin-top:50px;background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;border-radius:100px;padding:18px 40px;font-size:22px;font-weight:700;box-shadow:0 14px 34px var(--blue-glow)}
+/* vendors */
+.vendors{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:56px;max-width:760px;margin-left:auto;margin-right:auto}
+.vendor{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 24px;font-size:18px;font-weight:600;color:var(--ink-soft);box-shadow:0 4px 14px rgba(10,22,40,.05)}
+.arrow-down{font-size:40px;color:var(--blue);margin-top:32px;line-height:1;animation:nudge 2s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.goal{margin:24px auto 0;max-width:520px;background:linear-gradient(135deg,#0A84FF,#0066D6);border-radius:22px;padding:28px 38px;box-shadow:0 24px 50px rgba(10,132,255,.35)}
+.goal h3{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:28px;color:#fff}
+/* cycle + trust */
+.cycle-stage{margin:60px auto 0;width:300px;height:300px;position:relative}
+.cycle-ring{width:100%;height:100%;animation:rotate 20s linear infinite}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.cycle-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cycle-center .n{font-family:'Inter Tight',sans-serif;font-weight:900;font-size:72px;color:var(--cyan);line-height:1}
+.cycle-center .l{font-size:17px;color:#A7BBD0;margin-top:4px}
+.trust{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:60px}
+.trust-pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:14px 24px;font-size:17px;display:inline-flex;gap:10px;align-items:center;color:#EAF2FF}
+.trust-pill .v{color:#3DDC84;font-weight:800}
+.final{text-align:center;padding:150px 0;background-image:radial-gradient(circle at 50% 35%,rgba(10,132,255,.3),transparent 60%)}
+.fade{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.fade.vis{opacity:1;transform:none}
+footer{padding:56px 0;background:var(--bg-soft);color:var(--ink-muted);font-size:15px;text-align:center}
+footer a{color:var(--ink-soft)}
+@media (max-width:940px){
+section{padding:80px 0}.hero{padding:150px 0 70px}
+.cycle-stage{width:240px;height:240px}
+}
+</style>
+</head>
+<body>
+<header id="hd">
+  <div class="wrap hd-inner">
+    <a class="logo" href="https://www.b2cybersec.com/">
+      <span class="logo-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z"/></svg></span>
+      <span>B2CyberSec</span>
+      <span class="logo-badge">B2 FirewallFlat</span>
+    </a>
+    <a class="hd-cta" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen →</a>
+  </div>
+</header>
+
+<!-- HERO: Angriffe prallen am Schutzring ab -->
+<section class="hero bg-dark" id="top">
+  <div class="wrap">
+    <h1 class="tight">Ihre Firma.<br><span class="accent">Digital geschützt.</span></h1>
+    <p class="hero-line">Firewall-Schutz als Abo. Geräte geschenkt.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen →</a>
+      <a class="link-ghost" href="#ha">Ansehen</a>
+    </div>
+    <div class="paths">
+      <span class="path-pill"><span class="v">✓</span> Doppelt abgesichert (HA)</span>
+      <span class="path-pill"><span class="v">✓</span> Umzug von jedem Hersteller</span>
+      <span class="path-pill"><span class="v">✓</span> 0 € Anschaffung</span>
+      <span class="path-pill"><span class="v">✓</span> Volle Kontrolle</span>
+    </div>
+    <div class="hero-anim">
+      <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle class="ringp" cx="260" cy="200" r="120" fill="none" stroke="#2A9DFF" stroke-width="2.5"/>
+        <circle cx="260" cy="200" r="150" fill="none" stroke="rgba(42,157,255,.18)" stroke-width="1.5"/>
+        <circle cx="260" cy="200" r="120" fill="rgba(10,132,255,.06)"/>
+        <!-- Firmengebäude -->
+        <rect x="218" y="158" width="84" height="104" rx="8" fill="#0E1A2E" stroke="#2A9DFF" stroke-width="1.5"/>
+        <rect x="232" y="174" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".85"/>
+        <rect x="252" y="174" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".55"/>
+        <rect x="272" y="174" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".85"/>
+        <rect x="232" y="196" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".55"/>
+        <rect x="252" y="196" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".85"/>
+        <rect x="272" y="196" width="16" height="14" rx="2" fill="#2A9DFF" opacity=".55"/>
+        <rect x="248" y="228" width="24" height="34" rx="3" fill="#0A84FF"/>
+        <!-- Angriffe -->
+        <circle class="atk atk1" cx="20" cy="40" r="7" fill="#E24B4A"/>
+        <circle class="atk atk2" cx="500" cy="60" r="7" fill="#E24B4A"/>
+        <circle class="atk atk3" cx="40" cy="340" r="7" fill="#E24B4A"/>
+        <circle class="atk atk4" cx="480" cy="330" r="7" fill="#E24B4A"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- HA: Ausfall-Animation -->
+<section id="ha">
+  <div class="wrap center">
+    <h2 class="big fade">Doppelt hält besser.</h2>
+    <p class="one-line fade">Zwei Firewalls. Fällt eine aus, übernimmt die andere. Sofort.</p>
+    <div class="anim-ill fade">
+      <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Internet -->
+        <circle cx="70" cy="140" r="34" fill="none" stroke="#7B8696" stroke-width="2.5"/>
+        <ellipse cx="70" cy="140" rx="14" ry="34" fill="none" stroke="#7B8696" stroke-width="1.5"/>
+        <path d="M38 128 h64 M38 152 h64" stroke="#7B8696" stroke-width="1.5" fill="none"/>
+        <!-- Firma -->
+        <rect x="576" y="96" width="70" height="88" rx="8" fill="#EEF3FA" stroke="#0A84FF" stroke-width="2"/>
+        <rect x="588" y="110" width="14" height="12" rx="2" fill="#0A84FF" opacity=".7"/>
+        <rect x="606" y="110" width="14" height="12" rx="2" fill="#0A84FF" opacity=".4"/>
+        <rect x="624" y="110" width="14" height="12" rx="2" fill="#0A84FF" opacity=".7"/>
+        <rect x="588" y="128" width="14" height="12" rx="2" fill="#0A84FF" opacity=".4"/>
+        <rect x="606" y="128" width="14" height="12" rx="2" fill="#0A84FF" opacity=".7"/>
+        <rect x="624" y="128" width="14" height="12" rx="2" fill="#0A84FF" opacity=".4"/>
+        <rect x="602" y="154" width="20" height="30" rx="3" fill="#0A84FF"/>
+        <!-- Pfade -->
+        <path class="flow flowA" d="M108 140 C170 140 190 78 260 78 L400 78 C490 78 520 140 572 140" fill="none" stroke="#0A84FF" stroke-width="4" stroke-linecap="round"/>
+        <path class="flow flowB" d="M108 140 C170 140 190 208 260 208 L400 208 C490 208 520 140 572 140" fill="none" stroke="#16A864" stroke-width="4" stroke-linecap="round"/>
+        <!-- FW A -->
+        <rect class="boxA" x="290" y="52" width="86" height="52" rx="10"/>
+        <circle cx="306" cy="70" r="4" fill="#fff" opacity=".9"/><circle cx="320" cy="70" r="4" fill="#fff" opacity=".6"/><circle cx="334" cy="70" r="4" fill="#fff" opacity=".9"/>
+        <rect x="304" y="84" width="40" height="8" rx="2" fill="rgba(255,255,255,.4)"/>
+        <text class="lblA" x="405" y="45" font-size="16" fill="#E24B4A" font-family="Inter" font-weight="700">fällt aus</text>
+        <!-- FW B -->
+        <rect class="boxB" x="290" y="182" width="86" height="52" rx="10"/>
+        <circle cx="306" cy="200" r="4" fill="#fff" opacity=".9"/><circle cx="320" cy="200" r="4" fill="#fff" opacity=".6"/><circle cx="334" cy="200" r="4" fill="#fff" opacity=".9"/>
+        <rect x="304" y="214" width="40" height="8" rx="2" fill="rgba(255,255,255,.4)"/>
+        <text class="lblB" x="398" y="248" font-size="16" fill="#16A864" font-family="Inter" font-weight="700">übernimmt sofort</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- GESCHENK -->
+<section class="bg-dark center" id="geschenk">
+  <div class="wrap">
+    <h2 class="big fade">Die Geräte? Geschenkt.</h2>
+    <p class="one-line fade">0 € Anschaffung — volle Kontrolle bleibt bei Ihnen.</p>
+    <div class="anim-ill fade" style="max-width:460px">
+      <svg viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Appliance -->
+        <rect x="80" y="160" width="300" height="74" rx="12" fill="#0E1A2E" stroke="#2A9DFF" stroke-width="1.5"/>
+        <g>
+          <circle class="led" cx="112" cy="184" r="6" fill="#3DDC84"/>
+          <circle class="led" cx="134" cy="184" r="6" fill="#3DDC84"/>
+          <circle class="led" cx="156" cy="184" r="6" fill="#3DDC84"/>
+        </g>
+        <rect x="110" y="204" width="26" height="14" rx="2" fill="none" stroke="#4A5A6E" stroke-width="2"/>
+        <rect x="144" y="204" width="26" height="14" rx="2" fill="none" stroke="#4A5A6E" stroke-width="2"/>
+        <rect x="286" y="182" width="70" height="30" rx="4" fill="#132441"/>
+        <!-- Schleife -->
+        <rect x="212" y="160" width="36" height="74" fill="#0A84FF"/>
+        <path d="M230 160 C196 118 168 132 178 150 C186 164 212 160 230 160 C264 118 292 132 282 150 C274 164 248 160 230 160" fill="#2A9DFF"/>
+        <!-- Preisschild -->
+        <g class="tagswing">
+          <line x1="330" y1="150" x2="352" y2="196" stroke="#A7BBD0" stroke-width="2"/>
+          <rect x="326" y="196" width="72" height="44" rx="9" fill="#fff"/>
+          <circle cx="352" cy="199" r="3.5" fill="#07111F"/>
+          <text x="362" y="226" font-size="24" text-anchor="middle" font-family="Inter" font-weight="800" fill="#0A84FF">0 €</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- PALO ALTO / GARTNER -->
+<section id="pa">
+  <div class="wrap center">
+    <h2 class="big fade">Nicht irgendeine Firewall.</h2>
+    <p class="one-line fade">Palo Alto Networks — Leader im Gartner® Magic Quadrant™ für Firewalls.***</p>
+    <div class="anim-ill fade" style="max-width:440px">
+      <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="30" y="20" width="380" height="380" rx="14" fill="#F6F8FB" stroke="rgba(10,22,40,.1)" stroke-width="1.5"/>
+        <line x1="220" y1="20" x2="220" y2="400" stroke="rgba(10,22,40,.12)" stroke-width="1.5" stroke-dasharray="4 6"/>
+        <line x1="30" y1="210" x2="410" y2="210" stroke="rgba(10,22,40,.12)" stroke-width="1.5" stroke-dasharray="4 6"/>
+        <text x="398" y="46" text-anchor="end" font-size="12" letter-spacing="2" font-family="Inter" font-weight="700" fill="#7B8696">LEADER</text>
+        <circle cx="305" cy="85" r="6" fill="#C4CBD4"/>
+        <circle cx="245" cy="130" r="6" fill="#C4CBD4"/>
+        <circle cx="300" cy="260" r="6" fill="#C4CBD4"/>
+        <circle cx="200" cy="196" r="6" fill="#C4CBD4"/>
+        <circle cx="135" cy="255" r="6" fill="#C4CBD4"/>
+        <circle cx="152" cy="272" r="6" fill="#C4CBD4"/>
+        <circle cx="178" cy="274" r="6" fill="#C4CBD4"/>
+        <circle cx="130" cy="292" r="6" fill="#C4CBD4"/>
+        <circle cx="142" cy="330" r="6" fill="#C4CBD4"/>
+        <circle cx="85" cy="336" r="6" fill="#C4CBD4"/>
+        <circle cx="106" cy="350" r="6" fill="#C4CBD4"/>
+        <circle class="pulse" cx="330" cy="112" r="26" fill="rgba(10,132,255,.16)"/>
+        <circle cx="330" cy="112" r="13" fill="#0A84FF"/>
+        <text x="330" y="76" text-anchor="middle" font-size="18" font-family="Inter" font-weight="800" fill="#0A1628">Palo Alto</text>
+        <text x="398" y="426" text-anchor="end" font-size="13" font-family="Inter" fill="#7B8696">Vision →</text>
+        <text x="16" y="210" text-anchor="middle" font-size="13" font-family="Inter" fill="#7B8696" transform="rotate(-90 16 210)">Umsetzung →</text>
+      </svg>
+    </div>
+    <p class="foot-note fade">***Leader, Gartner® Magic Quadrant™ for Hybrid Mesh Firewalls (Juli 2025). Vereinfachte Darstellung — <a href="https://www.gartner.com/doc/reprints?id=1-2LPSX8QC&amp;ct=250821&amp;st=sb" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">Original-Report lesen</a>.</p>
+  </div>
+</section>
+
+<!-- ÜBERSICHT / LOGS -->
+<section class="bg-dark center" id="blick">
+  <div class="wrap">
+    <h2 class="big fade">Volle Übersicht. Volle Kontrolle.</h2>
+    <p class="one-line fade">Ihre Logs, Ihr Live-Status — Zugriff jederzeit. Die Arbeit machen wir.</p>
+    <div class="anim-ill fade" style="max-width:620px">
+      <svg viewBox="0 0 620 310" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="20" y="16" width="580" height="278" rx="16" fill="#0E1A2E" stroke="rgba(42,157,255,.35)" stroke-width="1.5"/>
+        <circle cx="48" cy="42" r="5" fill="#E24B4A"/><circle cx="66" cy="42" r="5" fill="#EF9F27"/><circle cx="84" cy="42" r="5" fill="#3DDC84"/>
+        <rect x="470" y="30" width="106" height="26" rx="13" fill="rgba(61,220,132,.14)"/>
+        <circle class="pulse" cx="488" cy="43" r="5" fill="#3DDC84"/>
+        <text x="502" y="48" font-size="14" fill="#3DDC84" font-family="Inter" font-weight="700">LIVE</text>
+        <!-- Balken -->
+        <g>
+          <rect class="bar" x="60" y="120" width="34" height="130" rx="6" fill="#0A84FF"/>
+          <rect class="bar" x="106" y="100" width="34" height="150" rx="6" fill="#2A9DFF"/>
+          <rect class="bar" x="152" y="140" width="34" height="110" rx="6" fill="#0A84FF"/>
+          <rect class="bar" x="198" y="90" width="34" height="160" rx="6" fill="#2A9DFF"/>
+          <rect class="bar" x="244" y="126" width="34" height="124" rx="6" fill="#0A84FF"/>
+          <rect class="bar" x="290" y="106" width="34" height="144" rx="6" fill="#2A9DFF"/>
+        </g>
+        <!-- Linien-Chart -->
+        <path class="draw" d="M360 220 L396 190 L428 202 L462 156 L494 168 L528 120 L560 96" fill="none" stroke="#3DDC84" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Log-Zeilen -->
+        <rect x="360" y="240" width="200" height="9" rx="4" fill="rgba(167,187,208,.35)"/>
+        <rect x="360" y="256" width="160" height="9" rx="4" fill="rgba(167,187,208,.22)"/>
+        <rect x="360" y="272" width="184" height="9" rx="4" fill="rgba(167,187,208,.30)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MIGRATION: jeder Hersteller -->
+<section id="umzug">
+  <div class="wrap center">
+    <h2 class="big fade">Egal, was Sie heute haben.</h2>
+    <div class="vendors fade">
+      <span class="vendor">Cisco ASA</span>
+      <span class="vendor">Check Point</span>
+      <span class="vendor">Fortinet</span>
+      <span class="vendor">Sophos</span>
+      <span class="vendor">Juniper</span>
+      <span class="vendor">WatchGuard</span>
+      <span class="vendor">… egal welcher.</span>
+    </div>
+    <div class="arrow-down fade">↓</div>
+    <div class="goal fade"><h3>Sauber umgezogen.</h3></div>
+  </div>
+</section>
+
+<!-- ALLES DRIN -->
+<section class="bg-soft" id="drin">
+  <div class="wrap center">
+    <h2 class="big fade">Alles drin.</h2>
+    <div class="chips">
+      <span class="chip fade"><span class="e">🛡️</span> 2× Palo Alto (HA)</span>
+      <span class="chip fade"><span class="e">🔧</span> Aufbau &amp; Umzug</span>
+      <span class="chip fade"><span class="e">🔄</span> Alle Updates</span>
+      <span class="chip fade"><span class="e">🔔</span> Alarm-Wache</span>
+      <span class="chip fade"><span class="e">📊</span> Live-Übersicht &amp; Logs</span>
+      <span class="chip fade"><span class="e">🚚</span> Austausch bei Defekt</span>
+      <span class="chip fade"><span class="e">📋</span> Prüf-Ordner (NIS-2*)</span>
+      <span class="chip fade"><span class="e">📞</span> Fester Ansprechpartner</span>
+      <span class="chip fade"><span class="e">🆕</span> 36 Monate: Update-Option**</span>
+    </div>
+    <div class="all-in fade">= 1 fester Monatsbetrag. 0 € am Tag 1.</div>
+    <p class="foot-note fade">*NIS-2 — das neue EU-Sicherheitsgesetz. · **Neu &amp; besser — bis max. PA-3400-Serie.</p>
+  </div>
+</section>
+
+<!-- GEFÜHL -->
+<section id="fuer-sie">
+  <div class="wrap center">
+    <h2 class="big fade">Und Sie?</h2>
+    <div class="chips">
+      <span class="chip fade"><span class="e">😴</span> … schlafen ruhig</span>
+      <span class="chip fade"><span class="e">💶</span> … planen ohne Überraschungen</span>
+      <span class="chip fade"><span class="e">🧾</span> … bestehen Prüfungen gelassen</span>
+      <span class="chip fade"><span class="e">⚡</span> … merken Ausfälle nicht</span>
+      <span class="chip fade"><span class="e">🧠</span> … haben den Kopf frei</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final bg-dark center">
+  <div class="wrap">
+    <h2 class="big fade">Alle 3 Jahre: neu &amp; besser.*</h2>
+    <div class="cycle-stage fade">
+      <svg class="cycle-ring" width="300" height="300" viewBox="0 0 340 340" aria-hidden="true">
+        <circle cx="170" cy="170" r="140" fill="none" stroke="rgba(42,157,255,.25)" stroke-width="2" stroke-dasharray="10 12"/>
+        <circle cx="170" cy="30" r="12" fill="#2A9DFF"/>
+        <circle cx="170" cy="310" r="10" fill="#0A84FF"/>
+        <circle cx="30" cy="170" r="10" fill="#0A84FF"/>
+        <circle cx="310" cy="170" r="10" fill="#0A84FF"/>
+      </svg>
+      <div class="cycle-center">
+        <div class="n tight">36</div>
+        <div class="l">Monate</div>
+      </div>
+    </div>
+    <div class="trust">
+      <span class="trust-pill fade"><span class="v">✓</span> 30-Min-Gespräch → Festpreis in 48 h</span>
+      <span class="trust-pill fade"><span class="v">✓</span> Alle 36 Monate: Geräte-Update möglich*</span>
+      <span class="trust-pill fade"><span class="v">✓</span> Deutscher Vertragspartner, DSGVO</span>
+      <span class="trust-pill fade"><span class="v">✓</span> Kein Vertrag, bis Sie unterschreiben</span>
+    </div>
+    <p class="foot-note fade" style="margin-top:26px;color:#7B8696">*Update-Option: neu &amp; besser — bis max. PA-3400-Serie.</p>
+    <p class="one-line fade" style="margin:40px auto 40px">30 Minuten. Unverbindlich.</p>
+    <a class="btn btn-primary fade" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Jetzt Gespräch buchen →</a>
+    <p class="foot-note fade" style="margin-top:34px">Erst mal nur den Zustand prüfen? → <a href="https://www.b2cybersec.com/cyber-status-check" style="color:var(--cyan);font-weight:600">CYBER-STATUS-CHECK</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong>B2CyberSec GmbH</strong> · Werner-von-Siemens-Straße 6 · 86159 Augsburg · HRB 33545</p>
+    <p style="margin-top:8px"><a href="https://www.b2cybersec.com/impressum">Impressum</a> · <a href="https://www.b2cybersec.com/datenschutz">Datenschutz</a></p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('hd').classList.toggle('scrolled',window.scrollY>30)});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
