@@ -4,251 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>B2 FirewallFlat — Enterprise-Firewall als planbarer Monatsbetrag | B2CyberSec</title>
-<meta name="description" content="B2 FirewallFlat: Palo-Alto-Firewall, Migration, Betrieb und Support als ein planbarer Monatsbetrag. Nach 36 Monaten neue Hardware — automatisch.">
+<title>B2 FirewallFlat — Ihre Schutzmauer als fester Monatsbetrag | B2CyberSec</title>
+<meta name="description" content="B2 FirewallFlat: die Schutzmauer für Ihr Firmennetz — geliefert, umgezogen, bewacht und alle 3 Jahre neu. Ein fester Monatsbetrag statt großem Batzen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFFFF;--bg-soft:#F6F8FB;--bg-tinted:#EEF3FA;--surface:#FFFFFF;--line:rgba(10,22,40,.08);--line-strong:rgba(10,22,40,.14);--ink:#0A1628;--ink-soft:#4A5A6E;--ink-muted:#7B8696;--blue:#0A84FF;--blue-deep:#003D7A;--cyan:#2A9DFF;--cyan-glow:rgba(42,157,255,.45);--blue-glow:rgba(10,132,255,.35);--blue-tint:rgba(10,132,255,.06);--success:#16A864;--danger:#D8302C;--dark:#07111F;--dark-2:#0E1A2E;--radius:16px}
+:root{--bg:#FFFFFF;--bg-soft:#F6F8FB;--bg-tinted:#EEF3FA;--ink:#0A1628;--ink-soft:#4A5A6E;--ink-muted:#7B8696;--blue:#0A84FF;--cyan:#2A9DFF;--cyan-glow:rgba(42,157,255,.45);--blue-glow:rgba(10,132,255,.35);--success:#16A864;--danger:#E24B4A;--amber:#EF9F27;--dark:#07111F;--dark-2:#0E1A2E;--line:rgba(10,22,40,.08);--radius:20px}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;font-size:19px;line-height:1.6;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+body{font-family:'Inter',system-ui,sans-serif;font-size:20px;line-height:1.65;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
 .tight{font-family:'Inter Tight','Inter',sans-serif;letter-spacing:-.025em}
-.mono{font-family:'JetBrains Mono',monospace}
-section{padding:140px 0}
+section{padding:120px 0}
 .bg-soft{background:var(--bg-soft)}.bg-tinted{background:var(--bg-tinted)}
 .bg-dark{background:var(--dark);color:#EAF2FF}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:var(--blue-tint);border:1px solid rgba(10,132,255,.18);border-radius:100px;padding:8px 18px;margin-bottom:28px}
-.bg-dark .eyebrow{color:var(--cyan);background:rgba(42,157,255,.08);border-color:rgba(42,157,255,.25)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:pulse 1.8s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.section-title{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(34px,3.8vw,56px);line-height:1.08;letter-spacing:-.025em;margin-bottom:20px}
-.section-lead{font-size:21px;color:var(--ink-soft);max-width:720px}
-.bg-dark .section-lead{color:#9FB3C8}
-.btn{display:inline-flex;align-items:center;gap:10px;border-radius:100px;padding:14px 26px;font-size:17px;font-weight:500;font-family:'Inter',sans-serif;text-decoration:none;transition:.3s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
-.btn-primary{background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 24px var(--blue-glow)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 12px 32px var(--blue-glow),0 4px 12px var(--cyan-glow)}
-.btn-ghost-dark{background:rgba(255,255,255,.06);color:#EAF2FF;border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(20px)}
-.btn-ghost-dark:hover{background:rgba(255,255,255,.12)}
-.btn-huge{padding:22px 44px;font-size:20px;font-weight:600}
-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:.3s}
+.center{text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(10,132,255,.08);border:1px solid rgba(10,132,255,.18);border-radius:100px;padding:9px 20px;margin-bottom:28px}
+.bg-dark .eyebrow{color:var(--cyan);background:rgba(42,157,255,.1);border-color:rgba(42,157,255,.28)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+h2.big{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,58px);line-height:1.08;letter-spacing:-.025em;margin-bottom:22px}
+.lead{font-size:23px;color:var(--ink-soft);max-width:720px;margin:0 auto}
+.bg-dark .lead{color:#A7BBD0}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:100px;padding:20px 40px;font-size:21px;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;box-shadow:0 10px 30px var(--blue-glow),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px var(--blue-glow),0 6px 16px var(--cyan-glow)}
+.btn-ghost{background:rgba(255,255,255,.06);color:#EAF2FF;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(20px);font-size:19px;padding:18px 34px}
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:.3s}
 header.scrolled{border-bottom-color:var(--line)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+.hd-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.logo-mark{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:21px}
-.logo-badge{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:3px 8px;text-transform:uppercase}
-nav{display:flex;gap:32px}
-nav a{text-decoration:none;color:var(--ink-soft);font-size:16px;font-weight:500}
-nav a:hover{color:var(--blue)}
-.hero{position:relative;padding:200px 0 140px;text-align:center;background-image:radial-gradient(circle at 50% 30%,rgba(10,132,255,.28),transparent 55%),radial-gradient(circle at 15% 80%,rgba(42,157,255,.12),transparent 50%),radial-gradient(circle at 85% 20%,rgba(42,157,255,.10),transparent 45%)}
-.hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(42px,5.5vw,84px);line-height:1.04;letter-spacing:-.028em;margin-bottom:8px}
-.hero .accent{color:var(--cyan);text-shadow:0 0 40px var(--cyan-glow)}
-.hero-lead{font-size:22px;color:#9FB3C8;max-width:760px;margin:28px auto 40px}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.hero-meta{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:15px;color:#9FB3C8}
-.hero-meta span{display:inline-flex;align-items:center;gap:8px}
-.check{color:var(--cyan);font-weight:700}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:64px}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:64px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;transition:.3s}
-.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(10,22,40,.08);border-color:var(--line-strong)}
-.badge-num{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--blue);margin-bottom:16px;display:block}
-.card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:23px;letter-spacing:-.02em;margin-bottom:12px}
-.card p{font-size:17px;color:var(--ink-soft)}
-.icon-box{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#0A84FF,#2A9DFF);display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:#fff;font-size:26px;font-weight:800;font-family:'Inter Tight',sans-serif}
-.dark-card{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:36px 32px}
-.dark-card h3{font-family:'Inter Tight',sans-serif;font-size:23px;font-weight:700;margin-bottom:12px;color:#EAF2FF}
-.dark-card p{font-size:17px;color:#9FB3C8}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:64px}
-.compare-card{border-radius:24px;padding:44px 40px}
-.compare-card.legacy{background:var(--bg-soft);border:1px solid var(--line-strong)}
-.compare-card.flat{background:linear-gradient(180deg,rgba(10,132,255,.05),rgba(42,157,255,.02));border:2px solid var(--blue);box-shadow:0 24px 48px rgba(10,132,255,.12)}
-.compare-card h3{font-family:'Inter Tight',sans-serif;font-size:26px;font-weight:800;margin-bottom:28px}
-.compare-card ul{list-style:none}
-.compare-card li{padding:13px 0;border-bottom:1px solid var(--line);font-size:17px;display:flex;gap:12px;align-items:flex-start}
-.compare-card li:last-child{border-bottom:none}
-.x{color:var(--danger);font-weight:700;flex-shrink:0}
-.v{color:var(--success);font-weight:700;flex-shrink:0}
-.method-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:64px}
-.method-stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:36px 28px;text-align:center}
-.method-stat-num{font-family:'Inter Tight',sans-serif;font-weight:900;font-size:52px;letter-spacing:-.03em;color:var(--blue);line-height:1}
-.method-stat-label{font-size:15px;color:var(--ink-soft);margin-top:12px}
-.steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:64px}
-.step{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:36px 28px}
-.step-num{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:14px;margin-bottom:14px;display:block}
-.step h3{font-family:'Inter Tight',sans-serif;font-size:20px;font-weight:700;color:#EAF2FF;margin-bottom:10px}
-.step p{font-size:16px;color:#9FB3C8}
-.faq-item{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:14px;background:var(--surface);overflow:hidden}
-.faq-q{padding:24px 28px;font-family:'Inter Tight',sans-serif;font-weight:600;font-size:19px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faq-q::after{content:'+';font-size:26px;color:var(--blue);font-weight:400;transition:.3s}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 28px;color:var(--ink-soft);font-size:17px}
-.faq-item.open .faq-a{max-height:300px;padding:0 28px 24px}
-.trust-strip{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:56px}
-.trust-pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:12px 22px;font-size:15px;color:#C9D8EA;display:inline-flex;gap:10px;align-items:center}
-.final-cta{text-align:center;padding:160px 0;background-image:radial-gradient(circle at 50% 40%,rgba(10,132,255,.3),transparent 60%)}
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
-.fade-in.visible{opacity:1;transform:none}
-.draft-banner{position:fixed;bottom:14px;left:14px;z-index:200;background:#D87A0F;color:#fff;font-size:13px;font-weight:600;border-radius:8px;padding:8px 14px;font-family:'Inter',sans-serif}
-footer{padding:64px 0;background:var(--bg-soft);color:var(--ink-muted);font-size:15px;text-align:center}
+.logo-mark{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px}
+.logo-badge{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:4px 9px;text-transform:uppercase}
+.hd-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 22px;border-radius:100px;box-shadow:0 6px 18px var(--blue-glow)}
+.hero{position:relative;padding:190px 0 130px;text-align:center;background-image:radial-gradient(circle at 50% 22%,rgba(10,132,255,.3),transparent 55%),radial-gradient(circle at 12% 85%,rgba(42,157,255,.14),transparent 50%),radial-gradient(circle at 88% 15%,rgba(42,157,255,.12),transparent 48%)}
+.hero h1{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(40px,5.8vw,80px);line-height:1.04;letter-spacing:-.028em;margin-bottom:24px}
+.hero .accent{color:var(--cyan);text-shadow:0 0 44px var(--cyan-glow)}
+.hero-lead{font-size:24px;color:#A7BBD0;max-width:740px;margin:0 auto 44px}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.stage{perspective:1000px;margin:64px auto 0;width:300px;height:300px}
+.shield3d{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:spin3d 14s ease-in-out infinite}
+@keyframes spin3d{0%,100%{transform:rotateY(-18deg) rotateX(6deg)}50%{transform:rotateY(18deg) rotateX(-4deg)}}
+.shield-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.shield-svg{filter:drop-shadow(0 30px 60px rgba(10,132,255,.5))}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:70px}
+.pic-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:40px 30px;text-align:center;transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s}
+.pic-card:hover{transform:translateY(-8px) rotateX(4deg);box-shadow:0 30px 50px rgba(10,22,40,.1)}
+.pic-ill{width:100%;height:150px;margin-bottom:24px;display:flex;align-items:center;justify-content:center}
+.pic-card h3{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:24px;margin-bottom:12px}
+.pic-card p{font-size:18px;color:var(--ink-soft)}
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:70px;perspective:1400px}
+.block{position:relative;border-radius:22px;padding:40px 32px 44px;color:#fff;transform-style:preserve-3d;transition:transform .4s cubic-bezier(.4,0,.2,1);box-shadow:0 24px 44px rgba(0,0,0,.28)}
+.block:hover{transform:translateY(-10px) rotateX(6deg) rotateY(-4deg)}
+.block.b1{background:linear-gradient(150deg,#0A84FF,#0058B0)}
+.block.b2{background:linear-gradient(150deg,#2A9DFF,#0A84FF)}
+.block.b3{background:linear-gradient(150deg,#16A864,#0E7A48)}
+.block-num{font-family:'Inter Tight',sans-serif;font-weight:900;font-size:64px;line-height:1;opacity:.35;margin-bottom:6px}
+.block h3{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:26px;margin-bottom:14px}
+.block p{font-size:18px;opacity:.95;line-height:1.55}
+.block-ico{position:absolute;top:28px;right:30px;width:52px;height:52px;opacity:.9}
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:70px;align-items:stretch}
+.money-card{border-radius:26px;padding:48px 40px;text-align:center}
+.money-card.buy{background:var(--bg-soft);border:2px solid rgba(226,75,74,.3)}
+.money-card.flat{background:linear-gradient(180deg,rgba(10,132,255,.06),rgba(42,157,255,.03));border:2px solid var(--blue);box-shadow:0 24px 50px rgba(10,132,255,.14)}
+.money-card h3{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:28px;margin:24px 0 8px}
+.money-card .tag{font-size:19px;color:var(--ink-soft)}
+.money-card.flat .tag{color:var(--blue);font-weight:600}
+.coins{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.coin{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#EF9F27,#BA7517);box-shadow:0 4px 10px rgba(186,117,23,.4);animation:pop .5s backwards}
+.coin:nth-child(2){animation-delay:.1s}.coin:nth-child(3){animation-delay:.2s}.coin:nth-child(4){animation-delay:.3s}.coin:nth-child(5){animation-delay:.4s}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.cycle-stage{perspective:900px;margin:64px auto 0;width:340px;height:340px;position:relative}
+.cycle-ring{width:100%;height:100%;animation:rotate 20s linear infinite}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.cycle-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.cycle-center .n{font-family:'Inter Tight',sans-serif;font-weight:900;font-size:72px;color:var(--cyan);line-height:1}
+.cycle-center .l{font-size:18px;color:#A7BBD0;margin-top:6px}
+.trust{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:56px}
+.trust-pill{background:#fff;border:1px solid var(--line);border-radius:100px;padding:14px 24px;font-size:17px;color:var(--ink);display:inline-flex;gap:10px;align-items:center;box-shadow:0 4px 14px rgba(10,22,40,.05)}
+.trust-pill .v{color:var(--success);font-weight:800}
+.final{text-align:center;padding:150px 0;background-image:radial-gradient(circle at 50% 40%,rgba(10,132,255,.3),transparent 60%)}
+.fade{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.fade.vis{opacity:1;transform:none}
+footer{padding:60px 0;background:var(--bg-soft);color:var(--ink-muted);font-size:16px;text-align:center}
 footer a{color:var(--ink-soft)}
-@media (max-width:1000px){
-nav{display:none}
-section{padding:80px 0}
-.hero{padding:150px 0 80px}
-.grid3,.grid4,.grid2,.compare-grid,.steps{grid-template-columns:1fr}
-.method-stats{grid-template-columns:repeat(2,1fr)}
+@media (max-width:940px){
+section{padding:72px 0}.hero{padding:140px 0 70px}
+.three,.blocks,.money-grid{grid-template-columns:1fr}
+.stage,.cycle-stage{width:240px;height:240px}
 }
 </style>
 </head>
 <body>
-
 <header id="hd">
-  <div class="wrap header-inner">
+  <div class="wrap hd-inner">
     <a class="logo" href="https://www.b2cybersec.com/"><span class="logo-mark">B2CyberSec</span><span class="logo-badge">B2 FirewallFlat</span></a>
-    <nav>
-      <a href="#problem">Problem</a><a href="#modell">Das Modell</a><a href="#vergleich">Vergleich</a><a href="#ablauf">Ablauf</a><a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn btn-primary" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Kurzgespräch buchen →</a>
+    <a class="hd-cta" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen →</a>
   </div>
 </header>
 
 <section class="hero bg-dark" id="top">
   <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span>Für Geschäftsführer &amp; IT-Leiter, deren Firewall in die Jahre kommt</span>
-    <h1 class="tight">Nie wieder eine veraltete Firewall.<br><span class="accent">Nie wieder 30.000 € auf einen Schlag.</span></h1>
-    <p class="hero-lead">B2 FirewallFlat: Enterprise-Firewall (Palo Alto), Migration, Betrieb und Support — als <strong>ein planbarer Monatsbetrag</strong>. Nach 36 Monaten: neue Hardware, automatisch. Ohne Investition, ohne Personalsuche, ohne Überraschungen.</p>
+    <span class="eyebrow"><span class="dot"></span>Für Chefs, die Ruhe wollen — nicht noch ein IT-Projekt</span>
+    <h1 class="tight">Ihre Firewall ist die Mauer<br>um Ihr Firmen-Haus.<br><span class="accent">Wir bauen und bewachen sie.</span></h1>
+    <p class="hero-lead">Ist die Mauer alt, kommen die Einbrecher rein. B2 FirewallFlat gibt Ihnen eine neue Mauer, zieht Sie sicher um, passt Tag und Nacht auf — und stellt alle 3 Jahre eine funkelnagelneue hin. Alles für <strong>einen festen Betrag im Monat</strong>.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary btn-huge" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Kurzgespräch buchen (30 Min) →</a>
-      <a class="btn btn-ghost-dark btn-huge" href="#modell">So funktioniert's</a>
+      <a class="btn btn-primary" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen (30 Min) →</a>
+      <a class="btn btn-ghost" href="#einfach">So einfach ist es</a>
     </div>
-    <div class="hero-meta">
-      <span><span class="check">✓</span> Festpreis nach einem Gespräch</span>
-      <span><span class="check">✓</span> Migration vom Senior-Team</span>
-      <span><span class="check">✓</span> Monat 36: neue Firewall inklusive</span>
+    <div class="stage">
+      <div class="shield3d">
+        <div class="shield-face">
+          <svg class="shield-svg" width="230" height="270" viewBox="0 0 230 270" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#5BBFFF"/><stop offset="0.5" stop-color="#0A84FF"/><stop offset="1" stop-color="#003D7A"/>
+              </linearGradient>
+              <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,255,255,.35)"/><stop offset="1" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+            </defs>
+            <path d="M115 6 L212 44 V132 C212 196 170 240 115 264 C60 240 18 196 18 132 V44 Z" fill="url(#sg)" stroke="#2A9DFF" stroke-width="2"/>
+            <path d="M115 6 L212 44 V132 C212 150 209 166 204 181 C160 150 90 150 40 181 C21 166 18 150 18 132 V44 Z" fill="url(#sg2)"/>
+            <path d="M78 132 l24 26 l52 -60" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="problem">
-  <div class="wrap">
-    <span class="eyebrow">Das eigentliche Problem</span>
-    <h2 class="section-title fade-in">Drei Gründe, warum alte Firewalls<br>zu spät getauscht werden.</h2>
-    <div class="grid3">
-      <div class="card fade-in"><span class="badge-num">01</span><h3>Sie altert schneller als Ihr Budget-Zyklus.</h3><p>Support-Ende, keine Updates, steigendes Risiko — aber die Neuanschaffung (15.000–40.000 € plus Projekt) schiebt jeder gern ins nächste Jahr.</p></div>
-      <div class="card fade-in"><span class="badge-num">02</span><h3>Der Wechsel ist das eigentliche Risiko.</h3><p>Wer migriert die Regeln? Wer kennt CheckPoint UND Palo Alto? Ein Fehler in der Migration bedeutet Stillstand — oder eine offene Tür.</p></div>
-      <div class="card fade-in"><span class="badge-num">03</span><h3>Und wer betreibt sie danach?</h3><p>Firewall-Spezialisten sind rar, teuer und wollen keine 8-Stunden-Woche. Also bleibt alles am einen IT-Leiter hängen.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-tinted">
-  <div class="wrap">
-    <span class="eyebrow">FirewallFlat in Zahlen</span>
-    <h2 class="section-title fade-in">Vier Werte, ein Versprechen.</h2>
-    <div class="method-stats">
-      <div class="method-stat fade-in"><div class="method-stat-num">1</div><div class="method-stat-label">planbarer Monatsbetrag — statt CAPEX-Schlacht</div></div>
-      <div class="method-stat fade-in"><div class="method-stat-num">36</div><div class="method-stat-label">Monate Laufzeit — glasklar geregelt</div></div>
-      <div class="method-stat fade-in"><div class="method-stat-num">0 €</div><div class="method-stat-label">Investition am Tag 1</div></div>
-      <div class="method-stat fade-in"><div class="method-stat-num">Neu</div><div class="method-stat-label">Hardware-Refresh in Monat 36 — automatisch</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-dark" id="modell">
-  <div class="wrap">
-    <span class="eyebrow">Das Modell · wie Auto-Leasing, nur für Sicherheit</span>
-    <h2 class="section-title fade-in">Drei Bausteine.<br>Ein Kreislauf, der Sie nie wieder altern lässt.</h2>
-    <div class="grid3">
-      <div class="dark-card fade-in"><span class="badge-num" style="color:var(--cyan)">BAUSTEIN 1</span><h3>Enterprise-Hardware ohne Invest</h3><p>Palo-Alto-Firewall (auf Wunsch hochverfügbar), finanziert und logistisch abgesichert über unseren Distributionspartner. Hardware-Defekt? Der Austausch läuft, ohne dass Sie einen Finger rühren.</p></div>
-      <div class="dark-card fade-in"><span class="badge-num" style="color:var(--cyan)">BAUSTEIN 2</span><h3>Migration vom Senior-Team</h3><p>Wir haben CheckPoint→Palo-Alto-Migrationen an Konzern-Standorten durchgeführt — Automotive, sechsstellige Nutzerzahlen. Ihre Regeln: sauber übersetzt, dokumentiert, getestet.</p></div>
-      <div class="dark-card fade-in"><span class="badge-num" style="color:var(--cyan)">BAUSTEIN 3</span><h3>Betrieb + Refresh eingebaut</h3><p>Laufende Regel-Reviews, Updates, ein fester Ansprechpartner — und in Monat 36 steht die nächste neue Firewall vor der Tür. Automatisch.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="vergleich">
-  <div class="wrap">
-    <span class="eyebrow">Die ehrliche Rechnung</span>
-    <h2 class="section-title fade-in">Selbst kaufen — oder FirewallFlat?</h2>
-    <div class="compare-grid">
-      <div class="compare-card legacy fade-in">
-        <h3 class="tight">Selbst kaufen &amp; betreiben</h3>
-        <ul>
-          <li><span class="x">✕</span> 15.000–40.000 € Investition sofort — plus Projektkosten</li>
-          <li><span class="x">✕</span> Migration als eigenes Projekt, eigenes Risiko</li>
-          <li><span class="x">✕</span> Eigener Spezialist für den Betrieb nötig</li>
-          <li><span class="x">✕</span> Nach 3–5 Jahren: Hardware veraltet, alles von vorn</li>
-          <li><span class="x">✕</span> CAPEX-Budgetschlacht in jedem Zyklus</li>
-        </ul>
+  <div class="wrap center">
+    <span class="eyebrow">Das Problem — in 3 Bildern</span>
+    <h2 class="big fade">Warum eine alte Firewall gefährlich ist.</h2>
+    <div class="three">
+      <div class="pic-card fade">
+        <div class="pic-ill">
+          <svg width="150" height="120" viewBox="0 0 150 120" aria-hidden="true">
+            <rect x="20" y="55" width="30" height="26" rx="2" fill="#B4B2A9"/><rect x="52" y="52" width="30" height="29" rx="2" fill="#B4B2A9"/><rect x="84" y="58" width="30" height="23" rx="2" fill="#B4B2A9"/>
+            <path d="M35 55 l6 -12 l6 12 M100 58 l5 -10" stroke="#E24B4A" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <rect x="60" y="60" width="10" height="21" fill="#F6F8FB"/><rect x="90" y="66" width="8" height="15" fill="#F6F8FB"/>
+            <circle cx="120" cy="40" r="9" fill="#E24B4A"/><text x="120" y="45" font-size="13" fill="#fff" text-anchor="middle" font-family="Inter">!</text>
+          </svg>
+        </div>
+        <h3>Die Mauer bröckelt.</h3>
+        <p>Alte Firewall = Risse und Löcher. Keine Updates mehr. Aber eine neue kostet auf einen Schlag 15.000–40.000 €.</p>
       </div>
-      <div class="compare-card flat fade-in">
-        <h3 class="tight" style="color:var(--blue)">B2 FirewallFlat</h3>
-        <ul>
-          <li><span class="v">✓</span> 0 € Investition — ein planbarer Monatsbetrag</li>
-          <li><span class="v">✓</span> Migration im Preis, durchgeführt vom Senior-Team</li>
-          <li><span class="v">✓</span> Betrieb, Reviews und Updates im Preis</li>
-          <li><span class="v">✓</span> Monat 36: neue Firewall, neue Runde — automatisch</li>
-          <li><span class="v">✓</span> Planbarer OPEX statt Investitionsstau</li>
-        </ul>
+      <div class="pic-card fade">
+        <div class="pic-ill">
+          <svg width="150" height="120" viewBox="0 0 150 120" aria-hidden="true">
+            <defs><marker id="ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0A84FF" stroke-width="2"/></marker></defs>
+            <rect x="18" y="45" width="44" height="44" rx="4" fill="#D3D1C7"/><rect x="88" y="45" width="44" height="44" rx="4" fill="#B5D4F4"/>
+            <path d="M64 67 h22" stroke="#0A84FF" stroke-width="4" marker-end="url(#ar)" fill="none"/>
+            <path d="M72 52 l6 6 l-6 6" fill="none" stroke="#E24B4A" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="75" cy="98" r="8" fill="#EF9F27"/><text x="75" y="103" font-size="12" fill="#fff" text-anchor="middle" font-family="Inter">?</text>
+          </svg>
+        </div>
+        <h3>Der Umzug ist heikel.</h3>
+        <p>Wer bringt Ihre ganzen Regeln sicher auf die neue Mauer? Ein Fehler — und die Tür steht offen.</p>
+      </div>
+      <div class="pic-card fade">
+        <div class="pic-ill">
+          <svg width="150" height="120" viewBox="0 0 150 120" aria-hidden="true">
+            <circle cx="75" cy="50" r="22" fill="#D3D1C7"/><path d="M45 100 c0 -18 15 -28 30 -28 s30 10 30 28" fill="#D3D1C7"/>
+            <path d="M62 46 l8 8 M78 46 l-8 8" stroke="#5F5E5A" stroke-width="3" stroke-linecap="round"/>
+            <text x="116" y="34" font-size="24" font-family="Inter" fill="#7B8696">Zzz</text>
+          </svg>
+        </div>
+        <h3>Keiner passt auf.</h3>
+        <p>Firewall-Profis sind selten und teuer. Also bleibt am Ende alles am IT-Leiter hängen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-soft">
-  <div class="wrap">
-    <span class="eyebrow">Sicherheit &amp; Fairness</span>
-    <h2 class="section-title fade-in">Klare Regeln. Keine Fußnoten.</h2>
-    <div class="grid4">
-      <div class="card fade-in"><div class="icon-box">€</div><h3>Festpreis nach 30 Minuten</h3><p>Ihr Monatsbetrag hängt nur von Standorten und Nutzerzahl ab. Angebot in 48 Stunden, keine versteckten Kosten.</p></div>
-      <div class="card fade-in"><div class="icon-box">36</div><h3>Laufzeit glasklar</h3><p>36 Monate, sauber geregelt. Steigen Sie früher aus, zahlen Sie nur den Rest — nie mehr.</p></div>
-      <div class="card fade-in"><div class="icon-box">EU</div><h3>DSGVO &amp; deutscher Vertrag</h3><p>EU-Datenhaltung, deutscher Vertragspartner: B2CyberSec GmbH, Augsburg (HRB 33545).</p></div>
-      <div class="card fade-in"><div class="icon-box">✓</div><h3>Partner, keine Schnellschüsse</h3><p>Bonitätsprüfung und saubere B2B-Verträge — wir bauen 3-Jahres-Partnerschaften.</p></div>
+<section class="bg-dark" id="einfach">
+  <div class="wrap center">
+    <span class="eyebrow">So einfach funktioniert es</span>
+    <h2 class="big fade">Drei Bausteine. Sie tun nichts.</h2>
+    <p class="lead fade">Wir kümmern uns um alles — wie beim Auto-Leasing, nur für Ihre Sicherheit.</p>
+    <div class="blocks">
+      <div class="block b1 fade">
+        <div class="block-num tight">1</div>
+        <h3>Wir liefern die Mauer</h3>
+        <p>Eine top Firewall (Palo Alto) — ohne dass Sie einen Cent auf einmal zahlen. Geht was kaputt, tauschen wir sie aus. Sie merken nichts.</p>
+        <svg class="block-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L34 9 v12 c0 10 -6 15 -14 19 C12 36 6 31 6 21 V9 Z" fill="rgba(255,255,255,.9)"/></svg>
+      </div>
+      <div class="block b2 fade">
+        <div class="block-num tight">2</div>
+        <h3>Wir ziehen Sie um</h3>
+        <p>Unser Team hat das bei großen Konzernen gemacht. Ihre Regeln kommen sauber auf die neue Mauer — geprüft, dokumentiert, ohne offene Tür.</p>
+        <svg class="block-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 20 h20 M20 12 l8 8 l-8 8" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="block b3 fade">
+        <div class="block-num tight">3</div>
+        <h3>Wir bewachen &amp; erneuern</h3>
+        <p>Wir passen laufend auf, halten alles aktuell — und nach 3 Jahren steht die nächste neue Mauer da. Automatisch.</p>
+        <svg class="block-ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 20 a12 12 0 1 1 4 9" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="4" stroke-linecap="round"/><path d="M6 22 l6 6 l6 -6" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="bg-dark" id="ablauf">
-  <div class="wrap">
-    <span class="eyebrow">Der Ablauf · vier Schritte</span>
-    <h2 class="section-title fade-in">Vom Gespräch zur neuen Firewall.</h2>
-    <div class="steps">
-      <div class="step fade-in"><span class="step-num">SCHRITT 1</span><h3>30-Minuten-Gespräch</h3><p>Standorte, Nutzer, heutige Firewall — daraus entsteht Ihr Festpreis-Angebot in 48 Stunden.</p></div>
-      <div class="step fade-in"><span class="step-num">SCHRITT 2</span><h3>Kick-off &amp; Migrationsplan</h3><p>Regelwerk-Analyse, Übersetzungsplan, Cut-over-Termin — meist am Wochenende.</p></div>
-      <div class="step fade-in"><span class="step-num">SCHRITT 3</span><h3>Go-Live</h3><p>Die neue Firewall läuft, die alte wird sauber abgeschaltet. Alles dokumentiert.</p></div>
-      <div class="step fade-in"><span class="step-num">SCHRITT 4</span><h3>Betrieb &amp; Refresh</h3><p>Wir halten sie aktuell. Monat 36: neue Hardware, neue Runde — Sie müssen nichts tun.</p></div>
+<section id="geld">
+  <div class="wrap center">
+    <span class="eyebrow">Der Unterschied beim Geld</span>
+    <h2 class="big fade">Ein großer Batzen — oder ein kleiner Betrag im Monat?</h2>
+    <div class="money-grid">
+      <div class="money-card buy fade">
+        <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true" style="margin:0 auto"><path d="M30 34 q15 -14 30 0 l6 40 q-21 10 -42 0 Z" fill="#888780"/><path d="M38 30 l4 -8 h6 l4 8" fill="none" stroke="#5F5E5A" stroke-width="3"/><text x="45" y="64" font-size="24" fill="#fff" text-anchor="middle" font-family="Inter" font-weight="700">€</text></svg>
+        <h3>Selbst kaufen</h3>
+        <p class="tag">15.000–40.000 € auf einen Schlag<br>+ eigenes Projekt + eigener Profi<br>+ nach 3 Jahren wieder von vorn</p>
+      </div>
+      <div class="money-card flat fade">
+        <div class="coins"><span class="coin"></span><span class="coin"></span><span class="coin"></span><span class="coin"></span><span class="coin"></span></div>
+        <h3>B2 FirewallFlat</h3>
+        <p class="tag">Ein fester kleiner Betrag im Monat<br>Mauer + Umzug + Wache + Erneuerung — alles drin<br>Investition am Tag 1: <strong>0 €</strong></p>
+      </div>
     </div>
-    <div class="trust-strip">
-      <span class="trust-pill">✓ Multi-Vendor: CheckPoint · Fortinet · Sophos → Palo Alto</span>
-      <span class="trust-pill">✓ Konzern-Referenz: Automotive-Rollout</span>
-      <span class="trust-pill">✓ Support &amp; RMA über Distributor abgesichert</span>
-    </div>
+    <p class="lead fade" style="margin-top:44px;color:var(--ink-soft)">Den genauen Monatsbetrag sagen wir Ihnen nach einem 30-Minuten-Gespräch — er hängt nur von Ihrer Größe ab.</p>
   </div>
 </section>
 
-<section id="faq">
-  <div class="wrap" style="max-width:900px">
-    <span class="eyebrow">FAQ</span>
-    <h2 class="section-title fade-in">Die Fragen, die jeder stellt.</h2>
-    <div style="margin-top:56px">
-      <div class="faq-item fade-in"><div class="faq-q">Was kostet B2 FirewallFlat?</div><div class="faq-a">Einen festen Monatsbetrag, abhängig von Größe und Standorten — konkret nach dem 30-Minuten-Gespräch, Angebot in 48 Stunden. Zum Vergleich: Kauf + Migration + Betrieb kostet typisch 15.000–40.000 € sofort, plus laufende Kosten.</div></div>
-      <div class="faq-item fade-in"><div class="faq-q">Wir haben CheckPoint / Fortinet / Sophos — geht der Wechsel?</div><div class="faq-a">Ja. Multi-Vendor-Migration ist unser Kerngeschäft — inklusive Konzern-Rollouts von CheckPoint auf Palo Alto mit sechsstelligen Nutzerzahlen.</div></div>
-      <div class="faq-item fade-in"><div class="faq-q">Was passiert bei einem Hardware-Defekt?</div><div class="faq-a">Der Austausch läuft über die Absicherung unseres Distributionspartners — Sie merken davon fast nichts, wir koordinieren alles.</div></div>
-      <div class="faq-item fade-in"><div class="faq-q">Warum Palo Alto?</div><div class="faq-a">Marktführer im Enterprise-Segment. Unser Team ist darauf zertifiziert und migriert täglich damit — vom Mittelstand bis zum Konzern-Standort.</div></div>
-      <div class="faq-item fade-in"><div class="faq-q">Wir sind unsicher, ob die Firewall überhaupt das Problem ist.</div><div class="faq-a">Dann starten Sie mit dem CYBER-STATUS-CHECK (7.900 € Festpreis): In 14 Tagen wissen Sie schwarz auf weiß, wo Sie stehen — inklusive Firewall-Config-Check. <a href="https://www.b2cybersec.com/cyber-status-check">Mehr zum CYBER-STATUS-CHECK →</a></div></div>
+<section class="bg-dark center" id="kreislauf">
+  <div class="wrap">
+    <span class="eyebrow">Der Kreislauf</span>
+    <h2 class="big fade">Alle 3 Jahre: neue Mauer. Für immer aktuell.</h2>
+    <div class="cycle-stage">
+      <svg class="cycle-ring" width="340" height="340" viewBox="0 0 340 340" aria-hidden="true">
+        <circle cx="170" cy="170" r="140" fill="none" stroke="rgba(42,157,255,.25)" stroke-width="2" stroke-dasharray="10 12"/>
+        <circle cx="170" cy="30" r="12" fill="#2A9DFF"/>
+        <circle cx="170" cy="310" r="10" fill="#0A84FF"/>
+        <circle cx="30" cy="170" r="10" fill="#0A84FF"/>
+        <circle cx="310" cy="170" r="10" fill="#0A84FF"/>
+      </svg>
+      <div class="cycle-center">
+        <div class="n tight">36</div>
+        <div class="l">Monate — dann kommt<br>die nächste neue Firewall</div>
+      </div>
     </div>
+    <p class="lead fade" style="margin-top:44px">Nie wieder veraltet. Nie wieder ein großes Firewall-Projekt. Nie wieder böse Überraschung.</p>
   </div>
 </section>
 
-<section class="final-cta bg-dark">
+<section class="bg-soft" id="fair">
+  <div class="wrap center">
+    <span class="eyebrow">Fair &amp; sicher</span>
+    <h2 class="big fade">Klare Regeln. Keine Fußnoten.</h2>
+    <div class="trust">
+      <span class="trust-pill fade"><span class="v">✓</span> Festpreis nach 30 Minuten — in 48 h</span>
+      <span class="trust-pill fade"><span class="v">✓</span> 36 Monate, glasklar geregelt</span>
+      <span class="trust-pill fade"><span class="v">✓</span> Deutscher Vertragspartner, DSGVO</span>
+      <span class="trust-pill fade"><span class="v">✓</span> Wechsel von CheckPoint, Fortinet, Sophos</span>
+    </div>
+    <p class="lead fade" style="margin-top:40px;color:var(--ink-soft)">Noch unsicher, ob die Firewall überhaupt Ihr Problem ist?<br>Starten Sie mit dem <a href="https://www.b2cybersec.com/cyber-status-check" style="color:var(--blue);font-weight:600">CYBER-STATUS-CHECK</a> — in 14 Tagen wissen Sie es schwarz auf weiß.</p>
+  </div>
+</section>
+
+<section class="final bg-dark">
   <div class="wrap">
-    <h2 class="section-title fade-in">Ihre Firewall wird nicht jünger.<br><span class="accent">Ihr Budget muss trotzdem nicht bluten.</span></h2>
-    <p class="hero-lead" style="margin-bottom:40px">30 Minuten Gespräch. Festpreis in 48 Stunden. Neue Firewall ohne Investition.</p>
-    <a class="btn btn-primary btn-huge fade-in" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Kurzgespräch buchen →</a>
+    <h2 class="big fade">Ihre Mauer wird nicht jünger.<br><span class="accent">Ihr Budget muss trotzdem nicht bluten.</span></h2>
+    <p class="lead fade" style="margin-bottom:44px">30 Minuten Gespräch. Festpreis in 48 Stunden. Neue Firewall ohne Investition.</p>
+    <a class="btn btn-primary fade" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Jetzt Gespräch buchen →</a>
   </div>
 </section>
 
@@ -261,9 +280,8 @@ section{padding:80px 0}
 
 <script>
 window.addEventListener('scroll',function(){document.getElementById('hd').classList.toggle('scrolled',window.scrollY>30)});
-document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open')})});
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.15});
-document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el)});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.14});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 </script>
 </body>
 </html>
