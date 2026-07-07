@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230A84FF'/%3E%3Cg transform='translate(3.6 3.6) scale(0.7)'%3E%3Cpath d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E">
 <title>B2 FirewallFlat — Digitaler Schutz als Abo | B2CyberSec</title>
 <meta name="description" content="Zwei Firewalls im HA-Verbund, Umzug von jedem Hersteller, Live-Übersicht — ein fester Monatsbetrag. Geräte inklusive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,9 +31,10 @@ h2.big{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:clamp(36px
 header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(24px);border-bottom:1px solid transparent;transition:.3s}
 header.scrolled{border-bottom-color:var(--line)}
 .hd-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.logo-mark{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px}
-.logo-badge{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:4px 9px;text-transform:uppercase}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;color:var(--ink)}
+.logo-shield{width:34px;height:34px;background:linear-gradient(135deg,var(--blue) 0%,#0066D6 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px var(--blue-glow)}
+.logo-shield svg{width:18px;height:18px;color:#fff}
+.logo-badge{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:6px;padding:4px 9px;text-transform:uppercase;font-family:'Inter',sans-serif}
 .hd-cta{background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:12px 22px;border-radius:100px;box-shadow:0 6px 18px var(--blue-glow)}
 /* hero */
 .hero{position:relative;padding:190px 0 120px;text-align:center;background-image:radial-gradient(circle at 50% 25%,rgba(10,132,255,.3),transparent 55%),radial-gradient(circle at 12% 85%,rgba(42,157,255,.14),transparent 50%)}
@@ -122,7 +124,11 @@ section{padding:80px 0}.hero{padding:150px 0 70px}
 <body>
 <header id="hd">
   <div class="wrap hd-inner">
-    <a class="logo" href="https://www.b2cybersec.com/"><span class="logo-mark">B2CyberSec</span><span class="logo-badge">B2 FirewallFlat</span></a>
+    <a class="logo" href="https://www.b2cybersec.com/">
+      <span class="logo-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z"/></svg></span>
+      <span>B2CyberSec</span>
+      <span class="logo-badge">B2 FirewallFlat</span>
+    </a>
     <a class="hd-cta" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen →</a>
   </div>
 </header>
