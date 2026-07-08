@@ -115,6 +115,10 @@ header.scrolled{border-bottom-color:var(--line)}
 .fade.vis{opacity:1;transform:none}
 footer{padding:56px 0;background:var(--bg-soft);color:var(--ink-muted);font-size:15px;text-align:center}
 footer a{color:var(--ink-soft)}
+#b2lang{display:inline-flex;gap:0;border:1px solid rgba(10,22,40,.18);border-radius:8px;overflow:hidden;margin-right:14px;vertical-align:middle}
+#b2lang button{font:600 12px Inter,sans-serif;border:0;background:transparent;color:var(--ink-muted);padding:6px 10px;cursor:pointer;line-height:1}
+#b2lang button.on{background:#0a84ff;color:#fff}
+#b2lang.floating{position:fixed;top:14px;right:14px;z-index:9999;background:#fff;border-color:rgba(10,22,40,.25)}
 @media (max-width:940px){
 section{padding:80px 0}.hero{padding:150px 0 70px}
 .cycle-stage{width:240px;height:240px}
@@ -401,5 +405,62 @@ window.addEventListener('scroll',function(){document.getElementById('hd').classL
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.14});
 document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 </script>
+<script id="b2lang-js">(function(){var D={
+"Gespräch buchen →":"Book a call →",
+"Jetzt Gespräch buchen →":"Book a call now →",
+"Ihre Firma.":"Your business.",
+"Digital geschützt.":"Digitally protected.",
+"Firewall-Schutz als Abo. Geräte geschenkt.":"Firewall protection as a subscription. Hardware on us.",
+"Ansehen":"See how",
+"Doppelt abgesichert (HA)":"Doubly secured (HA)",
+"Umzug von jedem Hersteller":"Migration from any vendor",
+"0 € Anschaffung":"€0 upfront",
+"Volle Kontrolle":"Full control",
+"Doppelt hält besser.":"Two beats one.",
+"Zwei Firewalls. Fällt eine aus, übernimmt die andere. Sofort.":"Two firewalls. If one fails, the other takes over. Instantly.",
+"fällt aus":"fails",
+"übernimmt sofort":"takes over instantly",
+"Die Geräte? Geschenkt.":"The hardware? On us.",
+"0 € Anschaffung — volle Kontrolle bleibt bei Ihnen.":"€0 upfront — you keep full control.",
+"Nicht irgendeine Firewall.":"Not just any firewall.",
+"Palo Alto Networks — Leader im Gartner® Magic Quadrant™ für Firewalls.***":"Palo Alto Networks — a Leader in the Gartner® Magic Quadrant™ for firewalls.***",
+"Umsetzung →":"Execution →",
+"***Leader, Gartner® Magic Quadrant™ for Hybrid Mesh Firewalls (Juli 2025). Vereinfachte Darstellung —":"***Leader, Gartner® Magic Quadrant™ for Hybrid Mesh Firewalls (July 2025). Simplified illustration —",
+"Original-Report lesen":"Read the original report",
+"Volle Übersicht. Volle Kontrolle.":"Full visibility. Full control.",
+"Ihre Logs, Ihr Live-Status — Zugriff jederzeit. Die Arbeit machen wir.":"Your logs, your live status — access anytime. We do the work.",
+"Egal, was Sie heute haben.":"Whatever you run today.",
+"… egal welcher.":"… any of them.",
+"Sauber umgezogen.":"Migrated cleanly.",
+"Alles drin.":"All included.",
+"Aufbau & Umzug":"Setup & migration",
+"Alle Updates":"All updates",
+"Alarm-Wache":"Alert monitoring",
+"Live-Übersicht & Logs":"Live dashboard & logs",
+"Austausch bei Defekt":"Replacement if defective",
+"Prüf-Ordner (NIS-2*)":"Audit binder (NIS-2*)",
+"Fester Ansprechpartner":"Dedicated contact",
+"36 Monate: Update-Option**":"Every 36 months: upgrade option**",
+"= 1 fester Monatsbetrag. 0 € am Tag 1.":"= 1 fixed monthly fee. €0 on day one.",
+"*NIS-2 — das neue EU-Sicherheitsgesetz. · **Neu & besser — bis max. PA-3400-Serie.":"*NIS-2 — the new EU security law. · **Newer & better — up to the PA-3400 series.",
+"Und Sie?":"And you?",
+"… schlafen ruhig":"… sleep well",
+"… planen ohne Überraschungen":"… plan without surprises",
+"… bestehen Prüfungen gelassen":"… pass audits calmly",
+"… merken Ausfälle nicht":"… never notice outages",
+"… haben den Kopf frei":"… keep a clear head",
+"Alle 3 Jahre: neu & besser.*":"Every 3 years: newer & better.*",
+"Monate":"months",
+"30-Min-Gespräch → Festpreis in 48 h":"30-min call → fixed price in 48 h",
+"Alle 36 Monate: Geräte-Update möglich*":"Hardware upgrade option every 36 months*",
+"Deutscher Vertragspartner, DSGVO":"German contract partner, GDPR",
+"Kein Vertrag, bis Sie unterschreiben":"No contract until you sign",
+"*Update-Option: neu & besser — bis max. PA-3400-Serie.":"*Upgrade option: newer & better — up to the PA-3400 series.",
+"30 Minuten. Unverbindlich.":"30 minutes. No obligation.",
+"Erst mal nur den Zustand prüfen? →":"Want to check your status first? →",
+"· Werner-von-Siemens-Straße 6 · 86159 Augsburg · HRB 33545":"· Werner-von-Siemens-Str. 6 · 86159 Augsburg, Germany · HRB 33545",
+"Impressum":"Legal notice",
+"Datenschutz":"Privacy"
+};var cur='de';function nodes(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false),a=[],n;while(n=w.nextNode())a.push(n);return a;}function apply(l){if(l===cur)return;nodes().forEach(function(n){var t=n.nodeValue,k=t.trim();if(!k)return;if(l==='en'){if(D[k]!==undefined){if(n.__de==null)n.__de=t;n.nodeValue=t.replace(k,D[k]);}}else{if(n.__de!=null)n.nodeValue=n.__de;}});cur=l;document.documentElement.lang=l;var de=document.getElementById('b2de'),en=document.getElementById('b2en');if(de&&en){de.className=l==='de'?'on':'';en.className=l==='en'?'on':'';}try{localStorage.setItem('csc_lang',l);}catch(e){}}function mount(){var box=document.createElement('div');box.id='b2lang';box.innerHTML='<button id="b2de" class="on">DE</button><button id="b2en">EN</button>';box.querySelector('#b2de').onclick=function(){apply('de');};box.querySelector('#b2en').onclick=function(){apply('en');};var cta=document.querySelector('header a[href*="calendly"]');if(cta&&cta.parentElement){cta.parentElement.insertBefore(box,cta);}else{box.classList.add('floating');document.body.appendChild(box);}var s='de';try{s=localStorage.getItem('csc_lang')||'de';}catch(e){}if(s==='en')apply('en');}if(document.readyState!=='loading')mount();else document.addEventListener('DOMContentLoaded',mount);})();</script>
 </body>
 </html>
