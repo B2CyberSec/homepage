@@ -7,6 +7,14 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230A84FF'/%3E%3Cg transform='translate(3.6 3.6) scale(0.7)'%3E%3Cpath d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E">
 <title>B2 FirewallFlat — Digitaler Schutz als Abo | B2CyberSec</title>
 <meta name="description" content="Zwei Firewalls im HA-Verbund, Umzug von jedem Hersteller, Live-Übersicht — ein fester Monatsbetrag. Geräte inklusive.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.b2cybersec.com/firewallflat">
+<meta property="og:title" content="B2 FirewallFlat — Digitaler Schutz als Abo">
+<meta property="og:description" content="Zwei Firewalls doppelt abgesichert (HA), Umzug von jedem Hersteller, volle Kontrolle — ein fester Monatsbetrag. Geräte geschenkt.">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="B2 FirewallFlat — Digitaler Schutz als Abo">
+<meta name="twitter:description" content="Zwei Firewalls im HA-Verbund, 0 € Anschaffung, volle Kontrolle — fester Monatsbetrag.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
@@ -119,6 +127,27 @@ footer a{color:var(--ink-soft)}
 #b2lang button{font:600 12px Inter,sans-serif;border:0;background:transparent;color:var(--ink-muted);padding:6px 10px;cursor:pointer;line-height:1}
 #b2lang button.on{background:#0a84ff;color:#fff}
 #b2lang.floating{position:fixed;top:14px;right:14px;z-index:9999;background:#fff;border-color:rgba(10,22,40,.25)}
+.proof{margin-top:28px;font-size:14.5px;color:#7D93AB;letter-spacing:.01em}
+/* Rückruf */
+.callback{margin:64px auto 0;max-width:520px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:30px 30px 26px;text-align:center}
+.callback h3{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:24px;color:#fff;margin-bottom:6px}
+.callback p{font-size:15.5px;color:#A7BBD0;margin-bottom:18px}
+.callback input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:#EAF2FF;font:500 16px 'Inter',sans-serif;padding:13px 16px;margin-bottom:10px;outline:none}
+.callback input:focus{border-color:var(--cyan)}
+.callback input::placeholder{color:#7D93AB}
+.cb-btn{width:100%;border:0;cursor:pointer;background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;font:600 17px 'Inter',sans-serif;border-radius:100px;padding:14px;box-shadow:0 8px 22px var(--blue-glow)}
+.cb-thanks{display:none;font-size:17px;color:#3DDC84;font-weight:600;padding:8px 0}
+/* Sticky-CTA mobil */
+#stickycta{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:9998;text-align:center;background:linear-gradient(135deg,#0A84FF,#0066D6);color:#fff;text-decoration:none;font:600 17px 'Inter',sans-serif;border-radius:100px;padding:15px;box-shadow:0 10px 28px rgba(10,132,255,.5)}
+@media (max-width:940px){#stickycta.show{display:block}}
+/* Consent-Banner */
+#b2cs-consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;background:#0a1628;color:#eaf2ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:14px;line-height:1.5;padding:14px 16px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.35);display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+#b2cs-consent p{margin:0;max-width:680px}
+#b2cs-consent a{color:#2A9DFF;text-decoration:underline}
+#b2cs-consent .b2cs-btns{display:flex;gap:10px;flex-wrap:wrap}
+#b2cs-consent button{cursor:pointer;border:0;border-radius:8px;padding:9px 18px;font-weight:600;font-size:14px}
+#b2cs-c-yes{background:#0A84FF;color:#fff}
+#b2cs-c-no{background:transparent;color:#9fb3c8;border:1px solid rgba(255,255,255,.3)}
 @media (max-width:940px){
 section{padding:80px 0}.hero{padding:150px 0 70px}
 .cycle-stage{width:240px;height:240px}
@@ -152,6 +181,7 @@ section{padding:80px 0}.hero{padding:150px 0 70px}
       <span class="path-pill"><span class="v">✓</span> 0 € Anschaffung</span>
       <span class="path-pill"><span class="v">✓</span> Volle Kontrolle</span>
     </div>
+    <p class="proof">20+ Jahre Enterprise-Security · Firewall-Migrationen in Konzern-Umgebungen · 2× Cisco-Top-Zertifikate im Team · Deutscher Vertragspartner</p>
     <div class="hero-anim">
       <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle class="ringp" cx="260" cy="200" r="120" fill="none" stroke="#2A9DFF" stroke-width="2.5"/>
@@ -389,6 +419,17 @@ section{padding:80px 0}.hero{padding:150px 0 70px}
     <p class="foot-note fade" style="margin-top:26px;color:#7B8696">*Update-Option: neu &amp; besser — bis max. PA-3400-Serie.</p>
     <p class="one-line fade" style="margin:40px auto 40px">30 Minuten. Unverbindlich.</p>
     <a class="btn btn-primary fade" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Jetzt Gespräch buchen →</a>
+    <div class="callback fade" id="cb-box">
+      <h3>Lieber zurückrufen lassen?</h3>
+      <p>Wir melden uns werktags innerhalb von 24 Stunden.</p>
+      <form id="cb-form">
+        <input id="cb-name" type="text" required placeholder="Name">
+        <input id="cb-mail" type="email" required placeholder="firmen@e-mail.de">
+        <input id="cb-tel" type="tel" placeholder="+49 …">
+        <button class="cb-btn" type="submit">Rückruf anfordern</button>
+      </form>
+      <div class="cb-thanks" id="cb-thanks">Danke — wir melden uns!</div>
+    </div>
     <p class="foot-note fade" style="margin-top:34px">Erst mal nur den Zustand prüfen? → <a href="https://www.b2cybersec.com/cyber-status-check" style="color:var(--cyan);font-weight:600">CYBER-STATUS-CHECK</a></p>
   </div>
 </section>
@@ -404,6 +445,55 @@ section{padding:80px 0}.hero{padding:150px 0 70px}
 window.addEventListener('scroll',function(){document.getElementById('hd').classList.toggle('scrolled',window.scrollY>30)});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.14});
 document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+</script>
+<a id="stickycta" href="https://calendly.com/b2cybersec-team/bojan" target="_blank" rel="noopener">Gespräch buchen →</a>
+<script>
+(function(){
+  var PIXEL_ID="2096384047973111";
+  var KEY="b2cs_consent_marketing";
+  var T={de:{msg:"Wir verwenden Marketing-Cookies (Meta-Pixel), um die Relevanz unserer Werbung zu messen - nur mit Ihrer Zustimmung.",more:"Datenschutz",yes:"Akzeptieren",no:"Ablehnen",href:"/datenschutz"},
+         en:{msg:"We use marketing cookies (Meta pixel) to measure ad relevance - only with your consent.",more:"Privacy",yes:"Accept",no:"Decline",href:"/privacy"}};
+  function L(){var l=(document.documentElement.lang||"de").slice(0,2);return T[l]?l:"de";}
+  function loadPixel(){
+    if(window.fbq)return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init",PIXEL_ID);fbq("track","PageView");
+  }
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function setv(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function hide(){var b=document.getElementById("b2cs-consent");if(b&&b.parentNode)b.parentNode.removeChild(b);}
+  function grant(){setv("granted");loadPixel();hide();}
+  function deny(){setv("denied");hide();}
+  function banner(){
+    var t=T[L()];
+    var d=document.createElement("div");d.id="b2cs-consent";
+    d.innerHTML='<p>'+t.msg+' <a href="'+t.href+'" target="_blank" rel="noopener">'+t.more+'</a></p><span class="b2cs-btns"><button id="b2cs-c-no" type="button">'+t.no+'</button><button id="b2cs-c-yes" type="button">'+t.yes+'</button></span>';
+    document.body.appendChild(d);
+    document.getElementById("b2cs-c-yes").onclick=grant;
+    document.getElementById("b2cs-c-no").onclick=deny;
+  }
+  function init(){var s=get();if(s==="granted"){loadPixel();}else if(s!=="denied"){banner();}}
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init);}else{init();}
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('cb-form');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nm=document.getElementById('cb-name').value.trim();
+    var em=document.getElementById('cb-mail').value.trim();
+    var tel=document.getElementById('cb-tel').value.trim();
+    if(!nm||!em)return;
+    var payload={firstname:nm.split(' ')[0]||nm,lastname:nm.split(' ').slice(1).join(' '),name:nm,email:em,phone:tel,company:'',jobtitle:'',cyber_score:'',cyber_status:'Rückruf-Anfrage',source:'FirewallFlat-Rueckruf',language:(document.documentElement.lang||'de'),page_url:location.href,submitted_at:new Date().toISOString()};
+    fetch('https://hook.eu1.make.com/t32dbgn2rjxrg68y4s9fyftdekih7hpk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+    f.style.display='none';
+    document.getElementById('cb-thanks').style.display='block';
+    if(window.fbq){fbq("track","Lead");}
+  });}
+  var s=document.getElementById('stickycta');
+  window.addEventListener('scroll',function(){if(s)s.classList.toggle('show',window.scrollY>600);});
+})();
 </script>
 <script id="b2lang-js">(function(){var D={
 "Gespräch buchen →":"Book a call →",
@@ -459,6 +549,11 @@ document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 "30 Minuten. Unverbindlich.":"30 minutes. No obligation.",
 "Erst mal nur den Zustand prüfen? →":"Want to check your status first? →",
 "· Werner-von-Siemens-Straße 6 · 86159 Augsburg · HRB 33545":"· Werner-von-Siemens-Str. 6 · 86159 Augsburg, Germany · HRB 33545",
+"20+ Jahre Enterprise-Security · Firewall-Migrationen in Konzern-Umgebungen · 2× Cisco-Top-Zertifikate im Team · Deutscher Vertragspartner":"20+ years of enterprise security · firewall migrations in corporate environments · 2× top Cisco certifications in the team · German contract partner",
+"Lieber zurückrufen lassen?":"Prefer a callback?",
+"Wir melden uns werktags innerhalb von 24 Stunden.":"We'll get back to you within 24 hours on business days.",
+"Rückruf anfordern":"Request a callback",
+"Danke — wir melden uns!":"Thanks — we'll be in touch!",
 "Impressum":"Legal notice",
 "Datenschutz":"Privacy"
 };var cur='de';function nodes(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false),a=[],n;while(n=w.nextNode())a.push(n);return a;}function apply(l){if(l===cur)return;nodes().forEach(function(n){var t=n.nodeValue,k=t.trim();if(!k)return;if(l==='en'){if(D[k]!==undefined){if(n.__de==null)n.__de=t;n.nodeValue=t.replace(k,D[k]);}}else{if(n.__de!=null)n.nodeValue=n.__de;}});cur=l;document.documentElement.lang=l;var de=document.getElementById('b2de'),en=document.getElementById('b2en');if(de&&en){de.className=l==='de'?'on':'';en.className=l==='en'?'on':'';}try{localStorage.setItem('csc_lang',l);}catch(e){}}function mount(){var box=document.createElement('div');box.id='b2lang';box.innerHTML='<button id="b2de" class="on">DE</button><button id="b2en">EN</button>';box.querySelector('#b2de').onclick=function(){apply('de');};box.querySelector('#b2en').onclick=function(){apply('en');};var cta=document.querySelector('header a[href*="calendly"]');if(cta&&cta.parentElement){cta.parentElement.insertBefore(box,cta);}else{box.classList.add('floating');document.body.appendChild(box);}var s='de';try{s=localStorage.getItem('csc_lang')||'de';}catch(e){}if(s==='en')apply('en');}if(document.readyState!=='loading')mount();else document.addEventListener('DOMContentLoaded',mount);})();</script>
