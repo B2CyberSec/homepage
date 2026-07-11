@@ -49,6 +49,8 @@
   .form input{flex:1;min-width:200px;border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font:inherit}
   .pill{display:inline-block;background:#eef5ff;color:var(--blue);font-weight:700;font-size:12px;padding:4px 11px;border-radius:100px;margin:2px 4px 2px 0}
   .foot{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;line-height:1.6}
+  .proofbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .proofbar .chip{border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:100px}
   .hide{display:none!important}
 </style>
 </head>
@@ -68,6 +70,14 @@
   <div class="eyebrow" data-de="In 2 Minuten · kostenlos · anonym" data-en="In 2 minutes · free · anonymous"></div>
   <h1 data-de="Wie sicher ist Ihre IT wirklich?" data-en="How secure is your IT, really?"></h1>
   <p class="lead" data-de="Sieben ehrliche Fragen. Am Ende sehen Sie auf einen Blick, wo Ihre IT-Sicherheit heute steht — und was der nächste sinnvolle Schritt ist. Kein Fachchinesisch." data-en="Seven honest questions. At the end you see at a glance where your IT security stands today — and what the next sensible step is. No jargon."></p>
+
+  <!-- PROOF BAR -->
+  <div class="proofbar">
+    <span class="chip" data-de="3× Cisco CCIE im Team" data-en="3× Cisco CCIE on the team"></span>
+    <span class="chip" data-de="150 Personenjahre Security-Erfahrung" data-en="150 person-years of security experience"></span>
+    <span class="chip" data-de="66 Zertifizierungen" data-en="66 certifications"></span>
+    <span class="chip" data-de="Reports nach PTES &amp; NIST SP 800-115" data-en="Reports per PTES &amp; NIST SP 800-115"></span>
+  </div>
 
   <!-- QUIZ -->
   <div class="card" id="quiz"></div>
