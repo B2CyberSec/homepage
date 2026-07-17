@@ -4,55 +4,53 @@
 <meta name="robots" content="noindex,nofollow">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYBER-STATUS-CHECK — Der große Gesundheits-Check für Ihre Firma | B2CyberSec</title>
-<meta name="description" content="Wir prüfen Ihre ganze IT-Sicherheit einmal komplett durch — wie ein großer Gesundheits-Check, nur für Ihre Firma. Nach 14 Arbeitstagen wissen Sie schwarz auf weiß, wo Sie sicher sind, wo es brennt und was Sie zuerst tun. Festpreis 7.900 €.">
-<meta property="og:title" content="CYBER-STATUS-CHECK — Der große Gesundheits-Check für Ihre Firma">
-<meta property="og:description" content="Nach 14 Arbeitstagen wissen Sie schwarz auf weiß: wo Sie sicher sind, wo es brennt, was Sie zuerst tun. Festpreis 7.900 €.">
+<title>Die ehrlichste Sicherheits-Seite Deutschlands — CYBER-STATUS-CHECK | B2CyberSec</title>
+<meta name="description" content="Versprochen: kein einziges Fachwort. Wir schauen 14 Arbeitstage nach, wo bei Ihnen die Tür für Einbrecher offen steht. Festpreis 7.900 €.">
+<meta property="og:title" content="Die ehrlichste Sicherheits-Seite Deutschlands">
+<meta property="og:description" content="Kein Fachchinesisch. Kein 200-Seiten-Ordner. Ein Bericht, den Sie verstehen. Festpreis 7.900 €.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Caveat:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blau:#1a73e8;
-    --blau-dunkel:#1557b0;
-    --tinte:#111418;
-    --grau:#5b6470;
-    --hell:#f5f7fa;
-    --linie:#e6e9ee;
-    --nacht:#0b1c33;
-    --radius:20px;
+    --tinte:#1b2330;
+    --papier:#faf7f0;
+    --blau:#0A84FF;
+    --blau-d:#0066D6;
+    --rot:#e5484d;
+    --gelb:#ffe066;
+    --grau:#5d6572;
+    --linie:#e8e2d6;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--tinte);
-    background:#fff;
-    line-height:1.6;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    color:var(--tinte);background:var(--papier);line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    padding-bottom:88px; /* Platz für Sticky-CTA mobil */
+    padding-bottom:88px;
   }
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
-  .schmal{max-width:720px;margin:0 auto;}
+  .schmal{max-width:700px;margin:0 auto;}
+  h1,h2{font-family:'Bricolage Grotesque',Inter,sans-serif;letter-spacing:-.02em;}
+  .hand{font-family:'Caveat',cursive;}
 
-  /* ---------- Header ---------- */
+  /* ---------- Header (wie Live-LP) ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,.85);
+    background:rgba(255,255,255,.88);
     backdrop-filter:saturate(180%) blur(16px);
     -webkit-backdrop-filter:saturate(180%) blur(16px);
     border-bottom:1px solid var(--linie);
   }
   .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px;}
-  .logo{
-    display:inline-flex;align-items:center;gap:10px;
-    font-weight:700;font-size:18px;letter-spacing:-.02em;
-    color:var(--tinte);text-decoration:none;
-  }
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--tinte);text-decoration:none;}
   .logo-schild{
     width:34px;height:34px;flex:0 0 auto;
     background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);
-    border-radius:10px;
-    display:flex;align-items:center;justify-content:center;
+    border-radius:10px;display:flex;align-items:center;justify-content:center;
     box-shadow:0 6px 18px rgba(10,132,255,.35);
   }
   .logo-schild svg{width:18px;height:18px;color:#fff;}
@@ -63,183 +61,161 @@
     padding:7px 14px;border-radius:10px;white-space:nowrap;
   }
   @media (max-width:560px){ .produkt-badge{display:none;} }
-  /* ---------- Ablauf: 3 Schritte mittig & grafisch ---------- */
-  .ablauf-sektion .wrap{text-align:center;}
-  .ablauf{display:flex;justify-content:center;align-items:flex-start;flex-wrap:nowrap;gap:0;margin-top:44px;}
-  .schritt{flex:1 1 220px;max-width:300px;padding:0 16px;}
-  .schritt-icon{width:88px;height:88px;margin:0 auto 16px;border-radius:26px;
-    background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 12px 30px rgba(10,132,255,.35);}
-  .schritt-icon svg{width:44px;height:44px;color:#fff;}
-  .schritt-nr{font-size:13px;font-weight:800;color:var(--blau);letter-spacing:.1em;margin-bottom:6px;}
-  .schritt h3{font-size:28px;margin:0 0 10px;}
-  .schritt p{font-size:17px;line-height:1.55;margin:0;opacity:.75;}
-  .ablauf-pfeil{align-self:center;font-size:36px;line-height:1;color:#b9cbe3;font-weight:300;padding:0 2px;margin-top:-30px;}
-  @media (max-width:760px){
-    .ablauf{flex-direction:column;align-items:center;gap:10px;}
-    .ablauf-pfeil{transform:rotate(90deg);margin:2px 0;padding:0;}
-    .schritt{max-width:340px;}
-  }
   .header-cta{
     display:inline-block;background:var(--blau);color:#fff;text-decoration:none;
-    font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;
-    transition:background .2s;
+    font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;transition:background .2s;
   }
-  .header-cta:hover{background:var(--blau-dunkel);}
+  .header-cta:hover{background:var(--blau-d);}
 
   /* ---------- Buttons ---------- */
   .btn{
     display:inline-block;background:var(--blau);color:#fff;text-decoration:none;
-    font-size:18px;font-weight:600;padding:16px 36px;border-radius:100px;
-    transition:background .2s, transform .15s;
-    box-shadow:0 6px 20px rgba(26,115,232,.28);
+    font-size:18px;font-weight:700;padding:16px 38px;border-radius:14px;
+    border:2px solid var(--tinte);
+    box-shadow:5px 5px 0 var(--tinte);
+    transition:transform .12s, box-shadow .12s;
   }
-  .btn:hover{background:var(--blau-dunkel);transform:translateY(-1px);}
-  .btn-hell{background:#fff;color:var(--blau);box-shadow:0 6px 20px rgba(0,0,0,.18);}
-  .btn-hell:hover{background:#f0f4ff;color:var(--blau-dunkel);}
+  .btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--tinte);}
   .micro{margin-top:14px;font-size:14px;color:var(--grau);}
-  .micro-hell{color:rgba(255,255,255,.75);}
 
-  /* ---------- Hero ---------- */
-  .hero{padding:88px 0 96px;text-align:center;}
-  .eyebrow{
-    display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--blau);margin-bottom:22px;
+  /* ---------- Comic-Bausteine ---------- */
+  .mark{background:linear-gradient(180deg,transparent 55%,var(--gelb) 55%);padding:0 2px;}
+  .karte{
+    position:relative;background:#fff;border:2px solid var(--tinte);border-radius:16px;
+    padding:24px 22px;box-shadow:7px 7px 0 rgba(27,35,48,.12);
   }
-  h1{
-    font-size:clamp(34px,6vw,60px);
-    line-height:1.08;letter-spacing:-.025em;font-weight:700;
-    margin-bottom:26px;
+  .tape{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:90px;height:24px;background:rgba(255,224,102,.85);
+    border-left:1px dashed rgba(27,35,48,.2);border-right:1px dashed rgba(27,35,48,.2);
   }
-  .hero-sub{
-    font-size:clamp(18px,2.4vw,22px);color:var(--grau);
-    max-width:680px;margin:0 auto 38px;
-  }
-  .hero-sub strong{color:var(--tinte);font-weight:600;}
-  .trust-line{margin-top:34px;font-size:15px;color:var(--grau);}
-  .trust-line b{color:var(--tinte);font-weight:600;}
+  .cartoon{display:block;width:100%;height:auto;margin:0 auto;}
+  .caption{font-family:'Caveat',cursive;font-size:21px;color:var(--grau);text-align:center;margin-top:6px;}
+  .caption b{color:var(--rot);}
+
+  /* SVG-Strichstil */
+  .s{fill:none;stroke:#1b2330;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .limb{fill:none;stroke:#1b2330;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;}
+  .sf{fill:#1b2330;}
+  .sw{fill:#fff;stroke:#1b2330;stroke-width:2.6;stroke-linejoin:round;}
+  .sy{fill:var(--gelb);stroke:#1b2330;stroke-width:2.6;stroke-linejoin:round;}
+  .sb{fill:none;stroke:var(--blau);stroke-width:2.6;stroke-linecap:round;}
+  .sbf{fill:var(--blau);}
+  .sr{fill:none;stroke:var(--rot);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .srf{fill:var(--rot);}
+  .ct{font-family:'Caveat',cursive;fill:#1b2330;}
 
   /* ---------- Sektionen ---------- */
-  section{padding:88px 0;}
-  .alt{background:var(--hell);}
-  h2{
-    font-size:clamp(28px,4.5vw,42px);line-height:1.12;letter-spacing:-.02em;
-    font-weight:700;text-align:center;margin-bottom:18px;
+  section{padding:84px 0;}
+  section.weiss{background:#fff;border-top:2px solid var(--tinte);border-bottom:2px solid var(--tinte);}
+  .kopf{text-align:center;max-width:760px;margin:0 auto 40px;}
+  h2{font-size:clamp(28px,4.6vw,44px);line-height:1.12;margin-bottom:14px;}
+  .sub{font-size:clamp(17px,2.2vw,20px);color:var(--grau);}
+  .fazit{
+    text-align:center;font-family:'Caveat',cursive;font-size:clamp(24px,3.2vw,30px);
+    margin-top:44px;color:var(--tinte);
   }
-  .sub{font-size:18px;color:var(--grau);text-align:center;max-width:640px;margin:0 auto 56px;}
 
-  /* ---------- Karten ---------- */
-  .karten{display:grid;grid-template-columns:1fr;gap:18px;}
-  @media(min-width:760px){.karten{grid-template-columns:repeat(3,1fr);gap:24px;}}
-  .karte{
-    background:#fff;border:1px solid var(--linie);border-radius:var(--radius);
-    padding:34px 28px;
+  /* ---------- Hero ---------- */
+  .hero{padding:72px 0 64px;text-align:center;}
+  .eyebrow{
+    display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--blau);margin-bottom:20px;
   }
-  .alt .karte{box-shadow:0 2px 12px rgba(17,20,24,.04);border:none;}
-  .karte .nr{
-    width:44px;height:44px;border-radius:50%;background:var(--blau);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:19px;font-weight:700;margin-bottom:20px;
+  h1{font-size:clamp(34px,6vw,62px);line-height:1.06;margin-bottom:10px;}
+  .hero-versprechen{
+    font-family:'Caveat',cursive;font-size:clamp(26px,3.6vw,36px);color:var(--rot);
+    transform:rotate(-1.5deg);display:inline-block;margin:6px 0 22px;
   }
-  .karte h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px;}
-  .karte p{font-size:16px;color:var(--grau);}
-  .karte .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blau);margin-bottom:12px;}
+  .hero-sub{font-size:clamp(18px,2.4vw,21px);color:var(--grau);max-width:640px;margin:0 auto 34px;}
+  .hero-sub strong{color:var(--tinte);}
+  .trust-line{margin-top:30px;font-size:15px;color:var(--grau);}
+  .hero-cartoon{max-width:560px;margin:44px auto 0;}
 
-  /* ---------- Schmerz ---------- */
-  .schmerz-liste{display:grid;grid-template-columns:1fr;gap:16px;max-width:720px;margin:0 auto;}
-  .schmerz{
-    background:#fff;border:1px solid var(--linie);border-radius:var(--radius);
-    padding:26px 30px;font-size:17px;
+  /* ---------- Roast-Karten ---------- */
+  .roast{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 26px;margin-top:52px;}
+  .roast .karte h3{font-family:'Bricolage Grotesque',sans-serif;font-size:21px;margin:14px 0 8px;}
+  .roast .karte p{font-size:15.5px;color:var(--grau);}
+  .roast .karte:nth-child(1){transform:rotate(-1.3deg);}
+  .roast .karte:nth-child(2){transform:rotate(.9deg);margin-top:18px;}
+  .roast .karte:nth-child(3){transform:rotate(-.7deg);}
+  @media (max-width:860px){
+    .roast{grid-template-columns:1fr;max-width:440px;margin:44px auto 0;}
+    .roast .karte:nth-child(2){margin-top:0;}
   }
-  .schmerz b{font-weight:700;}
-  .schmerz-fazit{text-align:center;font-size:19px;font-weight:600;margin-top:44px;letter-spacing:-.01em;}
 
-  /* ---------- Einwand ---------- */
-  .einwand-box{
-    max-width:760px;margin:0 auto;background:var(--hell);
-    border-radius:calc(var(--radius) + 8px);padding:52px 40px;text-align:center;
+  /* ---------- Check: 3 Punkte ---------- */
+  .drei{display:flex;justify-content:center;gap:34px;margin-top:48px;text-align:center;flex-wrap:wrap;}
+  .punkt{flex:1 1 240px;max-width:300px;}
+  .punkt-nr{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;color:#fff;
+    width:74px;height:74px;border-radius:50%;background:var(--blau);
+    border:2px solid var(--tinte);box-shadow:4px 4px 0 var(--tinte);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
   }
-  .einwand-box h2{margin-bottom:24px;}
-  .einwand-box p{font-size:18px;color:var(--grau);max-width:620px;margin:0 auto 18px;}
-  .einwand-box p strong{color:var(--tinte);}
+  .punkt h3{font-family:'Bricolage Grotesque',sans-serif;font-size:23px;margin-bottom:8px;}
+  .punkt p{font-size:16px;color:var(--grau);}
+  .check-cartoon{max-width:560px;margin:8px auto 0;}
+
+  /* ---------- Ergebnis ---------- */
+  .ergebnis-liste{max-width:640px;margin:44px auto 0;display:grid;gap:18px;}
+  .ergebnis-liste .karte{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;}
+  .ergebnis-liste .karte b{display:block;font-size:17px;}
+  .ergebnis-liste .karte span{font-size:15.5px;color:var(--grau);}
+  .haken{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--gelb);border:2px solid var(--tinte);display:flex;align-items:center;justify-content:center;font-weight:800;}
 
   /* ---------- Beweis ---------- */
-  .beweis{text-align:center;}
-  .beweis-zahl{font-size:clamp(56px,10vw,96px);font-weight:700;letter-spacing:-.03em;color:var(--blau);line-height:1;}
-  .beweis-was{font-size:20px;font-weight:600;margin:10px 0 26px;}
-  .beweis p{font-size:17px;color:var(--grau);max-width:620px;margin:0 auto 14px;}
-  .beweis p strong{color:var(--tinte);}
+  .beweis-text{max-width:660px;margin:0 auto;text-align:center;font-size:clamp(17px,2.2vw,19px);color:var(--grau);}
+  .beweis-text b{color:var(--tinte);}
 
   /* ---------- Preis ---------- */
-  .preis{background:var(--nacht);color:#fff;}
-  .preis h2{color:#fff;}
-  .preis .sub{color:rgba(255,255,255,.7);}
   .preis-karte{
-    max-width:560px;margin:0 auto;background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.14);border-radius:calc(var(--radius) + 8px);
-    padding:48px 36px;text-align:center;
+    max-width:620px;margin:48px auto 0;background:#fff;border:3px solid var(--tinte);
+    border-radius:20px;box-shadow:10px 10px 0 rgba(27,35,48,.15);
+    padding:40px 34px;text-align:center;transform:rotate(-.5deg);position:relative;
   }
-  .preis-zahl{font-size:clamp(52px,9vw,76px);font-weight:700;letter-spacing:-.03em;line-height:1;}
-  .preis-zahl small{font-size:22px;font-weight:600;color:rgba(255,255,255,.7);}
-  .preis-fest{margin-top:8px;font-size:16px;color:rgba(255,255,255,.7);}
-  .preis-punkte{list-style:none;margin:34px 0 38px;text-align:left;}
-  .preis-punkte li{
-    padding:12px 0 12px 34px;position:relative;font-size:16px;
-    border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.9);
-  }
-  .preis-punkte li:first-child{border-top:none;}
-  .preis-punkte li::before{
-    content:"";position:absolute;left:0;top:19px;width:18px;height:18px;
-    background:var(--blau);border-radius:50%;
-  }
-  .preis-punkte li::after{
-    content:"";position:absolute;left:5px;top:24px;width:8px;height:5px;
-    border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);
-  }
+  .preis-zahl{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(48px,8vw,72px);line-height:1;}
+  .preis-wort{font-family:'Caveat',cursive;font-size:30px;color:var(--rot);margin:4px 0 22px;}
+  .preis-punkte{list-style:none;text-align:left;max-width:440px;margin:0 auto 30px;display:grid;gap:12px;}
+  .preis-punkte li{padding-left:30px;position:relative;font-size:16px;}
+  .preis-punkte li::before{content:"✓";position:absolute;left:0;top:0;font-weight:800;color:var(--blau);}
 
-  /* ---------- Final CTA ---------- */
-  .final{text-align:center;padding:110px 0;}
-  .final h2{font-size:clamp(32px,5.5vw,52px);}
-  .final .sub{margin-bottom:42px;}
+  /* ---------- Einwand ---------- */
+  .einwand-karte{max-width:680px;margin:0 auto;padding:30px 30px;}
+  .einwand-karte p{font-size:clamp(16px,2.1vw,18px);color:var(--grau);}
+  .einwand-karte p b{color:var(--tinte);}
 
   /* ---------- FAQ ---------- */
-  .faq{max-width:760px;margin:0 auto;}
-  details{
-    border-bottom:1px solid var(--linie);
-  }
-  details:first-of-type{border-top:1px solid var(--linie);}
-  summary{
-    cursor:pointer;list-style:none;padding:22px 44px 22px 4px;
-    font-size:18px;font-weight:600;letter-spacing:-.01em;position:relative;
-  }
+  .faq{max-width:680px;margin:40px auto 0;display:grid;gap:14px;}
+  details{background:#fff;border:2px solid var(--tinte);border-radius:14px;padding:18px 22px;box-shadow:4px 4px 0 rgba(27,35,48,.1);}
+  summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;}
   summary::-webkit-details-marker{display:none;}
-  summary::after{
-    content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
-    font-size:26px;font-weight:400;color:var(--blau);transition:transform .2s;
-  }
+  summary::after{content:"+";font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;color:var(--blau);flex:0 0 auto;}
   details[open] summary::after{content:"–";}
-  details p{padding:0 4px 24px;font-size:16px;color:var(--grau);max-width:680px;}
+  details p{margin-top:12px;font-size:15.5px;color:var(--grau);}
+
+  /* ---------- Final ---------- */
+  .final{text-align:center;padding-bottom:64px;}
+  .final-cartoon{max-width:560px;margin:40px auto 0;}
 
   /* ---------- Footer ---------- */
-  footer{padding:44px 0 60px;border-top:1px solid var(--linie);}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;font-size:14px;color:var(--grau);}
-  footer a{color:var(--grau);text-decoration:none;}
-  footer a:hover{color:var(--tinte);}
+  footer{border-top:2px solid var(--tinte);padding:30px 0;background:#fff;}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--grau);}
+  footer a{color:var(--grau);}
 
-  /* ---------- Sticky Mobile CTA ---------- */
+  /* ---------- Sticky-CTA mobil ---------- */
   .sticky-cta{
     position:fixed;left:0;right:0;bottom:0;z-index:60;
     background:rgba(255,255,255,.92);
     backdrop-filter:saturate(180%) blur(16px);
     -webkit-backdrop-filter:saturate(180%) blur(16px);
-    border-top:1px solid var(--linie);
+    border-top:2px solid var(--tinte);
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));
   }
   .sticky-cta a{
     display:block;text-align:center;background:var(--blau);color:#fff;
-    text-decoration:none;font-size:17px;font-weight:600;
-    padding:15px 20px;border-radius:100px;
+    text-decoration:none;font-size:17px;font-weight:700;
+    padding:15px 20px;border-radius:12px;border:2px solid var(--tinte);
   }
   @media(min-width:900px){
     .sticky-cta{display:none;}
@@ -267,236 +243,547 @@
 <section class="hero" id="top">
   <div class="wrap">
     <span class="eyebrow">Für Chefs von Firmen mit 50 bis 500 Mitarbeitern</span>
-    <h1>Wo steht bei Ihnen<br>die Tür für Einbrecher offen?</h1>
+    <h1>Die ehrlichste<br>Sicherheits-Seite Deutschlands.</h1>
+    <div class="hero-versprechen">Versprochen: kein einziges Fachwort.</div>
     <p class="hero-sub">
-      Wir prüfen Ihre ganze IT-Sicherheit einmal komplett durch — wie ein großer
-      Gesundheits-Check, nur für Ihre Firma. Nach <strong>14&nbsp;Arbeitstagen</strong> wissen Sie
-      schwarz auf weiß: wo Sie sicher sind, wo es brennt, was Sie zuerst tun.
-      <strong>Zum Festpreis.</strong>
+      Wir schauen <strong>14 Arbeitstage</strong> lang nach, wo bei Ihnen die Tür für
+      Einbrecher offen steht. Danach wissen Sie es schwarz auf weiß — in Sätzen,
+      die ein Mensch versteht. Festpreis: <strong>7.900&nbsp;€</strong>.
     </p>
-    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=hero">Termin aussuchen</a>
-    <p class="micro">30 Minuten · kostenlos · Sie entscheiden danach in Ruhe</p>
-    <p class="trust-line"><b>Über 20 Jahre Erfahrung</b> bei den größten deutschen Unternehmen.</p>
-  </div>
-</section>
+    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=hero">Termin aussuchen — 30 Minuten, kostenlos</a>
+    <p class="micro">Kein Verkäufer-Theater. Auch versprochen.</p>
+    <p class="trust-line"><b>Über 20 Jahre</b> im Einsatz bei den größten deutschen Unternehmen.</p>
 
-<!-- ================= SCHMERZ ================= -->
-<section class="alt">
-  <div class="wrap">
-    <h2>Nichts tun ist am teuersten.</h2>
-    <p class="sub">Drei Dinge, die jeder Chef wissen sollte:</p>
-    <div class="schmerz-liste">
-      <div class="schmerz">
-        <b>Ein Einbruch in Ihre Computer trifft die ganze Firma.</b><br>
-        Der Betrieb steht still. Kunden warten. Daten sind weg. Und die Rechnung
-        zahlen am Ende Sie.
-      </div>
-      <div class="schmerz">
-        <b>Ein neues Gesetz (NIS-2) macht den Chef persönlich verantwortlich.</b><br>
-        Nicht die IT-Abteilung. Nicht der Dienstleister. Sie.
-      </div>
-      <div class="schmerz">
-        <b>Die meisten Chefs wissen nicht, wo ihre Firma offen ist.</b><br>
-        Nicht weil sie schlampig sind — sondern weil es ihnen noch niemand
-        schwarz auf weiß gezeigt hat.
-      </div>
+    <div class="hero-cartoon">
+      <svg class="cartoon" viewBox="0 0 560 330" role="img" aria-labelledby="hero-svg-t">
+        <title id="hero-svg-t">Ein ratloser kleiner Einbrecher steht vor einer Tür mit riesigem Schloss und Zettel „Geprüft."</title>
+        <!-- Boden -->
+        <line class="s" x1="60" y1="270" x2="500" y2="270"/>
+        <!-- Tür -->
+        <rect class="sw" x="340" y="60" width="140" height="210" rx="6"/>
+        <rect class="sw" x="352" y="72" width="116" height="198" rx="4"/>
+        <circle class="sf" cx="362" cy="180" r="4"/>
+        <!-- Riesen-Vorhängeschloss -->
+        <path class="s" style="stroke-width:5" d="M382,140 a18,18 0 0 1 36,0 v14"/>
+        <rect class="sy" x="374" y="152" width="52" height="44" rx="9"/>
+        <circle class="sf" cx="400" cy="168" r="5"/>
+        <line class="s" x1="400" y1="171" x2="400" y2="182"/>
+        <!-- Zettel „Geprüft." -->
+        <g transform="rotate(-4 405 100)">
+          <rect class="sw" x="358" y="86" width="94" height="30" rx="3"/>
+          <text class="ct" x="405" y="108" font-size="22" text-anchor="middle">Geprüft.</text>
+        </g>
+        <!-- Einbrecher: ratlos, kratzt sich am Kopf -->
+        <path class="sf" d="M155,132 a15,15 0 0 1 30,0 z"/>
+        <circle class="sw" cx="170" cy="140" r="14"/>
+        <rect class="sf" x="154" y="134" width="32" height="11" rx="5"/>
+        <circle fill="#fff" cx="163" cy="139.5" r="3.4"/>
+        <circle fill="#fff" cx="177" cy="139.5" r="3.4"/>
+        <circle class="sf" cx="163.6" cy="140" r="1.4"/>
+        <circle class="sf" cx="176.4" cy="140" r="1.4"/>
+        <path class="s" d="M165,150 q5,3 10,0"/>
+        <!-- Ringelshirt -->
+        <rect class="sw" x="156" y="156" width="28" height="38" rx="9"/>
+        <line class="s" x1="157" y1="166" x2="183" y2="166"/>
+        <line class="s" x1="156" y1="175" x2="184" y2="175"/>
+        <line class="s" x1="157" y1="184" x2="183" y2="184"/>
+        <!-- Arme: einer kratzt am Kopf -->
+        <path class="limb" d="M182,162 q18,-4 12,-20"/>
+        <path class="limb" d="M158,164 q-14,16 -12,34"/>
+        <!-- Beine -->
+        <path class="limb" d="M164,194 q-3,38 -5,72"/>
+        <path class="limb" d="M176,194 q4,38 6,72"/>
+        <ellipse class="sf" cx="153" cy="268" rx="9" ry="3.4"/>
+        <ellipse class="sf" cx="188" cy="268" rx="9" ry="3.4"/>
+        <!-- schlaffer Beutesack am Boden -->
+        <path class="sw" d="M92,268 q-2,-20 18,-23 q24,-3 22,17 q-1,8 -8,8 l-26,0 q-6,0 -6,-2 z"/>
+        <line class="s" x1="108" y1="245" x2="104" y2="238"/>
+        <line class="s" x1="112" y1="245" x2="114" y2="237"/>
+        <!-- Fragezeichen + Schweißtropfen -->
+        <text class="ct" x="208" y="112" font-size="40" fill="#e5484d">?</text>
+        <path class="sbf" d="M196,120 q5,9 0,11 q-5,-2 0,-11 z"/>
+      </svg>
+      <div class="caption">Der Moment, in dem sein Feierabend beginnt.</div>
     </div>
-    <p class="schmerz-fazit">Genau das ändern wir. In 14 Arbeitstagen.</p>
   </div>
 </section>
 
-<!-- ================= 3 EBENEN ================= -->
+<!-- ================= BRANCHEN-ROAST ================= -->
+<section class="weiss">
+  <div class="wrap">
+    <div class="kopf">
+      <h2>Was Sie sonst so angeboten bekommen.</h2>
+      <p class="sub">Wir kennen die Branche. Leider von innen.</p>
+    </div>
+    <div class="roast">
+
+      <div class="karte">
+        <div class="tape"></div>
+        <svg class="cartoon" viewBox="0 0 300 190" role="img" aria-labelledby="r1t">
+          <title id="r1t">Ein Chef ist unter einem Turm aus Ordnern begraben, während der Einbrecher durchs Fenster klettert.</title>
+          <line class="s" x1="20" y1="168" x2="280" y2="168"/>
+          <!-- Ordnerturm -->
+          <g transform="rotate(-2 115 133)"><rect class="sw" x="60" y="120" width="110" height="26" rx="3"/><line class="s" x1="74" y1="126" x2="74" y2="140"/></g>
+          <g transform="rotate(2 118 107)"><rect class="sw" x="66" y="94" width="104" height="26" rx="3"/><line class="s" x1="80" y1="100" x2="80" y2="114"/></g>
+          <g transform="rotate(-4 114 81)"><rect class="sw" x="58" y="68" width="112" height="26" rx="3"/><line class="s" x1="72" y1="74" x2="72" y2="88"/></g>
+          <!-- Hand ragt raus -->
+          <path class="limb" d="M172,158 q10,-8 16,-4"/>
+          <path class="s" d="M186,150 l4,-6 M190,152 l6,-4 M191,156 l7,-1"/>
+          <text class="ct" x="212" y="176" font-size="17">Hilfe…</text>
+          <!-- Fenster mit Einbrecher -->
+          <rect class="sw" x="204" y="24" width="72" height="64" rx="4"/>
+          <line class="s" x1="240" y1="24" x2="240" y2="88"/>
+          <line class="s" x1="204" y1="56" x2="276" y2="56"/>
+          <circle class="sw" cx="222" cy="72" r="10"/>
+          <rect class="sf" x="211" y="68" width="22" height="8" rx="4"/>
+          <circle fill="#fff" cx="217" cy="72" r="2.4"/>
+          <circle fill="#fff" cx="227" cy="72" r="2.4"/>
+          <path class="limb" d="M230,80 q14,-12 22,-20"/>
+        </svg>
+        <h3>Der 200-Seiten-Ordner</h3>
+        <p>Sieht wichtig aus. Liest keiner. Steht dann im Regal und macht dort — Sicherheit? Einbrecher haben vor Ordnern erstaunlich wenig Angst.</p>
+      </div>
+
+      <div class="karte">
+        <div class="tape"></div>
+        <svg class="cartoon" viewBox="0 0 300 190" role="img" aria-labelledby="r2t">
+          <title id="r2t">Ein Berater schreit „Alles brennt!“ ins Megafon und verkauft gleichzeitig einen Feuerlöscher im Abo.</title>
+          <line class="s" x1="20" y1="168" x2="280" y2="168"/>
+          <!-- Sprechblase -->
+          <rect class="sw" x="118" y="14" width="164" height="44" rx="10"/>
+          <path class="sw" d="M138,58 l-10,16 l24,-16 z"/>
+          <text x="200" y="42" font-size="17" font-weight="800" fill="#e5484d" text-anchor="middle" font-family="Inter,sans-serif">ALLES BRENNT!!!</text>
+          <!-- Berater -->
+          <circle class="sw" cx="72" cy="86" r="13"/>
+          <path class="s" d="M66,90 q6,4 12,0"/>
+          <circle class="sf" cx="68" cy="83" r="1.6"/>
+          <circle class="sf" cx="77" cy="83" r="1.6"/>
+          <path class="limb" d="M72,99 l0,38"/>
+          <path class="limb" d="M72,137 l-10,30"/>
+          <path class="limb" d="M72,137 l10,30"/>
+          <!-- Arm mit Megafon -->
+          <path class="limb" d="M72,108 l24,-16"/>
+          <polygon class="sy" points="96,84 96,100 128,108 128,74"/>
+          <path class="sr" d="M136,72 q6,8 0,16 M144,66 q9,12 0,26"/>
+          <!-- Arm mit Feuerlöscher + Preisschild -->
+          <path class="limb" d="M72,112 l-24,12"/>
+          <rect x="34" y="122" width="17" height="32" rx="7" fill="#fff" stroke="#e5484d" stroke-width="2.6"/>
+          <path class="sr" d="M42,122 q0,-8 10,-6"/>
+          <g transform="rotate(-4 60 158)">
+            <rect class="sy" x="10" y="146" width="104" height="22" rx="4"/>
+            <text class="ct" x="62" y="162" font-size="15" text-anchor="middle">Abo: 999 €/Mon.</text>
+          </g>
+          <!-- schwitzender Chef -->
+          <circle class="sw" cx="248" cy="112" r="13"/>
+          <circle class="sf" cx="244" cy="109" r="1.6"/>
+          <circle class="sf" cx="253" cy="109" r="1.6"/>
+          <path class="s" d="M243,119 q5,-3 10,0"/>
+          <path class="sbf" d="M263,102 q5,8 0,10 q-5,-2 0,-10 z"/>
+          <path class="limb" d="M248,125 l0,32"/>
+          <path class="limb" d="M248,132 l-13,16"/>
+          <path class="limb" d="M248,132 l13,16"/>
+        </svg>
+        <h3>Der Angstmacher</h3>
+        <p>Erzählt Ihnen erst eine Stunde lang, dass die Welt untergeht. Verkauft Ihnen dann ein Abo gegen den Weltuntergang. Jeden Monat neu.</p>
+      </div>
+
+      <div class="karte">
+        <div class="tape"></div>
+        <svg class="cartoon" viewBox="0 0 300 190" role="img" aria-labelledby="r3t">
+          <title id="r3t">Ein Berater redet in Zeichen, der Chef hat Spiralaugen — und unter dem Tisch schaut der Einbrecher mit Popcorn zu.</title>
+          <!-- Sprechblase mit Kauderwelsch -->
+          <rect class="sw" x="96" y="16" width="150" height="42" rx="10"/>
+          <path class="sw" d="M116,58 l-8,14 l20,-14 z"/>
+          <text x="171" y="45" font-size="19" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">▲ Ω § # ✳ ∑</text>
+          <!-- Tisch -->
+          <line class="s" x1="30" y1="128" x2="270" y2="128" style="stroke-width:4"/>
+          <line class="limb" x1="52" y1="128" x2="52" y2="166"/>
+          <line class="limb" x1="248" y1="128" x2="248" y2="166"/>
+          <!-- Berater links -->
+          <circle class="sw" cx="80" cy="92" r="13"/>
+          <circle class="sf" cx="76" cy="89" r="1.6"/>
+          <circle class="sf" cx="85" cy="89" r="1.6"/>
+          <path class="s" d="M74,98 q6,4 12,0"/>
+          <path class="limb" d="M80,105 l0,23"/>
+          <path class="limb" d="M80,112 l22,-10"/>
+          <!-- Chef rechts mit Spiralaugen -->
+          <circle class="sw" cx="222" cy="94" r="13"/>
+          <path class="s" d="M214,90 a3.6,3.6 0 1 1 3.6,3.6 a2,2 0 1 1 -2.4,-1.6"/>
+          <path class="s" d="M224,90 a3.6,3.6 0 1 1 3.6,3.6 a2,2 0 1 1 -2.4,-1.6"/>
+          <path class="s" d="M218,102 q4,2 8,0"/>
+          <path class="limb" d="M222,107 l0,21"/>
+          <!-- Einbrecher unterm Tisch mit Popcorn -->
+          <circle class="sw" cx="140" cy="152" r="11"/>
+          <rect class="sf" x="128" y="148" width="24" height="8" rx="4"/>
+          <circle fill="#fff" cx="134" cy="152" r="2.4"/>
+          <circle fill="#fff" cx="146" cy="152" r="2.4"/>
+          <path class="s" d="M136,159 q4,3 8,0"/>
+          <rect class="sw" x="160" y="146" width="18" height="17" rx="2"/>
+          <line class="sr" x1="165" y1="146" x2="165" y2="163"/>
+          <line class="sr" x1="171" y1="146" x2="171" y2="163"/>
+          <circle class="sw" cx="164" cy="142" r="3"/>
+          <circle class="sw" cx="170" cy="140" r="3"/>
+          <circle class="sw" cx="175" cy="143" r="3"/>
+        </svg>
+        <h3>Der Fachchinesisch-Berater</h3>
+        <p>Redet zwei Stunden. Sie nicken höflich. Auf dem Heimweg merken Sie: Sie haben nichts verstanden. Kleiner Trost — er oft auch nicht.</p>
+      </div>
+
+    </div>
+    <div class="fazit">Genau deshalb gibt es diese Seite. Und diesen Check. <span style="color:var(--blau)">↓</span></div>
+  </div>
+</section>
+
+<!-- ================= GESUNDHEITS-CHECK ================= -->
 <section>
   <div class="wrap">
-    <h2>Wir prüfen drei Dinge.</h2>
-    <p class="sub">Nicht mehr, nicht weniger. Alles, was zählt.</p>
-    <div class="karten">
-      <div class="karte">
-        <div class="nr">1</div>
+    <div class="kopf">
+      <h2>Ein großer Gesundheits-Check<br>für Ihre Firma.</h2>
+      <p class="sub">Drei Dinge. Mehr braucht es nicht.</p>
+    </div>
+
+    <div class="check-cartoon">
+      <svg class="cartoon" viewBox="0 0 560 320" role="img" aria-labelledby="ck-t">
+        <title id="ck-t">Ein Doktor hört ein Firmengebäude mit dem Stethoskop ab, der Einbrecher muss draußen bleiben.</title>
+        <line class="s" x1="40" y1="290" x2="520" y2="290"/>
+        <!-- Liege -->
+        <rect class="sw" x="160" y="222" width="240" height="14" rx="6"/>
+        <line class="limb" x1="180" y1="236" x2="180" y2="290"/>
+        <line class="limb" x1="380" y1="236" x2="380" y2="290"/>
+        <!-- Gebäude mit Gesicht -->
+        <rect class="sw" x="220" y="92" width="120" height="130" rx="6"/>
+        <circle class="sf" cx="252" cy="116" r="3.4"/>
+        <circle class="sf" cx="308" cy="116" r="3.4"/>
+        <path class="s" d="M266,130 q14,10 28,0"/>
+        <rect class="s" x="238" y="152" width="18" height="14"/>
+        <rect class="s" x="270" y="152" width="18" height="14"/>
+        <rect class="s" x="302" y="152" width="18" height="14"/>
+        <rect class="sw" x="264" y="188" width="32" height="34" rx="3"/>
+        <!-- Doktor -->
+        <circle class="sw" cx="118" cy="140" r="14"/>
+        <circle class="s" cx="118" cy="126" r="5"/>
+        <circle class="sf" cx="113" cy="138" r="1.7"/>
+        <circle class="sf" cx="123" cy="138" r="1.7"/>
+        <path class="s" d="M112,147 q6,4 12,0"/>
+        <path class="limb" d="M118,154 l0,70"/>
+        <path class="limb" d="M118,224 l-12,66"/>
+        <path class="limb" d="M118,224 l14,66"/>
+        <path class="limb" d="M118,170 l50,26"/>
+        <!-- Stethoskop -->
+        <path class="s" d="M128,150 q84,10 130,52"/>
+        <circle class="sbf" cx="262" cy="205" r="7"/>
+        <!-- Einbrecher hinter Fenster rechts, Nase an der Scheibe -->
+        <rect class="sw" x="440" y="120" width="80" height="100" rx="5"/>
+        <path class="sf" d="M463,150 a17,17 0 0 1 34,0 z"/>
+        <circle class="sw" cx="480" cy="158" r="16"/>
+        <rect class="sf" x="461" y="151" width="38" height="11" rx="5"/>
+        <circle fill="#fff" cx="471" cy="156.5" r="3.4"/>
+        <circle fill="#fff" cx="489" cy="156.5" r="3.4"/>
+        <path class="s" d="M472,170 q8,-4 16,0"/>
+        <circle class="sw" cx="459" cy="197" r="5.5"/>
+        <circle class="sw" cx="501" cy="197" r="5.5"/>
+        <line class="s" x1="440" y1="210" x2="520" y2="210"/>
+      </svg>
+      <div class="caption">Vorsorge statt Drama. Er findet's <b>unfair</b>.</div>
+    </div>
+
+    <div class="drei">
+      <div class="punkt">
+        <div class="punkt-nr">1</div>
         <h3>Ihre Technik</h3>
-        <p>Schutzsysteme, Datensicherung, Zugänge. Hält alles dicht,
-        wenn jemand einbrechen will — oder steht irgendwo eine Tür offen?</p>
+        <p>Hält alles dicht, wenn jemand einbrechen will — oder steht irgendwo eine Tür offen?</p>
       </div>
-      <div class="karte">
-        <div class="nr">2</div>
+      <div class="punkt">
+        <div class="punkt-nr">2</div>
         <h3>Ihre Abläufe</h3>
-        <p>Was passiert im Notfall? Weiß jeder in Ihrer Firma, was er dann tun
-        muss? Genau hier haftet der Chef persönlich.</p>
+        <p>Weiß jeder in der Firma, was im Notfall zu tun ist? Hier haftet übrigens der Chef persönlich. Nicht die Ordner.</p>
       </div>
-      <div class="karte">
-        <div class="nr">3</div>
+      <div class="punkt">
+        <div class="punkt-nr">3</div>
         <h3>Ihre Papiere fürs Amt</h3>
-        <p>Bei einem schweren Vorfall müssen Sie innerhalb von 24 Stunden
-        melden. Liegen Ihre Unterlagen bereit — oder fehlen sie?</p>
+        <p>Bei einem schweren Vorfall müssen Sie in 24 Stunden melden. Liegen die Unterlagen bereit — oder sucht dann jemand?</p>
       </div>
     </div>
+
+    <div class="fazit">Wir schauen nur. Wir ändern nichts.<br>Ihr Betrieb läuft ganz normal weiter.</div>
   </div>
 </section>
 
-<!-- ================= WAS SIE BEKOMMEN ================= -->
-<section class="alt">
+<!-- ================= ERGEBNIS ================= -->
+<section class="weiss">
   <div class="wrap">
-    <h2>Das liegt danach auf Ihrem Tisch.</h2>
-    <p class="sub">Kein dicker Ordner voller Fachwörter. Sondern drei klare Antworten:</p>
-    <div class="karten">
-      <div class="karte">
-        <span class="tag">Antwort 1</span>
-        <h3>Wo die Tür offen steht</h3>
-        <p>Jede Schwachstelle, klar benannt — und was sie Sie im Ernstfall
-        kosten würde.</p>
-      </div>
-      <div class="karte">
-        <span class="tag">Antwort 2</span>
-        <h3>Was Sie zuerst tun</h3>
-        <p>Ein Plan in einfacher Sprache: Das sofort. Das bald. Das kann
-        warten. Damit kann jeder arbeiten — Sie oder Ihre IT-Leute.</p>
-      </div>
-      <div class="karte">
-        <span class="tag">Antwort 3</span>
-        <h3>Alles schwarz auf weiß</h3>
-        <p>Ein Bericht, den Sie ohne Übersetzer verstehen. Und den Sie Amt,
-        Versicherung oder Kunden zeigen können.</p>
-      </div>
+    <div class="kopf">
+      <h2>Ihr Bericht hat weniger Seiten<br>als eine Pizzakarte.</h2>
+      <p class="sub">Und Sie verstehen jede davon.</p>
     </div>
-  </div>
-</section>
 
-<!-- ================= WIE ES LÄUFT ================= -->
-<section class="ablauf-sektion">
-  <div class="wrap">
-    <h2>So läuft es ab.</h2>
-    <p class="sub">Drei Schritte. Ihr Betrieb läuft die ganze Zeit normal weiter.</p>
-    <div class="ablauf">
-      <div class="schritt">
-        <div class="schritt-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25-4.03 8.25-9 8.25c-.960 0-1.892-.117-2.772-.336-.9.575-2.093 1.06-3.478 1.211.62-.744.94-1.66 1.002-2.564C3.73 17.06 2.25 14.7 2.25 12z"/><path stroke-linecap="round" d="M8 12h.01M11.25 12h.01M14.5 12h.01"/></svg>
-        </div>
-        <div class="schritt-nr">SCHRITT 1</div>
-        <h3>Reden</h3>
-        <p>30 Minuten. Sie erzählen, wir hören zu.<br>Ehrlich — keine Verkaufsshow.</p>
-      </div>
-      <div class="ablauf-pfeil">→</div>
-      <div class="schritt">
-        <div class="schritt-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
-        </div>
-        <div class="schritt-nr">SCHRITT 2</div>
-        <h3>Prüfen</h3>
-        <p>14 Arbeitstage. Wir schauen nur —<br>wir ändern nichts.</p>
-      </div>
-      <div class="ablauf-pfeil">→</div>
-      <div class="schritt">
-        <div class="schritt-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 3.75H8.25A2.25 2.25 0 006 6v12a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 18V6a2.25 2.25 0 00-2.25-2.25z"/></svg>
-        </div>
-        <div class="schritt-nr">SCHRITT 3</div>
-        <h3>Wissen</h3>
-        <p>Ihr Bericht: wo Sie sicher sind, wo es brennt<br>— und was zuerst dran ist.</p>
-      </div>
+    <div class="check-cartoon">
+      <svg class="cartoon" viewBox="0 0 560 300" role="img" aria-labelledby="w-t">
+        <title id="w-t">Eine Waage: links der staubige 200-Seiten-Ordner, rechts unser dünner Bericht neben einer dickeren Pizzakarte.</title>
+        <!-- Ständer -->
+        <rect class="sw" x="220" y="244" width="120" height="12" rx="6"/>
+        <line class="limb" x1="280" y1="244" x2="280" y2="118"/>
+        <!-- Balken gekippt -->
+        <line class="limb" x1="150" y1="146" x2="410" y2="102"/>
+        <circle class="sf" cx="280" cy="124" r="7"/>
+        <!-- linke Schale (unten, schwer) -->
+        <line class="s" x1="150" y1="146" x2="122" y2="192"/>
+        <line class="s" x1="150" y1="146" x2="178" y2="192"/>
+        <path class="s" d="M114,192 q36,26 72,0"/>
+        <!-- Ordner links -->
+        <rect class="sw" x="112" y="136" width="82" height="52" rx="4"/>
+        <line class="s" x1="126" y1="136" x2="126" y2="188"/>
+        <text class="ct" x="158" y="167" font-size="16" text-anchor="middle">200 Seiten</text>
+        <!-- Spinnweben -->
+        <path class="s" d="M112,136 l-14,-14 M112,142 l-18,-6 M118,136 l-6,-18"/>
+        <path class="s" d="M100,128 q6,-2 8,4 M104,122 q5,-1 7,5"/>
+        <!-- rechte Schale (oben, leicht) -->
+        <line class="s" x1="410" y1="102" x2="384" y2="146"/>
+        <line class="s" x1="410" y1="102" x2="436" y2="146"/>
+        <path class="s" d="M376,146 q34,24 68,0"/>
+        <!-- Pizzakarte (dicker) + Bericht (dünn) -->
+        <rect class="sy" x="380" y="118" width="62" height="20" rx="3"/>
+        <text class="ct" x="411" y="133" font-size="14" text-anchor="middle">Pizzakarte</text>
+        <rect class="sw" x="384" y="108" width="54" height="9" rx="2"/>
+        <path class="s" d="M452,96 q18,4 10,16"/>
+        <text class="ct" x="470" y="92" font-size="17">Ihr Bericht</text>
+        <!-- Boden -->
+        <line class="s" x1="80" y1="256" x2="480" y2="256"/>
+      </svg>
+      <div class="caption">Ja — die Pizzakarte ist dicker. Absicht.</div>
     </div>
-  </div>
-</section>
 
-<!-- ================= EINWAND ================= -->
-<section class="einwand-sektion">
-  <div class="wrap">
-    <div class="einwand-box">
-      <h2>„Wir haben doch schon Leute für die IT."</h2>
-      <p>Gut so — die brauchen Sie auch weiterhin.</p>
-      <p>Aber: <strong>Selbst ein Arzt geht zur Vorsorge. Und zwar zu einem
-      anderen Arzt.</strong> Wer etwas selbst gebaut hat, kann es nicht selbst
-      prüfen. Genau das verlangt auch das neue Gesetz: einen Blick von außen.</p>
-      <p>Ihre IT-Leute stehen danach nicht schlechter da — sie bekommen eine
-      klare Liste, mit der sie sofort weiterarbeiten können.</p>
+    <div class="ergebnis-liste">
+      <div class="karte"><span class="haken">✓</span><div><b>Wo die Tür offen steht</b><span>Jede offene Tür klar benannt — und was sie Sie im Ernstfall kosten würde.</span></div></div>
+      <div class="karte"><span class="haken">✓</span><div><b>Was Sie zuerst tun</b><span>Das sofort, das bald, das kann warten. Damit kann jeder arbeiten: Sie oder Ihre IT-Leute.</span></div></div>
+      <div class="karte"><span class="haken">✓</span><div><b>Schwarz auf weiß</b><span>Zum Zeigen bei Amt, Versicherung, Kunden. Ohne Übersetzer.</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- ================= BEWEIS ================= -->
-<section class="alt">
-  <div class="wrap beweis">
-    <div class="beweis-zahl">20+</div>
-    <div class="beweis-was">Jahre bei den größten deutschen Unternehmen</div>
-    <p>Namen schreiben wir hier keine hin — das haben wir unseren Kunden
-    versprochen. Im Gespräch erzählen wir gern mehr.</p>
-    <p><strong>Unser bester Beweis: Diese Unternehmen verlängern mit uns.
-    Jahr für Jahr.</strong> Wer schlechte Arbeit macht, wird nicht behalten.</p>
+<section>
+  <div class="wrap">
+    <div class="kopf">
+      <h2>Namen nennen wir keine.<br>Das nervt Sie? Uns auch.</h2>
+    </div>
+    <p class="beweis-text">
+      Aber genau das haben wir den größten deutschen Unternehmen versprochen, bei denen wir
+      seit über 20 Jahren arbeiten — und Versprechen halten wir. Auch das langweilige.
+      Der beste Beweis ist sowieso ein anderer: <b>Diese Unternehmen behalten uns. Jahr für Jahr.</b>
+      Wer schlechte Arbeit macht, wird nicht behalten. Im Gespräch erzählen wir gern mehr.
+    </p>
+
+    <div class="check-cartoon" style="margin-top:40px">
+      <svg class="cartoon" viewBox="0 0 560 260" role="img" aria-labelledby="b-t">
+        <title id="b-t">Eine Skyline großer Firmen, alle Namensschilder geschwärzt — eine hält einen Vertrag mit dem Stempel „Verlängert. Schon wieder.“</title>
+        <line class="s" x1="30" y1="230" x2="530" y2="230"/>
+        <rect class="sw" x="60" y="96" width="88" height="134" rx="4"/>
+        <rect class="sw" x="168" y="66" width="98" height="164" rx="4"/>
+        <rect class="sw" x="286" y="112" width="88" height="118" rx="4"/>
+        <rect class="sw" x="394" y="84" width="98" height="146" rx="4"/>
+        <!-- Fenster -->
+        <g class="s">
+          <rect x="74" y="130" width="12" height="12"/><rect x="98" y="130" width="12" height="12"/><rect x="122" y="130" width="12" height="12"/>
+          <rect x="74" y="156" width="12" height="12"/><rect x="98" y="156" width="12" height="12"/><rect x="122" y="156" width="12" height="12"/>
+          <rect x="184" y="126" width="12" height="12"/><rect x="208" y="126" width="12" height="12"/><rect x="232" y="126" width="12" height="12"/>
+          <rect x="184" y="152" width="12" height="12"/><rect x="208" y="152" width="12" height="12"/><rect x="232" y="152" width="12" height="12"/>
+          <rect x="300" y="146" width="12" height="12"/><rect x="324" y="146" width="12" height="12"/><rect x="348" y="146" width="12" height="12"/>
+          <rect x="410" y="140" width="12" height="12"/><rect x="434" y="140" width="12" height="12"/><rect x="458" y="140" width="12" height="12"/>
+          <rect x="410" y="166" width="12" height="12"/><rect x="434" y="166" width="12" height="12"/><rect x="458" y="166" width="12" height="12"/>
+        </g>
+        <!-- geschwärzte Namensschilder -->
+        <rect class="sw" x="74" y="106" width="60" height="16" rx="2"/><rect class="sf" x="80" y="110" width="48" height="8" rx="2"/>
+        <rect class="sw" x="187" y="76" width="60" height="16" rx="2"/><rect class="sf" x="193" y="80" width="48" height="8" rx="2"/>
+        <rect class="sw" x="300" y="122" width="60" height="16" rx="2"/><rect class="sf" x="306" y="126" width="48" height="8" rx="2"/>
+        <rect class="sw" x="413" y="94" width="60" height="16" rx="2"/><rect class="sf" x="419" y="98" width="48" height="8" rx="2"/>
+        <!-- Sprechblase mit Stempel -->
+        <rect class="sw" x="310" y="14" width="200" height="56" rx="10"/>
+        <path class="sw" d="M350,70 l-14,20 l30,-20 z"/>
+        <g transform="rotate(-3 410 42)">
+          <rect class="sr" x="324" y="24" width="172" height="38" rx="6"/>
+          <text x="410" y="41" font-size="16" font-weight="800" text-anchor="middle" font-family="Inter,sans-serif" fill="#e5484d">VERLÄNGERT.</text>
+          <text class="ct" x="410" y="58" font-size="16" text-anchor="middle">schon wieder.</text>
+        </g>
+      </svg>
+      <div class="caption">Verbleib ist der ehrlichste Beweis, den es gibt.</div>
+    </div>
   </div>
 </section>
 
 <!-- ================= PREIS ================= -->
-<section class="preis">
+<section class="weiss">
   <div class="wrap">
-    <h2>Ein Preis. Keine Überraschungen.</h2>
-    <p class="sub">Sie wissen vorher genau, was es kostet. Danach auch.</p>
+    <div class="kopf">
+      <h2>7.900 €. Festpreis. Fertig.</h2>
+      <p class="sub">Kein „Angebot auf Anfrage". Kein Preis, der davon abhängt,<br>wie teuer Ihr Auto auf dem Parkplatz aussieht.</p>
+    </div>
+
     <div class="preis-karte">
-      <div class="preis-zahl">7.900&nbsp;€ <small>zzgl. MwSt.</small></div>
-      <p class="preis-fest">Festpreis. Egal, was wir finden.</p>
+      <div class="preis-zahl">7.900&nbsp;€</div>
+      <div class="preis-wort">festgenagelt.</div>
       <ul class="preis-punkte">
-        <li>Die Hälfte zahlen Sie beim Start. Die andere Hälfte erst, wenn der Bericht auf Ihrem Tisch liegt.</li>
-        <li>Kein Abo. Keine Folgekosten. Keine versteckten Posten.</li>
-        <li>Das erste Gespräch kostet nichts — und lohnt sich für Sie so oder so: mit uns oder ohne uns.</li>
-        <li>Danach entscheiden Sie frei. Niemand ruft Ihnen hinterher.</li>
+        <li>Die Hälfte beim Start. Die andere Hälfte erst, wenn der Bericht auf Ihrem Tisch liegt.</li>
+        <li>Kein Abo. Keine Folgekosten. Kein Kleingedrucktes.</li>
+        <li>Das erste Gespräch kostet nichts — und lohnt sich so oder so. Mit uns oder ohne uns.</li>
+        <li>Danach ruft Ihnen niemand hinterher. Wirklich niemand. Das können wir nämlich gar nicht leiden.</li>
       </ul>
-      <a class="btn btn-hell" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=pricing">Termin aussuchen</a>
-      <p class="micro micro-hell">30 Minuten · kostenlos · unverbindlich</p>
+      <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=preis">Termin aussuchen — 30 Minuten, kostenlos</a>
+    </div>
+
+    <div class="check-cartoon" style="margin-top:48px">
+      <svg class="cartoon" viewBox="0 0 560 300" role="img" aria-labelledby="p-t">
+        <title id="p-t">Der Einbrecher zieht mit aller Kraft am festgenagelten Preisschild — es bewegt sich keinen Millimeter.</title>
+        <line class="s" x1="60" y1="270" x2="510" y2="270"/>
+        <!-- Preisschild mit Riesen-Nagel -->
+        <rect class="sw" x="140" y="96" width="190" height="104" rx="10" style="stroke-width:4"/>
+        <text x="235" y="150" font-size="40" font-weight="800" text-anchor="middle" font-family="Inter,sans-serif">7.900&nbsp;€</text>
+        <text x="235" y="180" font-size="16" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif" fill="#5d6572">Festpreis</text>
+        <circle class="sf" cx="235" cy="88" r="8"/>
+        <path class="s" d="M220,74 l-8,-8 M235,70 l0,-11 M250,74 l8,-8"/>
+        <!-- Seil -->
+        <path class="s" d="M330,148 q44,8 76,20" style="stroke-width:3.4"/>
+        <!-- Einbrecher zieht im Tauzieh-Stil, nach hinten gelehnt -->
+        <path class="sf" d="M467,148 a15,15 0 0 1 30,-4 z"/>
+        <circle class="sw" cx="482" cy="156" r="14"/>
+        <rect class="sf" x="466" y="150" width="32" height="10" rx="5"/>
+        <circle fill="#fff" cx="475" cy="155" r="3"/>
+        <circle fill="#fff" cx="489" cy="155" r="3"/>
+        <line class="s" x1="476" y1="167" x2="487" y2="168"/>
+        <g transform="rotate(38 462 196)">
+          <rect class="sw" x="448" y="178" width="28" height="36" rx="9"/>
+          <line class="s" x1="449" y1="188" x2="475" y2="188"/>
+          <line class="s" x1="448" y1="197" x2="476" y2="197"/>
+          <line class="s" x1="449" y1="206" x2="475" y2="206"/>
+        </g>
+        <!-- gestreckte Arme ans Seil -->
+        <path class="limb" d="M468,176 L410,166"/>
+        <path class="limb" d="M472,186 L414,175"/>
+        <circle class="sf" cx="408" cy="166" r="4.5"/>
+        <circle class="sf" cx="412" cy="175" r="4.5"/>
+        <!-- Beine gestemmt, Fersen eingegraben -->
+        <path class="limb" d="M452,212 q-24,16 -36,48"/>
+        <path class="limb" d="M458,218 q-8,26 -6,50"/>
+        <ellipse class="sf" cx="412" cy="262" rx="9" ry="3.4"/>
+        <ellipse class="sf" cx="452" cy="268" rx="9" ry="3.4"/>
+        <path class="s" d="M400,258 l-11,-4 M401,265 l-12,0"/>
+        <!-- Schweiß -->
+        <path class="sbf" d="M501,142 q5,9 0,11 q-5,-2 0,-11 z"/>
+        <path class="sbf" d="M495,131 q4,7 0,9 q-4,-2 0,-9 z"/>
+        <text class="ct" x="238" y="252" font-size="22" fill="#5d6572">nix. bewegt. sich.</text>
+      </svg>
+      <div class="caption">Auch mit Profi-Werkzeug: Der Preis bleibt, wo er ist.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EINWAND ================= -->
+<section>
+  <div class="wrap">
+    <div class="kopf">
+      <h2>„Wir haben doch schon Leute<br>für unsere Computer."</h2>
+    </div>
+    <div class="karte einwand-karte">
+      <div class="tape"></div>
+      <p>
+        <b>Gut so — behalten Sie die.</b> Aber: Selbst ein Arzt geht zur Vorsorge.
+        Und zwar zu einem <b>anderen</b> Arzt. Wer etwas selbst gebaut hat, kann es
+        nicht selbst prüfen — das verlangt sogar das neue Gesetz: einen Blick von außen.
+        Ihre Leute bekommen danach eine klare Liste zum Weiterarbeiten.
+        <b>Keine Schuldzuweisung, kein Ordner.</b>
+      </p>
     </div>
   </div>
 </section>
 
 <!-- ================= FAQ ================= -->
-<section>
+<section class="weiss">
   <div class="wrap">
-    <h2>Häufige Fragen</h2>
-    <p class="sub">Kurz und ehrlich beantwortet.</p>
+    <div class="kopf">
+      <h2>Vier ehrliche Antworten.</h2>
+    </div>
     <div class="faq">
       <details>
-        <summary>Was kostet das erste Gespräch?</summary>
-        <p>Nichts. 30 Minuten, in denen Sie eine ehrliche Ersteinschätzung
-        bekommen — auch wenn Sie danach Nein sagen. Keine Verkaufsshow.</p>
+        <summary>Ist das wieder so ein Angst-Verkaufsgespräch?</summary>
+        <p>Nein. 30 Minuten, ehrliche Einschätzung, danach entscheiden Sie in Ruhe. Wenn bei Ihnen alles gut ist, sagen wir Ihnen das. Auch schriftlich.</p>
       </details>
       <details>
         <summary>Stört die Prüfung meinen Betrieb?</summary>
-        <p>Nein. Wir schauen nur, wir ändern nichts. Wir bekommen Zugänge nur
-        zum Lesen — keine Rechte zum Verändern. Ihre Firma arbeitet die ganze
-        Zeit normal weiter.</p>
-      </details>
-      <details>
-        <summary>Wir haben schon eigene IT-Leute. Brauchen wir das trotzdem?</summary>
-        <p>Ja. Wer etwas selbst gebaut hat, kann es nicht selbst prüfen — so
-        wie ein Arzt zur Vorsorge auch zu einem anderen Arzt geht. Das neue
-        Gesetz verlangt genau diesen Blick von außen. Ihre IT-Leute bekommen
-        danach eine klare Liste zum Weiterarbeiten.</p>
+        <p>Nein. Wir schauen nur, wir ändern nichts. Ihre Firma arbeitet die ganze Zeit normal weiter.</p>
       </details>
       <details>
         <summary>Was ist, wenn bei uns alles in Ordnung ist?</summary>
-        <p>Dann steht genau das schwarz auf weiß in Ihrem Bericht — und das ist
-        ein sehr gutes Ergebnis. Sie können es Amt, Versicherung und Kunden
-        zeigen und schlafen ruhig.</p>
-      </details>
-      <details>
-        <summary>Ist das ein Abo? Hängen da Folgekosten dran?</summary>
-        <p>Nein. Ein Preis, eine Prüfung, ein Bericht — fertig. Was Sie danach
-        machen, entscheiden Sie allein. Sie können alles selbst umsetzen, mit
-        Ihren Leuten — oder uns fragen. Beides ist völlig in Ordnung.</p>
+        <p>Dann steht genau das schwarz auf weiß im Bericht. Das ist das beste Ergebnis — und Sie können es Amt, Versicherung und Kunden zeigen.</p>
       </details>
       <details>
         <summary>Wie schnell geht das?</summary>
-        <p>14 Arbeitstage vom Start bis zum fertigen Bericht. Den Starttermin
-        legen wir gemeinsam so, dass er in Ihren Betrieb passt.</p>
+        <p>14 Arbeitstage vom Start bis zum Bericht. Den Starttermin legen wir gemeinsam.</p>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section class="final alt">
+<section class="final">
   <div class="wrap">
-    <h2>Endlich wieder ruhig schlafen.</h2>
-    <p class="sub">30 Minuten reden. Ehrliche Einschätzung. Sie entscheiden danach in Ruhe —
-    mit uns oder ohne uns.</p>
-    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=final">Termin aussuchen</a>
-    <p class="micro">Kostenlos · unverbindlich · kein Kleingedrucktes</p>
+    <div class="kopf">
+      <h2>30 Minuten reden.<br>Ohne Fachchinesisch. Wetten?</h2>
+      <p class="sub">Danach wissen Sie mehr über Ihre Firma als nach zwei Stunden Berater-Vortrag.<br>Mit uns oder ohne uns.</p>
+    </div>
+    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=final">Termin aussuchen — 30 Minuten, kostenlos</a>
+    <p class="micro">Kein Verkäufer-Theater. Immer noch versprochen.</p>
+
+    <div class="final-cartoon">
+      <svg class="cartoon" viewBox="0 0 560 300" role="img" aria-labelledby="f-t">
+        <title id="f-t">Der Einbrecher trottet mit leerem Sack davon, Schild um den Hals: „Hier ist nichts mehr zu holen.“ Im Fenster: der Chef mit Kaffee.</title>
+        <line class="s" x1="40" y1="270" x2="520" y2="270"/>
+        <!-- Einbrecher trottet nach links -->
+        <path class="sf" d="M136,132 a15,15 0 0 1 30,0 z"/>
+        <circle class="sw" cx="151" cy="141" r="14"/>
+        <rect class="sf" x="135" y="135" width="32" height="10" rx="5"/>
+        <circle fill="#fff" cx="144" cy="140" r="3"/>
+        <circle fill="#fff" cx="158" cy="140" r="3"/>
+        <path class="s" d="M145,152 q6,-3 12,0"/>
+        <!-- gebeugter Rücken -->
+        <path class="limb" d="M158,154 q10,22 2,44"/>
+        <!-- Arme hängen -->
+        <path class="limb" d="M158,164 q-4,22 -10,34"/>
+        <path class="limb" d="M162,168 q8,22 14,36"/>
+        <!-- Schild um den Hals -->
+        <line class="s" x1="152" y1="156" x2="136" y2="178"/>
+        <line class="s" x1="160" y1="156" x2="186" y2="176"/>
+        <g transform="rotate(-2 161 196)">
+          <rect class="sw" x="112" y="176" width="98" height="40" rx="4"/>
+          <text class="ct" x="161" y="194" font-size="14" text-anchor="middle">Hier ist nichts</text>
+          <text class="ct" x="161" y="210" font-size="14" text-anchor="middle">mehr zu holen.</text>
+        </g>
+        <!-- Beine im Schlurfschritt -->
+        <path class="limb" d="M158,198 q-8,34 -14,68"/>
+        <path class="limb" d="M162,198 q10,34 16,68"/>
+        <ellipse class="sf" cx="140" cy="268" rx="9" ry="3.4"/>
+        <ellipse class="sf" cx="182" cy="268" rx="9" ry="3.4"/>
+        <!-- leerer Sack schleift hinterher -->
+        <path class="s" d="M176,204 q28,26 44,50"/>
+        <path class="sw" d="M214,252 q0,-14 14,-16 q18,-2 16,14 q-1,8 -8,8 l-16,0 q-6,0 -6,-6 z"/>
+        <!-- Fenster mit entspanntem Chef -->
+        <rect class="sw" x="360" y="90" width="150" height="130" rx="6"/>
+        <line class="s" x1="360" y1="196" x2="510" y2="196" style="stroke-width:4"/>
+        <circle class="sw" cx="420" cy="140" r="13"/>
+        <circle class="sf" cx="416" cy="137" r="1.7"/>
+        <circle class="sf" cx="425" cy="137" r="1.7"/>
+        <path class="s" d="M414,146 q6,5 12,0"/>
+        <path class="limb" d="M420,153 l0,28"/>
+        <!-- Füße auf der Fensterbank -->
+        <path class="limb" d="M420,181 l42,12"/>
+        <ellipse class="sf" cx="468" cy="194" rx="10" ry="4"/>
+        <!-- Kaffee -->
+        <rect class="sw" x="443" y="146" width="17" height="15" rx="3"/>
+        <path class="s" d="M460,150 q8,3 0,8"/>
+        <path class="s" d="M448,140 q3,-5 0,-9 M455,140 q3,-5 0,-9"/>
+        <path class="limb" d="M420,160 l22,-8"/>
+      </svg>
+      <div class="caption">Das ist das ganze Ziel: dass er woanders klingeln muss.</div>
+    </div>
   </div>
 </section>
 
@@ -511,68 +798,10 @@
   </div>
 </footer>
 
-<!-- ================= STICKY MOBILE CTA ================= -->
+<!-- Sticky-CTA mobil -->
 <div class="sticky-cta">
-  <a href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=sticky">Termin aussuchen — 30 Min, kostenlos</a>
+  <a href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=sticky">Termin aussuchen — kostenlos</a>
 </div>
-
-<!-- ================= FAQ SCHEMA ================= -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Was kostet das erste Gespräch?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nichts. 30 Minuten, in denen Sie eine ehrliche Ersteinschätzung bekommen — auch wenn Sie danach Nein sagen. Keine Verkaufsshow."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Stört die Prüfung meinen Betrieb?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nein. Wir schauen nur, wir ändern nichts. Wir bekommen Zugänge nur zum Lesen — keine Rechte zum Verändern. Ihre Firma arbeitet die ganze Zeit normal weiter."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wir haben schon eigene IT-Leute. Brauchen wir das trotzdem?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Wer etwas selbst gebaut hat, kann es nicht selbst prüfen — so wie ein Arzt zur Vorsorge auch zu einem anderen Arzt geht. Das neue Gesetz verlangt genau diesen Blick von außen. Ihre IT-Leute bekommen danach eine klare Liste zum Weiterarbeiten."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Was ist, wenn bei uns alles in Ordnung ist?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dann steht genau das schwarz auf weiß in Ihrem Bericht — und das ist ein sehr gutes Ergebnis. Sie können es Amt, Versicherung und Kunden zeigen und schlafen ruhig."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ist das ein Abo? Hängen da Folgekosten dran?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nein. Ein Preis, eine Prüfung, ein Bericht — fertig. Was Sie danach machen, entscheiden Sie allein. Sie können alles selbst umsetzen, mit Ihren Leuten — oder uns fragen. Beides ist völlig in Ordnung."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie schnell geht das?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "14 Arbeitstage vom Start bis zum fertigen Bericht. Den Starttermin legen wir gemeinsam so, dass er in Ihren Betrieb passt."
-      }
-    }
-  ]
-}
-</script>
 
 </body>
 </html>

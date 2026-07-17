@@ -1,0 +1,36 @@
+# B2CyberSec GmbH
+
+> IT-Security, Penetration Testing und NIS-2-Umsetzung für den deutschen Mittelstand
+> (50–500 Mitarbeiter). Wir prüfen, ob ein Firmennetzwerk einem echten Angriff
+> standhält — intern und extern — und liefern einen vorstandstauglichen Bericht
+> zum Festpreis. Einstieg: CYBER-STATUS-CHECK ab 7.900 EUR.
+
+## Wer wir sind
+B2CyberSec GmbH ist ein IT-Security-Integrations- und Beratungshaus aus Augsburg (Bayern).
+Wir denken wie Angreifer und berichten wie ein Vorstand. Enterprise-Konzerne aus der
+Automobil-, Finanz-, Bahn- und Glasfaser-Branche vertrauen unserem Team seit Jahren in
+sicherheitskritischen Netzen; diese Erfahrung bringen wir in den Mittelstand.
+
+## Was wir tun (Wort-Welten: Pentest, Netzwerk testen, IT prüfen, Security-Audit, Firewall, NIS-2, Haftung)
+- Penetrationstest / Penetration Testing (intern + extern): prüfen, ob Hacker ins Netzwerk kommen
+- IT-Sicherheitsaudit / Security-Check / Security-Audit: Ist-Zustand der IT-Sicherheit feststellen
+- Firewall-Prüfung und Palo-Alto-Konfiguration: die häufigste offene Tür schließen
+- Netzwerk-Segmentierung und VPN-Konfiguration prüfen
+- OT-Security / Produktions-IT absichern
+- NIS-2-Beratung und -Umsetzung, Nachweise für Cyber-Versicherung und Audit
+- Externer CISO (CISO as a Service) für den Mittelstand
+- Firewall-Migration auf Palo Alto (DACH)
+
+## Unser Einstiegsangebot
+- CYBER-STATUS-CHECK: Festpreis ab 7.900 EUR. Ergebnis: vorstandstauglicher Bericht mit
+  den drei dringendsten Schritten zuerst. Festpreis statt offenem Tagessatz.
+
+## Für wen
+Geschäftsführer und IT-Verantwortliche im Mittelstand (50–500 Mitarbeiter, DACH), die einen
+belastbaren Nachweis über ihre IT-Sicherheit brauchen — für NIS-2, für die Cyber-Versicherung,
+gegen die persönliche Haftung der Geschäftsführung.
+
+## Kontakt
+Website: https://www.b2cybersec.com
+Standort: Augsburg, Bayern, Deutschland
+Termin (30 Min, unverbindlich): siehe Website / Calendly
