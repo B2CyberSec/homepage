@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER-STATUS-CHECK — Der große Gesundheits-Check für Ihre Firma | B2CyberSec</title>
+<meta name="description" content="Wir prüfen Ihre ganze IT-Sicherheit einmal komplett durch — wie ein großer Gesundheits-Check, nur für Ihre Firma. Nach 14 Arbeitstagen wissen Sie schwarz auf weiß, wo Sie sicher sind, wo es brennt und was Sie zuerst tun. Festpreis 7.900 €.">
+<meta property="og:title" content="CYBER-STATUS-CHECK — Der große Gesundheits-Check für Ihre Firma">
+<meta property="og:description" content="Nach 14 Arbeitstagen wissen Sie schwarz auf weiß: wo Sie sicher sind, wo es brennt, was Sie zuerst tun. Festpreis 7.900 €.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<style>
+  :root{
+    --blau:#1a73e8;
+    --blau-dunkel:#1557b0;
+    --tinte:#111418;
+    --grau:#5b6470;
+    --hell:#f5f7fa;
+    --linie:#e6e9ee;
+    --nacht:#0b1c33;
+    --radius:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--tinte);
+    background:#fff;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:88px; /* Platz für Sticky-CTA mobil */
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  .schmal{max-width:720px;margin:0 auto;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+    border-bottom:1px solid var(--linie);
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:18px;letter-spacing:-.02em;
+    color:var(--tinte);text-decoration:none;
+  }
+  .logo-schild{
+    width:34px;height:34px;flex:0 0 auto;
+    background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(10,132,255,.35);
+  }
+  .logo-schild svg{width:18px;height:18px;color:#fff;}
+  .produkt-badge{
+    display:inline-block;margin-left:12px;
+    background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);
+    color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;
+    padding:7px 14px;border-radius:10px;white-space:nowrap;
+  }
+  @media (max-width:560px){ .produkt-badge{display:none;} }
+  /* ---------- Ablauf: 3 Schritte mittig & grafisch ---------- */
+  .ablauf-sektion .wrap{text-align:center;}
+  .ablauf{display:flex;justify-content:center;align-items:flex-start;flex-wrap:nowrap;gap:0;margin-top:44px;}
+  .schritt{flex:1 1 220px;max-width:300px;padding:0 16px;}
+  .schritt-icon{width:88px;height:88px;margin:0 auto 16px;border-radius:26px;
+    background:linear-gradient(135deg,#0A84FF 0%,#0066D6 100%);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(10,132,255,.35);}
+  .schritt-icon svg{width:44px;height:44px;color:#fff;}
+  .schritt-nr{font-size:13px;font-weight:800;color:var(--blau);letter-spacing:.1em;margin-bottom:6px;}
+  .schritt h3{font-size:28px;margin:0 0 10px;}
+  .schritt p{font-size:17px;line-height:1.55;margin:0;opacity:.75;}
+  .ablauf-pfeil{align-self:center;font-size:36px;line-height:1;color:#b9cbe3;font-weight:300;padding:0 2px;margin-top:-30px;}
+  @media (max-width:760px){
+    .ablauf{flex-direction:column;align-items:center;gap:10px;}
+    .ablauf-pfeil{transform:rotate(90deg);margin:2px 0;padding:0;}
+    .schritt{max-width:340px;}
+  }
+  .header-cta{
+    display:inline-block;background:var(--blau);color:#fff;text-decoration:none;
+    font-size:14px;font-weight:600;padding:9px 18px;border-radius:100px;
+    transition:background .2s;
+  }
+  .header-cta:hover{background:var(--blau-dunkel);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;background:var(--blau);color:#fff;text-decoration:none;
+    font-size:18px;font-weight:600;padding:16px 36px;border-radius:100px;
+    transition:background .2s, transform .15s;
+    box-shadow:0 6px 20px rgba(26,115,232,.28);
+  }
+  .btn:hover{background:var(--blau-dunkel);transform:translateY(-1px);}
+  .btn-hell{background:#fff;color:var(--blau);box-shadow:0 6px 20px rgba(0,0,0,.18);}
+  .btn-hell:hover{background:#f0f4ff;color:var(--blau-dunkel);}
+  .micro{margin-top:14px;font-size:14px;color:var(--grau);}
+  .micro-hell{color:rgba(255,255,255,.75);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:88px 0 96px;text-align:center;}
+  .eyebrow{
+    display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--blau);margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(34px,6vw,60px);
+    line-height:1.08;letter-spacing:-.025em;font-weight:700;
+    margin-bottom:26px;
+  }
+  .hero-sub{
+    font-size:clamp(18px,2.4vw,22px);color:var(--grau);
+    max-width:680px;margin:0 auto 38px;
+  }
+  .hero-sub strong{color:var(--tinte);font-weight:600;}
+  .trust-line{margin-top:34px;font-size:15px;color:var(--grau);}
+  .trust-line b{color:var(--tinte);font-weight:600;}
+
+  /* ---------- Sektionen ---------- */
+  section{padding:88px 0;}
+  .alt{background:var(--hell);}
+  h2{
+    font-size:clamp(28px,4.5vw,42px);line-height:1.12;letter-spacing:-.02em;
+    font-weight:700;text-align:center;margin-bottom:18px;
+  }
+  .sub{font-size:18px;color:var(--grau);text-align:center;max-width:640px;margin:0 auto 56px;}
+
+  /* ---------- Karten ---------- */
+  .karten{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:760px){.karten{grid-template-columns:repeat(3,1fr);gap:24px;}}
+  .karte{
+    background:#fff;border:1px solid var(--linie);border-radius:var(--radius);
+    padding:34px 28px;
+  }
+  .alt .karte{box-shadow:0 2px 12px rgba(17,20,24,.04);border:none;}
+  .karte .nr{
+    width:44px;height:44px;border-radius:50%;background:var(--blau);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:19px;font-weight:700;margin-bottom:20px;
+  }
+  .karte h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:10px;}
+  .karte p{font-size:16px;color:var(--grau);}
+  .karte .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blau);margin-bottom:12px;}
+
+  /* ---------- Schmerz ---------- */
+  .schmerz-liste{display:grid;grid-template-columns:1fr;gap:16px;max-width:720px;margin:0 auto;}
+  .schmerz{
+    background:#fff;border:1px solid var(--linie);border-radius:var(--radius);
+    padding:26px 30px;font-size:17px;
+  }
+  .schmerz b{font-weight:700;}
+  .schmerz-fazit{text-align:center;font-size:19px;font-weight:600;margin-top:44px;letter-spacing:-.01em;}
+
+  /* ---------- Einwand ---------- */
+  .einwand-box{
+    max-width:760px;margin:0 auto;background:var(--hell);
+    border-radius:calc(var(--radius) + 8px);padding:52px 40px;text-align:center;
+  }
+  .einwand-box h2{margin-bottom:24px;}
+  .einwand-box p{font-size:18px;color:var(--grau);max-width:620px;margin:0 auto 18px;}
+  .einwand-box p strong{color:var(--tinte);}
+
+  /* ---------- Beweis ---------- */
+  .beweis{text-align:center;}
+  .beweis-zahl{font-size:clamp(56px,10vw,96px);font-weight:700;letter-spacing:-.03em;color:var(--blau);line-height:1;}
+  .beweis-was{font-size:20px;font-weight:600;margin:10px 0 26px;}
+  .beweis p{font-size:17px;color:var(--grau);max-width:620px;margin:0 auto 14px;}
+  .beweis p strong{color:var(--tinte);}
+
+  /* ---------- Preis ---------- */
+  .preis{background:var(--nacht);color:#fff;}
+  .preis h2{color:#fff;}
+  .preis .sub{color:rgba(255,255,255,.7);}
+  .preis-karte{
+    max-width:560px;margin:0 auto;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);border-radius:calc(var(--radius) + 8px);
+    padding:48px 36px;text-align:center;
+  }
+  .preis-zahl{font-size:clamp(52px,9vw,76px);font-weight:700;letter-spacing:-.03em;line-height:1;}
+  .preis-zahl small{font-size:22px;font-weight:600;color:rgba(255,255,255,.7);}
+  .preis-fest{margin-top:8px;font-size:16px;color:rgba(255,255,255,.7);}
+  .preis-punkte{list-style:none;margin:34px 0 38px;text-align:left;}
+  .preis-punkte li{
+    padding:12px 0 12px 34px;position:relative;font-size:16px;
+    border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.9);
+  }
+  .preis-punkte li:first-child{border-top:none;}
+  .preis-punkte li::before{
+    content:"";position:absolute;left:0;top:19px;width:18px;height:18px;
+    background:var(--blau);border-radius:50%;
+  }
+  .preis-punkte li::after{
+    content:"";position:absolute;left:5px;top:24px;width:8px;height:5px;
+    border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final{text-align:center;padding:110px 0;}
+  .final h2{font-size:clamp(32px,5.5vw,52px);}
+  .final .sub{margin-bottom:42px;}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:760px;margin:0 auto;}
+  details{
+    border-bottom:1px solid var(--linie);
+  }
+  details:first-of-type{border-top:1px solid var(--linie);}
+  summary{
+    cursor:pointer;list-style:none;padding:22px 44px 22px 4px;
+    font-size:18px;font-weight:600;letter-spacing:-.01em;position:relative;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+    font-size:26px;font-weight:400;color:var(--blau);transition:transform .2s;
+  }
+  details[open] summary::after{content:"–";}
+  details p{padding:0 4px 24px;font-size:16px;color:var(--grau);max-width:680px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:44px 0 60px;border-top:1px solid var(--linie);}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between;font-size:14px;color:var(--grau);}
+  footer a{color:var(--grau);text-decoration:none;}
+  footer a:hover{color:var(--tinte);}
+
+  /* ---------- Sticky Mobile CTA ---------- */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+    border-top:1px solid var(--linie);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+  .sticky-cta a{
+    display:block;text-align:center;background:var(--blau);color:#fff;
+    text-decoration:none;font-size:17px;font-weight:600;
+    padding:15px 20px;border-radius:100px;
+  }
+  @media(min-width:900px){
+    .sticky-cta{display:none;}
+    body{padding-bottom:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">
+      <span class="logo-schild">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10.5c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286z" /></svg>
+      </span>
+      <span>B2CyberSec</span>
+      <span class="produkt-badge">CYBER-STATUS-CHECK</span>
+    </a>
+    <a class="header-cta" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=header">Termin aussuchen</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Für Chefs von Firmen mit 50 bis 500 Mitarbeitern</span>
+    <h1>Wo steht bei Ihnen<br>die Tür für Einbrecher offen?</h1>
+    <p class="hero-sub">
+      Wir prüfen Ihre ganze IT-Sicherheit einmal komplett durch — wie ein großer
+      Gesundheits-Check, nur für Ihre Firma. Nach <strong>14&nbsp;Arbeitstagen</strong> wissen Sie
+      schwarz auf weiß: wo Sie sicher sind, wo es brennt, was Sie zuerst tun.
+      <strong>Zum Festpreis.</strong>
+    </p>
+    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=hero">Termin aussuchen</a>
+    <p class="micro">30 Minuten · kostenlos · Sie entscheiden danach in Ruhe</p>
+    <p class="trust-line"><b>Über 20 Jahre Erfahrung</b> bei den größten deutschen Unternehmen.</p>
+  </div>
+</section>
+
+<!-- ================= SCHMERZ ================= -->
+<section class="alt">
+  <div class="wrap">
+    <h2>Nichts tun ist am teuersten.</h2>
+    <p class="sub">Drei Dinge, die jeder Chef wissen sollte:</p>
+    <div class="schmerz-liste">
+      <div class="schmerz">
+        <b>Ein Einbruch in Ihre Computer trifft die ganze Firma.</b><br>
+        Der Betrieb steht still. Kunden warten. Daten sind weg. Und die Rechnung
+        zahlen am Ende Sie.
+      </div>
+      <div class="schmerz">
+        <b>Ein neues Gesetz (NIS-2) macht den Chef persönlich verantwortlich.</b><br>
+        Nicht die IT-Abteilung. Nicht der Dienstleister. Sie.
+      </div>
+      <div class="schmerz">
+        <b>Die meisten Chefs wissen nicht, wo ihre Firma offen ist.</b><br>
+        Nicht weil sie schlampig sind — sondern weil es ihnen noch niemand
+        schwarz auf weiß gezeigt hat.
+      </div>
+    </div>
+    <p class="schmerz-fazit">Genau das ändern wir. In 14 Arbeitstagen.</p>
+  </div>
+</section>
+
+<!-- ================= 3 EBENEN ================= -->
+<section>
+  <div class="wrap">
+    <h2>Wir prüfen drei Dinge.</h2>
+    <p class="sub">Nicht mehr, nicht weniger. Alles, was zählt.</p>
+    <div class="karten">
+      <div class="karte">
+        <div class="nr">1</div>
+        <h3>Ihre Technik</h3>
+        <p>Schutzsysteme, Datensicherung, Zugänge. Hält alles dicht,
+        wenn jemand einbrechen will — oder steht irgendwo eine Tür offen?</p>
+      </div>
+      <div class="karte">
+        <div class="nr">2</div>
+        <h3>Ihre Abläufe</h3>
+        <p>Was passiert im Notfall? Weiß jeder in Ihrer Firma, was er dann tun
+        muss? Genau hier haftet der Chef persönlich.</p>
+      </div>
+      <div class="karte">
+        <div class="nr">3</div>
+        <h3>Ihre Papiere fürs Amt</h3>
+        <p>Bei einem schweren Vorfall müssen Sie innerhalb von 24 Stunden
+        melden. Liegen Ihre Unterlagen bereit — oder fehlen sie?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WAS SIE BEKOMMEN ================= -->
+<section class="alt">
+  <div class="wrap">
+    <h2>Das liegt danach auf Ihrem Tisch.</h2>
+    <p class="sub">Kein dicker Ordner voller Fachwörter. Sondern drei klare Antworten:</p>
+    <div class="karten">
+      <div class="karte">
+        <span class="tag">Antwort 1</span>
+        <h3>Wo die Tür offen steht</h3>
+        <p>Jede Schwachstelle, klar benannt — und was sie Sie im Ernstfall
+        kosten würde.</p>
+      </div>
+      <div class="karte">
+        <span class="tag">Antwort 2</span>
+        <h3>Was Sie zuerst tun</h3>
+        <p>Ein Plan in einfacher Sprache: Das sofort. Das bald. Das kann
+        warten. Damit kann jeder arbeiten — Sie oder Ihre IT-Leute.</p>
+      </div>
+      <div class="karte">
+        <span class="tag">Antwort 3</span>
+        <h3>Alles schwarz auf weiß</h3>
+        <p>Ein Bericht, den Sie ohne Übersetzer verstehen. Und den Sie Amt,
+        Versicherung oder Kunden zeigen können.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WIE ES LÄUFT ================= -->
+<section class="ablauf-sektion">
+  <div class="wrap">
+    <h2>So läuft es ab.</h2>
+    <p class="sub">Drei Schritte. Ihr Betrieb läuft die ganze Zeit normal weiter.</p>
+    <div class="ablauf">
+      <div class="schritt">
+        <div class="schritt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25-4.03 8.25-9 8.25c-.960 0-1.892-.117-2.772-.336-.9.575-2.093 1.06-3.478 1.211.62-.744.94-1.66 1.002-2.564C3.73 17.06 2.25 14.7 2.25 12z"/><path stroke-linecap="round" d="M8 12h.01M11.25 12h.01M14.5 12h.01"/></svg>
+        </div>
+        <div class="schritt-nr">SCHRITT 1</div>
+        <h3>Reden</h3>
+        <p>30 Minuten. Sie erzählen, wir hören zu.<br>Ehrlich — keine Verkaufsshow.</p>
+      </div>
+      <div class="ablauf-pfeil">→</div>
+      <div class="schritt">
+        <div class="schritt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+        </div>
+        <div class="schritt-nr">SCHRITT 2</div>
+        <h3>Prüfen</h3>
+        <p>14 Arbeitstage. Wir schauen nur —<br>wir ändern nichts.</p>
+      </div>
+      <div class="ablauf-pfeil">→</div>
+      <div class="schritt">
+        <div class="schritt-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75"/><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 3.75H8.25A2.25 2.25 0 006 6v12a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 18V6a2.25 2.25 0 00-2.25-2.25z"/></svg>
+        </div>
+        <div class="schritt-nr">SCHRITT 3</div>
+        <h3>Wissen</h3>
+        <p>Ihr Bericht: wo Sie sicher sind, wo es brennt<br>— und was zuerst dran ist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EINWAND ================= -->
+<section class="einwand-sektion">
+  <div class="wrap">
+    <div class="einwand-box">
+      <h2>„Wir haben doch schon Leute für die IT."</h2>
+      <p>Gut so — die brauchen Sie auch weiterhin.</p>
+      <p>Aber: <strong>Selbst ein Arzt geht zur Vorsorge. Und zwar zu einem
+      anderen Arzt.</strong> Wer etwas selbst gebaut hat, kann es nicht selbst
+      prüfen. Genau das verlangt auch das neue Gesetz: einen Blick von außen.</p>
+      <p>Ihre IT-Leute stehen danach nicht schlechter da — sie bekommen eine
+      klare Liste, mit der sie sofort weiterarbeiten können.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEWEIS ================= -->
+<section class="alt">
+  <div class="wrap beweis">
+    <div class="beweis-zahl">20+</div>
+    <div class="beweis-was">Jahre bei den größten deutschen Unternehmen</div>
+    <p>Namen schreiben wir hier keine hin — das haben wir unseren Kunden
+    versprochen. Im Gespräch erzählen wir gern mehr.</p>
+    <p><strong>Unser bester Beweis: Diese Unternehmen verlängern mit uns.
+    Jahr für Jahr.</strong> Wer schlechte Arbeit macht, wird nicht behalten.</p>
+  </div>
+</section>
+
+<!-- ================= PREIS ================= -->
+<section class="preis">
+  <div class="wrap">
+    <h2>Ein Preis. Keine Überraschungen.</h2>
+    <p class="sub">Sie wissen vorher genau, was es kostet. Danach auch.</p>
+    <div class="preis-karte">
+      <div class="preis-zahl">7.900&nbsp;€ <small>zzgl. MwSt.</small></div>
+      <p class="preis-fest">Festpreis. Egal, was wir finden.</p>
+      <ul class="preis-punkte">
+        <li>Die Hälfte zahlen Sie beim Start. Die andere Hälfte erst, wenn der Bericht auf Ihrem Tisch liegt.</li>
+        <li>Kein Abo. Keine Folgekosten. Keine versteckten Posten.</li>
+        <li>Das erste Gespräch kostet nichts — und lohnt sich für Sie so oder so: mit uns oder ohne uns.</li>
+        <li>Danach entscheiden Sie frei. Niemand ruft Ihnen hinterher.</li>
+      </ul>
+      <a class="btn btn-hell" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=pricing">Termin aussuchen</a>
+      <p class="micro micro-hell">30 Minuten · kostenlos · unverbindlich</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="wrap">
+    <h2>Häufige Fragen</h2>
+    <p class="sub">Kurz und ehrlich beantwortet.</p>
+    <div class="faq">
+      <details>
+        <summary>Was kostet das erste Gespräch?</summary>
+        <p>Nichts. 30 Minuten, in denen Sie eine ehrliche Ersteinschätzung
+        bekommen — auch wenn Sie danach Nein sagen. Keine Verkaufsshow.</p>
+      </details>
+      <details>
+        <summary>Stört die Prüfung meinen Betrieb?</summary>
+        <p>Nein. Wir schauen nur, wir ändern nichts. Wir bekommen Zugänge nur
+        zum Lesen — keine Rechte zum Verändern. Ihre Firma arbeitet die ganze
+        Zeit normal weiter.</p>
+      </details>
+      <details>
+        <summary>Wir haben schon eigene IT-Leute. Brauchen wir das trotzdem?</summary>
+        <p>Ja. Wer etwas selbst gebaut hat, kann es nicht selbst prüfen — so
+        wie ein Arzt zur Vorsorge auch zu einem anderen Arzt geht. Das neue
+        Gesetz verlangt genau diesen Blick von außen. Ihre IT-Leute bekommen
+        danach eine klare Liste zum Weiterarbeiten.</p>
+      </details>
+      <details>
+        <summary>Was ist, wenn bei uns alles in Ordnung ist?</summary>
+        <p>Dann steht genau das schwarz auf weiß in Ihrem Bericht — und das ist
+        ein sehr gutes Ergebnis. Sie können es Amt, Versicherung und Kunden
+        zeigen und schlafen ruhig.</p>
+      </details>
+      <details>
+        <summary>Ist das ein Abo? Hängen da Folgekosten dran?</summary>
+        <p>Nein. Ein Preis, eine Prüfung, ein Bericht — fertig. Was Sie danach
+        machen, entscheiden Sie allein. Sie können alles selbst umsetzen, mit
+        Ihren Leuten — oder uns fragen. Beides ist völlig in Ordnung.</p>
+      </details>
+      <details>
+        <summary>Wie schnell geht das?</summary>
+        <p>14 Arbeitstage vom Start bis zum fertigen Bericht. Den Starttermin
+        legen wir gemeinsam so, dass er in Ihren Betrieb passt.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final alt">
+  <div class="wrap">
+    <h2>Endlich wieder ruhig schlafen.</h2>
+    <p class="sub">30 Minuten reden. Ehrliche Einschätzung. Sie entscheiden danach in Ruhe —
+    mit uns oder ohne uns.</p>
+    <a class="btn" href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=final">Termin aussuchen</a>
+    <p class="micro">Kostenlos · unverbindlich · kein Kleingedrucktes</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div>© 2026 B2CyberSec GmbH · Telefon +49 821 90789500</div>
+    <div>
+      <a href="/impressum">Impressum</a> &nbsp;·&nbsp;
+      <a href="/datenschutz">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= STICKY MOBILE CTA ================= -->
+<div class="sticky-cta">
+  <a href="https://calendly.com/b2cybersec-team/bojan?utm_source=meta&amp;utm_medium=lp_csc&amp;utm_content=sticky">Termin aussuchen — 30 Min, kostenlos</a>
+</div>
+
+<!-- ================= FAQ SCHEMA ================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet das erste Gespräch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nichts. 30 Minuten, in denen Sie eine ehrliche Ersteinschätzung bekommen — auch wenn Sie danach Nein sagen. Keine Verkaufsshow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Stört die Prüfung meinen Betrieb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Wir schauen nur, wir ändern nichts. Wir bekommen Zugänge nur zum Lesen — keine Rechte zum Verändern. Ihre Firma arbeitet die ganze Zeit normal weiter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wir haben schon eigene IT-Leute. Brauchen wir das trotzdem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Wer etwas selbst gebaut hat, kann es nicht selbst prüfen — so wie ein Arzt zur Vorsorge auch zu einem anderen Arzt geht. Das neue Gesetz verlangt genau diesen Blick von außen. Ihre IT-Leute bekommen danach eine klare Liste zum Weiterarbeiten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist, wenn bei uns alles in Ordnung ist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dann steht genau das schwarz auf weiß in Ihrem Bericht — und das ist ein sehr gutes Ergebnis. Sie können es Amt, Versicherung und Kunden zeigen und schlafen ruhig."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist das ein Abo? Hängen da Folgekosten dran?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Ein Preis, eine Prüfung, ein Bericht — fertig. Was Sie danach machen, entscheiden Sie allein. Sie können alles selbst umsetzen, mit Ihren Leuten — oder uns fragen. Beides ist völlig in Ordnung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie schnell geht das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "14 Arbeitstage vom Start bis zum fertigen Bericht. Den Starttermin legen wir gemeinsam so, dass er in Ihren Betrieb passt."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
