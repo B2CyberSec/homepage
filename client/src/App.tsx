@@ -19,6 +19,7 @@ const Assessment = lazy(() => import("./pages/Assessment"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
+const Check = lazy(() => import("./pages/Check"));
 
 function RouteFallback() {
   return (
@@ -32,6 +33,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/check">
+        <Suspense fallback={<RouteFallback />}>
+          <Check />
+        </Suspense>
+      </Route>
       <Route path="/nis2-check">
         <Suspense fallback={<RouteFallback />}>
           <Assessment />
