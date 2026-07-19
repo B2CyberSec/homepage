@@ -72,6 +72,22 @@ const AREA_SHORT_KEY: Record<AreaId, TranslationKey> = {
 
 const SENAD_CALENDLY = "https://calendly.com/senad-b2cybersec/nis2";
 
+/** Rendert **markierte** Schlüsselwörter einer Frage in Brand-Blau. */
+function HighlightedText({ text }: { text: string }) {
+  const parts = text.split("**");
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <span key={i} className="text-[#0A84FF]">{part}</span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
 type Phase = "intro" | "questions" | "lead" | "result";
 
 interface LeadData {
@@ -326,7 +342,7 @@ export default function Assessment() {
                   {t(AREA_SHORT_KEY[question.area])}
                 </p>
                 <h2 className="font-display font-bold text-2xl md:text-3xl leading-snug">
-                  {t(question.textKey)}
+                  <HighlightedText text={t(question.textKey)} />
                 </h2>
 
                 <div className="grid gap-3 mt-10 md:grid-cols-3">
@@ -538,7 +554,7 @@ export default function Assessment() {
                           <div className="text-xs font-mono uppercase tracking-widest text-[#0A84FF] mb-1">
                             {t(AREA_LABEL_KEY[q.area])}
                           </div>
-                          <p className="text-base text-white/85 leading-snug">{t(q.textKey)}</p>
+                          <p className="text-base text-white/85 leading-snug"><HighlightedText text={t(q.textKey)} /></p>
                         </div>
                       </li>
                     ))}

@@ -25,11 +25,13 @@ export default function Navigation() {
     setMenuOpen(false);
   }, [location]);
 
+  const ctaHref = "https://calendly.com/b2cybersec-team/bojan?utm_source=relaunch&utm_medium=nav&utm_content=header";
   const navLinks = [
-    { href: "/#services", label: t("nav.services") },
-    { href: "/#nis2-video", label: t("nav.nis2") },
-    { href: "/#kontakt", label: t("nav.contact") },
+    { href: "/", label: lang === "de" ? "Startseite" : "Home", external: false },
+    { href: "/check", label: "CYBER-STATUS-CHECK", external: false },
+    { href: ctaHref, label: lang === "de" ? "Kontakt" : "Contact", external: true },
   ];
+  const ctaLabel = lang === "de" ? "Gespräch buchen" : "Book a call";
 
   const switchLang = (next: Lang) => setLang(next);
 
@@ -63,6 +65,7 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={link.href}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
                   style={{ fontFamily: "'Inter', sans-serif" }}
                 >
@@ -102,11 +105,13 @@ export default function Navigation() {
               </div>
 
               <a
-                href="/cyber-status-check"
+                href={ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg text-sm font-bold text-white btn-primary"
                 style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
               >
-                {t("nav.cta")}
+                {ctaLabel}
               </a>
 
               {/* Hamburger */}
@@ -136,6 +141,7 @@ export default function Navigation() {
             <a
               key={link.href}
               href={link.href}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               onClick={() => setMenuOpen(false)}
               className="text-2xl font-bold text-white hover:text-[#0A84FF] transition-colors duration-200"
               style={{ fontFamily: "'Bricolage Grotesque', sans-serif", letterSpacing: "-0.02em" }}
@@ -173,12 +179,14 @@ export default function Navigation() {
           </div>
 
           <a
-            href="/cyber-status-check"
+            href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="mt-4 px-8 py-4 rounded-xl text-lg font-bold text-white btn-primary"
             style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}
           >
-            {t("nav.cta")}
+            {ctaLabel}
           </a>
         </div>
       </div>
