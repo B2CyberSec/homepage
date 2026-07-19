@@ -139,7 +139,7 @@ export const check: Record<"de" | "en", CheckContent> = {
     proof: {
       h2: "Die Größten behalten uns. Jahr für Jahr.",
       claim:
-        "Die größten deutschen Unternehmen lassen uns seit Jahren in ihre wichtigsten Systeme. Namen nennen wir nicht, versprochen ist versprochen.",
+        "Die größten deutschen Unternehmen lassen uns seit Jahren in ihre wichtigsten Systeme.",
       stats: [
         { value: "150+", label: "Personenjahre Erfahrung im Team" },
         { value: "66", label: "Fach-Zertifikate" },
@@ -251,7 +251,7 @@ export const check: Record<"de" | "en", CheckContent> = {
     proof: {
       h2: "The largest keep us. Year after year.",
       claim:
-        "Germany's largest companies have let us into their most important systems for years. We do not name them, a promise is a promise.",
+        "Germany's largest companies have let us into their most important systems for years.",
       stats: [
         { value: "150+", label: "person-years of experience" },
         { value: "66", label: "professional certificates" },
