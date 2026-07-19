@@ -48,7 +48,7 @@ export const home: Record<"de" | "en", HomeContent> = {
       sub: "Kein Projekt, kein Abo. Ein klarer Blick auf Ihre Sicherheit, zum Festpreis.",
       facts: [
         { value: "14", label: "Arbeitstage bis zum Bericht" },
-        { value: "7.900 €", label: "Festpreis, kein Tagessatz" },
+        { value: "Festpreis", label: "ein Preis, kein Tagessatz" },
         { value: "0", label: "Aufwand: Ihr Betrieb läuft weiter" },
       ],
       cta: "Alles zum Check ansehen",
@@ -56,7 +56,7 @@ export const home: Record<"de" | "en", HomeContent> = {
     video: {
       h2: "NIS-2 in wenigen Minuten erklärt.",
       sub: "Was das neue Gesetz für Sie bedeutet, ohne Fachchinesisch.",
-      caption: "Verständlich. Versprochen.",
+      caption: "Kurz und verständlich.",
     },
     proof: {
       h2: "Die Größten behalten uns. Jahr für Jahr.",
@@ -109,7 +109,7 @@ export const home: Record<"de" | "en", HomeContent> = {
       sub: "No project, no subscription. A clear view of your security, at a fixed price.",
       facts: [
         { value: "14", label: "working days to the report" },
-        { value: "7,900 €", label: "fixed price, no day rate" },
+        { value: "Fixed price", label: "one price, no day rate" },
         { value: "0", label: "effort: your business keeps running" },
       ],
       cta: "See the full check",
@@ -117,7 +117,7 @@ export const home: Record<"de" | "en", HomeContent> = {
     video: {
       h2: "NIS-2 explained in a few minutes.",
       sub: "What the new law means for you, without the jargon.",
-      caption: "Clear. Promised.",
+      caption: "Short and clear.",
     },
     proof: {
       h2: "The largest keep us. Year after year.",
