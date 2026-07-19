@@ -190,6 +190,12 @@ export default function HomeNew() {
                     <span className="text-[#0A84FF] text-2xl font-light transition-transform group-open:rotate-45">+</span>
                   </summary>
                   <p className="mt-3 text-white/60 text-base leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>{f.a}</p>
+                  {f.linkHref && (
+                    <Link href={f.linkHref} className="inline-flex items-center gap-1.5 mt-3 text-[#0A84FF] font-semibold hover:underline underline-offset-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      {f.linkLabel}
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </Link>
+                  )}
                 </details>
               </FadeUp>
             ))}

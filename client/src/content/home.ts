@@ -17,7 +17,7 @@ export interface HomeContent {
   video: { h2: string; sub: string; caption: string };
   proof: { h2: string; claim: string; stats: { value: string; label: string }[] };
   final: { h2: string; sub: string; cta: string };
-  faq: { h2: string; items: { q: string; a: string }[] };
+  faq: { h2: string; items: { q: string; a: string; linkHref?: string; linkLabel?: string }[] };
 }
 
 export const home: Record<"de" | "en", HomeContent> = {
@@ -76,7 +76,7 @@ export const home: Record<"de" | "en", HomeContent> = {
       h2: "Ehrliche Antworten.",
       items: [
         { q: "Für wen ist das?", a: "Für Geschäftsführer und IT-Verantwortliche im Mittelstand, 50 bis 500 Mitarbeiter, in Deutschland, Österreich und der Schweiz." },
-        { q: "Was kostet der Einstieg?", a: "Der CYBER-STATUS-CHECK kostet 7.900 Euro. Festpreis, kein Tagessatz, keine Nachträge." },
+        { q: "Was kostet der Einstieg?", a: "Der CYBER-STATUS-CHECK hat einen Festpreis, keinen Tagessatz. Den Preis und alles, was drin ist, sehen Sie auf der Check-Seite.", linkHref: "/check", linkLabel: "Zur Check-Seite" },
         { q: "Haben wir nicht schon IT-Leute?", a: "Gut so. Wer etwas selbst betreut, kann es nicht selbst prüfen. Ihre Leute bekommen von uns eine klare Liste zum Weiterarbeiten." },
         { q: "Wie schnell geht das?", a: "14 Arbeitstage vom Start bis zum Bericht. Den Starttermin legen wir gemeinsam fest." },
       ],
@@ -137,7 +137,7 @@ export const home: Record<"de" | "en", HomeContent> = {
       h2: "Honest answers.",
       items: [
         { q: "Who is this for?", a: "For managing directors and IT leaders in mid-size companies, 50 to 500 employees, in Germany, Austria and Switzerland." },
-        { q: "What does the entry cost?", a: "The CYBER-STATUS-CHECK costs 7,900 euro. Fixed price, no day rate, no add-ons." },
+        { q: "What does the entry cost?", a: "The CYBER-STATUS-CHECK has a fixed price, no day rate. You will find the price and everything included on the check page.", linkHref: "/check", linkLabel: "To the check page" },
         { q: "Don't we already have IT people?", a: "Good. Whoever runs something cannot audit it themselves. Your people get a clear list from us to work with." },
         { q: "How fast is it?", a: "14 working days from start to report. We set the start date together." },
       ],
