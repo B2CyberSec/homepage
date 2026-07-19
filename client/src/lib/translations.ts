@@ -108,7 +108,7 @@ export const translations = {
     "faq.a2": "Wenn Sie unter NIS-2 fallen: faktisch ja. Sie brauchen jemanden, der die Verantwortung trägt und entscheiden kann. Aber Sie brauchen keinen Vollzeit-CISO mit 180.000 € Jahresgehalt. Ein Fractional CISO oder ein erfahrener externer Berater reicht für die meisten KMU völlig aus.",
 
     "faq.q3": "Fällt mein Unternehmen unter NIS-2?",
-    "faq.a3": "Wenn Sie mehr als 50 Mitarbeiter oder 10 Mio. € Umsatz haben und in einem der 18 NIS-2 Sektoren tätig sind (Energie, Gesundheit, Banken, IT-Dienste, Logistik, Lebensmittelproduktion etc.) — sehr wahrscheinlich ja. Unser Readiness Check sagt es Ihnen in 5 Minuten.",
+    "faq.a3": "Wenn Sie mehr als 50 Mitarbeiter oder 10 Mio. € Umsatz haben und in einem der 18 NIS-2 Sektoren tätig sind (Energie, Gesundheit, Banken, IT-Dienste, Logistik, Lebensmittelproduktion etc.) — sehr wahrscheinlich ja. Unser Readiness Check sagt es Ihnen in 3 Minuten.",
 
     "faq.q4": "Wie lange dauert ein Penetration Test?",
     "faq.a4": "Ein Standard-Pentest für eine Webanwendung dauert typischerweise 5–10 Werktage. Komplexe Infrastrukturen, Active Directory-Tests oder Red Team Engagements können 3–6 Wochen dauern. Wir liefern keine Standard-Reports — sondern reproduzierbare Angriffspfade und priorisierte Empfehlungen.",
@@ -146,12 +146,12 @@ export const translations = {
     // ──────────────────────────  ASSESSMENT (NIS-2-RICHTLINIE CHECK)  ──────────────────────────
     "as.title": "NIS-2-Richtlinie Bereitschafts-Check",
     "as.subtitle": "12 Fragen. 5 Bereiche. Ein klares Bild Ihrer NIS-2-Pflichten.",
-    "as.intro.body": "Als Geschäftsführer haften Sie persönlich. Dieser Check beantwortet in unter 5 Minuten, ob Sie die wichtigsten NIS-2-Pflichten erfüllen — basierend auf den §§28, 30, 32, 33, 38, 39 BSIG.",
+    "as.intro.body": "Als Geschäftsführer haften Sie persönlich. Dieser Check beantwortet in 3 Minuten, ob Sie die wichtigsten NIS-2-Pflichten erfüllen — basierend auf den §§28, 30, 32, 33, 38, 39 BSIG.",
     "as.intro.point1": "Anonym & sicher — DSGVO-konform",
     "as.intro.point2": "Sofortiges Ergebnis mit Bereichs-Auswertung",
     "as.intro.point3": "Konkrete Empfehlungen statt Berater-Floskeln",
     "as.intro.cta": "Check starten",
-    "as.intro.duration": "≈ 5 Minuten · 12 Fragen",
+    "as.intro.duration": "≈ 3 Minuten · 12 Fragen",
 
     "as.area.applicability": "Anwendbarkeit",
     "as.area.applicability.short": "§28 BSIG",
@@ -363,7 +363,7 @@ export const translations = {
     "faq.a2": "If you fall under NIS-2: effectively yes. You need someone who carries responsibility and can decide. But you don't need a full-time CISO at a € 180,000 salary. A fractional CISO or an experienced external advisor is enough for most SMEs.",
 
     "faq.q3": "Does my company fall under NIS-2?",
-    "faq.a3": "If you have more than 50 employees or € 10 million in revenue and operate in one of the 18 NIS-2 sectors (energy, health, banking, IT services, logistics, food production, etc.) — most likely yes. Our readiness check tells you in 5 minutes.",
+    "faq.a3": "If you have more than 50 employees or € 10 million in revenue and operate in one of the 18 NIS-2 sectors (energy, health, banking, IT services, logistics, food production, etc.) — most likely yes. Our readiness check tells you in 3 minutes.",
 
     "faq.q4": "How long does a penetration test take?",
     "faq.a4": "A standard pentest of a web application typically takes 5–10 working days. Complex infrastructure, Active Directory tests or red team engagements may take 3–6 weeks. We don't deliver template reports — we deliver reproducible attack paths and prioritised recommendations.",
@@ -401,12 +401,12 @@ export const translations = {
     // ──────────────────────────  ASSESSMENT  ──────────────────────────
     "as.title": "NIS-2 Directive Readiness Check",
     "as.subtitle": "12 questions. 5 areas. A clear picture of your NIS-2 obligations.",
-    "as.intro.body": "As a director you are personally liable. In under 5 minutes this check tells you whether you meet the key NIS-2 obligations — based on §§ 28, 30, 32, 33, 38, 39 of the German BSIG.",
+    "as.intro.body": "As a director you are personally liable. In 3 minutes this check tells you whether you meet the key NIS-2 obligations — based on §§ 28, 30, 32, 33, 38, 39 of the German BSIG.",
     "as.intro.point1": "Anonymous & secure — GDPR-compliant",
     "as.intro.point2": "Instant result with breakdown by area",
     "as.intro.point3": "Concrete recommendations, no consulting fluff",
     "as.intro.cta": "Start the check",
-    "as.intro.duration": "≈ 5 minutes · 12 questions",
+    "as.intro.duration": "≈ 3 minutes · 12 questions",
 
     "as.area.applicability": "Applicability",
     "as.area.applicability.short": "§28 BSIG",
