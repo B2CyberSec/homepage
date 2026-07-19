@@ -3,15 +3,19 @@
   "outputDirectory": "dist/public",
   "installCommand": "pnpm install",
   "framework": null,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/cyber-status-check",
-      "destination": "/cyber-status-check/index.html"
+      "destination": "/check",
+      "permanent": true
     },
     {
-      "source": "/cyber-status-check/(.*)",
-      "destination": "/cyber-status-check/$1"
-    },
+      "source": "/cyber-status-check-b",
+      "destination": "/check",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
     {
       "source": "/firewallflat",
       "destination": "/firewallflat/index.html"
@@ -19,14 +23,6 @@
     {
       "source": "/firewallflat/(.*)",
       "destination": "/firewallflat/$1"
-    },
-    {
-      "source": "/cyber-status-check-b",
-      "destination": "/cyber-status-check-b/index.html"
-    },
-    {
-      "source": "/cyber-status-check-b/(.*)",
-      "destination": "/cyber-status-check-b/$1"
     },
     {
       "source": "/(.*)",

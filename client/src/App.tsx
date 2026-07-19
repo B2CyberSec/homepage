@@ -12,7 +12,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import Home from "./pages/Home";
+import HomeNew from "./pages/HomeNew";
 
 // Code-splitting: lazy-load secondary routes to keep the initial bundle small.
 const Assessment = lazy(() => import("./pages/Assessment"));
@@ -32,7 +32,7 @@ function RouteFallback() {
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" component={HomeNew} />
       <Route path="/check">
         <Suspense fallback={<RouteFallback />}>
           <Check />
