@@ -15,8 +15,8 @@ import { withUtm } from "@/lib/tracking";
 
 const IMG = { shield: "/img/shield.webp", handshake: "/img/handshake.webp" };
 const VIDEO = {
-  de: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/yaVPiPBedKAitidB.mp4",
-  en: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663406320538/DyqKDTOwBWmqGQHm.mp4",
+  de: "/videos/nis2-erklaert-de.mp4",
+  en: "/videos/nis2-erklaert-en.mp4",
   poster: "/videos/nis2-poster.jpg",
 };
 

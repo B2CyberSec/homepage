@@ -29,6 +29,7 @@ import { useT } from "@/contexts/LanguageContext";
 import type { TranslationKey } from "@/lib/translations";
 import { useSeo } from "@/lib/useSeo";
 import { getStoredUtm, track, withUtm } from "@/lib/tracking";
+import { track as vaTrack } from "@vercel/analytics";
 
 type Answer = "yes" | "no" | "dontknow";
 type AreaId = "applicability" | "accountability" | "risk" | "incidents" | "audit";
@@ -188,16 +189,19 @@ export default function Assessment() {
   function start() {
     setPhase("questions");
     setCurrent(0);
+    vaTrack("nis2_start");
   }
 
   function pickAnswer(a: Answer) {
     const q = QUESTIONS[current];
     setAnswers((prev) => ({ ...prev, [q.id]: a }));
+    vaTrack("nis2_frage", { frage: q.id });
     setTimeout(() => {
       if (current < QUESTIONS.length - 1) {
         setCurrent(current + 1);
       } else {
         setPhase("lead");
+        vaTrack("nis2_fragen_fertig");
       }
     }, 220);
   }
@@ -242,6 +246,7 @@ export default function Assessment() {
         }),
       }).catch(() => {});
       track("Lead", { content_name: "nis2-selbstcheck" });
+      vaTrack("nis2_lead");
     } finally {
       setSubmitting(false);
       setPhase("result");

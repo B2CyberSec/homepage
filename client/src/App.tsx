@@ -21,6 +21,7 @@ const Impressum = lazy(() => import("./pages/Impressum"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 const Check = lazy(() => import("./pages/Check"));
+const Danke = lazy(() => import("./pages/Danke"));
 
 function RouteFallback() {
   return (
@@ -78,6 +79,16 @@ function Router() {
       <Route path="/privacy">
         <Suspense fallback={<RouteFallback />}>
           <Datenschutz />
+        </Suspense>
+      </Route>
+      <Route path="/termin-gebucht">
+        <Suspense fallback={<RouteFallback />}>
+          <Danke />
+        </Suspense>
+      </Route>
+      <Route path="/appointment-booked">
+        <Suspense fallback={<RouteFallback />}>
+          <Danke />
         </Suspense>
       </Route>
       <Route path="/404">

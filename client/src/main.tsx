@@ -1,7 +1,11 @@
 import { createRoot } from "react-dom/client";
+import { inject } from "@vercel/analytics";
 import App from "./App";
 import "./index.css";
 import { captureUtm } from "./lib/tracking";
+
+// Vercel Web Analytics: cookielos, ohne Consent nutzbar (zählt Seiten + eigene Ereignisse).
+inject();
 
 // Kampagnen-Parameter (utm_*, fbclid) der Landing-URL für die Session merken,
 // damit sie später an Calendly-Links weitergegeben werden können.
