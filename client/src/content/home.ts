@@ -54,9 +54,9 @@ export const home: Record<"de" | "en", HomeContent> = {
       cta: "Alles zum Check ansehen",
     },
     video: {
-      h2: "NIS-2 in 3 Minuten erklärt.",
+      h2: "NIS-2 in wenigen Minuten erklärt.",
       sub: "Was das neue Gesetz für Sie bedeutet, ohne Fachchinesisch.",
-      caption: "Kurz und verständlich. Versprochen.",
+      caption: "Verständlich. Versprochen.",
     },
     proof: {
       h2: "Die Größten behalten uns. Jahr für Jahr.",
@@ -115,9 +115,9 @@ export const home: Record<"de" | "en", HomeContent> = {
       cta: "See the full check",
     },
     video: {
-      h2: "NIS-2 explained in 3 minutes.",
+      h2: "NIS-2 explained in a few minutes.",
       sub: "What the new law means for you, without the jargon.",
-      caption: "Short and clear. Promised.",
+      caption: "Clear. Promised.",
     },
     proof: {
       h2: "The largest keep us. Year after year.",
