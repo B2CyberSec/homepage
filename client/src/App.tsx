@@ -5,10 +5,11 @@
  * Performance: Home is loaded eagerly (LCP route), all other pages lazy-loaded.
  */
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
+import { trackPageView } from "@/lib/tracking";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -30,6 +31,17 @@ function RouteFallback() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  const firstRender = useRef(true);
+  useEffect(() => {
+    // Erst-PageView kommt vom Pixel-Basiscode in index.html; hier nur SPA-Routenwechsel.
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    trackPageView();
+  }, [location]);
+
   return (
     <Switch>
       <Route path="/" component={HomeNew} />

@@ -6,12 +6,13 @@
  * Regeln nach taste-skill (kein Em-Dash, 1 Accent, echte Bilder, Layout-Vielfalt).
  */
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "wouter";
 import { motion, useReducedMotion } from "framer-motion";
 import { useT } from "@/contexts/LanguageContext";
 import { useSeo } from "@/lib/useSeo";
 import { check, CALENDLY_BASE } from "@/content/check";
+import { track, withUtm } from "@/lib/tracking";
 
 const IMG = {
   hero: "/img/hero-soc.webp",
@@ -37,13 +38,16 @@ function FadeUp({ children, delay = 0, className }: { children: ReactNode; delay
 }
 
 function cal(content: string) {
-  return CALENDLY_BASE + content;
+  return withUtm(CALENDLY_BASE + content);
 }
 
 export default function Check() {
   const { lang, setLang } = useT();
   const c = check[lang];
   useSeo(c.meta.title, c.meta.description, "index, follow");
+  useEffect(() => {
+    track("ViewContent", { content_name: "cyber-status-check" });
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white antialiased">

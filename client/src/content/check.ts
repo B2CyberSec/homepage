@@ -80,7 +80,7 @@ export const check: Record<"de" | "en", CheckContent> = {
     nav: { cta: "Erstgespräch buchen" },
     hero: {
       eyebrow: "Für Geschäftsführer und IT-Leiter (50 bis 500 Mitarbeiter)",
-      h1: "In 14 Tagen wissen Sie schwarz auf weiß, wie sicher Ihre Firma ist.",
+      h1: "In 14 Arbeitstagen wissen Sie schwarz auf weiß, wie sicher Ihre Firma ist.",
       sub: "Der CYBER-STATUS-CHECK liefert einen vorstandstauglichen Bericht zum Festpreis. Kein Fachchinesisch, keine offene Rechnung.",
       cta: "Kostenloses Erstgespräch buchen",
       trust: "Seit über 20 Jahren im Einsatz bei den größten deutschen Unternehmen.",
@@ -192,7 +192,7 @@ export const check: Record<"de" | "en", CheckContent> = {
     nav: { cta: "Book a call" },
     hero: {
       eyebrow: "For managing directors and IT leaders (50 to 500 employees)",
-      h1: "In 14 days you know, in black and white, how secure your company is.",
+      h1: "In 14 working days you know, in black and white, how secure your company is.",
       sub: "The CYBER-STATUS-CHECK delivers a board-ready report at a fixed price. No jargon, no open invoice.",
       cta: "Book a free intro call",
       trust: "20+ years inside Germany's largest companies.",
@@ -206,7 +206,7 @@ export const check: Record<"de" | "en", CheckContent> = {
       ],
     },
     how: {
-      h2: "We attack like a real attacker. With your permission.",
+      h2: "We test like a real attacker. With your permission.",
       sub: "Four building blocks, one clear picture. Your business keeps running the whole time.",
       modules: [
         { n: "1", title: "Attacker view", text: "From inside and outside: can anyone get in?" },

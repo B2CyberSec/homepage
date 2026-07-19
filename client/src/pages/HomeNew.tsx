@@ -11,6 +11,7 @@ import { useT } from "@/contexts/LanguageContext";
 import { useSeo } from "@/lib/useSeo";
 import { home } from "@/content/home";
 import { CALENDLY_BASE } from "@/content/check";
+import { withUtm } from "@/lib/tracking";
 
 const IMG = { shield: "/img/shield.webp", handshake: "/img/handshake.webp" };
 const VIDEO = {
@@ -20,7 +21,7 @@ const VIDEO = {
 };
 
 function cal(content: string) {
-  return CALENDLY_BASE + content;
+  return withUtm(CALENDLY_BASE + content);
 }
 
 function FadeUp({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {

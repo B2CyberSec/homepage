@@ -8,6 +8,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useT, type Lang } from "@/contexts/LanguageContext";
+import { withUtm } from "@/lib/tracking";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +26,7 @@ export default function Navigation() {
     setMenuOpen(false);
   }, [location]);
 
-  const ctaHref = "https://calendly.com/b2cybersec-team/bojan?utm_source=relaunch&utm_medium=nav&utm_content=header";
+  const ctaHref = withUtm("https://calendly.com/b2cybersec-team/bojan?utm_source=relaunch&utm_medium=nav&utm_content=header");
   const navLinks = [
     { href: "/", label: lang === "de" ? "Startseite" : "Home", external: false },
     { href: "/check", label: "CYBER-STATUS-CHECK", external: false },

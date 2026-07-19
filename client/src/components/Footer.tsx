@@ -16,9 +16,7 @@ export default function Footer() {
   const privacyHref = lang === "de" ? "/datenschutz" : "/privacy";
 
   const services = [
-    { href: "/#professional-services", label: t("services.s1.title") },
-    { href: "/#nis2", label: t("services.s2.title") },
-    { href: "/#pentesting", label: t("services.s3.title") },
+    { href: "/check", label: "CYBER-STATUS-CHECK" },
     { href: assessmentHref, label: t("footer.link.assessment") },
   ];
 

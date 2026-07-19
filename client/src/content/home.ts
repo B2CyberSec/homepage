@@ -25,7 +25,7 @@ export const home: Record<"de" | "en", HomeContent> = {
     meta: {
       title: "B2CyberSec: IT-Sicherheit, die dem Vorstand standhält",
       description:
-        "Wir prüfen, wo Ihre Firma wirklich steht, und liefern in 14 Tagen einen vorstandstauglichen Bericht zum Festpreis. Für den Mittelstand von 50 bis 500 Mitarbeitern.",
+        "Wir prüfen, wo Ihre Firma wirklich steht, und liefern in 14 Arbeitstagen einen vorstandstauglichen Bericht zum Festpreis. Für den Mittelstand von 50 bis 500 Mitarbeitern.",
     },
     hero: {
       eyebrow: "IT-Security für den Mittelstand (50 bis 500 Mitarbeiter)",
@@ -86,7 +86,7 @@ export const home: Record<"de" | "en", HomeContent> = {
     meta: {
       title: "B2CyberSec: IT security that holds up in the boardroom",
       description:
-        "We find out where your company really stands and deliver a board-ready report in 14 days at a fixed price. For mid-size companies from 50 to 500 employees.",
+        "We find out where your company really stands and deliver a board-ready report in 14 working days at a fixed price. For mid-size companies from 50 to 500 employees.",
     },
     hero: {
       eyebrow: "IT security for mid-size companies (50 to 500 employees)",

@@ -1,6 +1,11 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { captureUtm } from "./lib/tracking";
+
+// Kampagnen-Parameter (utm_*, fbclid) der Landing-URL für die Session merken,
+// damit sie später an Calendly-Links weitergegeben werden können.
+captureUtm();
 
 // Nach einem Deploy zeigen offene Browser-Tabs noch auf alte Chunk-Dateien,
 // die es nicht mehr gibt ("Failed to fetch dynamically imported module").

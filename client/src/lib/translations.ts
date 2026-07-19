@@ -222,7 +222,7 @@ export const translations = {
 
     // ──────────────────────────  IMPRESSUM  ──────────────────────────
     "imp.title": "Impressum",
-    "imp.subtitle": "Angaben gemäß § 5 TMG",
+    "imp.subtitle": "Angaben gemäß § 5 DDG",
     "imp.section.company": "Unternehmen",
     "imp.section.address": "Anschrift",
     "imp.section.contact": "Kontakt",
@@ -234,7 +234,7 @@ export const translations = {
     "imp.section.disputeTitle": "EU-Streitschlichtung",
     "imp.section.disputeBody": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
     "imp.section.liabilityTitle": "Haftung für Inhalte",
-    "imp.section.liabilityBody": "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.",
+    "imp.section.liabilityBody": "Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.",
     "imp.value.company": "B2CyberSec GmbH",
     "imp.value.address": "Werner-von-Siemens-Straße 6, 86159 Augsburg, Deutschland",
     "imp.value.phone": "+49 (0) 821 90 789 500",
@@ -419,7 +419,7 @@ export const translations = {
     "as.area.audit": "Registration & audit",
     "as.area.audit.short": "§33/§39 BSIG",
 
-    "as.q1": "Does your organisation know, and have it documented, whether it is **subject to the German NIS-2 implementation act**, e.g. as an operator of critical infrastructure or a (highly) important entity?",
+    "as.q1": "Has your organisation checked whether it is **affected by the NIS-2 directive**, e.g. as an operator of critical infrastructure or an important or particularly important entity?",
     "as.q2": "Is there a **documented analysis** showing why your organisation is or is not in scope?",
     "as.q3": "Have you, as a director, **personally and in writing approved** the cybersecurity risk-management measures?",
     "as.q4": "Are you aware that NIS2UmsuCG (NIS-2 Implementation and Cybersecurity Strengthening Act) introduces **personal liability for directors**, including personal financial penalties?",
@@ -428,7 +428,7 @@ export const translations = {
     "as.q7": "Do you know your **critical IT suppliers**, and do your contracts include security requirements aligned with NIS-2?",
     "as.q8": "Does your organisation have a documented and **tested incident response plan** with clearly defined roles and escalation paths?",
     "as.q9": "Are you aware that NIS-2 requires **notification to the BSI within 24 hours**, and is there an internal process to ensure this?",
-    "as.q10": "Is there a **tested recovery plan** that restores critical business processes after a cyberattack within a defined timeframe?",
+    "as.q10": "Is there a **tested recovery plan** for critical business processes after a cyberattack?",
     "as.q11": "Is your organisation **registered with the BSI** and has a contact person with 24/7 availability been formally designated?",
     "as.q12": "If a BSI inspector requested evidence of compliance tomorrow, could you **produce documentation** showing measures are implemented, approved and overseen by management?",
 
@@ -474,7 +474,7 @@ export const translations = {
 
     // ──────────────────────────  IMPRESSUM (English version)  ──────────────────────────
     "imp.title": "Imprint",
-    "imp.subtitle": "Information pursuant to § 5 TMG (German Telemedia Act)",
+    "imp.subtitle": "Information pursuant to § 5 DDG (German Telemedia Act)",
     "imp.section.company": "Company",
     "imp.section.address": "Address",
     "imp.section.contact": "Contact",
@@ -486,7 +486,7 @@ export const translations = {
     "imp.section.disputeTitle": "EU dispute resolution",
     "imp.section.disputeBody": "The European Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr/. We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration body.",
     "imp.section.liabilityTitle": "Liability for content",
-    "imp.section.liabilityBody": "As a service provider, we are responsible for our own content on these pages in accordance with § 7 (1) TMG and the general laws. Obligations to remove or block the use of information under general law remain unaffected.",
+    "imp.section.liabilityBody": "As a service provider, we are responsible for our own content on these pages in accordance with § 7 (1) DDG and the general laws. Obligations to remove or block the use of information under general law remain unaffected.",
     "imp.value.company": "B2CyberSec GmbH",
     "imp.value.address": "Werner-von-Siemens-Strasse 6, 86159 Augsburg, Germany",
     "imp.value.phone": "+49 (0) 821 90 789 500",

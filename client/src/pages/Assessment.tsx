@@ -27,6 +27,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useT } from "@/contexts/LanguageContext";
 import type { TranslationKey } from "@/lib/translations";
+import { useSeo } from "@/lib/useSeo";
+import { getStoredUtm, track, withUtm } from "@/lib/tracking";
 
 type Answer = "yes" | "no" | "dontknow";
 type AreaId = "applicability" | "accountability" | "risk" | "incidents" | "audit";
@@ -70,7 +72,8 @@ const AREA_SHORT_KEY: Record<AreaId, TranslationKey> = {
   audit: "as.area.audit.short",
 };
 
-const SENAD_CALENDLY = "https://calendly.com/senad-b2cybersec/nis2";
+const RESULT_CALENDLY =
+  "https://calendly.com/b2cybersec-team/bojan?utm_source=relaunch&utm_medium=lp&utm_content=selfcheck_result";
 
 /** Rendert **markierte** Schlüsselwörter einer Frage in Brand-Blau. */
 function HighlightedText({ text }: { text: string }) {
@@ -102,6 +105,14 @@ const EMPTY_LEAD: LeadData = { name: "", email: "", company: "", role: "", conse
 
 export default function Assessment() {
   const { t, lang } = useT();
+  useSeo(
+    lang === "de"
+      ? "NIS-2 Selbstcheck in 3 Minuten — B2CyberSec"
+      : "NIS-2 self-check in 3 minutes — B2CyberSec",
+    lang === "de"
+      ? "12 Fragen, sofortiges Ergebnis: Wo steht Ihre Firma bei NIS-2 und Geschäftsführer-Haftung? Kostenlos und ohne Anmeldung starten."
+      : "12 questions, instant result: where does your company stand on NIS-2 and director liability? Free, no sign-up to start."
+  );
   const [phase, setPhase] = useState<Phase>("intro");
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Record<number, Answer>>({});
@@ -186,7 +197,7 @@ export default function Assessment() {
       if (current < QUESTIONS.length - 1) {
         setCurrent(current + 1);
       } else {
-        setPhase("result");
+        setPhase("lead");
       }
     }, 220);
   }
@@ -198,7 +209,7 @@ export default function Assessment() {
   function goNext() {
     if (!answers[QUESTIONS[current].id]) return;
     if (current < QUESTIONS.length - 1) setCurrent(current + 1);
-    else setPhase("result");
+    else setPhase("lead");
   }
 
   async function submitLead(e: React.FormEvent) {
@@ -208,7 +219,7 @@ export default function Assessment() {
     try {
       const webhook =
         (import.meta as any).env?.VITE_LEAD_WEBHOOK_URL ||
-        "https://hook.eu1.make.com/ukuqu1lm6exb4tuk8lhc874xzkldsfsg";
+        "https://hook.eu1.make.com/t32dbgn2rjxrg68y4s9fyftdekih7hpk";
       await fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -219,14 +230,18 @@ export default function Assessment() {
           email: lead.email,
           company: lead.company,
           jobtitle: lead.role,
+          cyber_score: `${result.yesCount}/12`,
+          cyber_status: result.tier,
           nis2_score: String(result.yesCount),
           nis2_tier: result.tier,
           language: lang,
           consent: lead.consent,
           page_url: window.location.href,
+          utm: getStoredUtm(),
           submitted_at: new Date().toISOString(),
         }),
       }).catch(() => {});
+      track("Lead", { content_name: "nis2-selbstcheck" });
     } finally {
       setSubmitting(false);
       setPhase("result");
@@ -576,7 +591,7 @@ export default function Assessment() {
                   </div>
                   <div className="flex flex-col gap-3">
                     <a
-                      href={SENAD_CALENDLY}
+                      href={withUtm(RESULT_CALENDLY)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 h-14 px-6 rounded-full bg-[#0A84FF] hover:bg-[#0A84FF]/90 text-white font-semibold transition shadow-[0_8px_30px_-8px_rgba(10,132,255,0.6)]"
