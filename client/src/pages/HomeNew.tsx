@@ -172,6 +172,10 @@ export default function HomeNew() {
               {c.final.cta}
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
             </a>
+            <p className="mt-8 text-sm text-white/50" style={{ fontFamily: "'Inter', sans-serif" }}>
+              {c.final.alt}{" "}
+              <Link href="/nis2-check" className="text-[#0A84FF] hover:text-[#4da3ff] underline underline-offset-4 font-semibold">{c.final.altCta}</Link>
+            </p>
           </FadeUp>
         </div>
       </section>

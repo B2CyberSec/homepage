@@ -56,6 +56,8 @@ export interface CheckContent {
     okText: string;
     okCta: string;
     okMicro: string;
+    okAlt: string;
+    okAltCta: string;
     noTitle: string;
     noText: string;
     noCta: string;
@@ -161,6 +163,8 @@ export const check: Record<"de" | "en", CheckContent> = {
       okText: "Suchen Sie sich einen Termin aus. 30 Minuten, ehrlich, ohne Fachchinesisch.",
       okCta: "Termin aussuchen",
       okMicro: "Kein Verkäufer-Theater. Versprochen.",
+      okAlt: "Noch nicht so weit?",
+      okAltCta: "Erst den kostenlosen 3-Minuten-Selbstcheck machen",
       noTitle: "Kein Problem.",
       noText: "Dann starten Sie mit unserem kostenlosen Selbstcheck. Dauert 3 Minuten.",
       noCta: "Zum kostenlosen Selbstcheck",
@@ -273,6 +277,8 @@ export const check: Record<"de" | "en", CheckContent> = {
       okText: "Pick a slot. 30 minutes, honest, no jargon.",
       okCta: "Pick a slot",
       okMicro: "No sales theatre. Promised.",
+      okAlt: "Not quite ready?",
+      okAltCta: "Start with the free 3-minute self-check",
       noTitle: "No problem.",
       noText: "Then start with our free self-check. Takes 3 minutes.",
       noCta: "To the free self-check",

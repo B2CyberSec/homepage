@@ -16,7 +16,7 @@ export interface HomeContent {
   };
   video: { h2: string; sub: string; caption: string };
   proof: { h2: string; claim: string; stats: { value: string; label: string }[] };
-  final: { h2: string; sub: string; cta: string };
+  final: { h2: string; sub: string; cta: string; alt: string; altCta: string };
   faq: { h2: string; items: { q: string; a: string; linkHref?: string; linkLabel?: string }[] };
 }
 
@@ -71,6 +71,8 @@ export const home: Record<"de" | "en", HomeContent> = {
       h2: "30 Minuten. Dann wissen Sie mehr.",
       sub: "Ehrliche Einschätzung, ohne Fachchinesisch. Danach entscheiden Sie in Ruhe.",
       cta: "Kostenloses Erstgespräch buchen",
+      alt: "Noch nicht bereit für ein Gespräch?",
+      altCta: "Kostenloser 3-Minuten-Selbstcheck",
     },
     faq: {
       h2: "Ehrliche Antworten.",
@@ -132,6 +134,8 @@ export const home: Record<"de" | "en", HomeContent> = {
       h2: "30 minutes. Then you know more.",
       sub: "An honest assessment, without jargon. Then you decide in peace.",
       cta: "Book a free intro call",
+      alt: "Not ready for a call yet?",
+      altCta: "Free 3-minute self-check",
     },
     faq: {
       h2: "Honest answers.",
